@@ -9,7 +9,11 @@ textarea {
   field-sizing: content;
 };
 
-.dark-mode {
+.background {
+  background-color: #020203;
+}
+
+/* .dark-mode {
     background-color: linear-gradient(to bottom right, #0a0a0a, #1f2937);
     color: white;
 };
@@ -24,9 +28,9 @@ textarea {
   flex-direction: column;
   gap: 8rem;
   padding-bottom: 2rem;
-}
+} */
 
-.sections {
+/* .sections {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -41,16 +45,15 @@ textarea {
   justify-content: center;
   text-align: center;
   padding: 0 2rem;
-};
+}; */
 
-@theme {
+/* @theme {
     --font-sans: 'Public Sans', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --dark-mode: linear-gradient(to bottom right, #0a0a0a, #1f2937);
-  }
+  } */
 
-  :root {
-    /* Define your theme variables */
+  /* :root {
     --custom-primary: oklch(100% 0.00011 271.152);
     --custom-secondary: oklch(0.63 0.1963 157.86);
     --custom-tooltip-label: rgba(255, 255, 255, 0.5);
@@ -84,7 +87,6 @@ textarea {
     --vis-legend-label-color: var(--custom-legend-label) !important;
     --vis-donut-background-color: var(--custom-donut-bg) !important;
   
-    /* From v0.2.4 */
     --vis-axis-grid-line-width: var(--custom-grid-line-width) !important;
     --vis-axis-grid-line-dasharray: var(--custom-line-dash-array) !important;
     --vis-axis-domain-line-dasharray: var(--custom-domain-line-dasharray, var(--vis-axis-grid-line-dasharray)) !important;
@@ -96,16 +98,13 @@ textarea {
     --steps-border: #e5e7eb !important;
     --progress-bg: #e5e7eb !important;
   
-    /* Map Unovis (vis-) variables to your theme variables */
     --vis-color0: var(--custom-primary) !important;
     --vis-color1: var(--custom-secondary) !important; 
   }
   
-  /* Dark mode example: override theme variables */
   .dark {
     --custom-primary: oklch(100% 0.00011 271.152);
     --custom-secondary: oklch(0.63 0.1963 157.86);
-    /* ...override other variables for dark mode as needed... */
 
     --custom-primary: oklch(100% 0.00011 271.152);
     --custom-secondary: oklch(0.63 0.1963 157.86);
@@ -132,7 +131,6 @@ textarea {
 
     --custom-primary: oklch(100% 0.00011 271.152);
     --custom-secondary: oklch(0.63 0.1963 157.86);
-    /* ...override other variables for dark mode as needed... */
 
     --custom-primary: oklch(100% 0.00011 271.152);
     --custom-secondary: oklch(0.63 0.1963 157.86);
@@ -151,4 +149,4 @@ textarea {
     --custom-line-dash-array: '2px, 5px;';
     --custom-domain-line-dasharray: 'none'
     --custom-tick-label-weight: 500;
-  }
+  } */

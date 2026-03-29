@@ -7,7 +7,9 @@ useHead({
 </script>
 
 <template>
-    <div>
+  <baseNav/>
+
+    <div :class="`background`">
         <slot />
     </div>
 </template>
