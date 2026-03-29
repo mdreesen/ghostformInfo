@@ -1,6 +1,6 @@
 <template>
     <footer class="py-32 px-6 text-center border-t border-white/5">
-        <h2 class="text-5xl font-black mb-8">Ready to possess the inbox?</h2>
+        <h2 class="text-5xl font-black mb-8">Manifest your leads. Instantly.</h2>
         <button
             class="px-12 py-6 bg-white text-black font-black rounded-3xl text-xl hover:scale-110 transition-transform">
             Get GhostForm Now

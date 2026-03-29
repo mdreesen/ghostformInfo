@@ -14,7 +14,7 @@ const data = [
     {
         icon: 'x',
         title: "Traditional Image Sending",
-        desc: 'Most standard web servers (and even giant ones like AWS or Vercel) have a "Maximum Payload Size." If a user tries to upload three 8MB photos from their iPhone, the server simply hangs or crashes with a 413 Request Entity Too Large error.'
+        desc: 'Most standard web servers have a "Maximum Payload Size." If a user tries to upload three 8MB photos from their mobile devices, the server simply hangs or crashes with a 413 Request Entity Too Large error.'
     },
     {
         icon: '✓',

@@ -3,7 +3,7 @@ const stats = [
     { label: 'Payload Reduction', value: '90%' },
     { label: 'Conversion Boost', value: '2.4x' },
     { label: 'Setup Time', value: '< 5m' },
-    { label: 'Payload Too Large Errors', value: '0%' },
+    { label: "'Payload Too Large' Errors", value: '0%' },
     { label: 'Instant Interaction', value: '< 200ms' },
     { label: 'Mobile-First Design', value: '80%' }
 ];

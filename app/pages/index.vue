@@ -36,6 +36,10 @@ onMounted(() => {
       <appComparison />
     </section>
 
+    <section class="reveal">
+      <appPricing />
+    </section>
+
     <baseFooter />
 
   </div>

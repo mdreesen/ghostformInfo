@@ -12,7 +12,7 @@ const features = [
     },
     {
         title: 'Direct Inbox',
-        desc: 'No database middleman. Leads possess your inbox instantly via Resend with high-res attachments.',
+        desc: 'No database middleman. Leads transfer to your inbox instantly via Resend with high-res attachments.',
         icon: 'line-md:email'
     },
     {
@@ -27,7 +27,7 @@ const features = [
     },
     {
         title: 'Smart-Crop Preview',
-        desc: 'Give users a beautiful, instant thumbnail preview of their uploads before they hit submit.',
+        desc: 'Give users an instant thumbnail preview of their uploads before they hit submit.',
         icon: 'line-md:cloud-alt-tags-loop'
     }
 ];

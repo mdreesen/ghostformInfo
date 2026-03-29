@@ -17,6 +17,7 @@ interface _GlobalComponents {
   AppComparison: typeof import("../../app/components/app/comparison.vue")['default']
   AppFeatures: typeof import("../../app/components/app/features.vue")['default']
   AppHero: typeof import("../../app/components/app/hero.vue")['default']
+  AppPricing: typeof import("../../app/components/app/pricing.vue")['default']
   AppStats: typeof import("../../app/components/app/stats.vue")['default']
   BaseButton: typeof import("../../app/components/base/button.vue")['default']
   BaseFooter: typeof import("../../app/components/base/footer.vue")['default']
@@ -51,6 +52,7 @@ interface _GlobalComponents {
   LazyAppComparison: LazyComponent<typeof import("../../app/components/app/comparison.vue")['default']>
   LazyAppFeatures: LazyComponent<typeof import("../../app/components/app/features.vue")['default']>
   LazyAppHero: LazyComponent<typeof import("../../app/components/app/hero.vue")['default']>
+  LazyAppPricing: LazyComponent<typeof import("../../app/components/app/pricing.vue")['default']>
   LazyAppStats: LazyComponent<typeof import("../../app/components/app/stats.vue")['default']>
   LazyBaseButton: LazyComponent<typeof import("../../app/components/base/button.vue")['default']>
   LazyBaseFooter: LazyComponent<typeof import("../../app/components/base/footer.vue")['default']>
