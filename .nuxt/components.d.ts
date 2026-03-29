@@ -14,10 +14,12 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 
+export const AppComparison: typeof import("../app/components/app/comparison.vue")['default']
 export const AppFeatures: typeof import("../app/components/app/features.vue")['default']
 export const AppHero: typeof import("../app/components/app/hero.vue")['default']
 export const AppStats: typeof import("../app/components/app/stats.vue")['default']
 export const BaseButton: typeof import("../app/components/base/button.vue")['default']
+export const BaseFooter: typeof import("../app/components/base/footer.vue")['default']
 export const BaseHeader: typeof import("../app/components/base/header.vue")['default']
 export const BaseIcon: typeof import("../app/components/base/icon.vue")['default']
 export const BaseNav: typeof import("../app/components/base/nav.vue")['default']
@@ -46,10 +48,12 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+export const LazyAppComparison: LazyComponent<typeof import("../app/components/app/comparison.vue")['default']>
 export const LazyAppFeatures: LazyComponent<typeof import("../app/components/app/features.vue")['default']>
 export const LazyAppHero: LazyComponent<typeof import("../app/components/app/hero.vue")['default']>
 export const LazyAppStats: LazyComponent<typeof import("../app/components/app/stats.vue")['default']>
 export const LazyBaseButton: LazyComponent<typeof import("../app/components/base/button.vue")['default']>
+export const LazyBaseFooter: LazyComponent<typeof import("../app/components/base/footer.vue")['default']>
 export const LazyBaseHeader: LazyComponent<typeof import("../app/components/base/header.vue")['default']>
 export const LazyBaseIcon: LazyComponent<typeof import("../app/components/base/icon.vue")['default']>
 export const LazyBaseNav: LazyComponent<typeof import("../app/components/base/nav.vue")['default']>

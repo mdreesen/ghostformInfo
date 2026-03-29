@@ -32,51 +32,11 @@ onMounted(() => {
       <appFeatures />
     </section>
 
-    <section class="py-32 px-6 bg-cyan-500/5">
-      <div class="max-w-4xl mx-auto bg-zinc-950 border border-white/10 rounded-[3rem] p-8 md:p-16 shadow-2xl reveal">
-        <h2 class="text-4xl font-black mb-12 text-center">Stop the Leak.</h2>
-        <div class="space-y-8">
-          <div class="flex items-start gap-6">
-            <div
-              class="w-8 h-8 rounded-full bg-red-500/20 text-red-500 flex-shrink-0 flex items-center justify-center font-bold">
-              ✕</div>
-            <div>
-              <h4 class="font-bold text-lg">Traditional Forms</h4>
-              <p class="text-zinc-500">Break on 12MB photos, boring UI, 20% conversion rate, requires database
-                management.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-6">
-            <div
-              class="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-500 flex-shrink-0 flex items-center justify-center font-bold">
-              ✓</div>
-            <div>
-              <h4 class="font-bold text-lg text-cyan-400">GhostForm</h4>
-              <p class="text-zinc-300">Auto-compressing tech, adaptive multi-step flow, 65% conversion rate, inbox
-                delivery via Resend.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section class="reveal">
+      <appComparison />
     </section>
 
-    <footer class="py-32 px-6 text-center border-t border-white/5">
-      <h2 class="text-5xl font-black mb-8">Ready to possess the inbox?</h2>
-      <button
-        class="px-12 py-6 bg-white text-black font-black rounded-3xl text-xl hover:scale-110 transition-transform">
-        Get GhostForm Now
-      </button>
-      <div class="flex items-center justify-center gap-2 text-zinc-500 text-[10px] uppercase tracking-widest mt-4">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-        </span>
-        Engine Status: Spectral & Active
-      </div>
-      <div class="mt-12 text-zinc-600 font-mono text-xs uppercase tracking-[0.3em]">
-        Designed for High-Performance Teams &copy; 2026
-      </div>
-    </footer>
+    <baseFooter />
 
   </div>
 </template>

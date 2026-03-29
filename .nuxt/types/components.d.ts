@@ -14,10 +14,12 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 interface _GlobalComponents {
+  AppComparison: typeof import("../../app/components/app/comparison.vue")['default']
   AppFeatures: typeof import("../../app/components/app/features.vue")['default']
   AppHero: typeof import("../../app/components/app/hero.vue")['default']
   AppStats: typeof import("../../app/components/app/stats.vue")['default']
   BaseButton: typeof import("../../app/components/base/button.vue")['default']
+  BaseFooter: typeof import("../../app/components/base/footer.vue")['default']
   BaseHeader: typeof import("../../app/components/base/header.vue")['default']
   BaseIcon: typeof import("../../app/components/base/icon.vue")['default']
   BaseNav: typeof import("../../app/components/base/nav.vue")['default']
@@ -46,10 +48,12 @@ interface _GlobalComponents {
   Html: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Html']
   Body: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Body']
   NuxtIsland: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+  LazyAppComparison: LazyComponent<typeof import("../../app/components/app/comparison.vue")['default']>
   LazyAppFeatures: LazyComponent<typeof import("../../app/components/app/features.vue")['default']>
   LazyAppHero: LazyComponent<typeof import("../../app/components/app/hero.vue")['default']>
   LazyAppStats: LazyComponent<typeof import("../../app/components/app/stats.vue")['default']>
   LazyBaseButton: LazyComponent<typeof import("../../app/components/base/button.vue")['default']>
+  LazyBaseFooter: LazyComponent<typeof import("../../app/components/base/footer.vue")['default']>
   LazyBaseHeader: LazyComponent<typeof import("../../app/components/base/header.vue")['default']>
   LazyBaseIcon: LazyComponent<typeof import("../../app/components/base/icon.vue")['default']>
   LazyBaseNav: LazyComponent<typeof import("../../app/components/base/nav.vue")['default']>
