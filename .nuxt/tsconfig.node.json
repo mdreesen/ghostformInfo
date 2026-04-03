@@ -22,6 +22,12 @@
       "vite/client": [
         "../node_modules/vite/client"
       ],
+      "@nuxt/icon": [
+        "../node_modules/@nuxt/icon"
+      ],
+      "@nuxt/fonts": [
+        "../node_modules/@nuxt/fonts"
+      ],
       "nitropack/types": [
         "../node_modules/nitropack/types"
       ],
@@ -56,7 +62,7 @@
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "allowArbitraryExtensions": true,
-    "strict": true,
+    "strict": false,
     "noUncheckedIndexedAccess": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitOverride": true,
@@ -82,11 +88,16 @@
   "exclude": [
     "../node_modules",
     "../node_modules/nuxt/node_modules",
-    "../node_modules/@nuxtjs/tailwindcss/node_modules",
+    "../node_modules/nuxt-auth-utils/node_modules",
+    "../node_modules/@vueuse/motion/node_modules",
     "../node_modules/@nuxt/image/node_modules",
-    "../node_modules/@nuxt/icon/node_modules",
+    "../node_modules/@nuxtjs/color-mode/node_modules",
+    "../node_modules/@nuxt/ui/node_modules",
+    "../node_modules/nuxt-vitalizer/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
+    "../node_modules/@nuxt/icon/node_modules",
+    "../node_modules/@nuxt/fonts/node_modules",
     "../dist",
     "../.data",
     "../app/**/*",

@@ -50,6 +50,12 @@
       "vite/client": [
         "../node_modules/vite/client"
       ],
+      "@nuxt/icon": [
+        "../node_modules/@nuxt/icon"
+      ],
+      "@nuxt/fonts": [
+        "../node_modules/@nuxt/fonts"
+      ],
       "nitropack/types": [
         "../node_modules/nitropack/types"
       ],
@@ -95,6 +101,24 @@
       "#internal/nuxt/paths": [
         "../node_modules/@nuxt/nitro-server/dist/runtime/utils/paths"
       ],
+      "#auth-utils": [
+        "../node_modules/nuxt-auth-utils/dist/runtime/types/index"
+      ],
+      "#image": [
+        "../node_modules/@nuxt/image/dist/runtime"
+      ],
+      "#image/*": [
+        "../node_modules/@nuxt/image/dist/runtime/*"
+      ],
+      "#color-mode-options": [
+        "./color-mode-options.mjs"
+      ],
+      "#ui": [
+        "../node_modules/@nuxt/ui/dist/runtime"
+      ],
+      "#ui/*": [
+        "../node_modules/@nuxt/ui/dist/runtime/*"
+      ],
       "#unhead/composables": [
         "../node_modules/nuxt/dist/head/runtime/composables"
       ],
@@ -121,11 +145,16 @@
   "exclude": [
     "../node_modules",
     "../node_modules/nuxt/node_modules",
-    "../node_modules/@nuxtjs/tailwindcss/node_modules",
+    "../node_modules/nuxt-auth-utils/node_modules",
+    "../node_modules/@vueuse/motion/node_modules",
     "../node_modules/@nuxt/image/node_modules",
-    "../node_modules/@nuxt/icon/node_modules",
+    "../node_modules/@nuxtjs/color-mode/node_modules",
+    "../node_modules/@nuxt/ui/node_modules",
+    "../node_modules/nuxt-vitalizer/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
+    "../node_modules/@nuxt/icon/node_modules",
+    "../node_modules/@nuxt/fonts/node_modules",
     "../dist"
   ]
 }

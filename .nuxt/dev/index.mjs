@@ -1,21 +1,20 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, getResponseStatus, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, getResponseStatusText } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, getResponseStatus, useSession, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, getResponseStatusText } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
-import nodeCrypto from 'node:crypto';
+import crypto$1 from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
 import { escapeHtml } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/@vue/shared/dist/shared.cjs.js';
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/ufo/dist/index.mjs';
 import destr, { destr as destr$1 } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/destr/dist/index.mjs';
-import { createHooks } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/nitropack/node_modules/hookable/dist/index.mjs';
+import { createHooks as createHooks$1 } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/nitropack/node_modules/hookable/dist/index.mjs';
 import { createFetch, Headers as Headers$1 } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/ofetch/dist/node.mjs';
 import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/node-mock-http/dist/index.mjs';
 import { createStorage, prefixStorage } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/unstorage/drivers/fs.mjs';
 import { digest, hash as hash$1 } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/ohash/dist/index.mjs';
 import { klona } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/defu/dist/defu.mjs';
 import { snakeCase } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/scule/dist/index.mjs';
 import { getContext } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/unctx/dist/index.mjs';
 import { toRouteMatcher, createRouter } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/radix3/dist/index.mjs';
@@ -35,6 +34,7 @@ import { dirname as dirname$1, resolve as resolve$1, basename, isAbsolute } from
 import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/unhead/dist/server.mjs';
 import { renderToString } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/vue/server-renderer/index.mjs';
 import { walkResolver } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/unhead/dist/utils.mjs';
+import { createHooks } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/hookable/dist/index.mjs';
 import { getIcons } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/@iconify/utils/lib/index.js';
 import { collections } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/.nuxt/nuxt-icon-server-bundle.mjs';
 import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/ipx/dist/index.mjs';
@@ -579,8 +579,128 @@ function cloneWithProxy(obj, overrides) {
 }
 const cachedEventHandler = defineCachedEventHandler;
 
+function isPlainObject(value) {
+  if (value === null || typeof value !== "object") {
+    return false;
+  }
+  const prototype = Object.getPrototypeOf(value);
+  if (prototype !== null && prototype !== Object.prototype && Object.getPrototypeOf(prototype) !== null) {
+    return false;
+  }
+  if (Symbol.iterator in value) {
+    return false;
+  }
+  if (Symbol.toStringTag in value) {
+    return Object.prototype.toString.call(value) === "[object Module]";
+  }
+  return true;
+}
+
+function _defu(baseObject, defaults, namespace = ".", merger) {
+  if (!isPlainObject(defaults)) {
+    return _defu(baseObject, {}, namespace, merger);
+  }
+  const object = { ...defaults };
+  for (const key of Object.keys(baseObject)) {
+    if (key === "__proto__" || key === "constructor") {
+      continue;
+    }
+    const value = baseObject[key];
+    if (value === null || value === void 0) {
+      continue;
+    }
+    if (merger && merger(object, key, value, namespace)) {
+      continue;
+    }
+    if (Array.isArray(value) && Array.isArray(object[key])) {
+      object[key] = [...value, ...object[key]];
+    } else if (isPlainObject(value) && isPlainObject(object[key])) {
+      object[key] = _defu(
+        value,
+        object[key],
+        (namespace ? `${namespace}.` : "") + key.toString(),
+        merger
+      );
+    } else {
+      object[key] = value;
+    }
+  }
+  return object;
+}
+function createDefu(merger) {
+  return (...arguments_) => (
+    // eslint-disable-next-line unicorn/no-array-reduce
+    arguments_.reduce((p, c) => _defu(p, c, "", merger), {})
+  );
+}
+const defu = createDefu();
+const defuFn = createDefu((object, key, currentValue) => {
+  if (object[key] !== void 0 && typeof currentValue === "function") {
+    object[key] = currentValue(object[key]);
+    return true;
+  }
+});
+
 const inlineAppConfig = {
   "nuxt": {},
+  "ui": {
+    "colors": {
+      "primary": "green",
+      "secondary": "blue",
+      "success": "green",
+      "info": "blue",
+      "warning": "yellow",
+      "error": "red",
+      "neutral": "slate"
+    },
+    "icons": {
+      "arrowDown": "i-lucide-arrow-down",
+      "arrowLeft": "i-lucide-arrow-left",
+      "arrowRight": "i-lucide-arrow-right",
+      "arrowUp": "i-lucide-arrow-up",
+      "caution": "i-lucide-circle-alert",
+      "check": "i-lucide-check",
+      "chevronDoubleLeft": "i-lucide-chevrons-left",
+      "chevronDoubleRight": "i-lucide-chevrons-right",
+      "chevronDown": "i-lucide-chevron-down",
+      "chevronLeft": "i-lucide-chevron-left",
+      "chevronRight": "i-lucide-chevron-right",
+      "chevronUp": "i-lucide-chevron-up",
+      "close": "i-lucide-x",
+      "copy": "i-lucide-copy",
+      "copyCheck": "i-lucide-copy-check",
+      "dark": "i-lucide-moon",
+      "drag": "i-lucide-grip-vertical",
+      "ellipsis": "i-lucide-ellipsis",
+      "error": "i-lucide-circle-x",
+      "external": "i-lucide-arrow-up-right",
+      "eye": "i-lucide-eye",
+      "eyeOff": "i-lucide-eye-off",
+      "file": "i-lucide-file",
+      "folder": "i-lucide-folder",
+      "folderOpen": "i-lucide-folder-open",
+      "hash": "i-lucide-hash",
+      "info": "i-lucide-info",
+      "light": "i-lucide-sun",
+      "loading": "i-lucide-loader-circle",
+      "menu": "i-lucide-menu",
+      "minus": "i-lucide-minus",
+      "panelClose": "i-lucide-panel-left-close",
+      "panelOpen": "i-lucide-panel-left-open",
+      "plus": "i-lucide-plus",
+      "reload": "i-lucide-rotate-ccw",
+      "search": "i-lucide-search",
+      "stop": "i-lucide-square",
+      "success": "i-lucide-circle-check",
+      "system": "i-lucide-monitor",
+      "tip": "i-lucide-lightbulb",
+      "upload": "i-lucide-upload",
+      "warning": "i-lucide-triangle-alert"
+    },
+    "tv": {
+      "twMergeConfig": {}
+    }
+  },
   "icon": {
     "provider": "server",
     "class": "",
@@ -590,6 +710,7 @@ const inlineAppConfig = {
     "fallbackToApi": true,
     "cssSelectorPrefix": "i-",
     "cssWherePseudo": true,
+    "cssLayer": "base",
     "mode": "css",
     "attrs": {
       "aria-hidden": true
@@ -875,6 +996,14 @@ const _inlineRuntimeConfig = {
       "/__nuxt_error": {
         "cache": false
       },
+      "/_fonts/**": {
+        "headers": {
+          "cache-control": "public, max-age=31536000, immutable"
+        },
+        "cache": {
+          "maxAge": 31536000
+        }
+      },
       "/_nuxt/builds/meta/**": {
         "headers": {
           "cache-control": "public, max-age=31536000, immutable"
@@ -887,7 +1016,347 @@ const _inlineRuntimeConfig = {
       }
     }
   },
-  "public": {},
+  "public": {
+    "motion": {
+      "directives": {
+        "pop-bottom": {
+          "initial": {
+            "scale": 0,
+            "opacity": 0,
+            "y": 100
+          },
+          "visible": {
+            "scale": 1,
+            "opacity": 1,
+            "y": 0
+          }
+        }
+      }
+    },
+    "auth": {
+      "loadStrategy": "server-first"
+    }
+  },
+  "session": {
+    "name": "nuxt-session",
+    "password": "",
+    "cookie": {
+      "sameSite": "lax"
+    }
+  },
+  "hash": {
+    "scrypt": {}
+  },
+  "webauthn": {
+    "register": {},
+    "authenticate": {}
+  },
+  "oauth": {
+    "gitea": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": "",
+      "baseURL": ""
+    },
+    "box": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": "",
+      "scope": []
+    },
+    "github": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "gitlab": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": "",
+      "baseURL": "https://gitlab.com"
+    },
+    "spotify": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "google": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "twitch": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "auth0": {
+      "clientId": "",
+      "clientSecret": "",
+      "domain": "",
+      "audience": "",
+      "redirectURL": ""
+    },
+    "workos": {
+      "clientId": "",
+      "clientSecret": "",
+      "connectionId": "",
+      "screenHint": "",
+      "redirectURL": ""
+    },
+    "microsoft": {
+      "clientId": "",
+      "clientSecret": "",
+      "tenant": "",
+      "scope": [],
+      "authorizationURL": "",
+      "tokenURL": "",
+      "userURL": "",
+      "redirectURL": ""
+    },
+    "azureb2c": {
+      "clientId": "",
+      "policy": "",
+      "tenant": "",
+      "scope": [],
+      "authorizationURL": "",
+      "tokenURL": "",
+      "userURL": "",
+      "redirectURL": ""
+    },
+    "discord": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "battledotnet": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "bluesky": {
+      "clientMetadataFilename": "",
+      "clientName": "",
+      "clientUri": "",
+      "logoUri": "",
+      "policyUri": "",
+      "tosUri": "",
+      "scope": [
+        "atproto"
+      ],
+      "grantTypes": [
+        "authorization_code"
+      ],
+      "responseTypes": [
+        "code"
+      ],
+      "applicationType": "web",
+      "redirectUris": "",
+      "dpopBoundAccessTokens": true,
+      "tokenEndpointAuthMethod": "none"
+    },
+    "keycloak": {
+      "clientId": "",
+      "clientSecret": "",
+      "serverUrl": "",
+      "serverUrlInternal": "",
+      "realm": "",
+      "redirectURL": ""
+    },
+    "linear": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "linkedin": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "cognito": {
+      "clientId": "",
+      "clientSecret": "",
+      "region": "",
+      "userPoolId": "",
+      "redirectURL": ""
+    },
+    "facebook": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "instagram": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "paypal": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "steam": {
+      "apiKey": "",
+      "redirectURL": ""
+    },
+    "x": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "xsuaa": {
+      "clientId": "",
+      "clientSecret": "",
+      "domain": "",
+      "redirectURL": ""
+    },
+    "vk": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "yandex": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "tiktok": {
+      "clientKey": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "dropbox": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "polar": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "zitadel": {
+      "clientId": "",
+      "clientSecret": "",
+      "domain": "",
+      "redirectURL": ""
+    },
+    "authentik": {
+      "clientId": "",
+      "clientSecret": "",
+      "domain": "",
+      "redirectURL": ""
+    },
+    "seznam": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "strava": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "hubspot": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "line": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "atlassian": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "apple": {
+      "teamId": "",
+      "keyId": "",
+      "privateKey": "",
+      "redirectURL": "",
+      "clientId": ""
+    },
+    "kick": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": ""
+    },
+    "livechat": {
+      "clientId": "",
+      "clientSecret": ""
+    },
+    "salesforce": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": "",
+      "baseURL": "",
+      "scope": ""
+    },
+    "slack": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": "",
+      "scope": ""
+    },
+    "heroku": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": "",
+      "scope": ""
+    },
+    "roblox": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": "",
+      "scope": ""
+    },
+    "okta": {
+      "clientId": "",
+      "clientSecret": "",
+      "domain": "",
+      "audience": "",
+      "scope": [],
+      "redirectURL": ""
+    },
+    "ory": {
+      "clientId": "",
+      "clientSecret": "",
+      "sdkURL": "",
+      "redirectURL": "",
+      "scope": [],
+      "authorizationURL": "",
+      "tokenURL": "",
+      "userURL": ""
+    },
+    "shopifyCustomer": {
+      "shopDomain": "",
+      "clientId": "",
+      "redirectURL": "",
+      "scope": []
+    },
+    "oidc": {
+      "clientId": "",
+      "clientSecret": "",
+      "openidConfig": "",
+      "redirectURL": "",
+      "scope": []
+    },
+    "osu": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": "",
+      "scope": []
+    },
+    "riotgames": {
+      "clientId": "",
+      "clientSecret": "",
+      "redirectURL": "",
+      "scope": []
+    }
+  },
   "icon": {
     "serverKnownCssClasses": []
   },
@@ -2274,7 +2743,7 @@ async function errorHandler(error, event) {
   // H3 will handle fallback
 }
 
-const script = `
+const script$1 = `
 if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
   Object.defineProperty(window, '__NUXT_DEVTOOLS_TIME_METRIC__', {
     value: {},
@@ -2287,17 +2756,33 @@ window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 
 const _0iBhfsXw6zmvgqqnBGNgfu1HffMYr3sexxFjYm7smP0 = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
-    htmlContext.head.push(`<script>${script}<\/script>`);
+    htmlContext.head.push(`<script>${script$1}<\/script>`);
   });
+});
+
+const _tj2Pf1sdNeJJsGXIEH6jRaarhv8diGGRt3Y_eJMpbmo = defineNitroPlugin((nitroApp) => {
+  if (process.env.NUXT_OAUTH_FACEBOOK_CLIENT_ID && process.env.NUXT_OAUTH_FACEBOOK_CLIENT_SECRET || process.env.NUXT_OAUTH_INSTAGRAM_CLIENT_ID && process.env.NUXT_OAUTH_INSTAGRAM_CLIENT_SECRET) {
+    nitroApp.hooks.hook("render:html", (html) => {
+      html.head.unshift(`
+      <script>
+        if (window.location.hash === "#_=_"){
+          history.replaceState
+              ? history.replaceState(null, null, window.location.href.split("#")[0])
+              : window.location.hash = "";
+        }
+      <\/script>
+    `);
+    });
+  }
 });
 
 const rootDir = "/Users/mdreesen/Documents/Programming/projects/ghostformInfo";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
 
 const appRootTag = "div";
 
-const appRootAttrs = {"id":"__nuxt"};
+const appRootAttrs = {"id":"__nuxt","class":"isolate"};
 
 const appTeleportTag = "div";
 
@@ -2393,9 +2878,19 @@ function onConsoleLog(callback) {
 	consola$1.wrapConsole();
 }
 
+const script = "\"use strict\";(()=>{const t=window,e=document.documentElement,c=[\"dark\",\"light\"],n=getStorageValue(\"localStorage\",\"nuxt-color-mode\")||\"system\";let i=n===\"system\"?u():n;const r=e.getAttribute(\"data-color-mode-forced\");r&&(i=r),l(i),t[\"__NUXT_COLOR_MODE__\"]={preference:n,value:i,getColorScheme:u,addColorScheme:l,removeColorScheme:d};function l(o){const s=\"\"+o+\"\",a=\"theme\";e.classList?e.classList.add(s):e.className+=\" \"+s,a&&e.setAttribute(\"data-\"+a,o)}function d(o){const s=\"\"+o+\"\",a=\"theme\";e.classList?e.classList.remove(s):e.className=e.className.replace(new RegExp(s,\"g\"),\"\"),a&&e.removeAttribute(\"data-\"+a)}function f(o){return t.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function u(){if(t.matchMedia&&f(\"\").media!==\"not all\"){for(const o of c)if(f(\":\"+o).matches)return o}return\"light\"}})();function getStorageValue(t,e){switch(t){case\"localStorage\":return window.localStorage.getItem(e);case\"sessionStorage\":return window.sessionStorage.getItem(e);case\"cookie\":return getCookie(e);default:return null}}function getCookie(t){const c=(\"; \"+window.document.cookie).split(\"; \"+t+\"=\");if(c.length===2)return c.pop()?.split(\";\").shift()}";
+
+const _0STYPZPB_EKCYuCa7gME6H3JGch0rQdAgskEZZCuNwA = (function(nitro) {
+  nitro.hooks.hook("render:html", (htmlContext) => {
+    htmlContext.head.push(`<script>${script}<\/script>`);
+  });
+});
+
 const plugins = [
   _0iBhfsXw6zmvgqqnBGNgfu1HffMYr3sexxFjYm7smP0,
+_tj2Pf1sdNeJJsGXIEH6jRaarhv8diGGRt3Y_eJMpbmo,
 _g4o3bdhzx0FmiR5Okcc4hljjW6YThWsvKVPPXyqb3TY,
+_0STYPZPB_EKCYuCa7gME6H3JGch0rQdAgskEZZCuNwA,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
@@ -2406,7 +2901,7 @@ function readAsset (id) {
   return promises.readFile(resolve$1(serverDir, assets[id].path))
 }
 
-const publicAssetBases = {"/_nuxt/builds/meta/":{"maxAge":31536000},"/_nuxt/builds/":{"maxAge":1}};
+const publicAssetBases = {"/_nuxt/builds/meta/":{"maxAge":31536000},"/_nuxt/builds/":{"maxAge":1},"/_fonts/":{"maxAge":31536000}};
 
 function isPublicAssetURL(id = '') {
   if (assets[id]) {
@@ -2511,7 +3006,8 @@ function resolveUnrefHeadInput(input) {
 }
 
 const NUXT_PAYLOAD_INLINE = false;
-const NUXT_RUNTIME_PAYLOAD_EXTRACTION = false;
+
+const payloadCache = useStorage("cache:nuxt:payload") ;
 
 // @__NO_SIDE_EFFECTS__
 function createHead(options = {}) {
@@ -2859,6 +3355,10 @@ async function getIslandContext(event) {
 	};
 }
 
+function defineNitroPlugin(def) {
+  return def;
+}
+
 function defineRenderHandler(render) {
   const runtimeConfig = useRuntimeConfig();
   return eventHandler(async (event) => {
@@ -2935,6 +3435,48 @@ async function runTask(name, {
   }
 }
 
+const sessionHooks = createHooks();
+async function getUserSession(event) {
+  const session = await _useSession(event);
+  return {
+    ...session.data,
+    id: session.id
+  };
+}
+async function clearUserSession(event, config) {
+  const session = await _useSession(event, config);
+  await sessionHooks.callHookParallel("clear", session.data, event);
+  await session.clear();
+  return true;
+}
+let sessionConfig;
+function _useSession(event, config = {}) {
+  if (!sessionConfig) {
+    const runtimeConfig = useRuntimeConfig(isEvent(event) ? event : void 0);
+    const envSessionPassword = `${runtimeConfig.nitro?.envPrefix || "NUXT_"}SESSION_PASSWORD`;
+    sessionConfig = defu({ password: process.env[envSessionPassword] }, runtimeConfig.session);
+    if (!sessionConfig.password) {
+      console.error(`[nuxt-auth-utils] ${envSessionPassword} environment variable or runtimeConfig.session.password was not set.`);
+    }
+  }
+  const finalConfig = defu(config, sessionConfig);
+  return useSession(event, finalConfig);
+}
+
+const _LswYXx = eventHandler(async (event) => {
+  await clearUserSession(event);
+  return { loggedOut: true };
+});
+
+const _w8l85i = eventHandler(async (event) => {
+  const session = await getUserSession(event);
+  if (Object.keys(session).length > 0) {
+    await sessionHooks.callHookParallel("fetch", session, event);
+  }
+  const { secure, ...data } = session;
+  return data;
+});
+
 const warnOnceSet = /* @__PURE__ */ new Set();
 const DEFAULT_ENDPOINT = "https://api.iconify.design";
 const _lpt8_h = defineCachedEventHandler(async (event) => {
@@ -2995,7 +3537,7 @@ const _lpt8_h = defineCachedEventHandler(async (event) => {
   // 1 week
 });
 
-const _XwPGY6 = lazyEventHandler(() => {
+const _Hdhcp2 = lazyEventHandler(() => {
   const opts = useRuntimeConfig().ipx || {};
   const fsDir = opts?.fs?.dir ? (Array.isArray(opts.fs.dir) ? opts.fs.dir : [opts.fs.dir]).map((dir) => isAbsolute(dir) ? dir : fileURLToPath(new URL(dir, globalThis._importMeta_.url))) : void 0;
   const fsStorage = opts.fs?.dir ? ipxFSStorage({ ...opts.fs, dir: fsDir }) : void 0;
@@ -3019,14 +3561,17 @@ const handlers = [
   { route: '', handler: _seHtEB, lazy: false, middleware: true, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_HlH0u5, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: handler$1, lazy: false, middleware: false, method: undefined },
+  { route: '/api/_auth/session', handler: _LswYXx, lazy: false, middleware: false, method: "delete" },
+  { route: '/api/_auth/session', handler: _w8l85i, lazy: false, middleware: false, method: "get" },
   { route: '/api/_nuxt_icon/:collection', handler: _lpt8_h, lazy: false, middleware: false, method: undefined },
-  { route: '/_ipx/**', handler: _XwPGY6, lazy: false, middleware: false, method: undefined },
+  { route: '/_ipx/**', handler: _Hdhcp2, lazy: false, middleware: false, method: undefined },
+  { route: '/_fonts/**', handler: _lazy_HlH0u5, lazy: true, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_HlH0u5, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
   const config = useRuntimeConfig();
-  const hooks = createHooks();
+  const hooks = createHooks$1();
   const captureError = (error, context = {}) => {
     const promise = hooks.callHookParallel("error", error, context).catch((error_) => {
       console.error("Error while capturing another error", error_);
@@ -3166,7 +3711,7 @@ function useNitroApp() {
 runNitroPlugins(nitroApp$1);
 
 if (!globalThis.crypto) {
-  globalThis.crypto = nodeCrypto.webcrypto;
+  globalThis.crypto = crypto$1.webcrypto;
 }
 const { NITRO_NO_UNIX_SOCKET, NITRO_DEV_WORKER_ID } = process.env;
 trapUnhandledNodeErrors();
@@ -3379,7 +3924,7 @@ const handler = defineRenderHandler(async (event) => {
 	// Get route options (for `ssr: false`, `isr`, `cache` and `noScripts`)
 	const routeOptions = getRouteRules(event);
 	// Whether we are prerendering route or using ISR/SWR caching
-	const _PAYLOAD_EXTRACTION = !ssrContext.noSSR && (NUXT_RUNTIME_PAYLOAD_EXTRACTION);
+	const _PAYLOAD_EXTRACTION = !ssrContext.noSSR && ((routeOptions.isr || routeOptions.cache));
 	// When NUXT_PAYLOAD_INLINE is true (payloadExtraction: 'client'), we inline the full payload
 	// in the HTML to avoid a separate _payload.json fetch on initial load (which would trigger a
 	// second render or lambda invocation). The _payload.json endpoint still works for client-side nav.
@@ -3389,6 +3934,9 @@ const handler = defineRenderHandler(async (event) => {
 		const url = ssrContext.url.substring(0, ssrContext.url.lastIndexOf("/")) || "/";
 		ssrContext.url = url;
 		event._path = event.node.req.url = url;
+		if (payloadCache && await payloadCache.hasItem(url)) {
+			return payloadCache.getItem(url);
+		}
 	}
 	if (routeOptions.ssr === false) {
 		ssrContext.noSSR = true;
@@ -3425,7 +3973,17 @@ const handler = defineRenderHandler(async (event) => {
 	// Directly render payload routes
 	if (isRenderingPayload) {
 		const response = renderPayloadResponse(ssrContext);
+		if (payloadCache) {
+			await payloadCache.setItem(ssrContext.url, response);
+		}
 		return response;
+	}
+	if (_PAYLOAD_EXTRACTION) {
+		// Cache payload from the current SSR context so _payload.json requests can be served
+		// without a full re-render (during prerender via LRU+FS, at runtime via in-memory TTL cache)
+		if (payloadCache) {
+			await payloadCache.setItem(ssrContext.url === "/" ? "/" : ssrContext.url.replace(/\/$/, ""), renderPayloadResponse(ssrContext));
+		}
 	}
 	const NO_SCRIPTS = routeOptions.noScripts;
 	// Setup head

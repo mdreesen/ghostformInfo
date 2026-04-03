@@ -22,6 +22,12 @@
       "vite/client": [
         "../node_modules/vite/client"
       ],
+      "@nuxt/icon": [
+        "../node_modules/@nuxt/icon"
+      ],
+      "@nuxt/fonts": [
+        "../node_modules/@nuxt/fonts"
+      ],
       "nitropack/types": [
         "../node_modules/nitropack/types"
       ],
@@ -91,6 +97,24 @@
       "vue-demi": [
         "../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
+      "#auth-utils": [
+        "../node_modules/nuxt-auth-utils/dist/runtime/types/index"
+      ],
+      "#image": [
+        "../node_modules/@nuxt/image/dist/runtime"
+      ],
+      "#image/*": [
+        "../node_modules/@nuxt/image/dist/runtime/*"
+      ],
+      "#color-mode-options": [
+        "./color-mode-options.mjs"
+      ],
+      "#ui": [
+        "../node_modules/@nuxt/ui/dist/runtime"
+      ],
+      "#ui/*": [
+        "../node_modules/@nuxt/ui/dist/runtime/*"
+      ],
       "#vue-router": [
         "../node_modules/vue-router"
       ],
@@ -119,7 +143,7 @@
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "allowArbitraryExtensions": true,
-    "strict": true,
+    "strict": false,
     "noUncheckedIndexedAccess": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitOverride": true,
