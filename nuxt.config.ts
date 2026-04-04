@@ -22,9 +22,9 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
-      // script: [
-      //   { src: '/_vercel/insights/script.js', defer: true, async: true }
-      // ]
+      script: [
+        { src: 'https://ghostform-zeta.vercel.app/embed.js', async: true }
+      ]
     }
   },
   vite: {
@@ -46,7 +46,7 @@ export default defineNuxtConfig({
     dataValue: 'theme',
     classSuffix: '',
   },
-  
+
   // @vueuse/motion/nuxt
   runtimeConfig: {
     public: {
