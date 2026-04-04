@@ -34,9 +34,6 @@ onMounted(() => {
     <section class="reveal">
       <appPricing />
     </section>
-
-    <baseFooter />
-
   </div>
 </template>
 
