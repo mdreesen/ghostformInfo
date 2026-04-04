@@ -37,19 +37,17 @@ const navLinks = [
         <div class="relative w-10 h-10 flex items-center justify-center">
           <div class="absolute inset-0 bg-cyan-500/20 blur-lg rounded-full group-hover:bg-cyan-500/40 transition-all">
           </div>
-          <div
-            class="relative w-8 h-8 bg-linear-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform">
-            <span class="text-white font-black text-lg">G</span>
-          </div>
+          <NuxtImg class="relative z-10 h-20 w-full object-contain drop-shadow-md" :src="'/images/logo-icon.png'" format="webp"
+          preload loading="eager" fetch-priority="high" />
         </div>
         <span class="text-xl font-black tracking-tighter text-white">GhostForm</span>
       </NuxtLink>
 
       <div class="hidden md:flex items-center gap-8">
-        <a v-for="link in navLinks" :key="link.name" :href="link.href"
+        <NuxtLink v-for="link in navLinks" :key="link.name" :to="link.href"
           class="text-sm font-medium text-zinc-400 hover:text-cyan-400 transition-colors">
           {{ link.name }}
-        </a>
+        </NuxtLink>
       </div>
 
       <div class="flex items-center gap-4">
@@ -83,13 +81,10 @@ const navLinks = [
       leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-4">
       <div v-if="isMobileMenuOpen"
         class="absolute top-full left-0 w-full bg-zinc-950 border-b border-white/10 p-6 flex flex-col gap-6 md:hidden shadow-2xl">
-        <a v-for="link in navLinks" :key="link.name" :href="link.href" @click="isMobileMenuOpen = false"
+        <NuxtLink v-for="link in navLinks" :key="link.name" :to="link.href" @click="isMobileMenuOpen = false"
           class="text-lg font-bold text-zinc-300 hover:text-cyan-400">
           {{ link.name }}
-        </a>
-        <button class="w-full py-4 bg-white text-black font-black rounded-2xl">
-          Get Started — Free
-        </button>
+        </NuxtLink>
       </div>
     </Transition>
   </nav>

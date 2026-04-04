@@ -11,7 +11,9 @@
                     Form</span>
             </h1>
             <h2 class="reveal text-4xl md:text-4xl font-black tracking-tighter leading-tight mb-8">
-                Weightless data
+                <span>
+                    Weightless data
+                </span>
                 <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600">
                     Spectral speed.
                 </span>

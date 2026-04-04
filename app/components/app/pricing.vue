@@ -67,6 +67,7 @@ const tiers = [
         </ul>
 
         <button 
+        disabled
           :class="[
             'w-full py-4 rounded-2xl font-black transition-all transform active:scale-95',
             tier.highlighted 
