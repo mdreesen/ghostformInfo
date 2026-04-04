@@ -1,12 +1,3 @@
-<script setup lang="ts">
-// Inject the bridge script onto this page only
-// useHead({
-//   script: [
-//     { src: 'http://localhost:3001/embed.js', async: true }
-//   ]
-// })
-</script>
-
 <template>
         <div class="flex h-full w-full">
             <iframe 

@@ -7,12 +7,12 @@
             </div>
             <h1 class="reveal text-6xl md:text-8xl font-black tracking-tight leading-tight mb-4">
                 Ghost<span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+                    class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600">
                     Form</span>
             </h1>
             <h2 class="reveal text-4xl md:text-4xl font-black tracking-tighter leading-tight mb-8">
                 Weightless data
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+                <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600">
                     Spectral speed.
                 </span>
             </h2>
@@ -22,10 +22,10 @@
             </p>
             <div class="reveal flex flex-col md:flex-row items-center justify-center gap-4"
                 style="transition-delay: 400ms">
-                <button
+                <!-- <button
                     class="w-full md:w-auto px-10 py-5 bg-cyan-500 text-black font-black rounded-2xl shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:scale-105 transition-transform">
                     Start Building
-                </button>
+                </button> -->
 
                 <baseButton path="/demo" text="View Live Demo" />
             </div>

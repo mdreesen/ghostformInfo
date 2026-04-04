@@ -54,10 +54,10 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
       _push(ssrRenderComponent(_component_nuxt_link, mergeProps({ to: __props.path }, _attrs), {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<button class="w-full md:w-auto px-10 py-5 bg-zinc-900 border border-zinc-800 rounded-2xl font-bold hover:bg-zinc-800 transition-colors"${_scopeId}>${ssrInterpolate(__props.text)}</button>`);
+            _push2(`<button class="w-full md:w-auto px-10 py-5 bg-cyan-500 border border-zinc-800 rounded-2xl font-bold hover:bg-zinc-800 transition-colors"${_scopeId}>${ssrInterpolate(__props.text)}</button>`);
           } else {
             return [
-              createVNode("button", { class: "w-full md:w-auto px-10 py-5 bg-zinc-900 border border-zinc-800 rounded-2xl font-bold hover:bg-zinc-800 transition-colors" }, toDisplayString(__props.text), 1)
+              createVNode("button", { class: "w-full md:w-auto px-10 py-5 bg-cyan-500 border border-zinc-800 rounded-2xl font-bold hover:bg-zinc-800 transition-colors" }, toDisplayString(__props.text), 1)
             ];
           }
         }),
@@ -76,7 +76,7 @@ const __nuxt_component_0$2 = Object.assign(_sfc_main$9, { __name: "BaseButton" }
 const _sfc_main$8 = {};
 function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
   const _component_baseButton = __nuxt_component_0$2;
-  _push(`<section${ssrRenderAttrs(mergeProps({ class: "relative pt-40 pb-20 px-6" }, _attrs))}><div class="max-w-5xl mx-auto text-center"><div class="reveal inline-block mb-6 px-4 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-bold uppercase tracking-widest"> The Future of Lead Capture </div><h1 class="reveal text-6xl md:text-8xl font-black tracking-tight leading-tight mb-4"> Ghost<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600"> Form</span></h1><h2 class="reveal text-4xl md:text-4xl font-black tracking-tighter leading-tight mb-8"> Weightless data <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600"> Spectral speed. </span></h2><p class="reveal text-zinc-400 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed mb-12" style="${ssrRenderStyle({ "transition-delay": "200ms" })}"> The light-weight multi-step form engine. </p><div class="reveal flex flex-col md:flex-row items-center justify-center gap-4" style="${ssrRenderStyle({ "transition-delay": "400ms" })}"><button class="w-full md:w-auto px-10 py-5 bg-cyan-500 text-black font-black rounded-2xl shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:scale-105 transition-transform"> Start Building </button>`);
+  _push(`<section${ssrRenderAttrs(mergeProps({ class: "relative pt-40 pb-20 px-6" }, _attrs))}><div class="max-w-5xl mx-auto text-center"><div class="reveal inline-block mb-6 px-4 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-bold uppercase tracking-widest"> The Future of Lead Capture </div><h1 class="reveal text-6xl md:text-8xl font-black tracking-tight leading-tight mb-4"> Ghost<span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600"> Form</span></h1><h2 class="reveal text-4xl md:text-4xl font-black tracking-tighter leading-tight mb-8"> Weightless data <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600"> Spectral speed. </span></h2><p class="reveal text-zinc-400 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed mb-12" style="${ssrRenderStyle({ "transition-delay": "200ms" })}"> The light-weight multi-step form engine. </p><div class="reveal flex flex-col md:flex-row items-center justify-center gap-4" style="${ssrRenderStyle({ "transition-delay": "400ms" })}">`);
   _push(ssrRenderComponent(_component_baseButton, {
     path: "/demo",
     text: "View Live Demo"
@@ -406,4 +406,4 @@ _sfc_main.setup = (props, ctx) => {
 const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-fc406465"]]);
 
 export { index as default };
-//# sourceMappingURL=index-DOIXeYqF.mjs.map
+//# sourceMappingURL=index-CFWZ5uES.mjs.map

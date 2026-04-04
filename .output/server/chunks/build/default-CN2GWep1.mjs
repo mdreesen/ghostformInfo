@@ -36,16 +36,17 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     const isScrolled = ref(false);
     const isMobileMenuOpen = ref(false);
     const navLinks = [
-      { name: "Features", href: "#features" },
-      { name: "How it Works", href: "#how" },
-      { name: "Pricing", href: "#pricing" },
-      { name: "Docs", href: "https://github.com/your-repo" }
+      { name: "Main", href: "/" },
+      { name: "Demo", href: "/demo" }
+      // { name: 'How it Works', href: '#how' },
+      // { name: 'Pricing', href: '#pricing' },
+      // { name: 'Docs', href: 'https://github.com/your-repo' },
     ];
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$1;
       _push(`<nav${ssrRenderAttrs(mergeProps({
         class: [
-          "fixed top-0 w-full z-[100] transition-all duration-300 border-b",
+          "fixed top-0 w-full z-100 transition-all duration-300 border-b",
           isScrolled.value ? "bg-black/60 backdrop-blur-xl border-white/10 py-3" : "bg-transparent border-transparent py-5"
         ]
       }, _attrs))}><div class="max-w-7xl mx-auto px-6 flex items-center justify-between">`);
@@ -55,12 +56,12 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<div class="relative w-10 h-10 flex items-center justify-center"${_scopeId}><div class="absolute inset-0 bg-cyan-500/20 blur-lg rounded-full group-hover:bg-cyan-500/40 transition-all"${_scopeId}></div><div class="relative w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform"${_scopeId}><span class="text-white font-black text-lg"${_scopeId}>G</span></div></div><span class="text-xl font-black tracking-tighter text-white"${_scopeId}>GhostForm</span>`);
+            _push2(`<div class="relative w-10 h-10 flex items-center justify-center"${_scopeId}><div class="absolute inset-0 bg-cyan-500/20 blur-lg rounded-full group-hover:bg-cyan-500/40 transition-all"${_scopeId}></div><div class="relative w-8 h-8 bg-linear-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform"${_scopeId}><span class="text-white font-black text-lg"${_scopeId}>G</span></div></div><span class="text-xl font-black tracking-tighter text-white"${_scopeId}>GhostForm</span>`);
           } else {
             return [
               createVNode("div", { class: "relative w-10 h-10 flex items-center justify-center" }, [
                 createVNode("div", { class: "absolute inset-0 bg-cyan-500/20 blur-lg rounded-full group-hover:bg-cyan-500/40 transition-all" }),
-                createVNode("div", { class: "relative w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform" }, [
+                createVNode("div", { class: "relative w-8 h-8 bg-linear-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform" }, [
                   createVNode("span", { class: "text-white font-black text-lg" }, "G")
                 ])
               ]),
@@ -74,7 +75,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       ssrRenderList(navLinks, (link) => {
         _push(`<a${ssrRenderAttr("href", link.href)} class="text-sm font-medium text-zinc-400 hover:text-cyan-400 transition-colors">${ssrInterpolate(link.name)}</a>`);
       });
-      _push(`<!--]--></div><div class="flex items-center gap-4"><button class="hidden sm:block text-sm font-bold text-white hover:text-cyan-400 transition-colors"> Log In </button><button class="relative group px-6 py-2.5 bg-white text-black font-black rounded-full text-sm overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(6,182,212,0.4)]"><span class="relative z-10">Get Started</span><div class="absolute inset-0 bg-gradient-to-r from-cyan-200 to-white opacity-0 group-hover:opacity-100 transition-opacity"></div></button><button class="md:hidden text-zinc-400 hover:text-white transition-colors">`);
+      _push(`<!--]--></div><div class="flex items-center gap-4"><button class="md:hidden text-zinc-400 hover:text-white transition-colors">`);
       if (!isMobileMenuOpen.value) {
         _push(`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>`);
       } else {
@@ -127,4 +128,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=default-CYohZTCD.mjs.map
+//# sourceMappingURL=default-CN2GWep1.mjs.map
