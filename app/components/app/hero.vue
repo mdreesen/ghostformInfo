@@ -5,14 +5,13 @@
                 class="reveal inline-block mb-6 px-4 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-bold uppercase tracking-widest">
                 The Future of Lead Capture
             </div>
+            <span class="relative z-10 animate-bounce-slow flex items-center">
+                    <NuxtImg class="relative z-10 h-20 w-full object-contain drop-shadow-md"
+                        :src="'/images/logo-icon.webp'" format="webp" preload loading="eager" fetch-priority="high" />
+                </span>
             <h1 class="reveal text-6xl md:text-8xl font-black tracking-tight leading-tight mb-4">
-                <span class="inline-flex">
+                <span class="inline-flex items-center">
                     Ghost
-                    <span class="relative z-10 animate-bounce-slow">
-                        <NuxtImg class="relative z-10 h-20 w-full object-contain drop-shadow-md"
-                            :src="'/images/logo-icon.webp'" format="webp" preload loading="eager"
-                            fetch-priority="high" />
-                    </span>
                 </span>
                 <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600">
                     Form</span>
