@@ -2,7 +2,6 @@ import { b as __nuxt_component_1$1$1, _ as __nuxt_component_0$1$1, a as __nuxt_c
 import { defineComponent, mergeProps, withCtx, createVNode, toDisplayString, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderStyle, ssrRenderList, ssrInterpolate, ssrRenderClass, ssrRenderAttr } from 'vue/server-renderer';
 import { _ as _export_sfc } from './_plugin-vue_export-helper-1tPrXgE0.mjs';
-import { _ as __nuxt_component_1$3 } from './footer-BZQKKggE.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -78,7 +77,7 @@ const _sfc_main$7 = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   const _component_NuxtImg = __nuxt_component_1$1$1;
   const _component_baseButton = __nuxt_component_1$2;
-  _push(`<section${ssrRenderAttrs(mergeProps({ class: "relative pt-40 pb-20 px-6" }, _attrs))} data-v-c236913d><div class="max-w-5xl mx-auto text-center" data-v-c236913d><div class="reveal inline-block mb-6 px-4 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-bold uppercase tracking-widest" data-v-c236913d> The Future of Lead Capture </div><h1 class="reveal text-6xl md:text-8xl font-black tracking-tight leading-tight mb-4" data-v-c236913d><span class="inline-flex" data-v-c236913d> Ghost <span class="relative z-10 animate-bounce-slow" data-v-c236913d>`);
+  _push(`<section${ssrRenderAttrs(mergeProps({ class: "relative pt-40 pb-20 px-6" }, _attrs))} data-v-918f6160><div class="max-w-5xl mx-auto text-center" data-v-918f6160><div class="reveal inline-block mb-6 px-4 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-bold uppercase tracking-widest" data-v-918f6160> The Future of Lead Capture </div><span class="relative z-10 animate-bounce-slow flex items-center" data-v-918f6160>`);
   _push(ssrRenderComponent(_component_NuxtImg, {
     class: "relative z-10 h-20 w-full object-contain drop-shadow-md",
     src: "/images/logo-icon.webp",
@@ -87,7 +86,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
     loading: "eager",
     "fetch-priority": "high"
   }, null, _parent));
-  _push(`</span></span><span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600" data-v-c236913d> Form</span></h1><h2 class="reveal text-4xl md:text-4xl font-black tracking-tighter leading-tight mb-8" data-v-c236913d><span data-v-c236913d> Weightless data </span><span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600" data-v-c236913d> Spectral speed. </span></h2><p class="reveal text-zinc-400 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed mb-12" style="${ssrRenderStyle({ "transition-delay": "200ms" })}" data-v-c236913d> The light-weight multi-step form engine. </p><div class="reveal flex flex-col md:flex-row items-center justify-center gap-4" style="${ssrRenderStyle({ "transition-delay": "400ms" })}" data-v-c236913d>`);
+  _push(`</span><h1 class="reveal text-6xl md:text-8xl font-black tracking-tight leading-tight mb-4" data-v-918f6160><span class="inline-flex items-center" data-v-918f6160> Ghost </span><span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600" data-v-918f6160> Form</span></h1><h2 class="reveal text-4xl md:text-4xl font-black tracking-tighter leading-tight mb-8" data-v-918f6160><span data-v-918f6160> Weightless data </span><span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600" data-v-918f6160> Spectral speed. </span></h2><p class="reveal text-zinc-400 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed mb-12" style="${ssrRenderStyle({ "transition-delay": "200ms" })}" data-v-918f6160> The light-weight multi-step form engine. </p><div class="reveal flex flex-col md:flex-row items-center justify-center gap-4" style="${ssrRenderStyle({ "transition-delay": "400ms" })}" data-v-918f6160>`);
   _push(ssrRenderComponent(_component_baseButton, {
     path: "/demo",
     text: "View Live Demo"
@@ -100,7 +99,7 @@ _sfc_main$7.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/app/hero.vue");
   return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
 };
-const __nuxt_component_0$1 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$7, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-c236913d"]]), { __name: "AppHero" });
+const __nuxt_component_0$1 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$7, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-918f6160"]]), { __name: "AppHero" });
 const _sfc_main$6 = /* @__PURE__ */ defineComponent({
   __name: "header",
   __ssrInlineRender: true,
@@ -380,20 +379,17 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const _component_appFeatures = __nuxt_component_2;
       const _component_appComparison = __nuxt_component_3;
       const _component_appPricing = __nuxt_component_4;
-      const _component_baseFooter = __nuxt_component_1$3;
-      _push(`<div${ssrRenderAttrs(_attrs)} data-v-fc406465><section class="reveal" data-v-fc406465>`);
+      _push(`<div${ssrRenderAttrs(_attrs)} data-v-56a3a593><section class="reveal" data-v-56a3a593>`);
       _push(ssrRenderComponent(_component_appHero, null, null, _parent));
-      _push(`</section><section class="reveal" data-v-fc406465>`);
+      _push(`</section><section class="reveal" data-v-56a3a593>`);
       _push(ssrRenderComponent(_component_appStats, null, null, _parent));
-      _push(`</section><section class="reveal" data-v-fc406465>`);
+      _push(`</section><section class="reveal" data-v-56a3a593>`);
       _push(ssrRenderComponent(_component_appFeatures, null, null, _parent));
-      _push(`</section><section class="reveal" data-v-fc406465>`);
+      _push(`</section><section class="reveal" data-v-56a3a593>`);
       _push(ssrRenderComponent(_component_appComparison, null, null, _parent));
-      _push(`</section><section class="reveal" data-v-fc406465>`);
+      _push(`</section><section class="reveal" data-v-56a3a593>`);
       _push(ssrRenderComponent(_component_appPricing, null, null, _parent));
-      _push(`</section>`);
-      _push(ssrRenderComponent(_component_baseFooter, null, null, _parent));
-      _push(`</div>`);
+      _push(`</section></div>`);
     };
   }
 });
@@ -403,7 +399,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/index.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-fc406465"]]);
+const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-56a3a593"]]);
 
 export { index as default };
-//# sourceMappingURL=index-Br_GYgxY.mjs.map
+//# sourceMappingURL=index-CPMMXl1L.mjs.map

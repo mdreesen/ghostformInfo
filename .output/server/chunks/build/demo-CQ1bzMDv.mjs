@@ -32,7 +32,7 @@ import 'unhead/utils';
 
 const _sfc_main$1 = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex h-full w-full rounded-2xl" }, _attrs))}><iframe src="https://ghostform-zeta.vercel.app/?category=construction&amp;company_name=White+Raven+Development&amp;company_email=whiteravendev90@gmail.com&amp;background_color=252525&amp;font_color=FFFFFF" style="${ssrRenderStyle({ "width": "100%", "height": "500px", "border": "none", "background": "transparent", "border-radius": "20px" })}" allowtransparency="true" scrolling="no"></iframe></div>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "relative group max-w-md mx-auto" }, _attrs))} data-v-54e664a8><div class="absolute -inset-0.5 bg-linear-to-r from-cyan-500 to-blue-600 rounded-[2.5rem] blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt" data-v-54e664a8></div><div class="relative bg-[#0d0d0d] rounded-[2.5rem] overflow-hidden border border-white/10" data-v-54e664a8><div class="absolute inset-0 pointer-events-none opacity-20" data-v-54e664a8><div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-cyan-500 rounded-full blur-[80px] animate-pulse" data-v-54e664a8></div><div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600 rounded-full blur-[80px] animate-pulse" style="${ssrRenderStyle({ "animation-delay": "1s" })}" data-v-54e664a8></div></div><iframe src="https://ghostform-zeta.vercel.app/?category=construction&amp;company_name=White+Raven+Development&amp;company_email=whiteravendev90@gmail.com&amp;background_color=252525&amp;font_color=FFFFFF" style="${ssrRenderStyle({ "width": "100%", "height": "500px", "border": "none", "background": "transparent", "border-radius": "20px" })}" allowtransparency="true" scrolling="no" data-v-54e664a8></iframe></div></div>`);
 }
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
@@ -40,7 +40,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/app/demo.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_1 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender]]), { __name: "AppDemo" });
+const __nuxt_component_1 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-54e664a8"]]), { __name: "AppDemo" });
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "demo",
   __ssrInlineRender: true,
@@ -75,4 +75,4 @@ _sfc_main.setup = (props, ctx) => {
 const demo = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-b269157d"]]);
 
 export { demo as default };
-//# sourceMappingURL=demo-DfXiriYX.mjs.map
+//# sourceMappingURL=demo-CQ1bzMDv.mjs.map

@@ -1,7 +1,7 @@
 import { c as useRoute, u as useHead, _ as __nuxt_component_0$1, b as __nuxt_component_1$1 } from './server.mjs';
 import { defineComponent, mergeProps, ref, withCtx, createVNode, createTextVNode, toDisplayString, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderSlot, ssrRenderList, ssrInterpolate } from 'vue/server-renderer';
-import { _ as __nuxt_component_1 } from './footer-BZQKKggE.mjs';
+import { _ as _export_sfc } from './_plugin-vue_export-helper-1tPrXgE0.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -29,9 +29,8 @@ import 'unhead/server';
 import 'devalue';
 import 'unhead/plugins';
 import 'unhead/utils';
-import './_plugin-vue_export-helper-1tPrXgE0.mjs';
 
-const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "nav",
   __ssrInlineRender: true,
   setup(__props) {
@@ -143,13 +142,24 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     };
   }
 });
+const _sfc_setup$2 = _sfc_main$2.setup;
+_sfc_main$2.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/base/nav.vue");
+  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
+};
+const __nuxt_component_0 = Object.assign(_sfc_main$2, { __name: "BaseNav" });
+const _sfc_main$1 = {};
+function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
+  _push(`<footer${ssrRenderAttrs(mergeProps({ class: "py-32 px-6 text-center border-t border-white/5" }, _attrs))}><h2 class="text-5xl font-black mb-8">Manifest your leads. Instantly.</h2><button class="px-12 py-6 bg-white text-black font-black rounded-3xl text-xl hover:scale-110 transition-transform"> Get GhostForm Now </button><div class="flex items-center justify-center gap-2 text-zinc-500 text-[10px] uppercase tracking-widest mt-4"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span></span> Engine Status: Spectral &amp; Active </div><div class="mt-12 text-zinc-600 font-mono text-xs uppercase tracking-[0.3em]"> Designed for High-Performance Teams © 2026 </div></footer>`);
+}
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/base/nav.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/base/footer.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_0 = Object.assign(_sfc_main$1, { __name: "BaseNav" });
+const __nuxt_component_1 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender]]), { __name: "BaseFooter" });
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "default",
   __ssrInlineRender: true,
@@ -179,4 +189,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=default-BUU0aJMp.mjs.map
+//# sourceMappingURL=default-zQLCqySh.mjs.map

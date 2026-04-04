@@ -509,12 +509,12 @@ const _routes = [
   {
     name: "demo",
     path: "/demo",
-    component: () => import('./demo-DfXiriYX.mjs')
+    component: () => import('./demo-CQ1bzMDv.mjs')
   },
   {
     name: "index",
     path: "/",
-    component: () => import('./index-Br_GYgxY.mjs')
+    component: () => import('./index-CPMMXl1L.mjs')
   }
 ];
 const _wrapInTransition = (props, children) => {
@@ -9671,7 +9671,7 @@ _sfc_main$3.setup = (props, ctx) => {
 };
 const __nuxt_component_0 = Object.assign(_sfc_main$3, { __name: "UApp" });
 const layouts = {
-  default: defineAsyncComponent(() => import('./default-BUU0aJMp.mjs').then((m) => m.default || m))
+  default: defineAsyncComponent(() => import('./default-zQLCqySh.mjs').then((m) => m.default || m))
 };
 const routeRulesMatcher = _routeRulesMatcher;
 const LayoutLoader = defineComponent({
