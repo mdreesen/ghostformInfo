@@ -353,10 +353,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         ssrRenderList(tier.features, (feature) => {
           _push(`<li class="flex items-center gap-3 text-sm text-zinc-300"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"${ssrRenderAttr("stroke", tier.highlighted ? "#22d3ee" : "#52525b")} stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> ${ssrInterpolate(feature)}</li>`);
         });
-        _push(`<!--]--></ul><button disabled class="${ssrRenderClass([
-          "w-full py-4 rounded-2xl font-black transition-all transform active:scale-95",
-          tier.highlighted ? "bg-cyan-500 text-black hover:bg-cyan-400 shadow-lg shadow-cyan-500/20" : "bg-white/5 text-white hover:bg-white/10 border border-white/10"
-        ])}">${ssrInterpolate(tier.cta)}</button></div>`);
+        _push(`<!--]--></ul></div>`);
       });
       _push(`<!--]--></div></section>`);
     };
@@ -402,4 +399,4 @@ _sfc_main.setup = (props, ctx) => {
 const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-56a3a593"]]);
 
 export { index as default };
-//# sourceMappingURL=index-CPMMXl1L.mjs.map
+//# sourceMappingURL=index-B9zxwQou.mjs.map

@@ -66,8 +66,7 @@ const tiers = [
           </li>
         </ul>
 
-        <button 
-        disabled
+        <!-- <button 
           :class="[
             'w-full py-4 rounded-2xl font-black transition-all transform active:scale-95',
             tier.highlighted 
@@ -76,7 +75,7 @@ const tiers = [
           ]"
         >
           {{ tier.cta }}
-        </button>
+        </button> -->
       </div>
     </div>
   </section>

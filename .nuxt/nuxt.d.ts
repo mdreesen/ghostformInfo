@@ -1,5 +1,5 @@
-/// <reference types="@nuxt/image" />
 /// <reference types="nuxt-auth-utils" />
+/// <reference types="@nuxt/image" />
 /// <reference types="@nuxtjs/color-mode" />
 /// <reference types="@nuxt/ui" />
 /// <reference types="nuxt-vitalizer" />
