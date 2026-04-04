@@ -1,13 +1,5 @@
 <script setup lang="ts">
 const tiers = [
-//   {
-//     name: 'Haunt',
-//     price: '0',
-//     description: 'Perfect for side projects and personal portfolios.',
-//     features: ['Up to 100 leads/mo', 'Basic Image Compression', 'Resend Integration', 'GhostForm Branding'],
-//     cta: 'Start for Free',
-//     highlighted: false
-//   },
   {
     name: 'Shadow',
     price: '40',
@@ -16,14 +8,6 @@ const tiers = [
     cta: 'Get Started',
     highlighted: true
   },
-//   {
-//     name: 'Ethereal',
-//     price: '99',
-//     description: 'Enterprise-grade speed and dedicated infrastructure.',
-//     features: ['Multiple Domain Support', 'Direct Engineer Access', 'Custom Integration Hook', 'SLA Guarantee', 'White-label engine'],
-//     cta: 'Contact Sales',
-//     highlighted: false
-//   }
 ]
 </script>
 
