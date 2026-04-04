@@ -1,7 +1,8 @@
-import { _ as __nuxt_component_0$1$1, a as __nuxt_component_0$2$1 } from './server.mjs';
+import { b as __nuxt_component_1$1$1, _ as __nuxt_component_0$1$1, a as __nuxt_component_0$2 } from './server.mjs';
 import { defineComponent, mergeProps, withCtx, createVNode, toDisplayString, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderStyle, ssrRenderList, ssrInterpolate, ssrRenderClass, ssrRenderAttr } from 'vue/server-renderer';
 import { _ as _export_sfc } from './_plugin-vue_export-helper-1tPrXgE0.mjs';
+import { _ as __nuxt_component_1$3 } from './footer-BZQKKggE.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -30,7 +31,7 @@ import 'devalue';
 import 'unhead/plugins';
 import 'unhead/utils';
 
-const _sfc_main$9 = /* @__PURE__ */ defineComponent({
+const _sfc_main$8 = /* @__PURE__ */ defineComponent({
   __name: "button",
   __ssrInlineRender: true,
   props: {
@@ -66,31 +67,41 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _sfc_setup$9 = _sfc_main$9.setup;
-_sfc_main$9.setup = (props, ctx) => {
+const _sfc_setup$8 = _sfc_main$8.setup;
+_sfc_main$8.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/base/button.vue");
-  return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
+  return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
 };
-const __nuxt_component_0$2 = Object.assign(_sfc_main$9, { __name: "BaseButton" });
-const _sfc_main$8 = {};
-function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
-  const _component_baseButton = __nuxt_component_0$2;
-  _push(`<section${ssrRenderAttrs(mergeProps({ class: "relative pt-40 pb-20 px-6" }, _attrs))}><div class="max-w-5xl mx-auto text-center"><div class="reveal inline-block mb-6 px-4 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-bold uppercase tracking-widest"> The Future of Lead Capture </div><h1 class="reveal text-6xl md:text-8xl font-black tracking-tight leading-tight mb-4"> Ghost<span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600"> Form</span></h1><h2 class="reveal text-4xl md:text-4xl font-black tracking-tighter leading-tight mb-8"> Weightless data <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600"> Spectral speed. </span></h2><p class="reveal text-zinc-400 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed mb-12" style="${ssrRenderStyle({ "transition-delay": "200ms" })}"> The light-weight multi-step form engine. </p><div class="reveal flex flex-col md:flex-row items-center justify-center gap-4" style="${ssrRenderStyle({ "transition-delay": "400ms" })}">`);
+const __nuxt_component_1$2 = Object.assign(_sfc_main$8, { __name: "BaseButton" });
+const _sfc_main$7 = {};
+function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
+  const _component_NuxtImg = __nuxt_component_1$1$1;
+  const _component_baseButton = __nuxt_component_1$2;
+  _push(`<section${ssrRenderAttrs(mergeProps({ class: "relative pt-40 pb-20 px-6" }, _attrs))} data-v-c236913d><div class="max-w-5xl mx-auto text-center" data-v-c236913d><div class="reveal inline-block mb-6 px-4 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-bold uppercase tracking-widest" data-v-c236913d> The Future of Lead Capture </div><h1 class="reveal text-6xl md:text-8xl font-black tracking-tight leading-tight mb-4" data-v-c236913d><span class="inline-flex" data-v-c236913d> Ghost <span class="relative z-10 animate-bounce-slow" data-v-c236913d>`);
+  _push(ssrRenderComponent(_component_NuxtImg, {
+    class: "relative z-10 h-20 w-full object-contain drop-shadow-md",
+    src: "/images/logo-icon.webp",
+    format: "webp",
+    preload: "",
+    loading: "eager",
+    "fetch-priority": "high"
+  }, null, _parent));
+  _push(`</span></span><span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600" data-v-c236913d> Form</span></h1><h2 class="reveal text-4xl md:text-4xl font-black tracking-tighter leading-tight mb-8" data-v-c236913d><span data-v-c236913d> Weightless data </span><span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600" data-v-c236913d> Spectral speed. </span></h2><p class="reveal text-zinc-400 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed mb-12" style="${ssrRenderStyle({ "transition-delay": "200ms" })}" data-v-c236913d> The light-weight multi-step form engine. </p><div class="reveal flex flex-col md:flex-row items-center justify-center gap-4" style="${ssrRenderStyle({ "transition-delay": "400ms" })}" data-v-c236913d>`);
   _push(ssrRenderComponent(_component_baseButton, {
     path: "/demo",
     text: "View Live Demo"
   }, null, _parent));
   _push(`</div></div></section>`);
 }
-const _sfc_setup$8 = _sfc_main$8.setup;
-_sfc_main$8.setup = (props, ctx) => {
+const _sfc_setup$7 = _sfc_main$7.setup;
+_sfc_main$7.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/app/hero.vue");
-  return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
+  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
 };
-const __nuxt_component_0$1 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$8, [["ssrRender", _sfc_ssrRender$1]]), { __name: "AppHero" });
-const _sfc_main$7 = /* @__PURE__ */ defineComponent({
+const __nuxt_component_0$1 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$7, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-c236913d"]]), { __name: "AppHero" });
+const _sfc_main$6 = /* @__PURE__ */ defineComponent({
   __name: "header",
   __ssrInlineRender: true,
   props: {
@@ -106,14 +117,14 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _sfc_setup$7 = _sfc_main$7.setup;
-_sfc_main$7.setup = (props, ctx) => {
+const _sfc_setup$6 = _sfc_main$6.setup;
+_sfc_main$6.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/base/header.vue");
-  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
+  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
-const __nuxt_component_0 = Object.assign(_sfc_main$7, { __name: "BaseHeader" });
-const _sfc_main$6 = /* @__PURE__ */ defineComponent({
+const __nuxt_component_0 = Object.assign(_sfc_main$6, { __name: "BaseHeader" });
+const _sfc_main$5 = /* @__PURE__ */ defineComponent({
   __name: "stats",
   __ssrInlineRender: true,
   setup(__props) {
@@ -137,14 +148,14 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _sfc_setup$6 = _sfc_main$6.setup;
-_sfc_main$6.setup = (props, ctx) => {
+const _sfc_setup$5 = _sfc_main$5.setup;
+_sfc_main$5.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/app/stats.vue");
-  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
+  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
 };
-const __nuxt_component_1$1 = Object.assign(_sfc_main$6, { __name: "AppStats" });
-const _sfc_main$5 = /* @__PURE__ */ defineComponent({
+const __nuxt_component_1$1 = Object.assign(_sfc_main$5, { __name: "AppStats" });
+const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   __name: "icon",
   __ssrInlineRender: true,
   props: {
@@ -165,7 +176,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const props = __props;
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_Icon = __nuxt_component_0$2$1;
+      const _component_Icon = __nuxt_component_0$2;
       _push(ssrRenderComponent(_component_Icon, mergeProps({
         class: props.styles,
         name: props.iconName,
@@ -174,14 +185,14 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _sfc_setup$5 = _sfc_main$5.setup;
-_sfc_main$5.setup = (props, ctx) => {
+const _sfc_setup$4 = _sfc_main$4.setup;
+_sfc_main$4.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/base/icon.vue");
-  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
-const __nuxt_component_1 = Object.assign(_sfc_main$5, { __name: "BaseIcon" });
-const _sfc_main$4 = /* @__PURE__ */ defineComponent({
+const __nuxt_component_1 = Object.assign(_sfc_main$4, { __name: "BaseIcon" });
+const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   __name: "features",
   __ssrInlineRender: true,
   setup(__props) {
@@ -238,14 +249,14 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _sfc_setup$4 = _sfc_main$4.setup;
-_sfc_main$4.setup = (props, ctx) => {
+const _sfc_setup$3 = _sfc_main$3.setup;
+_sfc_main$3.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/app/features.vue");
-  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
+  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const __nuxt_component_2 = Object.assign(_sfc_main$4, { __name: "AppFeatures" });
-const _sfc_main$3 = /* @__PURE__ */ defineComponent({
+const __nuxt_component_2 = Object.assign(_sfc_main$3, { __name: "AppFeatures" });
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "comparison",
   __ssrInlineRender: true,
   setup(__props) {
@@ -290,14 +301,14 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _sfc_setup$3 = _sfc_main$3.setup;
-_sfc_main$3.setup = (props, ctx) => {
+const _sfc_setup$2 = _sfc_main$2.setup;
+_sfc_main$2.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/app/comparison.vue");
-  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
+  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const __nuxt_component_3 = Object.assign(_sfc_main$3, { __name: "AppComparison" });
-const _sfc_main$2 = /* @__PURE__ */ defineComponent({
+const __nuxt_component_3 = Object.assign(_sfc_main$2, { __name: "AppComparison" });
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "pricing",
   __ssrInlineRender: true,
   setup(__props) {
@@ -343,7 +354,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
         ssrRenderList(tier.features, (feature) => {
           _push(`<li class="flex items-center gap-3 text-sm text-zinc-300"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"${ssrRenderAttr("stroke", tier.highlighted ? "#22d3ee" : "#52525b")} stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> ${ssrInterpolate(feature)}</li>`);
         });
-        _push(`<!--]--></ul><button class="${ssrRenderClass([
+        _push(`<!--]--></ul><button disabled class="${ssrRenderClass([
           "w-full py-4 rounded-2xl font-black transition-all transform active:scale-95",
           tier.highlighted ? "bg-cyan-500 text-black hover:bg-cyan-400 shadow-lg shadow-cyan-500/20" : "bg-white/5 text-white hover:bg-white/10 border border-white/10"
         ])}">${ssrInterpolate(tier.cta)}</button></div>`);
@@ -352,24 +363,13 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _sfc_setup$2 = _sfc_main$2.setup;
-_sfc_main$2.setup = (props, ctx) => {
-  const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/app/pricing.vue");
-  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
-};
-const __nuxt_component_4 = Object.assign(_sfc_main$2, { __name: "AppPricing" });
-const _sfc_main$1 = {};
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  _push(`<footer${ssrRenderAttrs(mergeProps({ class: "py-32 px-6 text-center border-t border-white/5" }, _attrs))}><h2 class="text-5xl font-black mb-8">Manifest your leads. Instantly.</h2><button class="px-12 py-6 bg-white text-black font-black rounded-3xl text-xl hover:scale-110 transition-transform"> Get GhostForm Now </button><div class="flex items-center justify-center gap-2 text-zinc-500 text-[10px] uppercase tracking-widest mt-4"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span></span> Engine Status: Spectral &amp; Active </div><div class="mt-12 text-zinc-600 font-mono text-xs uppercase tracking-[0.3em]"> Designed for High-Performance Teams © 2026 </div></footer>`);
-}
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/base/footer.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/app/pricing.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_5 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender]]), { __name: "BaseFooter" });
+const __nuxt_component_4 = Object.assign(_sfc_main$1, { __name: "AppPricing" });
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "index",
   __ssrInlineRender: true,
@@ -380,7 +380,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const _component_appFeatures = __nuxt_component_2;
       const _component_appComparison = __nuxt_component_3;
       const _component_appPricing = __nuxt_component_4;
-      const _component_baseFooter = __nuxt_component_5;
+      const _component_baseFooter = __nuxt_component_1$3;
       _push(`<div${ssrRenderAttrs(_attrs)} data-v-fc406465><section class="reveal" data-v-fc406465>`);
       _push(ssrRenderComponent(_component_appHero, null, null, _parent));
       _push(`</section><section class="reveal" data-v-fc406465>`);
@@ -406,4 +406,4 @@ _sfc_main.setup = (props, ctx) => {
 const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-fc406465"]]);
 
 export { index as default };
-//# sourceMappingURL=index-CFWZ5uES.mjs.map
+//# sourceMappingURL=index-Br_GYgxY.mjs.map

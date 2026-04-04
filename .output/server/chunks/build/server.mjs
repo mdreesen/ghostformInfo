@@ -1,5 +1,5 @@
-import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineComponent, computed, h, hasInjectionContext, inject, shallowRef, resolveComponent, onServerPrefetch, unref, getCurrentInstance, defineAsyncComponent, useSlots, Fragment, toRefs, ref, Comment, mergeProps, cloneVNode, createElementBlock, provide, toValue, useSSRContext, shallowReactive, Suspense, createApp, reactive, toRaw, watch, nextTick, useAttrs, useModel, withCtx, renderSlot, createVNode, openBlock, createBlock, createTextVNode, toDisplayString, createCommentVNode, mergeModels, resolveDynamicComponent, toRef as toRef$1, renderList, useId, onErrorCaptured, effectScope, camelize, useTemplateRef, withModifiers, normalizeProps, guardReactiveProps, watchEffect, normalizeStyle, getCurrentScope, isRef, markRaw, Teleport, shallowReadonly, toHandlerKey, onScopeDispose, readonly, isReadonly, isShallow, isReactive, customRef } from 'vue';
-import { s as serialize, k as parseQuery, l as klona, m as hasProtocol, j as joinURL, n as parseURL, o as encodePath, q as decodePath, r as defuFn, w as withQuery, t as isScriptProtocol, v as getContext, x as withTrailingSlash, y as withoutTrailingSlash, z as sanitizeStatusCode, $ as $fetch$1, A as baseURL, B as defu, C as createHooks, e as createError$1, D as isEqual, E as withLeadingSlash, F as executeAsync, G as encodeParam, H as appendResponseHeader } from '../nitro/nitro.mjs';
+import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineComponent, computed, h, hasInjectionContext, inject, shallowRef, resolveComponent, onServerPrefetch, useAttrs, ref, mergeProps, unref, getCurrentInstance, defineAsyncComponent, useSlots, Fragment, toRefs, Comment, cloneVNode, createElementBlock, provide, toValue, useSSRContext, shallowReactive, Suspense, createApp, reactive, toRaw, watch, nextTick, useModel, withCtx, renderSlot, createVNode, openBlock, createBlock, createTextVNode, toDisplayString, createCommentVNode, mergeModels, resolveDynamicComponent, toRef as toRef$1, renderList, useId, onErrorCaptured, effectScope, camelize, useTemplateRef, withModifiers, normalizeProps, guardReactiveProps, watchEffect, normalizeStyle, getCurrentScope, isRef, markRaw, Teleport, shallowReadonly, toHandlerKey, onScopeDispose, readonly, isReadonly, isShallow, isReactive, customRef } from 'vue';
+import { s as serialize, k as parseQuery, l as klona, m as hasProtocol, j as joinURL, n as parseURL, o as encodePath, q as decodePath, r as defuFn, w as withQuery, t as isScriptProtocol, v as getContext, x as withTrailingSlash, y as withoutTrailingSlash, z as sanitizeStatusCode, A as defu, B as withLeadingSlash, $ as $fetch$1, C as baseURL, D as createHooks, e as createError$1, E as encodeParam, F as isEqual, G as executeAsync, H as appendResponseHeader } from '../nitro/nitro.mjs';
 import { useRoute as useRoute$1, RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import { Icon, getIcon, loadIcon as loadIcon$1, _api, addAPIProvider, setCustomIconsLoader } from '@iconify/vue';
 import colors from 'tailwindcss/colors';
@@ -509,12 +509,12 @@ const _routes = [
   {
     name: "demo",
     path: "/demo",
-    component: () => import('./demo-DkCYUlDP.mjs')
+    component: () => import('./demo-DfXiriYX.mjs')
   },
   {
     name: "index",
     path: "/",
-    component: () => import('./index-CFWZ5uES.mjs')
+    component: () => import('./index-Br_GYgxY.mjs')
   }
 ];
 const _wrapInTransition = (props, children) => {
@@ -6634,7 +6634,7 @@ _sfc_main$d.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue");
   return _sfc_setup$d ? _sfc_setup$d(props, ctx) : void 0;
 };
-const ImageComponent = Object.assign(_sfc_main$d, { __name: "NuxtImg" });
+const __nuxt_component_1$1 = Object.assign(_sfc_main$d, { __name: "NuxtImg" });
 const avatarGroupInjectionKey = /* @__PURE__ */ Symbol("nuxt-ui.avatar-group");
 function useAvatarGroup(props) {
   const avatarGroup = inject(avatarGroupInjectionKey, void 0);
@@ -6903,7 +6903,7 @@ const _sfc_main$b = /* @__PURE__ */ Object.assign({ inheritAttrs: false }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
             if (__props.src && !error.value) {
-              ssrRenderVNode(_push2, createVNode(resolveDynamicComponent(as.value.img || unref(ImageComponent)), mergeProps({
+              ssrRenderVNode(_push2, createVNode(resolveDynamicComponent(as.value.img || unref(__nuxt_component_1$1)), mergeProps({
                 src: __props.src,
                 alt: __props.alt,
                 width: sizePx.value,
@@ -6950,7 +6950,7 @@ const _sfc_main$b = /* @__PURE__ */ Object.assign({ inheritAttrs: false }, {
             }
           } else {
             return [
-              __props.src && !error.value ? (openBlock(), createBlock(resolveDynamicComponent(as.value.img || unref(ImageComponent)), mergeProps({
+              __props.src && !error.value ? (openBlock(), createBlock(resolveDynamicComponent(as.value.img || unref(__nuxt_component_1$1)), mergeProps({
                 key: 0,
                 src: __props.src,
                 alt: __props.alt,
@@ -9671,7 +9671,7 @@ _sfc_main$3.setup = (props, ctx) => {
 };
 const __nuxt_component_0 = Object.assign(_sfc_main$3, { __name: "UApp" });
 const layouts = {
-  default: defineAsyncComponent(() => import('./default-CN2GWep1.mjs').then((m) => m.default || m))
+  default: defineAsyncComponent(() => import('./default-BUU0aJMp.mjs').then((m) => m.default || m))
 };
 const routeRulesMatcher = _routeRulesMatcher;
 const LayoutLoader = defineComponent({
@@ -10064,5 +10064,5 @@ let entry;
 }
 const entry_default = ((ssrContext) => entry(ssrContext));
 
-export { __nuxt_component_0$1 as _, __nuxt_component_0$2 as a, useRoute as b, entry_default as default, useHead as u };
+export { __nuxt_component_0$1 as _, __nuxt_component_0$2 as a, __nuxt_component_1$1 as b, useRoute as c, entry_default as default, useHead as u };
 //# sourceMappingURL=server.mjs.map

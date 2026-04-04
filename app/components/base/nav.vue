@@ -37,7 +37,7 @@ const navLinks = [
         <div class="relative w-10 h-10 flex items-center justify-center">
           <div class="absolute inset-0 bg-cyan-500/20 blur-lg rounded-full group-hover:bg-cyan-500/40 transition-all">
           </div>
-          <NuxtImg class="relative z-10 h-20 w-full object-contain drop-shadow-md" :src="'/images/logo-icon.png'" format="webp"
+          <NuxtImg class="relative z-10 h-20 w-full object-contain drop-shadow-md" :src="'/images/logo-icon.webp'" format="webp"
           preload loading="eager" fetch-priority="high" />
         </div>
         <span class="text-xl font-black tracking-tighter text-white">GhostForm</span>

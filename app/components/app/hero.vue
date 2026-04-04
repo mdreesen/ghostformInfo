@@ -6,8 +6,15 @@
                 The Future of Lead Capture
             </div>
             <h1 class="reveal text-6xl md:text-8xl font-black tracking-tight leading-tight mb-4">
-                Ghost<span
-                    class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600">
+                <span class="inline-flex">
+                    Ghost
+                    <span class="relative z-10 animate-bounce-slow">
+                        <NuxtImg class="relative z-10 h-20 w-full object-contain drop-shadow-md"
+                            :src="'/images/logo-icon.webp'" format="webp" preload loading="eager"
+                            fetch-priority="high" />
+                    </span>
+                </span>
+                <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600">
                     Form</span>
             </h1>
             <h2 class="reveal text-4xl md:text-4xl font-black tracking-tighter leading-tight mb-8">
@@ -34,3 +41,21 @@
         </div>
     </section>
 </template>
+
+<style scoped>
+@keyframes bounce-slow {
+
+    0%,
+    100% {
+        transform: translate(0%, 0);
+    }
+
+    50% {
+        transform: translate(0%, -10px);
+    }
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+}
+</style>
