@@ -41,9 +41,9 @@ const data = [
             <h2 class="text-4xl font-black mb-12 text-center">Stop the Leak.</h2>
             <div class="space-y-8">
                 <div v-for="(item, index) in data" :key="index">
-                    <div :class="`${index % 2 && index !== data.length - 1 && 'border-b-4 border-white/10 border-solid pb-[30px]'} flex items-start gap-6`">
+                    <div :class="`${index % 2 && index !== data.length - 1 && 'border-b-4 border-white/10 border-solid pb-7.5'} flex items-start gap-6`">
                         <div
-                            :class="`w-8 h-8 rounded-full ${item.icon.includes('x') ? 'bg-red-500/20 text-red-500' : 'bg-cyan-500/20 text-cyan-500'} flex-shrink-0 flex items-center justify-center font-bold`">
+                            :class="`w-8 h-8 rounded-full ${item.icon.includes('x') ? 'bg-red-500/20 text-red-500' : 'bg-cyan-500/20 text-cyan-500'} shrink-0 flex items-center justify-center font-bold`">
                             {{ item.icon }}</div>
                         <div>
                             <h4 class="font-bold text-lg">{{ item.title }}</h4>

@@ -137,7 +137,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
     ];
     return (_ctx, _push, _parent, _attrs) => {
       const _component_baseHeader = __nuxt_component_0;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "py-12 border-y border-white/5 bg-white/[0.02]" }, _attrs))}>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "py-12 border-y border-white/5 bg-white/2" }, _attrs))}>`);
       _push(ssrRenderComponent(_component_baseHeader, { text: "Stats" }, null, _parent));
       _push(`<div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-8 text-center"><!--[-->`);
       ssrRenderList(stats, (s) => {
@@ -239,7 +239,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
       ssrRenderList(features, (f, i) => {
         _push(`<div class="reveal p-10 rounded-[2.5rem] bg-zinc-900/40 border border-white/5 hover:border-cyan-500/30 transition-all group" style="${ssrRenderStyle({ transitionDelay: `${i * 150}ms` })}">`);
         _push(ssrRenderComponent(_component_baseIcon, {
-          class: "bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600",
+          class: "bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600",
           iconName: f.icon
         }, null, _parent));
         _push(`<h3 class="text-2xl font-bold mb-4">${ssrInterpolate(f.title)}</h3><p class="text-zinc-400 leading-relaxed">${ssrInterpolate(f.desc)}</p></div>`);
@@ -294,7 +294,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "py-32 px-6 bg-cyan-500/5" }, _attrs))}><div class="max-w-4xl mx-auto bg-zinc-950 border border-white/10 rounded-[3rem] p-8 md:p-16 shadow-2xl reveal"><h2 class="text-4xl font-black mb-12 text-center">Stop the Leak.</h2><div class="space-y-8"><!--[-->`);
       ssrRenderList(data, (item, index2) => {
-        _push(`<div><div class="${ssrRenderClass(`${index2 % 2 && index2 !== data.length - 1 && "border-b-4 border-white/10 border-solid pb-[30px]"} flex items-start gap-6`)}"><div class="${ssrRenderClass(`w-8 h-8 rounded-full ${item.icon.includes("x") ? "bg-red-500/20 text-red-500" : "bg-cyan-500/20 text-cyan-500"} flex-shrink-0 flex items-center justify-center font-bold`)}">${ssrInterpolate(item.icon)}</div><div><h4 class="font-bold text-lg">${ssrInterpolate(item.title)}</h4><p class="text-zinc-500">${ssrInterpolate(item.desc)}</p></div></div></div>`);
+        _push(`<div><div class="${ssrRenderClass(`${index2 % 2 && index2 !== data.length - 1 && "border-b-4 border-white/10 border-solid pb-7.5"} flex items-start gap-6`)}"><div class="${ssrRenderClass(`w-8 h-8 rounded-full ${item.icon.includes("x") ? "bg-red-500/20 text-red-500" : "bg-cyan-500/20 text-cyan-500"} shrink-0 flex items-center justify-center font-bold`)}">${ssrInterpolate(item.icon)}</div><div><h4 class="font-bold text-lg">${ssrInterpolate(item.title)}</h4><p class="text-zinc-500">${ssrInterpolate(item.desc)}</p></div></div></div>`);
       });
       _push(`<!--]--></div></div></div>`);
     };
@@ -312,14 +312,6 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __ssrInlineRender: true,
   setup(__props) {
     const tiers = [
-      //   {
-      //     name: 'Haunt',
-      //     price: '0',
-      //     description: 'Perfect for side projects and personal portfolios.',
-      //     features: ['Up to 100 leads/mo', 'Basic Image Compression', 'Resend Integration', 'GhostForm Branding'],
-      //     cta: 'Start for Free',
-      //     highlighted: false
-      //   },
       {
         name: "Shadow",
         price: "40",
@@ -328,14 +320,6 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         cta: "Get Started",
         highlighted: true
       }
-      //   {
-      //     name: 'Ethereal',
-      //     price: '99',
-      //     description: 'Enterprise-grade speed and dedicated infrastructure.',
-      //     features: ['Multiple Domain Support', 'Direct Engineer Access', 'Custom Integration Hook', 'SLA Guarantee', 'White-label engine'],
-      //     cta: 'Contact Sales',
-      //     highlighted: false
-      //   }
     ];
     return (_ctx, _push, _parent, _attrs) => {
       const _component_baseHeader = __nuxt_component_0;
@@ -399,4 +383,4 @@ _sfc_main.setup = (props, ctx) => {
 const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-56a3a593"]]);
 
 export { index as default };
-//# sourceMappingURL=index-B9zxwQou.mjs.map
+//# sourceMappingURL=index-BX0C-_AY.mjs.map

@@ -10,7 +10,7 @@ const stats = [
 </script>
 
 <template>
-    <div class="py-12 border-y border-white/5 bg-white/[0.02]">
+    <div class="py-12 border-y border-white/5 bg-white/2">
         <baseHeader text="Stats" />
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
             <div v-for="s in stats" :key="s.label">

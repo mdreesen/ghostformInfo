@@ -40,7 +40,7 @@ const features = [
             <div v-for="(f, i) in features" :key="f.title"
                 class="reveal p-10 rounded-[2.5rem] bg-zinc-900/40 border border-white/5 hover:border-cyan-500/30 transition-all group"
                 :style="{ transitionDelay: `${i * 150}ms` }">
-                <baseIcon class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600" :iconName="f.icon" />
+                <baseIcon class="bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600" :iconName="f.icon" />
                 <h3 class="text-2xl font-bold mb-4">{{ f.title }}</h3>
                 <p class="text-zinc-400 leading-relaxed">{{ f.desc }}</p>
             </div>
