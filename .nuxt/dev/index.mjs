@@ -1,10 +1,15 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, getResponseStatus, useSession, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, getResponseStatusText } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, getResponseStatus, useSession, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, readValidatedBody, getResponseStatusText } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import crypto$1 from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
 import { escapeHtml } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/@vue/shared/dist/shared.cjs.js';
+import { z } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/zod/index.js';
+import { nanoid } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/nanoid/index.js';
+import { Resend } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/resend/dist/index.mjs';
+import bcrypt from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/bcrypt/bcrypt.js';
+import mongoose, { Schema } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/mongoose/index.js';
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/ufo/dist/index.mjs';
 import destr, { destr as destr$1 } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/destr/dist/index.mjs';
@@ -35,6 +40,7 @@ import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:/
 import { renderToString } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/vue/server-renderer/index.mjs';
 import { walkResolver } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/unhead/dist/utils.mjs';
 import { createHooks } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/hookable/dist/index.mjs';
+import * as jose from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/jose/dist/webapi/index.js';
 import { getIcons } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/@iconify/utils/lib/index.js';
 import { collections } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/.nuxt/nuxt-icon-server-bundle.mjs';
 import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/ipx/dist/index.mjs';
@@ -1035,6 +1041,11 @@ const _inlineRuntimeConfig = {
     },
     "auth": {
       "loadStrategy": "server-first"
+    },
+    "googleAuth": {
+      "clientId": "253639218199-e98nuetmbvso9nrk14k4n5rm7ivl4s0e.apps.googleusercontent.com",
+      "promptOneTap": true,
+      "enableServerVerify": true
     }
   },
   "session": {
@@ -3443,11 +3454,32 @@ async function getUserSession(event) {
     id: session.id
   };
 }
+async function setUserSession(event, data, config) {
+  const session = await _useSession(event, config);
+  await session.update(defu(data, session.data));
+  return session.data;
+}
 async function clearUserSession(event, config) {
   const session = await _useSession(event, config);
   await sessionHooks.callHookParallel("clear", session.data, event);
   await session.clear();
   return true;
+}
+async function requireUserSession(event, opts = {}) {
+  const userSession = await getUserSession(event);
+  if (!userSession.user) {
+    if (isEvent(event)) {
+      throw createError({
+        statusCode: opts.statusCode || 401,
+        message: opts.message || "Unauthorized"
+      });
+    } else {
+      throw new Response(opts.message || "Unauthorized", {
+        status: opts.statusCode || 401
+      });
+    }
+  }
+  return userSession;
 }
 let sessionConfig;
 function _useSession(event, config = {}) {
@@ -3475,6 +3507,38 @@ const _w8l85i = eventHandler(async (event) => {
   }
   const { secure, ...data } = session;
   return data;
+});
+
+const _kRbYNT = defineEventHandler(async (event) => {
+  const { credential } = await readBody(event);
+  if (!credential) {
+    return { ok: false, reason: "missing_credential" };
+  }
+  const runtime = useRuntimeConfig();
+  const aud = runtime.public?.googleAuth?.clientId;
+  try {
+    const JWKS = jose.createRemoteJWKSet(
+      new URL("https://www.googleapis.com/oauth2/v3/certs")
+    );
+    const { payload } = await jose.jwtVerify(credential, JWKS, {
+      audience: aud,
+      issuer: "https://accounts.google.com"
+    });
+    return {
+      ok: true,
+      sub: payload.sub,
+      // Google user ID
+      email: payload.email,
+      name: payload.name,
+      picture: payload.picture
+    };
+  } catch (err) {
+    return {
+      ok: false,
+      reason: "invalid_token",
+      message: err?.message || "Verification failed"
+    };
+  }
 });
 
 const warnOnceSet = /* @__PURE__ */ new Set();
@@ -3555,14 +3619,25 @@ const _Hdhcp2 = lazyEventHandler(() => {
   return useBase(opts.baseURL, ipxHandler);
 });
 
+const _lazy_BTCdBh = () => Promise.resolve().then(function () { return delete_delete$1; });
+const _lazy_d_Iy6D = () => Promise.resolve().then(function () { return forgot_post$1; });
+const _lazy_v4HfmP = () => Promise.resolve().then(function () { return login_post$1; });
+const _lazy_ifgbvp = () => Promise.resolve().then(function () { return reset$1; });
+const _lazy_4BWVGm = () => Promise.resolve().then(function () { return signup_post$1; });
 const _lazy_HlH0u5 = () => Promise.resolve().then(function () { return renderer; });
 
 const handlers = [
   { route: '', handler: _seHtEB, lazy: false, middleware: true, method: undefined },
+  { route: '/api/authentication/delete', handler: _lazy_BTCdBh, lazy: true, middleware: false, method: "delete" },
+  { route: '/api/authentication/forgot', handler: _lazy_d_Iy6D, lazy: true, middleware: false, method: "post" },
+  { route: '/api/authentication/login', handler: _lazy_v4HfmP, lazy: true, middleware: false, method: "post" },
+  { route: '/api/authentication/reset', handler: _lazy_ifgbvp, lazy: true, middleware: false, method: undefined },
+  { route: '/api/authentication/signup', handler: _lazy_4BWVGm, lazy: true, middleware: false, method: "post" },
   { route: '/__nuxt_error', handler: _lazy_HlH0u5, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: handler$1, lazy: false, middleware: false, method: undefined },
   { route: '/api/_auth/session', handler: _LswYXx, lazy: false, middleware: false, method: "delete" },
   { route: '/api/_auth/session', handler: _w8l85i, lazy: false, middleware: false, method: "get" },
+  { route: '/api/auth/google/verify', handler: _kRbYNT, lazy: false, middleware: false, method: "post" },
   { route: '/api/_nuxt_icon/:collection', handler: _lpt8_h, lazy: false, middleware: false, method: undefined },
   { route: '/_ipx/**', handler: _Hdhcp2, lazy: false, middleware: false, method: undefined },
   { route: '/_fonts/**', handler: _lazy_HlH0u5, lazy: true, middleware: false, method: undefined },
@@ -3828,6 +3903,394 @@ const styles = {};
 const styles$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: styles
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const { MONGO_URI } = process.env;
+const connectDB = async () => {
+  try {
+    const { connection } = await mongoose.connect(MONGO_URI);
+    if (connection.readyState === 1) {
+      return Promise.resolve(true);
+    }
+  } catch (error) {
+    console.error(error);
+    return Promise.reject(error);
+  }
+};
+
+const EnvSchema = z.object({
+  MONGO_URI: z.string(),
+  RESEND_KEY: z.string(),
+  PROJECT_DOMAIN: z.string(),
+  NUXT_SESSION_PASSWORD: z.string()
+});
+const env = EnvSchema.parse(process.env);
+
+mongoose.connect(`${env.MONGO_URI}`);
+mongoose.Promise = global.Promise;
+const affirmationsSchema = new Schema(
+  {
+    affirmation: String || void 0,
+    kind: String || void 0,
+    date: String || void 0
+  },
+  { timestamps: false }
+);
+const bibleSchema = new Schema(
+  {
+    book_title: String || void 0,
+    chapter: String || void 0,
+    verses: String || void 0,
+    notes: String || void 0,
+    type: String || void 0,
+    icon: String || void 0,
+    date: String || void 0
+  },
+  { timestamps: false }
+);
+const bookSchema = new Schema(
+  {
+    book_title: String || void 0,
+    kind_of_book: String || void 0,
+    book_author: String || void 0,
+    book_start_date: String || void 0,
+    book_end_date: String || void 0,
+    book_image: String || void 0,
+    notes: String || void 0,
+    booklist: String || Boolean || void 0,
+    status: Boolean || String || void 0
+  },
+  { timestamps: false }
+);
+const coldSoakSchema = new Schema(
+  {
+    dateFormatted: String || void 0,
+    date: Date || void 0,
+    duration: Number || void 0
+  },
+  { timestamps: false }
+);
+const fastingSchema = new Schema(
+  {
+    completed: Boolean || void 0,
+    start_date: Date || void 0,
+    ended: Boolean || void 0,
+    start: Boolean || void 0,
+    end_date: Date || void 0,
+    duration: Number || void 0,
+    time_fasted: String || void 0
+  },
+  { timestamps: false }
+);
+const gratitudeSchema = new Schema(
+  {
+    gratitude: String || void 0,
+    date: String || void 0
+  },
+  { timestamps: false }
+);
+const habitsSchema = new Schema(
+  {
+    title: String || void 0,
+    description: String || void 0,
+    kind: String || void 0,
+    status: String || void 0,
+    date_start: String || void 0,
+    date_end: String || void 0
+  },
+  { timestamps: false }
+);
+const journalSchema = new Schema(
+  {
+    title: String || void 0,
+    entry: String || void 0,
+    mood: String || void 0,
+    date: String || void 0
+  },
+  { timestamps: false }
+);
+const settingsSchema = new Schema(
+  {
+    setting: String || void 0,
+    title: String || void 0,
+    value: Boolean || void 0
+  },
+  { timestamps: false }
+);
+const waterIntakeSchema = new Schema(
+  {
+    water_intake: String || void 0,
+    date: String || void 0
+  },
+  { timestamps: false }
+);
+const weightSchema = new Schema(
+  {
+    weight: Number || String || void 0,
+    date: String || void 0,
+    weight_date: String || void 0
+  },
+  { timestamps: false }
+);
+const workoutSchema = new Schema(
+  {
+    type: String || void 0,
+    description: String || void 0,
+    sets: String || void 0,
+    date: String || void 0,
+    duration: String || void 0
+  },
+  { timestamps: false }
+);
+const userSchema = new Schema(
+  {
+    username: String,
+    first_name: String,
+    last_name: String,
+    email: String,
+    phone: String,
+    password: String,
+    country: String,
+    street_address: String,
+    city: String,
+    region: String,
+    postal_code: String,
+    time_zone: String,
+    fasting_time: Number,
+    tutorial_read: Boolean,
+    goal_weight: String,
+    affirmations: [affirmationsSchema],
+    bibles: [bibleSchema],
+    books: [bookSchema],
+    cold_soaks: [coldSoakSchema],
+    gratitudes: [gratitudeSchema],
+    fasting: [fastingSchema],
+    habits: [habitsSchema],
+    journal: [journalSchema],
+    settings: [settingsSchema],
+    water: [waterIntakeSchema],
+    weight: [weightSchema],
+    workout: [workoutSchema],
+    resetPasswordToken: String,
+    privacy_policy: Boolean,
+    createdAt: String,
+    updatedAt: String
+  },
+  { timestamps: true }
+);
+const User$6 = mongoose.models.User || mongoose.model("User", userSchema);
+
+const User$5 = User$6;
+const loggedInUser = defineEventHandler(async (event) => {
+  try {
+    await connectDB();
+    const { user } = await requireUserSession(event);
+    const userEmail = user.email;
+    const findUser = await User$5.find({ email: userEmail });
+    if (findUser[0]) {
+      return findUser[0];
+    }
+    ;
+  } catch (error) {
+    console.log(error);
+    throw createError({
+      statusCode: 500,
+      statusMessage: "Something went wrong."
+    });
+  }
+});
+
+const User$4 = User$6;
+const delete_delete = defineEventHandler(async (event) => {
+  try {
+    const user = await loggedInUser(event);
+    await User$4.deleteOne({ email: user == null ? void 0 : user.email });
+  } catch (error) {
+    console.log(error);
+    throw createError({
+      statusCode: 401,
+      statusMessage: "Please try again."
+    });
+  }
+});
+
+const delete_delete$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: delete_delete
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const User$3 = User$6;
+const bodySchema$3 = z.object({
+  email: z.email(),
+  question: z.string()
+});
+const forgot_post = defineEventHandler(async (event) => {
+  const { email, question } = await readValidatedBody(event, bodySchema$3.parse);
+  const token = nanoid(32);
+  const htmlBody = `
+    <div>
+        <h1>Welcome to Ascend</h1>
+        <a href="${process.env.PROJECT_DOMAIN}/${token}/resetpassword">Click here to reset password</a>
+    </div>
+    `;
+  try {
+    await connectDB();
+    if (question !== "7") throw createError({ statusCode: 401, statusMessage: "Try again" });
+    else {
+      const userFound = await User$3.findOne({ email });
+      if (!userFound) throw createError({ statusCode: 401, statusMessage: "Wrong credentials" });
+      const resend = new Resend(`${process.env.RESEND_KEY}`);
+      await resend.emails.send({
+        from: "NoReply@ascendpod.com",
+        to: [email],
+        subject: "Reset your password",
+        // Subject line
+        html: htmlBody
+      });
+      await User$3.findOneAndUpdate({ email: email.toLowerCase().trim() }, { resetPasswordToken: token });
+    }
+  } catch (error) {
+    console.log(error);
+    throw createError({
+      statusCode: 401,
+      message: "Please try again"
+    });
+  }
+});
+
+const forgot_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: forgot_post
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const User$2 = User$6;
+const bodySchema$2 = z.object({
+  email: z.email(),
+  password: z.string().min(8)
+});
+const login_post = defineEventHandler(async (event) => {
+  var _a;
+  const { email, password } = await readValidatedBody(event, bodySchema$2.parse);
+  try {
+    await connectDB();
+    const user = await User$2.findOne({ email });
+    const passwordMatches = bcrypt.compare(password, (_a = user == null ? void 0 : user.password) != null ? _a : "");
+    if (await passwordMatches) {
+      await setUserSession(event, {
+        user: {
+          _id: user == null ? void 0 : user._id,
+          username: (user == null ? void 0 : user.username) || "",
+          first_name: (user == null ? void 0 : user.first_name) || "Ascender",
+          last_name: (user == null ? void 0 : user.last_name) || "",
+          name: `${user == null ? void 0 : user.first_name} ${user == null ? void 0 : user.last_name}` || "Ascender",
+          email: user == null ? void 0 : user.email,
+          phone: (user == null ? void 0 : user.phone) || "",
+          country: (user == null ? void 0 : user.country) || "",
+          street_address: (user == null ? void 0 : user.street_address) || "",
+          city: (user == null ? void 0 : user.city) || "",
+          region: (user == null ? void 0 : user.region) || "",
+          postal_code: (user == null ? void 0 : user.postal_code) || ""
+        }
+      });
+    } else {
+      throw createError({ statusCode: 401, statusMessage: "Wrong credentials" });
+    }
+  } catch (error) {
+    console.log(error);
+    throw createError({
+      statusCode: 401,
+      message: "Please try again"
+    });
+  }
+});
+
+const login_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: login_post
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const User$1 = User$6;
+const bodySchema$1 = z.object({
+  password: z.string(),
+  confirm_password: z.string(),
+  token: z.string()
+});
+const reset = defineEventHandler(async (event) => {
+  const { password, confirm_password, token } = await readValidatedBody(event, bodySchema$1.parse);
+  const hashedPassword = await bcrypt.hash(password, 10);
+  try {
+    await connectDB();
+    if (password !== confirm_password) throw createError({ statusCode: 401, statusMessage: "Try again" });
+    await User$1.findOneAndUpdate({ resetPasswordToken: token }, {
+      password: hashedPassword
+    });
+  } catch (error) {
+    console.log(error);
+    throw createError({
+      statusCode: 401,
+      message: "Please try again"
+    });
+  }
+});
+
+const reset$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: reset
+}, Symbol.toStringTag, { value: 'Module' }));
+
+function settings() {
+  return [
+    { setting: "showAffirmations", title: "Show Affirmations", value: true },
+    { setting: "showBible", title: "Show Bible", value: true },
+    { setting: "showBooks", title: "Show Books", value: true },
+    { setting: "showColdSoak", title: "Show Cold Soak", value: true },
+    { setting: "showFasting", title: "Show Fasting", value: true },
+    { setting: "showGratitudes", title: "Show Gratitudes", value: true },
+    { setting: "showHabits", title: "Show Habits", value: true },
+    { setting: "showJournal", title: "Show Journal", value: true },
+    { setting: "showWaterIntake", title: "Show Hydration", value: true },
+    { setting: "showWeight", title: "Show Weight", value: true },
+    { setting: "showWorkout", title: "Show Workout", value: true },
+    { setting: "darkMode", title: "Dark Mode", value: false }
+  ];
+}
+
+const User = User$6;
+const bodySchema = z.object({
+  email: z.email(),
+  password: z.string().min(8),
+  confirm_password: z.string().min(8),
+  privacy_policy: z.boolean()
+});
+const signup_post = defineEventHandler(async (event) => {
+  const { email, password, confirm_password, privacy_policy } = await readValidatedBody(event, bodySchema.parse);
+  try {
+    await connectDB();
+    const user = await User.findOne({ email });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    if (!password) throw createError({ statusCode: 401, statusMessage: "Please insert password.", data: { errorMessage: "The requested item could not be found." } });
+    if (!password && !confirm_password) throw createError({ statusCode: 401, statusMessage: "Please insert password.", data: { errorMessage: "The requested item could not be found." } });
+    if (password !== confirm_password) throw createError({ statusCode: 401, statusMessage: "Passwords do not match.", data: { errorMessage: "The requested item could not be found." } });
+    if (user) throw createError({ statusCode: 401, statusMessage: "User already registered.", data: { errorMessage: "The requested item could not be found." } });
+    const registerUser = new User({
+      email: email.toLowerCase().trim(),
+      password: hashedPassword,
+      privacy_policy,
+      settings: settings()
+    });
+    await registerUser.save();
+  } catch (error) {
+    console.log(error);
+    throw createError({
+      statusCode: 401,
+      statusMessage: "Please try again."
+    });
+  }
+});
+
+const signup_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: signup_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
 function renderPayloadResponse(ssrContext) {

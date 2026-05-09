@@ -1,0 +1,216 @@
+<script setup lang="ts">
+const { loggedIn, user, clear } = useUserSession();
+import { ref, reactive } from 'vue';
+import { useMotion } from '@vueuse/motion';
+import { formVarient, containerVarient, inputVarient } from '~/utils/varients';
+
+const formRef = ref();
+const isLoading = ref(false);
+let errorMessage = ref('');
+
+const { fetch: refreshSession } = useUserSession();
+const toast = useToast();
+
+const credentials = reactive({
+  email: '',
+  password: '',
+});
+
+const input = reactive({
+  email: "",
+  question: ""
+});
+
+async function login() {
+  isLoading.value = true;
+  $fetch('/api/authentication/login', {
+    method: 'POST',
+    body: credentials
+  })
+    .then(async () => {
+      await refreshSession();
+      await navigateTo('/dashboard');
+    })
+    .catch(async (error) => {
+      // toast.error("Log in failed", 'Try again');
+      console.log(error);
+      errorMessage.value = error.statusMessage;
+      isLoading.value = false;
+    });
+};
+
+async function forgotpassword() {
+  isLoading.value = true;
+  $fetch(`/api/authentication/forgot`, {
+    method: 'POST',
+    body: {
+      ...input
+    }
+  })
+    .then(async () => {
+      await refreshSession();
+      isLoading.value = false;
+      // toast.success("Email sent", "Check you email and don't forget checking spam folder!");
+    })
+    .catch(async (error) => {
+      console.log(error);
+      errorMessage.value = error.statusMessage;
+      isLoading.value = false;
+    });
+};
+
+// eslint-disable-next-line no-console
+const onSuccess = (e: { credential: string; claims: any }) => {
+  console.log('success:', e.claims, e.credential.slice(0, 20) + '…')
+}
+// eslint-disable-next-line no-console
+const onVerified = (data: any) => {
+  console.log('verified:', data)
+}
+// eslint-disable-next-line no-console
+const onError = (err: any) => {
+  console.error('error:', err)
+}
+
+useMotion(formRef, { ...formVarient() });
+
+</script>
+
+<template>
+  <div
+    class="min-h-screen bg-[#0a0a0c] text-white font-sans flex items-center justify-center p-6 relative overflow-hidden">
+
+    <main class="w-full max-w-110 z-10">
+      <div class="backdrop-blur-xl bg-white/3 border border-white/8 rounded-3xl p-10 shadow-2xl">
+
+        <header class="text-center mb-12">
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br from-[#30cf43] to-[#15a327] mb-6 shadow-[0_0_30px_rgba(48,207,67,0.4)]">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 3c1.72 0 3.347.433 4.774 1.202m.38 11.21a10.001 10.001 0 003.858-5.808l.047-.204" />
+            </svg>
+          </div>
+          <h1 class="text-3xl font-bold tracking-tight text-white mb-2">GhostForm</h1>
+          <p class="text-zinc-400 text-sm">Intelligence for the Unseen.</p>
+        </header>
+
+        <div class="space-y-6">
+          <!-- Login Form -->
+          <form @submit.prevent="login" class="space-y-6">
+            <div v-motion="{ ...inputVarient() }">
+              <baseLabel text="Email" />
+              <input id="email" type="email" v-model="credentials.email" placeholder="Email" required
+                class="w-full rounded-xl border border-gray-600 bg-gray-700/50 py-3 px-4 text-lg text-white shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <div v-motion="{ ...inputVarient() }">
+              <baseLabel text="Password" />
+              <input id="password" type="password" v-model="credentials.password" placeholder="Password" required
+                class="w-full rounded-xl border border-gray-600 bg-gray-700/50 py-3 px-4 text-lg text-white shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <div v-motion="{ ...inputVarient() }"
+              class="flex flex-col items-center justify-center w-full   mx-auto font-sans">
+
+              <div class="w-full relative flex justify-end">
+
+                <transition name="slide-up" mode="out-in">
+
+                  <UDrawer title="Reset your password" :overlay="false">
+                    <UButton label="Forgot password" color="neutral" variant="subtle" />
+
+                    <template #body>
+                      <form @submit.prevent="forgotpassword" class="space-y-6">
+
+                        <div v-motion="{ ...inputVarient() }">
+                          <baseLabel text="Email" />
+                          <input id="email" type="email" v-model="input.email" placeholder="Email" required
+                            class="w-full rounded-xl border border-gray-600 bg-gray-700/50 py-3 px-4 text-lg text-white shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+
+                        <div v-motion="{ ...inputVarient() }">
+                          <baseLabel text="Question" />
+                          <input id="question" type="text" v-model="input.question" placeholder="What is 4 + 3" required
+                            class="w-full rounded-xl border border-gray-600 bg-gray-700/50 py-3 px-4 text-lg text-white shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+
+                        <div class="flex flex-col gap-8 pb-4">
+                          <baseButtonSubmit text="Reset" :isLoading="isLoading" isLoadingText="Submitting..." />
+                        </div>
+                      </form>
+                    </template>
+                  </UDrawer>
+                </transition>
+              </div>
+            </div>
+
+            <div v-motion="{ ...inputVarient() }">
+              <button type="submit" :disabled="isLoading"
+                :class="`${isLoading ? 'bg-linear-to-r from-gray-500 to-gray-600' : 'bg-linear-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900'} w-full rounded-xl py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 ease-in-out`">
+                {{ isLoading ? 'Logging In...' : 'Log In' }}
+              </button>
+            </div>
+          </form>
+
+          <div v-motion="{ ...inputVarient() }" class="relative flex items-center justify-center py-4">
+            <div class="absolute w-full border-t border-gray-700"></div>
+            <span class="relative z-10 bg-gray-800/80 backdrop-blur-md px-4 text-gray-400 text-sm">OR</span>
+          </div>
+
+          <!-- Signup Link -->
+          <div class="text-center" v-motion="{ ...inputVarient() }">
+            <p class="text-gray-400 text-sm">
+              Don't have an account?
+              <NuxtLink to="/signup" class="text-blue-400 hover:underline transition-colors">Sign up</NuxtLink>
+            </p>
+          </div>
+
+          <ClientOnly>
+            <GoogleLoginButton :verify-on-server="true" :options="{ theme: 'filled_blue', size: 'large' }"
+              @success="onSuccess" @verified="onVerified" @error="onError" />
+          </ClientOnly>
+
+          <div class="relative flex items-center py-2">
+            <div class="grow border-t border-white/10"></div>
+            <span class="shrink mx-4 text-zinc-500 text-[10px] uppercase tracking-widest font-bold">Encrypted
+              Session</span>
+            <div class="grow border-t border-white/10"></div>
+          </div>
+
+          <p class="text-center text-xs text-zinc-500 leading-relaxed">
+            Authorized personnel only. Sessions are logged and analyzed for regional compliance.
+          </p>
+        </div>
+
+      </div>
+
+      <footer class="mt-8 flex justify-between items-center px-4">
+        <div class="flex items-center gap-2">
+          <div class="w-1.5 h-1.5 rounded-full bg-[#30cf43] shadow-[0_0_8px_#30cf43]"></div>
+          <span class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Ghost-Node Active</span>
+        </div>
+        <span class="text-[10px] font-mono text-zinc-600 italic-none">v3.0.4-LITE</span>
+      </footer>
+    </main>
+  </div>
+</template>
+
+<style scoped>
+/* Glassmorphism focus effects */
+main {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>

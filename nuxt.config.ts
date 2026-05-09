@@ -11,8 +11,17 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxt/ui',
-    'nuxt-vitalizer'
+    'nuxt-vitalizer',
+    'nuxt-google-auth'
   ],
+
+  googleAuth: {
+    clientId: process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID,
+    autoLoadScript: true,         // load Google script automatically
+    promptOneTap: true,           // show One Tap prompt
+    enableServerVerify: true      // enable server-side token verification endpoint
+},
+
   app: {
     head: {
       title: 'Ascend', // default fallback title

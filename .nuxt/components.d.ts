@@ -168,6 +168,7 @@ export const NuxtPicture: typeof import("../node_modules/@nuxt/image/dist/runtim
 export const Motion: typeof import("@vueuse/motion")['MotionComponent']
 export const MotionGroup: typeof import("@vueuse/motion")['MotionGroupComponent']
 export const ColorScheme: typeof import("../node_modules/@nuxtjs/color-mode/dist/runtime/component.vue3.vue")['default']
+export const GoogleLoginButton: typeof import("../node_modules/nuxt-google-auth/dist/runtime/components/GoogleLoginButton.vue")['default']
 export const NuxtPage: typeof import("../node_modules/nuxt/dist/pages/runtime/page")['default']
 export const NoScript: typeof import("../node_modules/nuxt/dist/head/runtime/components")['NoScript']
 export const Link: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Link']
@@ -334,6 +335,7 @@ export const LazyNuxtPicture: LazyComponent<typeof import("../node_modules/@nuxt
 export const LazyMotion: LazyComponent<typeof import("@vueuse/motion")['MotionComponent']>
 export const LazyMotionGroup: LazyComponent<typeof import("@vueuse/motion")['MotionGroupComponent']>
 export const LazyColorScheme: LazyComponent<typeof import("../node_modules/@nuxtjs/color-mode/dist/runtime/component.vue3.vue")['default']>
+export const LazyGoogleLoginButton: LazyComponent<typeof import("../node_modules/nuxt-google-auth/dist/runtime/components/GoogleLoginButton.vue")['default']>
 export const LazyNuxtPage: LazyComponent<typeof import("../node_modules/nuxt/dist/pages/runtime/page")['default']>
 export const LazyNoScript: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['NoScript']>
 export const LazyLink: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Link']>

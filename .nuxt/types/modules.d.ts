@@ -7,6 +7,7 @@ declare module '@nuxt/schema' {
     ["@nuxtjs/color-mode"]?: ModuleDependencyMeta<typeof import("@nuxtjs/color-mode").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxt/ui"]?: ModuleDependencyMeta<typeof import("@nuxt/ui").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["nuxt-vitalizer"]?: ModuleDependencyMeta<typeof import("nuxt-vitalizer").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
+    ["nuxt-google-auth"]?: ModuleDependencyMeta<typeof import("nuxt-google-auth").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxt/devtools"]?: ModuleDependencyMeta<typeof import("@nuxt/devtools").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxt/telemetry"]?: ModuleDependencyMeta<typeof import("@nuxt/telemetry").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxt/icon"]?: ModuleDependencyMeta<typeof import("@nuxt/icon").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
@@ -37,6 +38,10 @@ declare module '@nuxt/schema' {
      * Configuration for `nuxt-vitalizer`
      */
     ["vitalizer"]: typeof import("nuxt-vitalizer").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
+    /**
+     * Configuration for `nuxt-google-auth`
+     */
+    ["googleAuth"]: typeof import("nuxt-google-auth").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
     /**
      * Configuration for `@nuxt/devtools`
      */
@@ -80,6 +85,10 @@ declare module '@nuxt/schema' {
      */
     ["vitalizer"]?: typeof import("nuxt-vitalizer").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
     /**
+     * Configuration for `nuxt-google-auth`
+     */
+    ["googleAuth"]?: typeof import("nuxt-google-auth").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
+    /**
      * Configuration for `@nuxt/devtools`
      */
     ["devtools"]?: typeof import("@nuxt/devtools").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
@@ -95,7 +104,7 @@ declare module '@nuxt/schema' {
      * Configuration for `@nuxt/fonts`
      */
     ["fonts"]?: typeof import("@nuxt/fonts").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
-    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["nuxt-auth-utils", Exclude<NuxtConfig["auth"], boolean>] | ["@vueuse/motion/nuxt", Exclude<NuxtConfig["motion"], boolean>] | ["@nuxt/image", Exclude<NuxtConfig["image"], boolean>] | ["@nuxtjs/color-mode", Exclude<NuxtConfig["colorMode"], boolean>] | ["@nuxt/ui", Exclude<NuxtConfig["ui"], boolean>] | ["nuxt-vitalizer", Exclude<NuxtConfig["vitalizer"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>] | ["@nuxt/icon", Exclude<NuxtConfig["icon"], boolean>] | ["@nuxt/fonts", Exclude<NuxtConfig["fonts"], boolean>])[],
+    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["nuxt-auth-utils", Exclude<NuxtConfig["auth"], boolean>] | ["@vueuse/motion/nuxt", Exclude<NuxtConfig["motion"], boolean>] | ["@nuxt/image", Exclude<NuxtConfig["image"], boolean>] | ["@nuxtjs/color-mode", Exclude<NuxtConfig["colorMode"], boolean>] | ["@nuxt/ui", Exclude<NuxtConfig["ui"], boolean>] | ["nuxt-vitalizer", Exclude<NuxtConfig["vitalizer"], boolean>] | ["nuxt-google-auth", Exclude<NuxtConfig["googleAuth"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>] | ["@nuxt/icon", Exclude<NuxtConfig["icon"], boolean>] | ["@nuxt/fonts", Exclude<NuxtConfig["fonts"], boolean>])[],
   }
 }
 declare module 'nuxt/schema' {
@@ -106,6 +115,7 @@ declare module 'nuxt/schema' {
     ["@nuxtjs/color-mode"]?: ModuleDependencyMeta<typeof import("@nuxtjs/color-mode").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxt/ui"]?: ModuleDependencyMeta<typeof import("@nuxt/ui").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["nuxt-vitalizer"]?: ModuleDependencyMeta<typeof import("nuxt-vitalizer").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
+    ["nuxt-google-auth"]?: ModuleDependencyMeta<typeof import("nuxt-google-auth").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxt/devtools"]?: ModuleDependencyMeta<typeof import("@nuxt/devtools").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxt/telemetry"]?: ModuleDependencyMeta<typeof import("@nuxt/telemetry").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxt/icon"]?: ModuleDependencyMeta<typeof import("@nuxt/icon").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
@@ -142,6 +152,11 @@ declare module 'nuxt/schema' {
      * @see https://www.npmjs.com/package/nuxt-vitalizer
      */
     ["vitalizer"]: typeof import("nuxt-vitalizer").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
+    /**
+     * Configuration for `nuxt-google-auth`
+     * @see https://www.npmjs.com/package/nuxt-google-auth
+     */
+    ["googleAuth"]: typeof import("nuxt-google-auth").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
     /**
      * Configuration for `@nuxt/devtools`
      * @see https://www.npmjs.com/package/@nuxt/devtools
@@ -195,6 +210,11 @@ declare module 'nuxt/schema' {
      */
     ["vitalizer"]?: typeof import("nuxt-vitalizer").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
     /**
+     * Configuration for `nuxt-google-auth`
+     * @see https://www.npmjs.com/package/nuxt-google-auth
+     */
+    ["googleAuth"]?: typeof import("nuxt-google-auth").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
+    /**
      * Configuration for `@nuxt/devtools`
      * @see https://www.npmjs.com/package/@nuxt/devtools
      */
@@ -214,6 +234,6 @@ declare module 'nuxt/schema' {
      * @see https://www.npmjs.com/package/@nuxt/fonts
      */
     ["fonts"]?: typeof import("@nuxt/fonts").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
-    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["nuxt-auth-utils", Exclude<NuxtConfig["auth"], boolean>] | ["@vueuse/motion/nuxt", Exclude<NuxtConfig["motion"], boolean>] | ["@nuxt/image", Exclude<NuxtConfig["image"], boolean>] | ["@nuxtjs/color-mode", Exclude<NuxtConfig["colorMode"], boolean>] | ["@nuxt/ui", Exclude<NuxtConfig["ui"], boolean>] | ["nuxt-vitalizer", Exclude<NuxtConfig["vitalizer"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>] | ["@nuxt/icon", Exclude<NuxtConfig["icon"], boolean>] | ["@nuxt/fonts", Exclude<NuxtConfig["fonts"], boolean>])[],
+    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["nuxt-auth-utils", Exclude<NuxtConfig["auth"], boolean>] | ["@vueuse/motion/nuxt", Exclude<NuxtConfig["motion"], boolean>] | ["@nuxt/image", Exclude<NuxtConfig["image"], boolean>] | ["@nuxtjs/color-mode", Exclude<NuxtConfig["colorMode"], boolean>] | ["@nuxt/ui", Exclude<NuxtConfig["ui"], boolean>] | ["nuxt-vitalizer", Exclude<NuxtConfig["vitalizer"], boolean>] | ["nuxt-google-auth", Exclude<NuxtConfig["googleAuth"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>] | ["@nuxt/icon", Exclude<NuxtConfig["icon"], boolean>] | ["@nuxt/fonts", Exclude<NuxtConfig["fonts"], boolean>])[],
   }
 }

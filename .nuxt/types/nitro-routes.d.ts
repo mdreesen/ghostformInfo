@@ -3,6 +3,21 @@ import type { Serialize, Simplify } from "nitropack/types";
 declare module "nitropack/types" {
   type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
   interface InternalApi {
+    '/api/authentication/delete': {
+      'delete': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/authentication/delete.delete').default>>>>
+    }
+    '/api/authentication/forgot': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/authentication/forgot.post').default>>>>
+    }
+    '/api/authentication/login': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/authentication/login.post').default>>>>
+    }
+    '/api/authentication/reset': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/authentication/reset').default>>>>
+    }
+    '/api/authentication/signup': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/authentication/signup.post').default>>>>
+    }
     '/__nuxt_error': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxt/nitro-server/dist/runtime/handlers/renderer').default>>>>
     }
@@ -12,6 +27,9 @@ declare module "nitropack/types" {
     '/api/_auth/session': {
       'delete': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/nuxt-auth-utils/dist/runtime/server/api/session.delete').default>>>>
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/nuxt-auth-utils/dist/runtime/server/api/session.get').default>>>>
+    }
+    '/api/auth/google/verify': {
+      'POST': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/nuxt-google-auth/dist/runtime/server/api/auth/google.verify.post').default>>>>
     }
     '/api/_nuxt_icon/:collection': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxt/icon/dist/runtime/server/api').default>>>>

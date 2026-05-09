@@ -564,6 +564,14 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
    auth: {
       loadStrategy: string,
    },
+
+   googleAuth: {
+      clientId: string,
+
+      promptOneTap: boolean,
+
+      enableServerVerify: boolean,
+   },
   }
 declare module '@nuxt/schema' {
   interface RuntimeConfig extends UserRuntimeConfig {}

@@ -26,6 +26,7 @@
     "nuxt": "^4.2.2",
     "nuxt-auth-utils": "^0.5.25",
     "nuxt-charts": "^0.2.4",
+    "nuxt-google-auth": "^0.1.7",
     "nuxt-notify": "^1.1.4",
     "nuxt-vitalizer": "^2.0.0",
     "pinia": "^3.0.4",
