@@ -1,11 +1,6 @@
 <script setup lang="ts">
 // State for the form steps
 const step = ref(1);
-const name = ref('');
-
-const nextStep = () => {
-    if (step.value < 3) step.value++;
-};
 </script>
 
 <template>
@@ -39,12 +34,6 @@ const nextStep = () => {
             </div>
 
             <div class="relative group">
-                <!-- <div class="absolute -top-6 left-1/2 -translate-x-1/2 z-10 animate-bounce-slow"> -->
-                <!-- <img src="/ghost-logo.png" class="w-10 h-10 drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]" /> -->
-                <!-- <NuxtImg class="relative z-10 h-20 w-full object-contain drop-shadow-md" :src="'/images/logo-icon.webp'" format="webp"
-                    preload loading="eager" fetch-priority="high" /> -->
-                <!-- </div> -->
-
                 <appDemo />
             </div>
 
