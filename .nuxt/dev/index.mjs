@@ -4238,23 +4238,6 @@ const reset$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   default: reset
 }, Symbol.toStringTag, { value: 'Module' }));
 
-function settings() {
-  return [
-    { setting: "showAffirmations", title: "Show Affirmations", value: true },
-    { setting: "showBible", title: "Show Bible", value: true },
-    { setting: "showBooks", title: "Show Books", value: true },
-    { setting: "showColdSoak", title: "Show Cold Soak", value: true },
-    { setting: "showFasting", title: "Show Fasting", value: true },
-    { setting: "showGratitudes", title: "Show Gratitudes", value: true },
-    { setting: "showHabits", title: "Show Habits", value: true },
-    { setting: "showJournal", title: "Show Journal", value: true },
-    { setting: "showWaterIntake", title: "Show Hydration", value: true },
-    { setting: "showWeight", title: "Show Weight", value: true },
-    { setting: "showWorkout", title: "Show Workout", value: true },
-    { setting: "darkMode", title: "Dark Mode", value: false }
-  ];
-}
-
 const User = User$6;
 const bodySchema = z.object({
   email: z.email(),
@@ -4275,8 +4258,8 @@ const signup_post = defineEventHandler(async (event) => {
     const registerUser = new User({
       email: email.toLowerCase().trim(),
       password: hashedPassword,
-      privacy_policy,
-      settings: settings()
+      privacy_policy
+      // settings: settings()
     });
     await registerUser.save();
   } catch (error) {
