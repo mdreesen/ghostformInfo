@@ -32,7 +32,7 @@ async function login() {
       await navigateTo('/dashboard');
     })
     .catch(async (error) => {
-      // toast.error("Log in failed", 'Try again');
+      toast.error("Log in failed", 'Try again');
       console.log(error);
       errorMessage.value = error.statusMessage;
       isLoading.value = false;
@@ -78,7 +78,7 @@ useMotion(formRef, { ...formVarient() });
 
 <template>
   <div
-    class="min-h-screen bg-[#0a0a0c] text-white font-sans flex items-center justify-center p-6 relative overflow-hidden">
+    class="flex items-center justify-center py-20 relative overflow-hidden">
 
     <main class="w-full max-w-110 z-10">
       <div class="backdrop-blur-xl bg-white/3 border border-white/8 rounded-3xl p-10 shadow-2xl">

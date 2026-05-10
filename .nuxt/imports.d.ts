@@ -49,5 +49,5 @@ export { useOverlay } from '../node_modules/@nuxt/ui/dist/runtime/composables/us
 export { useResizable } from '../node_modules/@nuxt/ui/dist/runtime/composables/useResizable';
 export { useScrollShadow } from '../node_modules/@nuxt/ui/dist/runtime/composables/useScrollShadow';
 export { useScrollspy } from '../node_modules/@nuxt/ui/dist/runtime/composables/useScrollspy';
-export { useToast } from '../node_modules/@nuxt/ui/dist/runtime/composables/useToast';
+export { useToast } from '../node_modules/nuxt-notify/dist/runtime/composables/useToast';
 export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';

@@ -205,7 +205,7 @@ declare global {
   const useSpring: typeof import('../../node_modules/@vueuse/motion/dist/nuxt/runtime/composables/index').useSpring
   const useState: typeof import('../../node_modules/nuxt/dist/app/composables/state').useState
   const useTemplateRef: typeof import('vue').useTemplateRef
-  const useToast: typeof import('../../node_modules/@nuxt/ui/dist/runtime/composables/useToast').useToast
+  const useToast: typeof import('../../node_modules/nuxt-notify/dist/runtime/composables/useToast').useToast
   const useTransitionState: typeof import('vue').useTransitionState
   const useUserSession: typeof import('../../node_modules/nuxt-auth-utils/dist/runtime/app/composables/session').useUserSession
   const watch: typeof import('vue').watch
@@ -437,7 +437,7 @@ declare module 'vue' {
     readonly useSpring: UnwrapRef<typeof import('../../node_modules/@vueuse/motion/dist/nuxt/runtime/composables/index')['useSpring']>
     readonly useState: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/state')['useState']>
     readonly useTemplateRef: UnwrapRef<typeof import('vue')['useTemplateRef']>
-    readonly useToast: UnwrapRef<typeof import('../../node_modules/@nuxt/ui/dist/runtime/composables/useToast')['useToast']>
+    readonly useToast: UnwrapRef<typeof import('../../node_modules/nuxt-notify/dist/runtime/composables/useToast')['useToast']>
     readonly useTransitionState: UnwrapRef<typeof import('vue')['useTransitionState']>
     readonly useUserSession: UnwrapRef<typeof import('../../node_modules/nuxt-auth-utils/dist/runtime/app/composables/session')['useUserSession']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>

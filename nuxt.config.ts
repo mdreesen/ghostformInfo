@@ -12,7 +12,8 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/ui',
     'nuxt-vitalizer',
-    'nuxt-google-auth'
+    'nuxt-google-auth',
+    'nuxt-notify',
   ],
 
   googleAuth: {
@@ -36,6 +37,13 @@ export default defineNuxtConfig({
       ]
     }
   },
+  notify: {
+    position: "top-right",
+    duration: 5000,
+    maxToasts: 5,
+    theme: "system",
+    showIcon: true,
+  },
   vite: {
     plugins: [
       tailwindcss()
@@ -45,6 +53,8 @@ export default defineNuxtConfig({
         'vue-chrts',
         '@vue/devtools-core',
         '@vue/devtools-kit',
+        'date-fns',
+        'lucide-vue-next',
       ]
     }
   },

@@ -572,6 +572,18 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
 
       enableServerVerify: boolean,
    },
+
+   notify: {
+      position: string,
+
+      duration: number,
+
+      maxToasts: number,
+
+      theme: string,
+
+      showIcon: boolean,
+   },
   }
 declare module '@nuxt/schema' {
   interface RuntimeConfig extends UserRuntimeConfig {}

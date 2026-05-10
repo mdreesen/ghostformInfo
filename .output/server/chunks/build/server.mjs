@@ -1,15 +1,16 @@
-import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineComponent, computed, h, hasInjectionContext, inject, shallowRef, resolveComponent, onServerPrefetch, useAttrs, ref, mergeProps, unref, getCurrentInstance, defineAsyncComponent, useSlots, Fragment, toRefs, Comment, cloneVNode, createElementBlock, provide, toValue, useSSRContext, shallowReactive, Suspense, createApp, reactive, toRaw, watch, nextTick, useModel, withCtx, renderSlot, createVNode, openBlock, createBlock, createTextVNode, toDisplayString, createCommentVNode, mergeModels, resolveDynamicComponent, toRef as toRef$1, renderList, useId, onErrorCaptured, effectScope, camelize, useTemplateRef, withModifiers, normalizeProps, guardReactiveProps, watchEffect, normalizeStyle, getCurrentScope, isRef, markRaw, Teleport, shallowReadonly, toHandlerKey, onScopeDispose, readonly, isReadonly, isShallow, isReactive, customRef } from 'vue';
-import { s as serialize, k as parseQuery, l as klona, m as hasProtocol, j as joinURL, n as parseURL, o as encodePath, q as decodePath, r as defuFn, w as withQuery, t as isScriptProtocol, v as getContext, x as withTrailingSlash, y as withoutTrailingSlash, z as sanitizeStatusCode, A as defu, B as withLeadingSlash, $ as $fetch$1, C as baseURL, D as createHooks, e as createError$1, E as encodeParam, F as isEqual, G as executeAsync, H as appendResponseHeader } from '../nitro/nitro.mjs';
+import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineComponent, openBlock, createBlock, unref, withCtx, renderSlot, computed, getCurrentScope, onScopeDispose, h, inject, useSlots, ref, mergeProps, createCommentVNode, toDisplayString, createVNode, shallowRef, getCurrentInstance, provide, cloneVNode, createElementBlock, hasInjectionContext, resolveComponent, toRef as toRef$1, isRef, onServerPrefetch, reactive, watch, camelize, toHandlerKey, toValue, resolveDynamicComponent, useAttrs, Comment, toRefs, useModel, createTextVNode, mergeModels, Fragment, defineAsyncComponent, useSSRContext, shallowReactive, Suspense, createApp, toRaw, readonly, customRef, nextTick, renderList, useId, onErrorCaptured, effectScope, useTemplateRef, withModifiers, normalizeProps, guardReactiveProps, watchEffect, normalizeStyle, markRaw, Teleport, shallowReadonly, isReadonly, isShallow, isReactive } from 'vue';
+import { m as serialize, n as klona, o as defu, q as parseQuery, t as appendResponseHeader, v as defuFn, w as hasProtocol, k as joinURL, x as parseURL, y as encodePath, z as decodePath, A as isEqual, B as withQuery, C as isScriptProtocol, D as getContext, E as withTrailingSlash, F as withoutTrailingSlash, G as sanitizeStatusCode, H as withLeadingSlash, $ as $fetch$1, I as baseURL, J as hash, K as createHooks, c as createError$1, L as encodeParam, M as executeAsync } from '../nitro/nitro.mjs';
 import { useRoute as useRoute$1, RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import { Icon, getIcon, loadIcon as loadIcon$1, _api, addAPIProvider, setCustomIconsLoader } from '@iconify/vue';
+import { debounce } from 'perfect-debounce';
+import { isPlainObject } from '@vue/shared';
 import colors from 'tailwindcss/colors';
 import sync, { getFrameData } from 'framesync';
 import { inertia, animate, velocityPerSecond, cubicBezier, bounceOut, bounceInOut, bounceIn, anticipate, backOut, backInOut, backIn, circOut, circInOut, circIn, easeOut, easeInOut, easeIn, linear } from 'popmotion';
-import { number, complex, alpha, filter, px, progressPercentage, degrees, scale, color } from 'style-value-types';
-import { ssrRenderAttrs, ssrRenderSlot, ssrRenderComponent, ssrRenderClass, ssrInterpolate, ssrRenderVNode, ssrRenderList, ssrRenderSuspense, ssrRenderStyle } from 'vue/server-renderer';
+import { complex, number, alpha, filter, px, progressPercentage, degrees, scale, color } from 'style-value-types';
+import { ssrRenderComponent, ssrRenderSlot, ssrRenderClass, ssrInterpolate, ssrRenderVNode, ssrRenderAttrs, ssrRenderList, ssrRenderSuspense, ssrRenderStyle } from 'vue/server-renderer';
 import { createTV } from 'tailwind-variants';
 import { getIconCSS } from '@iconify/utils/lib/css/icon';
-import { debounce } from 'perfect-debounce';
 import { u as useHead$1, h as headSymbol, a as useSeoMeta$1 } from '../routes/renderer.mjs';
 import 'node:http';
 import 'node:https';
@@ -19,6 +20,7 @@ import 'node:buffer';
 import 'node:fs';
 import 'node:path';
 import 'node:url';
+import 'jose';
 import '@iconify/utils';
 import 'consola';
 import 'ipx';
@@ -127,6 +129,7 @@ if (!("global" in globalThis)) {
 const appLayoutTransition = false;
 const nuxtLinkDefaults = { "componentName": "NuxtLink" };
 const asyncDataDefaults = { "deep": false };
+const fetchDefaults = {};
 const appId = "nuxt-app";
 function getNuxtAppCtx(id = appId) {
   return getContext(id, {
@@ -505,16 +508,67 @@ function getRouteRules(arg) {
     return {};
   }
 }
+const __nuxt_page_meta$2 = {
+  layout: "authenticated"
+};
+const __nuxt_page_meta$1 = {
+  layout: "authenticated"
+};
+const __nuxt_page_meta = null;
 const _routes = [
+  {
+    name: "dashboard-profile",
+    path: "/dashboard/profile",
+    meta: __nuxt_page_meta$2 || {},
+    component: () => import('./index-DMR-oMcK.mjs')
+  },
+  {
+    name: "dashboard",
+    path: "/dashboard",
+    meta: __nuxt_page_meta$1 || {},
+    component: () => import('./index-CLbIU-lC.mjs')
+  },
   {
     name: "demo",
     path: "/demo",
-    component: () => import('./demo-BVXTdIVN.mjs')
+    component: () => import('./demo-DvLB0UVS.mjs')
   },
   {
-    name: "index",
+    name: "forgotpassword",
+    path: "/forgotpassword",
+    meta: { "groups": ["authentication"] },
+    component: () => import('./forgotpassword-B67HC2gn.mjs')
+  },
+  {
+    name: "login",
+    path: "/login",
+    meta: { "groups": ["authentication"] },
+    component: () => import('./login-BU3soqDc.mjs')
+  },
+  {
+    name: "signup",
+    path: "/signup",
+    meta: { "groups": ["authentication"] },
+    component: () => import('./signup-BbTEKZ_e.mjs')
+  },
+  {
+    name: "id-resetpassword",
+    path: "/:id()/resetpassword",
+    meta: { "groups": ["authentication"] },
+    component: () => import('./resetpassword-DMTNHJtm.mjs')
+  },
+  {
+    name: __nuxt_page_meta?.name,
     path: "/",
-    component: () => import('./index-BX0C-_AY.mjs')
+    component: () => import('./index-yy0XmkWM.mjs'),
+    children: [
+      {
+        name: "index",
+        path: "",
+        meta: { "groups": ["authentication"] },
+        component: () => import('./index-DajJxBUG.mjs')
+      }
+    ]
   }
 ];
 const _wrapInTransition = (props, children) => {
@@ -1351,8 +1405,10 @@ const plugin_MeUvTuoKUi51yb_kBguab6hdcExVXeTtZtTg9TZZBB8 = /* @__PURE__ */ defin
   // For type portability
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 });
+const LazyToastContainer = defineAsyncComponent(() => import('./ToastContainer-CLSo5RWx.mjs').then((r) => r["default"] || r.default || r));
 const LazyIcon = defineAsyncComponent(() => Promise.resolve().then(() => index).then((r) => r["default"] || r.default || r));
 const lazyGlobalComponents = [
+  ["ToastContainer", LazyToastContainer],
   ["Icon", LazyIcon]
 ];
 const components_plugin_4kY4pyzJIYX99vmMAAIorFf3CnAaptHitJgf7JxiED8 = /* @__PURE__ */ defineNuxtPlugin({
@@ -1363,6 +1419,1004 @@ const components_plugin_4kY4pyzJIYX99vmMAAIorFf3CnAaptHitJgf7JxiED8 = /* @__PURE
       nuxtApp.vueApp.component("Lazy" + name, component);
     }
   }
+});
+defineComponent({
+  name: "ServerPlaceholder",
+  render() {
+    return createElementBlock("div");
+  }
+});
+const clientOnlySymbol = /* @__PURE__ */ Symbol.for("nuxt:client-only");
+const __nuxt_component_5 = defineComponent({
+  name: "ClientOnly",
+  inheritAttrs: false,
+  props: ["fallback", "placeholder", "placeholderTag", "fallbackTag"],
+  ...false,
+  setup(props, { slots, attrs }) {
+    const mounted = shallowRef(false);
+    const vm = getCurrentInstance();
+    if (vm) {
+      vm._nuxtClientOnly = true;
+    }
+    provide(clientOnlySymbol, true);
+    return () => {
+      if (mounted.value) {
+        const vnodes = slots.default?.();
+        if (vnodes && vnodes.length === 1) {
+          return [cloneVNode(vnodes[0], attrs)];
+        }
+        return vnodes;
+      }
+      const slot = slots.fallback || slots.placeholder;
+      if (slot) {
+        return h(slot);
+      }
+      const fallbackStr = props.fallback || props.placeholder || "";
+      const fallbackTag = props.fallbackTag || props.placeholderTag || "span";
+      return createElementBlock(fallbackTag, attrs, fallbackStr);
+    };
+  }
+});
+function defineKeyedFunctionFactory(factory) {
+  const placeholder = function() {
+    throw new Error(`[nuxt] \`${factory.name}\` is a compiler macro and cannot be called at runtime.`);
+  };
+  return Object.defineProperty(placeholder, "__nuxt_factory", {
+    enumerable: false,
+    get: () => factory.factory
+  });
+}
+const createUseAsyncData = defineKeyedFunctionFactory({
+  name: "createUseAsyncData",
+  factory(options = {}) {
+    function useAsyncData2(...args) {
+      const autoKey = typeof args[args.length - 1] === "string" ? args.pop() : void 0;
+      if (_isAutoKeyNeeded(args[0], args[1])) {
+        args.unshift(autoKey);
+      }
+      let [_key, _handler, opts = {}] = args;
+      const key = computed(() => toValue(_key));
+      if (typeof key.value !== "string") {
+        throw new TypeError("[nuxt] [useAsyncData] key must be a string.");
+      }
+      if (typeof _handler !== "function") {
+        throw new TypeError("[nuxt] [useAsyncData] handler must be a function.");
+      }
+      const shouldFactoryOptionsOverride = typeof options === "function";
+      const nuxtApp = useNuxtApp();
+      const factoryOptions = shouldFactoryOptionsOverride ? options(opts) : options;
+      if (!shouldFactoryOptionsOverride) {
+        for (const key2 in factoryOptions) {
+          if (factoryOptions[key2] === void 0) {
+            continue;
+          }
+          if (opts[key2] !== void 0) {
+            continue;
+          }
+          opts[key2] = factoryOptions[key2];
+        }
+      }
+      opts.server ??= true;
+      opts.default ??= getDefault;
+      opts.getCachedData ??= getDefaultCachedData;
+      opts.lazy ??= false;
+      opts.immediate ??= true;
+      opts.deep ??= asyncDataDefaults.deep;
+      opts.dedupe ??= "cancel";
+      if (shouldFactoryOptionsOverride) {
+        for (const key2 in factoryOptions) {
+          if (factoryOptions[key2] === void 0) {
+            continue;
+          }
+          opts[key2] = factoryOptions[key2];
+        }
+      }
+      nuxtApp._asyncData[key.value];
+      function createInitialFetch() {
+        const initialFetchOptions = { cause: "initial", dedupe: opts.dedupe };
+        if (!nuxtApp._asyncData[key.value]?._init) {
+          initialFetchOptions.cachedData = opts.getCachedData(key.value, nuxtApp, { cause: "initial" });
+          nuxtApp._asyncData[key.value] = buildAsyncData(nuxtApp, key.value, _handler, opts, initialFetchOptions.cachedData);
+        }
+        return () => nuxtApp._asyncData[key.value].execute(initialFetchOptions);
+      }
+      const initialFetch = createInitialFetch();
+      const asyncData = nuxtApp._asyncData[key.value];
+      asyncData._deps++;
+      const fetchOnServer = opts.server !== false && nuxtApp.payload.serverRendered;
+      if (fetchOnServer && opts.immediate) {
+        const promise = initialFetch();
+        if (getCurrentInstance()) {
+          onServerPrefetch(() => promise);
+        } else {
+          nuxtApp.hook("app:created", async () => {
+            await promise;
+          });
+        }
+      }
+      const asyncReturn = {
+        data: writableComputedRef(() => nuxtApp._asyncData[key.value]?.data),
+        pending: writableComputedRef(() => nuxtApp._asyncData[key.value]?.pending),
+        status: writableComputedRef(() => nuxtApp._asyncData[key.value]?.status),
+        error: writableComputedRef(() => nuxtApp._asyncData[key.value]?.error),
+        refresh: (...args2) => {
+          if (!nuxtApp._asyncData[key.value]?._init) {
+            const initialFetch2 = createInitialFetch();
+            return initialFetch2();
+          }
+          return nuxtApp._asyncData[key.value].execute(...args2);
+        },
+        execute: (...args2) => asyncReturn.refresh(...args2),
+        clear: () => {
+          const entry2 = nuxtApp._asyncData[key.value];
+          if (entry2?._abortController) {
+            try {
+              entry2._abortController.abort(new DOMException("AsyncData aborted by user.", "AbortError"));
+            } finally {
+              entry2._abortController = void 0;
+            }
+          }
+          clearNuxtDataByKey(nuxtApp, key.value);
+        }
+      };
+      const asyncDataPromise = Promise.resolve(nuxtApp._asyncDataPromises[key.value]).then(() => asyncReturn);
+      Object.assign(asyncDataPromise, asyncReturn);
+      Object.defineProperties(asyncDataPromise, {
+        then: { enumerable: true, value: asyncDataPromise.then.bind(asyncDataPromise) },
+        catch: { enumerable: true, value: asyncDataPromise.catch.bind(asyncDataPromise) },
+        finally: { enumerable: true, value: asyncDataPromise.finally.bind(asyncDataPromise) }
+      });
+      return asyncDataPromise;
+    }
+    return useAsyncData2;
+  }
+});
+const useAsyncData = createUseAsyncData.__nuxt_factory();
+createUseAsyncData.__nuxt_factory({
+  lazy: true,
+  // @ts-expect-error private property
+  _functionName: "useLazyAsyncData"
+});
+function writableComputedRef(getter) {
+  return computed({
+    get() {
+      return getter()?.value;
+    },
+    set(value) {
+      const ref2 = getter();
+      if (ref2) {
+        ref2.value = value;
+      }
+    }
+  });
+}
+function _isAutoKeyNeeded(keyOrFetcher, fetcher) {
+  if (typeof keyOrFetcher === "string") {
+    return false;
+  }
+  if (typeof keyOrFetcher === "object" && keyOrFetcher !== null) {
+    return false;
+  }
+  if (typeof keyOrFetcher === "function" && typeof fetcher === "function") {
+    return false;
+  }
+  return true;
+}
+function useNuxtData(key) {
+  const nuxtApp = useNuxtApp();
+  if (!(key in nuxtApp.payload.data)) {
+    nuxtApp.payload.data[key] = void 0;
+  }
+  if (nuxtApp._asyncData[key]) {
+    const data = nuxtApp._asyncData[key];
+    data._deps++;
+    if (getCurrentScope()) {
+      onScopeDispose(() => {
+        data._deps--;
+        if (data._deps === 0) {
+          data?._off();
+        }
+      });
+    }
+  }
+  return {
+    data: computed({
+      get() {
+        return nuxtApp._asyncData[key]?.data.value ?? nuxtApp.payload.data[key];
+      },
+      set(value) {
+        if (nuxtApp._asyncData[key]) {
+          nuxtApp._asyncData[key].data.value = value;
+        } else {
+          nuxtApp.payload.data[key] = value;
+        }
+      }
+    })
+  };
+}
+function clearNuxtDataByKey(nuxtApp, key) {
+  if (key in nuxtApp.payload.data) {
+    nuxtApp.payload.data[key] = void 0;
+  }
+  if (key in nuxtApp.payload._errors) {
+    nuxtApp.payload._errors[key] = void 0;
+  }
+  if (nuxtApp._asyncData[key]) {
+    nuxtApp._asyncData[key].data.value = unref(nuxtApp._asyncData[key]._default());
+    nuxtApp._asyncData[key].error.value = void 0;
+    nuxtApp._asyncData[key].status.value = "idle";
+  }
+  if (key in nuxtApp._asyncDataPromises) {
+    nuxtApp._asyncDataPromises[key] = void 0;
+  }
+}
+function pick(obj, keys) {
+  const newObj = {};
+  for (const key of keys) {
+    newObj[key] = obj[key];
+  }
+  return newObj;
+}
+function buildAsyncData(nuxtApp, key, _handler, options, initialCachedData) {
+  nuxtApp.payload._errors[key] ??= void 0;
+  const hasCustomGetCachedData = options.getCachedData !== getDefaultCachedData;
+  const handler = _handler ;
+  const _ref = options.deep ? ref : shallowRef;
+  const hasCachedData = initialCachedData !== void 0;
+  const unsubRefreshAsyncData = nuxtApp.hook("app:data:refresh", async (keys) => {
+    if (!keys || keys.includes(key)) {
+      await asyncData.execute({ cause: "refresh:hook" });
+    }
+  });
+  const asyncData = {
+    data: _ref(hasCachedData ? initialCachedData : options.default()),
+    pending: computed(() => asyncData.status.value === "pending"),
+    error: toRef$1(nuxtApp.payload._errors, key),
+    status: shallowRef("idle"),
+    execute: (...args) => {
+      const [_opts, newValue = void 0] = args;
+      const opts = _opts && newValue === void 0 && typeof _opts === "object" ? _opts : {};
+      if (nuxtApp._asyncDataPromises[key]) {
+        if ((opts.dedupe ?? options.dedupe) === "defer") {
+          return nuxtApp._asyncDataPromises[key];
+        }
+      }
+      {
+        const cachedData = "cachedData" in opts ? opts.cachedData : options.getCachedData(key, nuxtApp, { cause: opts.cause ?? "refresh:manual" });
+        if (cachedData !== void 0) {
+          nuxtApp.payload.data[key] = asyncData.data.value = cachedData;
+          asyncData.error.value = void 0;
+          asyncData.status.value = "success";
+          return Promise.resolve(cachedData);
+        }
+      }
+      if (asyncData._abortController) {
+        asyncData._abortController.abort(new DOMException("AsyncData request cancelled by deduplication", "AbortError"));
+      }
+      asyncData._abortController = new AbortController();
+      asyncData.status.value = "pending";
+      const cleanupController = new AbortController();
+      const promise = new Promise(
+        (resolve, reject) => {
+          try {
+            const timeout = opts.timeout ?? options.timeout;
+            const mergedSignal = mergeAbortSignals([asyncData._abortController?.signal, opts?.signal], cleanupController.signal, timeout);
+            if (mergedSignal.aborted) {
+              const reason = mergedSignal.reason;
+              reject(reason instanceof Error ? reason : new DOMException(String(reason ?? "Aborted"), "AbortError"));
+              return;
+            }
+            mergedSignal.addEventListener("abort", () => {
+              const reason = mergedSignal.reason;
+              reject(reason instanceof Error ? reason : new DOMException(String(reason ?? "Aborted"), "AbortError"));
+            }, { once: true, signal: cleanupController.signal });
+            return Promise.resolve(handler(nuxtApp, { signal: mergedSignal })).then(resolve, reject);
+          } catch (err) {
+            reject(err);
+          }
+        }
+      ).then(async (_result) => {
+        let result = _result;
+        if (options.transform) {
+          result = await options.transform(_result);
+        }
+        if (options.pick) {
+          result = pick(result, options.pick);
+        }
+        nuxtApp.payload.data[key] = result;
+        asyncData.data.value = result;
+        asyncData.error.value = void 0;
+        asyncData.status.value = "success";
+      }).catch((error) => {
+        if (nuxtApp._asyncDataPromises[key] && nuxtApp._asyncDataPromises[key] !== promise) {
+          return nuxtApp._asyncDataPromises[key];
+        }
+        if (asyncData._abortController?.signal.aborted) {
+          return nuxtApp._asyncDataPromises[key];
+        }
+        if (typeof DOMException !== "undefined" && error instanceof DOMException && error.name === "AbortError") {
+          asyncData.status.value = "idle";
+          return nuxtApp._asyncDataPromises[key];
+        }
+        asyncData.error.value = createError(error);
+        asyncData.data.value = unref(options.default());
+        asyncData.status.value = "error";
+      }).finally(() => {
+        cleanupController.abort();
+        delete nuxtApp._asyncDataPromises[key];
+      });
+      nuxtApp._asyncDataPromises[key] = promise;
+      return nuxtApp._asyncDataPromises[key];
+    },
+    _execute: debounce((...args) => asyncData.execute(...args), 0, { leading: true }),
+    _default: options.default,
+    _deps: 0,
+    _init: true,
+    _hash: void 0,
+    _off: () => {
+      unsubRefreshAsyncData();
+      if (nuxtApp._asyncData[key]?._init) {
+        nuxtApp._asyncData[key]._init = false;
+      }
+      if (!hasCustomGetCachedData) {
+        nextTick(() => {
+          if (!nuxtApp._asyncData[key]?._init) {
+            clearNuxtDataByKey(nuxtApp, key);
+            asyncData.execute = () => Promise.resolve();
+          }
+        });
+      }
+    }
+  };
+  return asyncData;
+}
+const getDefault = () => void 0;
+const getDefaultCachedData = (key, nuxtApp, ctx) => {
+  if (nuxtApp.isHydrating) {
+    return nuxtApp.payload.data[key];
+  }
+  if (ctx.cause !== "refresh:manual" && ctx.cause !== "refresh:hook") {
+    return nuxtApp.static.data[key];
+  }
+};
+function mergeAbortSignals(signals, cleanupSignal, timeout) {
+  const list = signals.filter((s) => !!s);
+  if (typeof timeout === "number" && timeout >= 0) {
+    const timeoutSignal = AbortSignal.timeout?.(timeout);
+    if (timeoutSignal) {
+      list.push(timeoutSignal);
+    }
+  }
+  if (AbortSignal.any) {
+    return AbortSignal.any(list);
+  }
+  const controller = new AbortController();
+  for (const sig of list) {
+    if (sig.aborted) {
+      const reason = sig.reason ?? new DOMException("Aborted", "AbortError");
+      try {
+        controller.abort(reason);
+      } catch {
+        controller.abort();
+      }
+      return controller.signal;
+    }
+  }
+  const onAbort = () => {
+    const abortedSignal = list.find((s) => s.aborted);
+    const reason = abortedSignal?.reason ?? new DOMException("Aborted", "AbortError");
+    try {
+      controller.abort(reason);
+    } catch {
+      controller.abort();
+    }
+  };
+  for (const sig of list) {
+    sig.addEventListener?.("abort", onAbort, { once: true, signal: cleanupSignal });
+  }
+  return controller.signal;
+}
+function generateOptionSegments(opts) {
+  const segments = [
+    toValue(opts.method)?.toUpperCase() || "GET",
+    toValue(opts.baseURL)
+  ];
+  for (const _obj of [opts.query || opts.params]) {
+    const obj = toValue(_obj);
+    if (!obj) {
+      continue;
+    }
+    const unwrapped = {};
+    for (const [key, value] of Object.entries(obj)) {
+      unwrapped[toValue(key)] = toValue(value);
+    }
+    segments.push(unwrapped);
+  }
+  if (opts.body) {
+    const value = toValue(opts.body);
+    if (!value) {
+      segments.push(hash(value));
+    } else if (value instanceof ArrayBuffer) {
+      segments.push(hash(Object.fromEntries([...new Uint8Array(value).entries()].map(([k, v]) => [k, v.toString()]))));
+    } else if (value instanceof FormData) {
+      const obj = {};
+      for (const entry2 of value.entries()) {
+        const [key, val] = entry2;
+        obj[key] = val instanceof File ? val.name : val;
+      }
+      segments.push(hash(obj));
+    } else if (isPlainObject(value)) {
+      segments.push(hash(reactive(value)));
+    } else {
+      try {
+        segments.push(hash(value));
+      } catch {
+        console.warn("[useFetch] Failed to hash body", value);
+      }
+    }
+  }
+  return segments;
+}
+const createUseFetch = defineKeyedFunctionFactory({
+  name: "createUseFetch",
+  factory(options = {}) {
+    function useFetch2(request, arg1, arg2) {
+      const [opts = {}, autoKey] = typeof arg1 === "string" ? [{}, arg1] : [arg1, arg2];
+      const _request = computed(() => toValue(request));
+      const key = computed(() => toValue(opts.key) || "$f" + hash([autoKey, typeof _request.value === "string" ? _request.value : "", ...generateOptionSegments(opts)]));
+      if (!opts.baseURL && typeof _request.value === "string" && (_request.value[0] === "/" && _request.value[1] === "/")) {
+        throw new Error('[nuxt] [useFetch] the request URL must not start with "//".');
+      }
+      const factoryOptions = typeof options === "function" ? options(opts) : options;
+      const {
+        server,
+        lazy,
+        default: defaultFn,
+        transform,
+        pick: pick2,
+        watch: watchSources,
+        immediate,
+        getCachedData,
+        deep,
+        dedupe,
+        timeout,
+        ...fetchOptions
+      } = {
+        ...typeof options === "function" ? {} : factoryOptions,
+        ...opts,
+        ...typeof options === "function" ? factoryOptions : {}
+      };
+      const _fetchOptions = reactive({
+        ...fetchDefaults,
+        ...fetchOptions,
+        cache: typeof fetchOptions.cache === "boolean" ? void 0 : fetchOptions.cache
+      });
+      const _asyncDataOptions = {
+        server,
+        lazy,
+        default: defaultFn,
+        transform,
+        pick: pick2,
+        immediate,
+        getCachedData,
+        deep,
+        dedupe,
+        timeout,
+        watch: watchSources === false ? [] : [...watchSources || [], _fetchOptions]
+      };
+      const asyncData = useAsyncData(watchSources === false ? key.value : key, (_, { signal }) => {
+        let _$fetch = opts.$fetch || globalThis.$fetch;
+        if (!opts.$fetch) {
+          const isLocalFetch = typeof _request.value === "string" && _request.value[0] === "/" && (!toValue(opts.baseURL) || toValue(opts.baseURL)[0] === "/");
+          if (isLocalFetch) {
+            _$fetch = useRequestFetch();
+          }
+        }
+        return _$fetch(_request.value, { signal, ..._fetchOptions });
+      }, _asyncDataOptions);
+      return asyncData;
+    }
+    return useFetch2;
+  }
+});
+createUseFetch.__nuxt_factory();
+createUseFetch.__nuxt_factory({
+  lazy: true,
+  // @ts-expect-error private property
+  _functionName: "useLazyFetch"
+});
+const firstNonUndefined = (...args) => args.find((arg) => arg !== void 0);
+// @__NO_SIDE_EFFECTS__
+function defineNuxtLink(options) {
+  const componentName = options.componentName || "NuxtLink";
+  function isHashLinkWithoutHashMode(link) {
+    return typeof link === "string" && link.startsWith("#");
+  }
+  function resolveTrailingSlashBehavior(to, resolve, trailingSlash) {
+    const effectiveTrailingSlash = trailingSlash ?? options.trailingSlash;
+    if (!to || effectiveTrailingSlash !== "append" && effectiveTrailingSlash !== "remove") {
+      return to;
+    }
+    if (typeof to === "string") {
+      return applyTrailingSlashBehavior(to, effectiveTrailingSlash);
+    }
+    const path = "path" in to && to.path !== void 0 ? to.path : resolve(to).path;
+    const resolvedPath = {
+      ...to,
+      name: void 0,
+      // named routes would otherwise always override trailing slash behavior
+      path: applyTrailingSlashBehavior(path, effectiveTrailingSlash)
+    };
+    return resolvedPath;
+  }
+  function useNuxtLink(props) {
+    const router = useRouter();
+    const config = /* @__PURE__ */ useRuntimeConfig();
+    const hasTarget = computed(() => !!unref(props.target) && unref(props.target) !== "_self");
+    const isAbsoluteUrl = computed(() => {
+      const path = unref(props.to) || unref(props.href) || "";
+      return typeof path === "string" && hasProtocol(path, { acceptRelative: true });
+    });
+    const builtinRouterLink = resolveComponent("RouterLink");
+    const useBuiltinLink = builtinRouterLink && typeof builtinRouterLink !== "string" ? builtinRouterLink.useLink : void 0;
+    const isExternal = computed(() => {
+      if (unref(props.external)) {
+        return true;
+      }
+      const path = unref(props.to) || unref(props.href) || "";
+      if (typeof path === "object") {
+        return false;
+      }
+      return path === "" || isAbsoluteUrl.value;
+    });
+    const to = computed(() => {
+      const path = unref(props.to) || unref(props.href) || "";
+      if (isExternal.value) {
+        return path;
+      }
+      return resolveTrailingSlashBehavior(path, router.resolve, unref(props.trailingSlash));
+    });
+    const link = isExternal.value ? void 0 : useBuiltinLink?.({ ...props, to, viewTransition: unref(props.viewTransition) });
+    const href = computed(() => {
+      const effectiveTrailingSlash = unref(props.trailingSlash) ?? options.trailingSlash;
+      if (!to.value || isAbsoluteUrl.value || isHashLinkWithoutHashMode(to.value)) {
+        return to.value;
+      }
+      if (isExternal.value) {
+        const path = typeof to.value === "object" && "path" in to.value ? resolveRouteObject(to.value) : to.value;
+        const href2 = typeof path === "object" ? router.resolve(path).href : path;
+        return applyTrailingSlashBehavior(href2, effectiveTrailingSlash);
+      }
+      if (typeof to.value === "object") {
+        return router.resolve(to.value)?.href ?? null;
+      }
+      return applyTrailingSlashBehavior(joinURL(config.app.baseURL, to.value), effectiveTrailingSlash);
+    });
+    return {
+      to,
+      hasTarget,
+      isAbsoluteUrl,
+      isExternal,
+      //
+      href,
+      isActive: link?.isActive ?? computed(() => to.value === router.currentRoute.value.path),
+      isExactActive: link?.isExactActive ?? computed(() => to.value === router.currentRoute.value.path),
+      route: link?.route ?? computed(() => router.resolve(to.value)),
+      async navigate(_e) {
+        await navigateTo(href.value, { replace: unref(props.replace), external: isExternal.value || hasTarget.value });
+      }
+    };
+  }
+  return defineComponent({
+    name: componentName,
+    props: {
+      // Routing
+      to: {
+        type: [String, Object],
+        default: void 0,
+        required: false
+      },
+      href: {
+        type: [String, Object],
+        default: void 0,
+        required: false
+      },
+      // Attributes
+      target: {
+        type: String,
+        default: void 0,
+        required: false
+      },
+      rel: {
+        type: String,
+        default: void 0,
+        required: false
+      },
+      noRel: {
+        type: Boolean,
+        default: void 0,
+        required: false
+      },
+      // Prefetching
+      prefetch: {
+        type: Boolean,
+        default: void 0,
+        required: false
+      },
+      prefetchOn: {
+        type: [String, Object],
+        default: void 0,
+        required: false
+      },
+      noPrefetch: {
+        type: Boolean,
+        default: void 0,
+        required: false
+      },
+      // Styling
+      activeClass: {
+        type: String,
+        default: void 0,
+        required: false
+      },
+      exactActiveClass: {
+        type: String,
+        default: void 0,
+        required: false
+      },
+      prefetchedClass: {
+        type: String,
+        default: void 0,
+        required: false
+      },
+      // Vue Router's `<RouterLink>` additional props
+      replace: {
+        type: Boolean,
+        default: void 0,
+        required: false
+      },
+      ariaCurrentValue: {
+        type: String,
+        default: void 0,
+        required: false
+      },
+      // Edge cases handling
+      external: {
+        type: Boolean,
+        default: void 0,
+        required: false
+      },
+      // Slot API
+      custom: {
+        type: Boolean,
+        default: void 0,
+        required: false
+      },
+      // Behavior
+      trailingSlash: {
+        type: String,
+        default: void 0,
+        required: false
+      }
+    },
+    useLink: useNuxtLink,
+    setup(props, { slots }) {
+      const router = useRouter();
+      const { to, href, navigate, isExternal, hasTarget, isAbsoluteUrl } = useNuxtLink(props);
+      shallowRef(false);
+      const el = void 0;
+      const elRef = void 0;
+      async function prefetch(nuxtApp = useNuxtApp()) {
+        {
+          return;
+        }
+      }
+      return () => {
+        if (!isExternal.value && !hasTarget.value && !isHashLinkWithoutHashMode(to.value)) {
+          const routerLinkProps = {
+            ref: elRef,
+            to: to.value,
+            activeClass: props.activeClass || options.activeClass,
+            exactActiveClass: props.exactActiveClass || options.exactActiveClass,
+            replace: props.replace,
+            ariaCurrentValue: props.ariaCurrentValue,
+            custom: props.custom
+          };
+          if (!props.custom) {
+            routerLinkProps.rel = props.rel || void 0;
+          }
+          return h(
+            resolveComponent("RouterLink"),
+            routerLinkProps,
+            slots.default
+          );
+        }
+        const target = props.target || null;
+        const rel = firstNonUndefined(
+          // converts `""` to `null` to prevent the attribute from being added as empty (`rel=""`)
+          props.noRel ? "" : props.rel,
+          options.externalRelAttribute,
+          /*
+          * A fallback rel of `noopener noreferrer` is applied for external links or links that open in a new tab.
+          * This solves a reverse tabnapping security flaw in browsers pre-2021 as well as improving privacy.
+          */
+          isAbsoluteUrl.value || hasTarget.value ? "noopener noreferrer" : ""
+        ) || null;
+        if (props.custom) {
+          if (!slots.default) {
+            return null;
+          }
+          return slots.default({
+            href: href.value,
+            navigate,
+            prefetch,
+            get route() {
+              if (!href.value) {
+                return void 0;
+              }
+              const url = new URL(href.value, "http://localhost");
+              return {
+                path: url.pathname,
+                fullPath: url.pathname,
+                get query() {
+                  return parseQuery(url.search);
+                },
+                hash: url.hash,
+                params: {},
+                name: void 0,
+                matched: [],
+                redirectedFrom: void 0,
+                meta: {},
+                href: href.value
+              };
+            },
+            rel,
+            target,
+            isExternal: isExternal.value || hasTarget.value,
+            isActive: false,
+            isExactActive: false
+          });
+        }
+        return h("a", {
+          ref: el,
+          href: href.value || null,
+          // converts `""` to `null` to prevent the attribute from being added as empty (`href=""`)
+          rel,
+          target,
+          onClick: async (event) => {
+            if (isExternal.value || hasTarget.value) {
+              return;
+            }
+            event.preventDefault();
+            try {
+              const encodedHref = encodeRoutePath(href.value);
+              return await (props.replace ? router.replace(encodedHref) : router.push(encodedHref));
+            } finally {
+            }
+          }
+        }, slots.default?.());
+      };
+    }
+  });
+}
+const __nuxt_component_0$2 = /* @__PURE__ */ defineNuxtLink(nuxtLinkDefaults);
+function applyTrailingSlashBehavior(to, trailingSlash) {
+  const normalizeFn = trailingSlash === "append" ? withTrailingSlash : withoutTrailingSlash;
+  const hasProtocolDifferentFromHttp = hasProtocol(to) && !to.startsWith("http");
+  if (hasProtocolDifferentFromHttp) {
+    return to;
+  }
+  return normalizeFn(to, true);
+}
+async function loadIcon(name, timeout) {
+  if (!name)
+    return null;
+  const _icon = getIcon(name);
+  if (_icon)
+    return _icon;
+  let timeoutWarn;
+  const load = loadIcon$1(name).catch(() => {
+    console.warn(`[Icon] failed to load icon \`${name}\``);
+    return null;
+  });
+  if (timeout > 0)
+    await Promise.race([
+      load,
+      new Promise((resolve) => {
+        timeoutWarn = setTimeout(() => {
+          console.warn(`[Icon] loading icon \`${name}\` timed out after ${timeout}ms`);
+          resolve();
+        }, timeout);
+      })
+    ]).finally(() => clearTimeout(timeoutWarn));
+  else
+    await load;
+  return getIcon(name);
+}
+function useResolvedName(getName) {
+  const options = useAppConfig().icon;
+  const collections = (options.collections || []).sort((a, b) => b.length - a.length);
+  return computed(() => {
+    const name = getName();
+    const bare = name.startsWith(options.cssSelectorPrefix) ? name.slice(options.cssSelectorPrefix.length) : name;
+    const resolved = options.aliases?.[bare] || bare;
+    if (!resolved.includes(":")) {
+      const collection = collections.find((c) => resolved.startsWith(c + "-"));
+      return collection ? collection + ":" + resolved.slice(collection.length + 1) : resolved;
+    }
+    return resolved;
+  });
+}
+function resolveCustomizeFn(customize, globalCustomize) {
+  if (customize === false) return void 0;
+  if (customize === true || customize === null) return globalCustomize;
+  return customize;
+}
+const SYMBOL_SERVER_CSS = "NUXT_ICONS_SERVER_CSS";
+function escapeCssSelector(selector) {
+  return selector.replace(/([^\w-])/g, "\\$1");
+}
+const NuxtIconCss = /* @__PURE__ */ defineComponent({
+  name: "NuxtIconCss",
+  props: {
+    name: {
+      type: String,
+      required: true
+    },
+    customize: {
+      type: [Function, Boolean, null],
+      default: null,
+      required: false
+    }
+  },
+  setup(props) {
+    const nuxt = useNuxtApp();
+    const options = useAppConfig().icon;
+    const cssClass = computed(() => props.name ? options.cssSelectorPrefix + props.name : "");
+    const selector = computed(() => "." + escapeCssSelector(cssClass.value));
+    function getCSS(icon, withLayer = true) {
+      let iconSelector = selector.value;
+      if (options.cssWherePseudo) {
+        iconSelector = `:where(${iconSelector})`;
+      }
+      const css = getIconCSS(icon, {
+        iconSelector,
+        format: "compressed",
+        customise: resolveCustomizeFn(props.customize, options.customize)
+      });
+      if (options.cssLayer && withLayer) {
+        return `@layer ${options.cssLayer} { ${css} }`;
+      }
+      return css;
+    }
+    onServerPrefetch(async () => {
+      {
+        const configs = (/* @__PURE__ */ useRuntimeConfig()).icon || {};
+        if (!configs?.serverKnownCssClasses?.includes(cssClass.value)) {
+          const icon = await loadIcon(props.name, options.fetchTimeout).catch(() => null);
+          if (!icon)
+            return null;
+          let ssrCSS = nuxt.vueApp._context.provides[SYMBOL_SERVER_CSS];
+          if (!ssrCSS) {
+            ssrCSS = nuxt.vueApp._context.provides[SYMBOL_SERVER_CSS] = /* @__PURE__ */ new Map();
+            nuxt.runWithContext(() => {
+              useHead({
+                style: [
+                  () => {
+                    const sep = "";
+                    let css = Array.from(ssrCSS.values()).sort().join(sep);
+                    if (options.cssLayer) {
+                      css = `@layer ${options.cssLayer} {${sep}${css}${sep}}`;
+                    }
+                    return { innerHTML: css };
+                  }
+                ]
+              }, {
+                tagPriority: "low"
+              });
+            });
+          }
+          if (props.name && !ssrCSS.has(props.name)) {
+            const css = getCSS(icon, false);
+            ssrCSS.set(props.name, css);
+          }
+          return null;
+        }
+      }
+    });
+    return () => h("span", { class: ["iconify", cssClass.value] });
+  }
+});
+const NuxtIconSvg = /* @__PURE__ */ defineComponent({
+  name: "NuxtIconSvg",
+  props: {
+    name: {
+      type: String,
+      required: true
+    },
+    customize: {
+      type: [Function, Boolean, null],
+      default: null,
+      required: false
+    }
+  },
+  setup(props, { slots }) {
+    useNuxtApp();
+    const options = useAppConfig().icon;
+    const name = useResolvedName(() => props.name);
+    const storeKey = "i-" + name.value;
+    if (name.value) {
+      onServerPrefetch(async () => {
+        {
+          await useAsyncData(
+            storeKey,
+            async () => await loadIcon(name.value, options.fetchTimeout),
+            { deep: false }
+          );
+        }
+      });
+    }
+    return () => h(Icon, {
+      icon: name.value,
+      ssr: true,
+      // Iconify uses `customise`, where we expose `customize` for consistency
+      customise: resolveCustomizeFn(props.customize, options.customize)
+    }, slots);
+  }
+});
+const __nuxt_component_0$1 = defineComponent({
+  name: "NuxtIcon",
+  props: {
+    name: {
+      type: String,
+      required: true
+    },
+    mode: {
+      type: String,
+      required: false,
+      default: null
+    },
+    size: {
+      type: [Number, String],
+      required: false,
+      default: null
+    },
+    customize: {
+      type: [Function, Boolean, null],
+      default: null,
+      required: false
+    }
+  },
+  setup(props, { slots }) {
+    const nuxtApp = useNuxtApp();
+    const runtimeOptions = useAppConfig().icon;
+    const name = useResolvedName(() => props.name);
+    const component = computed(
+      () => nuxtApp.vueApp?.component(name.value) || ((props.mode || runtimeOptions.mode) === "svg" ? NuxtIconSvg : NuxtIconCss)
+    );
+    const style = computed(() => {
+      const size = props.size || runtimeOptions.size;
+      return size ? { fontSize: Number.isNaN(+size) ? size : size + "px" } : null;
+    });
+    return () => h(
+      component.value,
+      {
+        ...runtimeOptions.attrs,
+        name: name.value,
+        class: runtimeOptions.class,
+        style: style.value,
+        customize: props.customize
+      },
+      slots
+    );
+  }
+});
+const index = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: __nuxt_component_0$1
+}, Symbol.toStringTag, { value: "Module" }));
+const plugin_PkzIodqHrECZiqJYWG6YoAUH8WdazzfetYETfN19XBg = /* @__PURE__ */ defineNuxtPlugin((nuxtApp) => {
+  return;
 });
 const shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 function getColor(color2, shade) {
@@ -3248,6 +4302,7 @@ const plugins = [
   revive_payload_server_MVtmlZaQpj6ApFmshWfUWl5PehCebzaBf2NuRMiIbms,
   plugin_MeUvTuoKUi51yb_kBguab6hdcExVXeTtZtTg9TZZBB8,
   components_plugin_4kY4pyzJIYX99vmMAAIorFf3CnAaptHitJgf7JxiED8,
+  plugin_PkzIodqHrECZiqJYWG6YoAUH8WdazzfetYETfN19XBg,
   colors_E7kSti5pGZ28QhUUurq6gGRU3l65WuXO_KJC3GQgzFo,
   plugin_server_9Ca9_HhnjAGwBWpwAydRauMHxWoxTDY60BrArRnXN_A,
   motion_F8atB0kBNE8FIgT_ajBXU_q0VzJ7X_J9WFqahA8C37U
@@ -5456,577 +6511,6 @@ function useToast() {
 }
 const appConfigTv = appConfig;
 const tv = /* @__PURE__ */ createTV(appConfigTv.ui?.tv);
-async function loadIcon(name, timeout) {
-  if (!name)
-    return null;
-  const _icon = getIcon(name);
-  if (_icon)
-    return _icon;
-  let timeoutWarn;
-  const load = loadIcon$1(name).catch(() => {
-    console.warn(`[Icon] failed to load icon \`${name}\``);
-    return null;
-  });
-  if (timeout > 0)
-    await Promise.race([
-      load,
-      new Promise((resolve) => {
-        timeoutWarn = setTimeout(() => {
-          console.warn(`[Icon] loading icon \`${name}\` timed out after ${timeout}ms`);
-          resolve();
-        }, timeout);
-      })
-    ]).finally(() => clearTimeout(timeoutWarn));
-  else
-    await load;
-  return getIcon(name);
-}
-function useResolvedName(getName) {
-  const options = useAppConfig().icon;
-  const collections = (options.collections || []).sort((a, b) => b.length - a.length);
-  return computed(() => {
-    const name = getName();
-    const bare = name.startsWith(options.cssSelectorPrefix) ? name.slice(options.cssSelectorPrefix.length) : name;
-    const resolved = options.aliases?.[bare] || bare;
-    if (!resolved.includes(":")) {
-      const collection = collections.find((c) => resolved.startsWith(c + "-"));
-      return collection ? collection + ":" + resolved.slice(collection.length + 1) : resolved;
-    }
-    return resolved;
-  });
-}
-function resolveCustomizeFn(customize, globalCustomize) {
-  if (customize === false) return void 0;
-  if (customize === true || customize === null) return globalCustomize;
-  return customize;
-}
-const SYMBOL_SERVER_CSS = "NUXT_ICONS_SERVER_CSS";
-function escapeCssSelector(selector) {
-  return selector.replace(/([^\w-])/g, "\\$1");
-}
-const NuxtIconCss = /* @__PURE__ */ defineComponent({
-  name: "NuxtIconCss",
-  props: {
-    name: {
-      type: String,
-      required: true
-    },
-    customize: {
-      type: [Function, Boolean, null],
-      default: null,
-      required: false
-    }
-  },
-  setup(props) {
-    const nuxt = useNuxtApp();
-    const options = useAppConfig().icon;
-    const cssClass = computed(() => props.name ? options.cssSelectorPrefix + props.name : "");
-    const selector = computed(() => "." + escapeCssSelector(cssClass.value));
-    function getCSS(icon, withLayer = true) {
-      let iconSelector = selector.value;
-      if (options.cssWherePseudo) {
-        iconSelector = `:where(${iconSelector})`;
-      }
-      const css = getIconCSS(icon, {
-        iconSelector,
-        format: "compressed",
-        customise: resolveCustomizeFn(props.customize, options.customize)
-      });
-      if (options.cssLayer && withLayer) {
-        return `@layer ${options.cssLayer} { ${css} }`;
-      }
-      return css;
-    }
-    onServerPrefetch(async () => {
-      {
-        const configs = (/* @__PURE__ */ useRuntimeConfig()).icon || {};
-        if (!configs?.serverKnownCssClasses?.includes(cssClass.value)) {
-          const icon = await loadIcon(props.name, options.fetchTimeout).catch(() => null);
-          if (!icon)
-            return null;
-          let ssrCSS = nuxt.vueApp._context.provides[SYMBOL_SERVER_CSS];
-          if (!ssrCSS) {
-            ssrCSS = nuxt.vueApp._context.provides[SYMBOL_SERVER_CSS] = /* @__PURE__ */ new Map();
-            nuxt.runWithContext(() => {
-              useHead({
-                style: [
-                  () => {
-                    const sep = "";
-                    let css = Array.from(ssrCSS.values()).sort().join(sep);
-                    if (options.cssLayer) {
-                      css = `@layer ${options.cssLayer} {${sep}${css}${sep}}`;
-                    }
-                    return { innerHTML: css };
-                  }
-                ]
-              }, {
-                tagPriority: "low"
-              });
-            });
-          }
-          if (props.name && !ssrCSS.has(props.name)) {
-            const css = getCSS(icon, false);
-            ssrCSS.set(props.name, css);
-          }
-          return null;
-        }
-      }
-    });
-    return () => h("span", { class: ["iconify", cssClass.value] });
-  }
-});
-defineComponent({
-  name: "ServerPlaceholder",
-  render() {
-    return createElementBlock("div");
-  }
-});
-const clientOnlySymbol = /* @__PURE__ */ Symbol.for("nuxt:client-only");
-defineComponent({
-  name: "ClientOnly",
-  inheritAttrs: false,
-  props: ["fallback", "placeholder", "placeholderTag", "fallbackTag"],
-  ...false,
-  setup(props, { slots, attrs }) {
-    const mounted = shallowRef(false);
-    const vm = getCurrentInstance();
-    if (vm) {
-      vm._nuxtClientOnly = true;
-    }
-    provide(clientOnlySymbol, true);
-    return () => {
-      if (mounted.value) {
-        const vnodes = slots.default?.();
-        if (vnodes && vnodes.length === 1) {
-          return [cloneVNode(vnodes[0], attrs)];
-        }
-        return vnodes;
-      }
-      const slot = slots.fallback || slots.placeholder;
-      if (slot) {
-        return h(slot);
-      }
-      const fallbackStr = props.fallback || props.placeholder || "";
-      const fallbackTag = props.fallbackTag || props.placeholderTag || "span";
-      return createElementBlock(fallbackTag, attrs, fallbackStr);
-    };
-  }
-});
-function defineKeyedFunctionFactory(factory) {
-  const placeholder = function() {
-    throw new Error(`[nuxt] \`${factory.name}\` is a compiler macro and cannot be called at runtime.`);
-  };
-  return Object.defineProperty(placeholder, "__nuxt_factory", {
-    enumerable: false,
-    get: () => factory.factory
-  });
-}
-const createUseAsyncData = defineKeyedFunctionFactory({
-  name: "createUseAsyncData",
-  factory(options = {}) {
-    function useAsyncData2(...args) {
-      const autoKey = typeof args[args.length - 1] === "string" ? args.pop() : void 0;
-      if (_isAutoKeyNeeded(args[0], args[1])) {
-        args.unshift(autoKey);
-      }
-      let [_key, _handler, opts = {}] = args;
-      const key = computed(() => toValue(_key));
-      if (typeof key.value !== "string") {
-        throw new TypeError("[nuxt] [useAsyncData] key must be a string.");
-      }
-      if (typeof _handler !== "function") {
-        throw new TypeError("[nuxt] [useAsyncData] handler must be a function.");
-      }
-      const shouldFactoryOptionsOverride = typeof options === "function";
-      const nuxtApp = useNuxtApp();
-      const factoryOptions = shouldFactoryOptionsOverride ? options(opts) : options;
-      if (!shouldFactoryOptionsOverride) {
-        for (const key2 in factoryOptions) {
-          if (factoryOptions[key2] === void 0) {
-            continue;
-          }
-          if (opts[key2] !== void 0) {
-            continue;
-          }
-          opts[key2] = factoryOptions[key2];
-        }
-      }
-      opts.server ??= true;
-      opts.default ??= getDefault;
-      opts.getCachedData ??= getDefaultCachedData;
-      opts.lazy ??= false;
-      opts.immediate ??= true;
-      opts.deep ??= asyncDataDefaults.deep;
-      opts.dedupe ??= "cancel";
-      if (shouldFactoryOptionsOverride) {
-        for (const key2 in factoryOptions) {
-          if (factoryOptions[key2] === void 0) {
-            continue;
-          }
-          opts[key2] = factoryOptions[key2];
-        }
-      }
-      nuxtApp._asyncData[key.value];
-      function createInitialFetch() {
-        const initialFetchOptions = { cause: "initial", dedupe: opts.dedupe };
-        if (!nuxtApp._asyncData[key.value]?._init) {
-          initialFetchOptions.cachedData = opts.getCachedData(key.value, nuxtApp, { cause: "initial" });
-          nuxtApp._asyncData[key.value] = buildAsyncData(nuxtApp, key.value, _handler, opts, initialFetchOptions.cachedData);
-        }
-        return () => nuxtApp._asyncData[key.value].execute(initialFetchOptions);
-      }
-      const initialFetch = createInitialFetch();
-      const asyncData = nuxtApp._asyncData[key.value];
-      asyncData._deps++;
-      const fetchOnServer = opts.server !== false && nuxtApp.payload.serverRendered;
-      if (fetchOnServer && opts.immediate) {
-        const promise = initialFetch();
-        if (getCurrentInstance()) {
-          onServerPrefetch(() => promise);
-        } else {
-          nuxtApp.hook("app:created", async () => {
-            await promise;
-          });
-        }
-      }
-      const asyncReturn = {
-        data: writableComputedRef(() => nuxtApp._asyncData[key.value]?.data),
-        pending: writableComputedRef(() => nuxtApp._asyncData[key.value]?.pending),
-        status: writableComputedRef(() => nuxtApp._asyncData[key.value]?.status),
-        error: writableComputedRef(() => nuxtApp._asyncData[key.value]?.error),
-        refresh: (...args2) => {
-          if (!nuxtApp._asyncData[key.value]?._init) {
-            const initialFetch2 = createInitialFetch();
-            return initialFetch2();
-          }
-          return nuxtApp._asyncData[key.value].execute(...args2);
-        },
-        execute: (...args2) => asyncReturn.refresh(...args2),
-        clear: () => {
-          const entry2 = nuxtApp._asyncData[key.value];
-          if (entry2?._abortController) {
-            try {
-              entry2._abortController.abort(new DOMException("AsyncData aborted by user.", "AbortError"));
-            } finally {
-              entry2._abortController = void 0;
-            }
-          }
-          clearNuxtDataByKey(nuxtApp, key.value);
-        }
-      };
-      const asyncDataPromise = Promise.resolve(nuxtApp._asyncDataPromises[key.value]).then(() => asyncReturn);
-      Object.assign(asyncDataPromise, asyncReturn);
-      Object.defineProperties(asyncDataPromise, {
-        then: { enumerable: true, value: asyncDataPromise.then.bind(asyncDataPromise) },
-        catch: { enumerable: true, value: asyncDataPromise.catch.bind(asyncDataPromise) },
-        finally: { enumerable: true, value: asyncDataPromise.finally.bind(asyncDataPromise) }
-      });
-      return asyncDataPromise;
-    }
-    return useAsyncData2;
-  }
-});
-const useAsyncData = createUseAsyncData.__nuxt_factory();
-createUseAsyncData.__nuxt_factory({
-  lazy: true,
-  // @ts-expect-error private property
-  _functionName: "useLazyAsyncData"
-});
-function writableComputedRef(getter) {
-  return computed({
-    get() {
-      return getter()?.value;
-    },
-    set(value) {
-      const ref2 = getter();
-      if (ref2) {
-        ref2.value = value;
-      }
-    }
-  });
-}
-function _isAutoKeyNeeded(keyOrFetcher, fetcher) {
-  if (typeof keyOrFetcher === "string") {
-    return false;
-  }
-  if (typeof keyOrFetcher === "object" && keyOrFetcher !== null) {
-    return false;
-  }
-  if (typeof keyOrFetcher === "function" && typeof fetcher === "function") {
-    return false;
-  }
-  return true;
-}
-function clearNuxtDataByKey(nuxtApp, key) {
-  if (key in nuxtApp.payload.data) {
-    nuxtApp.payload.data[key] = void 0;
-  }
-  if (key in nuxtApp.payload._errors) {
-    nuxtApp.payload._errors[key] = void 0;
-  }
-  if (nuxtApp._asyncData[key]) {
-    nuxtApp._asyncData[key].data.value = unref(nuxtApp._asyncData[key]._default());
-    nuxtApp._asyncData[key].error.value = void 0;
-    nuxtApp._asyncData[key].status.value = "idle";
-  }
-  if (key in nuxtApp._asyncDataPromises) {
-    nuxtApp._asyncDataPromises[key] = void 0;
-  }
-}
-function pick(obj, keys) {
-  const newObj = {};
-  for (const key of keys) {
-    newObj[key] = obj[key];
-  }
-  return newObj;
-}
-function buildAsyncData(nuxtApp, key, _handler, options, initialCachedData) {
-  nuxtApp.payload._errors[key] ??= void 0;
-  const hasCustomGetCachedData = options.getCachedData !== getDefaultCachedData;
-  const handler = _handler ;
-  const _ref = options.deep ? ref : shallowRef;
-  const hasCachedData = initialCachedData !== void 0;
-  const unsubRefreshAsyncData = nuxtApp.hook("app:data:refresh", async (keys) => {
-    if (!keys || keys.includes(key)) {
-      await asyncData.execute({ cause: "refresh:hook" });
-    }
-  });
-  const asyncData = {
-    data: _ref(hasCachedData ? initialCachedData : options.default()),
-    pending: computed(() => asyncData.status.value === "pending"),
-    error: toRef$1(nuxtApp.payload._errors, key),
-    status: shallowRef("idle"),
-    execute: (...args) => {
-      const [_opts, newValue = void 0] = args;
-      const opts = _opts && newValue === void 0 && typeof _opts === "object" ? _opts : {};
-      if (nuxtApp._asyncDataPromises[key]) {
-        if ((opts.dedupe ?? options.dedupe) === "defer") {
-          return nuxtApp._asyncDataPromises[key];
-        }
-      }
-      {
-        const cachedData = "cachedData" in opts ? opts.cachedData : options.getCachedData(key, nuxtApp, { cause: opts.cause ?? "refresh:manual" });
-        if (cachedData !== void 0) {
-          nuxtApp.payload.data[key] = asyncData.data.value = cachedData;
-          asyncData.error.value = void 0;
-          asyncData.status.value = "success";
-          return Promise.resolve(cachedData);
-        }
-      }
-      if (asyncData._abortController) {
-        asyncData._abortController.abort(new DOMException("AsyncData request cancelled by deduplication", "AbortError"));
-      }
-      asyncData._abortController = new AbortController();
-      asyncData.status.value = "pending";
-      const cleanupController = new AbortController();
-      const promise = new Promise(
-        (resolve, reject) => {
-          try {
-            const timeout = opts.timeout ?? options.timeout;
-            const mergedSignal = mergeAbortSignals([asyncData._abortController?.signal, opts?.signal], cleanupController.signal, timeout);
-            if (mergedSignal.aborted) {
-              const reason = mergedSignal.reason;
-              reject(reason instanceof Error ? reason : new DOMException(String(reason ?? "Aborted"), "AbortError"));
-              return;
-            }
-            mergedSignal.addEventListener("abort", () => {
-              const reason = mergedSignal.reason;
-              reject(reason instanceof Error ? reason : new DOMException(String(reason ?? "Aborted"), "AbortError"));
-            }, { once: true, signal: cleanupController.signal });
-            return Promise.resolve(handler(nuxtApp, { signal: mergedSignal })).then(resolve, reject);
-          } catch (err) {
-            reject(err);
-          }
-        }
-      ).then(async (_result) => {
-        let result = _result;
-        if (options.transform) {
-          result = await options.transform(_result);
-        }
-        if (options.pick) {
-          result = pick(result, options.pick);
-        }
-        nuxtApp.payload.data[key] = result;
-        asyncData.data.value = result;
-        asyncData.error.value = void 0;
-        asyncData.status.value = "success";
-      }).catch((error) => {
-        if (nuxtApp._asyncDataPromises[key] && nuxtApp._asyncDataPromises[key] !== promise) {
-          return nuxtApp._asyncDataPromises[key];
-        }
-        if (asyncData._abortController?.signal.aborted) {
-          return nuxtApp._asyncDataPromises[key];
-        }
-        if (typeof DOMException !== "undefined" && error instanceof DOMException && error.name === "AbortError") {
-          asyncData.status.value = "idle";
-          return nuxtApp._asyncDataPromises[key];
-        }
-        asyncData.error.value = createError(error);
-        asyncData.data.value = unref(options.default());
-        asyncData.status.value = "error";
-      }).finally(() => {
-        cleanupController.abort();
-        delete nuxtApp._asyncDataPromises[key];
-      });
-      nuxtApp._asyncDataPromises[key] = promise;
-      return nuxtApp._asyncDataPromises[key];
-    },
-    _execute: debounce((...args) => asyncData.execute(...args), 0, { leading: true }),
-    _default: options.default,
-    _deps: 0,
-    _init: true,
-    _hash: void 0,
-    _off: () => {
-      unsubRefreshAsyncData();
-      if (nuxtApp._asyncData[key]?._init) {
-        nuxtApp._asyncData[key]._init = false;
-      }
-      if (!hasCustomGetCachedData) {
-        nextTick(() => {
-          if (!nuxtApp._asyncData[key]?._init) {
-            clearNuxtDataByKey(nuxtApp, key);
-            asyncData.execute = () => Promise.resolve();
-          }
-        });
-      }
-    }
-  };
-  return asyncData;
-}
-const getDefault = () => void 0;
-const getDefaultCachedData = (key, nuxtApp, ctx) => {
-  if (nuxtApp.isHydrating) {
-    return nuxtApp.payload.data[key];
-  }
-  if (ctx.cause !== "refresh:manual" && ctx.cause !== "refresh:hook") {
-    return nuxtApp.static.data[key];
-  }
-};
-function mergeAbortSignals(signals, cleanupSignal, timeout) {
-  const list = signals.filter((s) => !!s);
-  if (typeof timeout === "number" && timeout >= 0) {
-    const timeoutSignal = AbortSignal.timeout?.(timeout);
-    if (timeoutSignal) {
-      list.push(timeoutSignal);
-    }
-  }
-  if (AbortSignal.any) {
-    return AbortSignal.any(list);
-  }
-  const controller = new AbortController();
-  for (const sig of list) {
-    if (sig.aborted) {
-      const reason = sig.reason ?? new DOMException("Aborted", "AbortError");
-      try {
-        controller.abort(reason);
-      } catch {
-        controller.abort();
-      }
-      return controller.signal;
-    }
-  }
-  const onAbort = () => {
-    const abortedSignal = list.find((s) => s.aborted);
-    const reason = abortedSignal?.reason ?? new DOMException("Aborted", "AbortError");
-    try {
-      controller.abort(reason);
-    } catch {
-      controller.abort();
-    }
-  };
-  for (const sig of list) {
-    sig.addEventListener?.("abort", onAbort, { once: true, signal: cleanupSignal });
-  }
-  return controller.signal;
-}
-const NuxtIconSvg = /* @__PURE__ */ defineComponent({
-  name: "NuxtIconSvg",
-  props: {
-    name: {
-      type: String,
-      required: true
-    },
-    customize: {
-      type: [Function, Boolean, null],
-      default: null,
-      required: false
-    }
-  },
-  setup(props, { slots }) {
-    useNuxtApp();
-    const options = useAppConfig().icon;
-    const name = useResolvedName(() => props.name);
-    const storeKey = "i-" + name.value;
-    if (name.value) {
-      onServerPrefetch(async () => {
-        {
-          await useAsyncData(
-            storeKey,
-            async () => await loadIcon(name.value, options.fetchTimeout),
-            { deep: false }
-          );
-        }
-      });
-    }
-    return () => h(Icon, {
-      icon: name.value,
-      ssr: true,
-      // Iconify uses `customise`, where we expose `customize` for consistency
-      customise: resolveCustomizeFn(props.customize, options.customize)
-    }, slots);
-  }
-});
-const __nuxt_component_0$2 = defineComponent({
-  name: "NuxtIcon",
-  props: {
-    name: {
-      type: String,
-      required: true
-    },
-    mode: {
-      type: String,
-      required: false,
-      default: null
-    },
-    size: {
-      type: [Number, String],
-      required: false,
-      default: null
-    },
-    customize: {
-      type: [Function, Boolean, null],
-      default: null,
-      required: false
-    }
-  },
-  setup(props, { slots }) {
-    const nuxtApp = useNuxtApp();
-    const runtimeOptions = useAppConfig().icon;
-    const name = useResolvedName(() => props.name);
-    const component = computed(
-      () => nuxtApp.vueApp?.component(name.value) || ((props.mode || runtimeOptions.mode) === "svg" ? NuxtIconSvg : NuxtIconCss)
-    );
-    const style = computed(() => {
-      const size = props.size || runtimeOptions.size;
-      return size ? { fontSize: Number.isNaN(+size) ? size : size + "px" } : null;
-    });
-    return () => h(
-      component.value,
-      {
-        ...runtimeOptions.attrs,
-        name: name.value,
-        class: runtimeOptions.class,
-        style: style.value,
-        customize: props.customize
-      },
-      slots
-    );
-  }
-});
-const index = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: __nuxt_component_0$2
-}, Symbol.toStringTag, { value: "Module" }));
 const _sfc_main$e = {
   __name: "UIcon",
   __ssrInlineRender: true,
@@ -6040,7 +6524,7 @@ const _sfc_main$e = {
     const props = __props;
     const iconProps = useForwardProps(reactivePick(props, "mode", "size", "customize"));
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_Icon = __nuxt_component_0$2;
+      const _component_Icon = __nuxt_component_0$1;
       if (typeof __props.name === "string") {
         _push(ssrRenderComponent(_component_Icon, mergeProps({ name: __props.name }, unref(iconProps), _attrs), null, _parent));
       } else {
@@ -7085,289 +7569,6 @@ function isPartiallyEqual(item1, item2) {
   const item2Filtered = Object.fromEntries(Object.entries(item2).filter(([key]) => !diffedKeys.has(key)));
   return isEqual(item1Filtered, item2Filtered);
 }
-const firstNonUndefined = (...args) => args.find((arg) => arg !== void 0);
-// @__NO_SIDE_EFFECTS__
-function defineNuxtLink(options) {
-  const componentName = options.componentName || "NuxtLink";
-  function isHashLinkWithoutHashMode(link) {
-    return typeof link === "string" && link.startsWith("#");
-  }
-  function resolveTrailingSlashBehavior(to, resolve, trailingSlash) {
-    const effectiveTrailingSlash = trailingSlash ?? options.trailingSlash;
-    if (!to || effectiveTrailingSlash !== "append" && effectiveTrailingSlash !== "remove") {
-      return to;
-    }
-    if (typeof to === "string") {
-      return applyTrailingSlashBehavior(to, effectiveTrailingSlash);
-    }
-    const path = "path" in to && to.path !== void 0 ? to.path : resolve(to).path;
-    const resolvedPath = {
-      ...to,
-      name: void 0,
-      // named routes would otherwise always override trailing slash behavior
-      path: applyTrailingSlashBehavior(path, effectiveTrailingSlash)
-    };
-    return resolvedPath;
-  }
-  function useNuxtLink(props) {
-    const router = useRouter();
-    const config = /* @__PURE__ */ useRuntimeConfig();
-    const hasTarget = computed(() => !!unref(props.target) && unref(props.target) !== "_self");
-    const isAbsoluteUrl = computed(() => {
-      const path = unref(props.to) || unref(props.href) || "";
-      return typeof path === "string" && hasProtocol(path, { acceptRelative: true });
-    });
-    const builtinRouterLink = resolveComponent("RouterLink");
-    const useBuiltinLink = builtinRouterLink && typeof builtinRouterLink !== "string" ? builtinRouterLink.useLink : void 0;
-    const isExternal = computed(() => {
-      if (unref(props.external)) {
-        return true;
-      }
-      const path = unref(props.to) || unref(props.href) || "";
-      if (typeof path === "object") {
-        return false;
-      }
-      return path === "" || isAbsoluteUrl.value;
-    });
-    const to = computed(() => {
-      const path = unref(props.to) || unref(props.href) || "";
-      if (isExternal.value) {
-        return path;
-      }
-      return resolveTrailingSlashBehavior(path, router.resolve, unref(props.trailingSlash));
-    });
-    const link = isExternal.value ? void 0 : useBuiltinLink?.({ ...props, to, viewTransition: unref(props.viewTransition) });
-    const href = computed(() => {
-      const effectiveTrailingSlash = unref(props.trailingSlash) ?? options.trailingSlash;
-      if (!to.value || isAbsoluteUrl.value || isHashLinkWithoutHashMode(to.value)) {
-        return to.value;
-      }
-      if (isExternal.value) {
-        const path = typeof to.value === "object" && "path" in to.value ? resolveRouteObject(to.value) : to.value;
-        const href2 = typeof path === "object" ? router.resolve(path).href : path;
-        return applyTrailingSlashBehavior(href2, effectiveTrailingSlash);
-      }
-      if (typeof to.value === "object") {
-        return router.resolve(to.value)?.href ?? null;
-      }
-      return applyTrailingSlashBehavior(joinURL(config.app.baseURL, to.value), effectiveTrailingSlash);
-    });
-    return {
-      to,
-      hasTarget,
-      isAbsoluteUrl,
-      isExternal,
-      //
-      href,
-      isActive: link?.isActive ?? computed(() => to.value === router.currentRoute.value.path),
-      isExactActive: link?.isExactActive ?? computed(() => to.value === router.currentRoute.value.path),
-      route: link?.route ?? computed(() => router.resolve(to.value)),
-      async navigate(_e) {
-        await navigateTo(href.value, { replace: unref(props.replace), external: isExternal.value || hasTarget.value });
-      }
-    };
-  }
-  return defineComponent({
-    name: componentName,
-    props: {
-      // Routing
-      to: {
-        type: [String, Object],
-        default: void 0,
-        required: false
-      },
-      href: {
-        type: [String, Object],
-        default: void 0,
-        required: false
-      },
-      // Attributes
-      target: {
-        type: String,
-        default: void 0,
-        required: false
-      },
-      rel: {
-        type: String,
-        default: void 0,
-        required: false
-      },
-      noRel: {
-        type: Boolean,
-        default: void 0,
-        required: false
-      },
-      // Prefetching
-      prefetch: {
-        type: Boolean,
-        default: void 0,
-        required: false
-      },
-      prefetchOn: {
-        type: [String, Object],
-        default: void 0,
-        required: false
-      },
-      noPrefetch: {
-        type: Boolean,
-        default: void 0,
-        required: false
-      },
-      // Styling
-      activeClass: {
-        type: String,
-        default: void 0,
-        required: false
-      },
-      exactActiveClass: {
-        type: String,
-        default: void 0,
-        required: false
-      },
-      prefetchedClass: {
-        type: String,
-        default: void 0,
-        required: false
-      },
-      // Vue Router's `<RouterLink>` additional props
-      replace: {
-        type: Boolean,
-        default: void 0,
-        required: false
-      },
-      ariaCurrentValue: {
-        type: String,
-        default: void 0,
-        required: false
-      },
-      // Edge cases handling
-      external: {
-        type: Boolean,
-        default: void 0,
-        required: false
-      },
-      // Slot API
-      custom: {
-        type: Boolean,
-        default: void 0,
-        required: false
-      },
-      // Behavior
-      trailingSlash: {
-        type: String,
-        default: void 0,
-        required: false
-      }
-    },
-    useLink: useNuxtLink,
-    setup(props, { slots }) {
-      const router = useRouter();
-      const { to, href, navigate, isExternal, hasTarget, isAbsoluteUrl } = useNuxtLink(props);
-      shallowRef(false);
-      const el = void 0;
-      const elRef = void 0;
-      async function prefetch(nuxtApp = useNuxtApp()) {
-        {
-          return;
-        }
-      }
-      return () => {
-        if (!isExternal.value && !hasTarget.value && !isHashLinkWithoutHashMode(to.value)) {
-          const routerLinkProps = {
-            ref: elRef,
-            to: to.value,
-            activeClass: props.activeClass || options.activeClass,
-            exactActiveClass: props.exactActiveClass || options.exactActiveClass,
-            replace: props.replace,
-            ariaCurrentValue: props.ariaCurrentValue,
-            custom: props.custom
-          };
-          if (!props.custom) {
-            routerLinkProps.rel = props.rel || void 0;
-          }
-          return h(
-            resolveComponent("RouterLink"),
-            routerLinkProps,
-            slots.default
-          );
-        }
-        const target = props.target || null;
-        const rel = firstNonUndefined(
-          // converts `""` to `null` to prevent the attribute from being added as empty (`rel=""`)
-          props.noRel ? "" : props.rel,
-          options.externalRelAttribute,
-          /*
-          * A fallback rel of `noopener noreferrer` is applied for external links or links that open in a new tab.
-          * This solves a reverse tabnapping security flaw in browsers pre-2021 as well as improving privacy.
-          */
-          isAbsoluteUrl.value || hasTarget.value ? "noopener noreferrer" : ""
-        ) || null;
-        if (props.custom) {
-          if (!slots.default) {
-            return null;
-          }
-          return slots.default({
-            href: href.value,
-            navigate,
-            prefetch,
-            get route() {
-              if (!href.value) {
-                return void 0;
-              }
-              const url = new URL(href.value, "http://localhost");
-              return {
-                path: url.pathname,
-                fullPath: url.pathname,
-                get query() {
-                  return parseQuery(url.search);
-                },
-                hash: url.hash,
-                params: {},
-                name: void 0,
-                matched: [],
-                redirectedFrom: void 0,
-                meta: {},
-                href: href.value
-              };
-            },
-            rel,
-            target,
-            isExternal: isExternal.value || hasTarget.value,
-            isActive: false,
-            isExactActive: false
-          });
-        }
-        return h("a", {
-          ref: el,
-          href: href.value || null,
-          // converts `""` to `null` to prevent the attribute from being added as empty (`href=""`)
-          rel,
-          target,
-          onClick: async (event) => {
-            if (isExternal.value || hasTarget.value) {
-              return;
-            }
-            event.preventDefault();
-            try {
-              const encodedHref = encodeRoutePath(href.value);
-              return await (props.replace ? router.replace(encodedHref) : router.push(encodedHref));
-            } finally {
-            }
-          }
-        }, slots.default?.());
-      };
-    }
-  });
-}
-const __nuxt_component_0$1 = /* @__PURE__ */ defineNuxtLink(nuxtLinkDefaults);
-function applyTrailingSlashBehavior(to, trailingSlash) {
-  const normalizeFn = trailingSlash === "append" ? withTrailingSlash : withoutTrailingSlash;
-  const hasProtocolDifferentFromHttp = hasProtocol(to) && !to.startsWith("http");
-  if (hasProtocolDifferentFromHttp) {
-    return to;
-  }
-  return normalizeFn(to, true);
-}
 const _sfc_main$a = {
   __name: "ULinkBase",
   __ssrInlineRender: true,
@@ -7537,7 +7738,7 @@ const _sfc_main$9 = /* @__PURE__ */ Object.assign({ inheritAttrs: false }, {
       return ui.value({ class: props.class, active, disabled: props.disabled });
     }
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_NuxtLink = __nuxt_component_0$1;
+      const _component_NuxtLink = __nuxt_component_0$2;
       _push(ssrRenderComponent(_component_NuxtLink, mergeProps(unref(nuxtLinkProps), {
         to: to.value,
         custom: ""
@@ -9671,7 +9872,8 @@ _sfc_main$3.setup = (props, ctx) => {
 };
 const __nuxt_component_0 = Object.assign(_sfc_main$3, { __name: "UApp" });
 const layouts = {
-  default: defineAsyncComponent(() => import('./default-N2AaMHw1.mjs').then((m) => m.default || m))
+  authenticated: defineAsyncComponent(() => import('./authenticated-BvKQPn8k.mjs').then((m) => m.default || m)),
+  default: defineAsyncComponent(() => import('./default-CZM4Np7B.mjs').then((m) => m.default || m))
 };
 const routeRulesMatcher = _routeRulesMatcher;
 const LayoutLoader = defineComponent({
@@ -9982,8 +10184,8 @@ const _sfc_main$1 = {
     const statusText = _error.statusMessage ?? (is404 ? "Page Not Found" : "Internal Server Error");
     const description = _error.message || _error.toString();
     const stack = void 0;
-    const _Error404 = defineAsyncComponent(() => import('./error-404-C6FVVabA.mjs'));
-    const _Error = defineAsyncComponent(() => import('./error-500-7lOQvLNi.mjs'));
+    const _Error404 = defineAsyncComponent(() => import('./error-404-sPok0C2O.mjs'));
+    const _Error = defineAsyncComponent(() => import('./error-500-DIosPG_Z.mjs'));
     const ErrorTemplate = is404 ? _Error404 : _Error;
     return (_ctx, _push, _parent, _attrs) => {
       _push(ssrRenderComponent(unref(ErrorTemplate), mergeProps({ status: unref(status), statusText: unref(statusText), statusCode: unref(status), statusMessage: unref(statusText), description: unref(description), stack: unref(stack) }, _attrs), null, _parent));
@@ -10064,5 +10266,5 @@ let entry;
 }
 const entry_default = ((ssrContext) => entry(ssrContext));
 
-export { __nuxt_component_0$1 as _, __nuxt_component_0$2 as a, __nuxt_component_1$1 as b, useRoute as c, entry_default as default, useHead as u };
+export { VisuallyHidden_default as V, __nuxt_component_0$2 as _, useUserSession as a, useNuxtData as b, __nuxt_component_0$1 as c, useMotion as d, entry_default as default, useAppConfig as e, useComponentUI as f, useForwardPropsEmits as g, usePortal as h, _sfc_main$8 as i, __nuxt_component_5 as j, useRoute as k, __nuxt_component_1$1 as l, useRuntimeConfig as m, reactivePick as r, tv as t, useHead as u };
 //# sourceMappingURL=server.mjs.map
