@@ -8,7 +8,7 @@ import { User } from '~/types/user';
 const User = UserModel as Model<User>;
 
 const bodySchema = z.object({
-  organization: z.string(),
+  company: z.string(),
   category: z.string(),
   email: z.email(),
   password: z.string().min(8),
@@ -17,7 +17,7 @@ const bodySchema = z.object({
 })
 
 export default defineEventHandler(async (event) => {
-  const { organization, category, email, password, confirm_password, privacy_policy } = await readValidatedBody(event, bodySchema.parse);
+  const { company, category, email, password, confirm_password, privacy_policy } = await readValidatedBody(event, bodySchema.parse);
 
   try {
     await connectDB();
@@ -31,7 +31,7 @@ export default defineEventHandler(async (event) => {
     if (user) throw createError({ statusCode: 401, statusMessage: 'User already registered.', data: { errorMessage: 'The requested item could not be found.' } });
 
     const registerUser = new User({
-      organization: organization.toLowerCase(),
+      company: company.toLowerCase(),
       category: category.toLowerCase(),
       email: email.toLowerCase().trim(),
       password: hashedPassword,

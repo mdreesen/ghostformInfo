@@ -2,7 +2,7 @@
 const toast = useToast();
 
 const credentials = reactive({
-    organization: '',
+    company: '',
     category: '',
     email: '',
     password: '',
@@ -58,9 +58,9 @@ async function handler() {
                         <div class="space-y-4">
                             <div>
                                 <label
-                                    class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 ml-1 mb-2 block">Organization
+                                    class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 ml-1 mb-2 block">company
                                     Name</label>
-                                <input v-model="credentials.organization" type="text" placeholder="e.g. Company name" required
+                                <input v-model="credentials.company" type="text" placeholder="e.g. Company name" required
                                     class="w-full bg-white/3 border border-white/10 rounded-xl px-5 py-3 text-sm focus:outline-none focus:border-cyan-400 transition-colors placeholder:text-zinc-700 text-ellipsis" />
                             </div>
 

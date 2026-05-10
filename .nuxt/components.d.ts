@@ -19,7 +19,6 @@ export const AppFeatures: typeof import("../app/components/app/features.vue")['d
 export const AppHero: typeof import("../app/components/app/hero.vue")['default']
 export const AppPricing: typeof import("../app/components/app/pricing.vue")['default']
 export const AppStats: typeof import("../app/components/app/stats.vue")['default']
-export const BaseButton: typeof import("../app/components/base/Button.vue")['default']
 export const BaseButtonNavigate: typeof import("../app/components/base/ButtonNavigate.vue")['default']
 export const BaseButtonSubmit: typeof import("../app/components/base/ButtonSubmit.vue")['default']
 export const BaseDeleteProfile: typeof import("../app/components/base/DeleteProfile.vue")['default']
@@ -28,6 +27,7 @@ export const BaseLabel: typeof import("../app/components/base/Label.vue")['defau
 export const BaseNavigationAuth: typeof import("../app/components/base/Navigation/Auth.vue")['default']
 export const BaseNavigationBase: typeof import("../app/components/base/Navigation/Base.vue")['default']
 export const BaseQrCode: typeof import("../app/components/base/QrCode.vue")['default']
+export const BaseButton: typeof import("../app/components/base/button.vue")['default']
 export const BaseFooter: typeof import("../app/components/base/footer.vue")['default']
 export const BaseHeader: typeof import("../app/components/base/header.vue")['default']
 export const BaseIcon: typeof import("../app/components/base/icon.vue")['default']
@@ -198,7 +198,6 @@ export const LazyAppFeatures: LazyComponent<typeof import("../app/components/app
 export const LazyAppHero: LazyComponent<typeof import("../app/components/app/hero.vue")['default']>
 export const LazyAppPricing: LazyComponent<typeof import("../app/components/app/pricing.vue")['default']>
 export const LazyAppStats: LazyComponent<typeof import("../app/components/app/stats.vue")['default']>
-export const LazyBaseButton: LazyComponent<typeof import("../app/components/base/Button.vue")['default']>
 export const LazyBaseButtonNavigate: LazyComponent<typeof import("../app/components/base/ButtonNavigate.vue")['default']>
 export const LazyBaseButtonSubmit: LazyComponent<typeof import("../app/components/base/ButtonSubmit.vue")['default']>
 export const LazyBaseDeleteProfile: LazyComponent<typeof import("../app/components/base/DeleteProfile.vue")['default']>
@@ -207,6 +206,7 @@ export const LazyBaseLabel: LazyComponent<typeof import("../app/components/base/
 export const LazyBaseNavigationAuth: LazyComponent<typeof import("../app/components/base/Navigation/Auth.vue")['default']>
 export const LazyBaseNavigationBase: LazyComponent<typeof import("../app/components/base/Navigation/Base.vue")['default']>
 export const LazyBaseQrCode: LazyComponent<typeof import("../app/components/base/QrCode.vue")['default']>
+export const LazyBaseButton: LazyComponent<typeof import("../app/components/base/button.vue")['default']>
 export const LazyBaseFooter: LazyComponent<typeof import("../app/components/base/footer.vue")['default']>
 export const LazyBaseHeader: LazyComponent<typeof import("../app/components/base/header.vue")['default']>
 export const LazyBaseIcon: LazyComponent<typeof import("../app/components/base/icon.vue")['default']>

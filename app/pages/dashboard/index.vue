@@ -10,13 +10,6 @@ useHead({
     ],
 });
 
-const companyData = ref({
-  name: 'Ironclad Realty',
-  totalLeads: 1284,
-  activeAgents: 12,
-  globalConversion: '24.2%'
-});
-
 const { data: user } = useNuxtData('get_user');
 console.log('user', user.value)
 
@@ -43,7 +36,7 @@ const generateQR = (id: string) => {
           <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_#30cf43]"></div>
           <span class="text-[10px] font-black uppercase tracking-[0.4em] text-cyan-400">Ghost-Node Network</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter">{{ user.organization }}</h1>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter">{{ user?.company }}</h1>
         <span class="font-bold tracking-tighter">{{ user?.category }}</span>
       </div>
       
@@ -115,8 +108,8 @@ const generateQR = (id: string) => {
         </div>
 
         <div class="lg:col-span-4 space-y-6">
-          <h2 class="text-lg font-bold">Company Asset Generator</h2>
-          <div class="backdrop-blur-xl bg-white/2 border border-white/8 rounded-[2.5rem] p-8">
+          <h2 class="text-lg font-bold">QR Code</h2>
+          <!-- <div class="backdrop-blur-xl bg-white/2 border border-white/8 rounded-[2.5rem] p-8">
             <p class="text-xs text-zinc-400 mb-8 leading-relaxed">
               Generate a high-velocity QR node for physical signage (Yard Signs, Open Houses). 
               Leads will be analyzed by AI and dispatched to the global queue.
@@ -136,9 +129,9 @@ const generateQR = (id: string) => {
                 <div v-for="i in 3" :key="i" class="w-8 h-8 rounded-lg bg-zinc-800 border border-white/10 flex items-center justify-center text-[8px]">QR</div>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <baseQrCode value="www.mdreesen.com" />
+          <baseQrCode :value="`https://ghostform-zeta.vercel.app/?category=${user?.category}&company_name=${user?.company}&company_email=${user?.email}&background_color=0f0b0b&font_color=FFFFFF`" />
         </div>
 
       </div>
