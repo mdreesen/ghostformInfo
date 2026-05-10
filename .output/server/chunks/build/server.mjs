@@ -1,5 +1,5 @@
-import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineComponent, openBlock, createBlock, unref, withCtx, renderSlot, getCurrentScope, onScopeDispose, computed, h, inject, useSlots, ref, mergeProps, createCommentVNode, toDisplayString, createVNode, hasInjectionContext, shallowRef, resolveComponent, toRef as toRef$1, isRef, onServerPrefetch, reactive, watch, getCurrentInstance, camelize, toHandlerKey, toValue, resolveDynamicComponent, useAttrs, Comment, cloneVNode, toRefs, provide, useModel, createTextVNode, mergeModels, Fragment, nextTick, defineAsyncComponent, createElementBlock, useSSRContext, shallowReactive, Suspense, createApp, toRaw, readonly, customRef, renderList, useId, onErrorCaptured, effectScope, useTemplateRef, withModifiers, normalizeProps, guardReactiveProps, watchEffect, normalizeStyle, markRaw, Teleport, shallowReadonly, isReadonly, isShallow, isReactive } from 'vue';
-import { o as serialize, q as klona, t as defu, v as parseQuery, w as appendResponseHeader, x as defuFn, y as hasProtocol, m as joinURL, z as parseURL, A as encodePath, B as decodePath, C as isEqual, D as withQuery, E as isScriptProtocol, F as getContext, G as withTrailingSlash, H as withoutTrailingSlash, I as sanitizeStatusCode, J as withLeadingSlash, c as createError$1, $ as $fetch$1, K as baseURL, L as hash, M as createHooks, N as encodeParam, O as executeAsync } from '../nitro/nitro.mjs';
+import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { inject, computed, shallowRef, defineComponent, useSlots, ref, mergeProps, unref, withCtx, renderSlot, openBlock, createBlock, createCommentVNode, toDisplayString, createVNode, toValue, resolveDynamicComponent, watch, provide, getCurrentInstance, toRef as toRef$1, camelize as camelize$1, h, hasInjectionContext, Teleport, getCurrentScope, onScopeDispose, nextTick, effectScope, toHandlerKey, toRefs, useModel, createTextVNode, mergeModels, Comment, cloneVNode, onServerPrefetch, reactive, useAttrs, resolveComponent, isRef, Fragment, defineAsyncComponent, createElementBlock, useSSRContext, shallowReactive, Suspense, createApp, toRaw, readonly, customRef, renderList, useId, onErrorCaptured, useTemplateRef, withModifiers, normalizeProps, guardReactiveProps, watchEffect, normalizeStyle, markRaw, shallowReadonly, isReadonly, isShallow, isReactive } from 'vue';
+import { o as serialize, q as defu, t as klona, v as defuFn, w as parseQuery, x as appendResponseHeader, y as isEqual, z as hasProtocol, m as joinURL, A as parseURL, B as encodePath, C as decodePath, D as getContext, E as withQuery, F as isScriptProtocol, G as withTrailingSlash, H as withoutTrailingSlash, I as sanitizeStatusCode, J as withLeadingSlash, c as createError$1, $ as $fetch$1, K as baseURL, L as hash, M as createHooks, N as encodeParam, O as executeAsync } from '../nitro/nitro.mjs';
 import { useRoute as useRoute$1, RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import { Icon, getIcon, loadIcon as loadIcon$1, _api, addAPIProvider, setCustomIconsLoader } from '@iconify/vue';
 import { debounce } from 'perfect-debounce';
@@ -523,7 +523,7 @@ const _routes = [
     name: "dashboard-form",
     path: "/dashboard/form",
     meta: __nuxt_page_meta$3 || {},
-    component: () => import('./index-yPJcF1Rj.mjs')
+    component: () => import('./index-D1nixi6r.mjs')
   },
   {
     name: "dashboard-profile",
@@ -535,41 +535,41 @@ const _routes = [
     name: "dashboard",
     path: "/dashboard",
     meta: __nuxt_page_meta$1 || {},
-    component: () => import('./index-oS7mxtq3.mjs')
+    component: () => import('./index-BqD6DPbb.mjs')
   },
   {
     name: "demo",
     path: "/demo",
-    component: () => import('./demo-Aq67eiYv.mjs')
+    component: () => import('./demo-BnK-wp6M.mjs')
   },
   {
     name: "forgotpassword",
     path: "/forgotpassword",
     meta: { "groups": ["authentication"] },
-    component: () => import('./forgotpassword-BGzKmgxh.mjs')
+    component: () => import('./forgotpassword-x8B2VmjC.mjs')
   },
   {
     name: "login",
     path: "/login",
     meta: { "groups": ["authentication"] },
-    component: () => import('./login-Dw6aH-6T.mjs')
+    component: () => import('./login-DmtUMv7P.mjs')
   },
   {
     name: "signup",
     path: "/signup",
     meta: { "groups": ["authentication"] },
-    component: () => import('./signup-BfxLEJ_d.mjs')
+    component: () => import('./signup-D8WfOaM6.mjs')
   },
   {
     name: "id-resetpassword",
     path: "/:id()/resetpassword",
     meta: { "groups": ["authentication"] },
-    component: () => import('./resetpassword-B0k6WyiG.mjs')
+    component: () => import('./resetpassword-DlH7L0U6.mjs')
   },
   {
     name: __nuxt_page_meta?.name,
     path: "/",
-    component: () => import('./index-DQaIUF7f.mjs'),
+    component: () => import('./index-DKQ_hMSK.mjs'),
     children: [
       {
         name: "index",
@@ -1414,7 +1414,7 @@ const plugin_MeUvTuoKUi51yb_kBguab6hdcExVXeTtZtTg9TZZBB8 = /* @__PURE__ */ defin
   // For type portability
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 });
-const LazyToastContainer = defineAsyncComponent(() => import('./ToastContainer-LQbu7Udn.mjs').then((r) => r["default"] || r.default || r));
+const LazyToastContainer = defineAsyncComponent(() => import('./ToastContainer-C-xIN5cG.mjs').then((r) => r["default"] || r.default || r));
 const LazyIcon = defineAsyncComponent(() => Promise.resolve().then(() => index).then((r) => r["default"] || r.default || r));
 const lazyGlobalComponents = [
   ["ToastContainer", LazyToastContainer],
@@ -2511,11 +2511,11 @@ const noop$1 = () => {
 function toArray$1(value) {
   return Array.isArray(value) ? value : [value];
 }
-function getLifeCycleTarget(target) {
+function getLifeCycleTarget$1(target) {
   return getCurrentInstance();
 }
 function tryOnUnmounted(fn, target) {
-  getLifeCycleTarget();
+  getLifeCycleTarget$1();
 }
 function watchImmediate$1(source, cb, options) {
   return watch(
@@ -4401,6 +4401,24 @@ function tryOnScopeDispose(fn, failSilently) {
   }
   return false;
 }
+// @__NO_SIDE_EFFECTS__
+function createGlobalState(stateFactory) {
+  let initialized = false;
+  let state;
+  const scope = effectScope(true);
+  return ((...args) => {
+    if (!initialized) {
+      state = scope.run(() => stateFactory(...args));
+      initialized = true;
+    }
+    return state;
+  });
+}
+// @__NO_SIDE_EFFECTS__
+function createRef(value, deep) {
+  if (deep === true) return ref(value);
+  else return shallowRef(value);
+}
 typeof WorkerGlobalScope !== "undefined" && globalThis instanceof WorkerGlobalScope;
 const isDef = (val) => typeof val !== "undefined";
 const toString = Object.prototype.toString;
@@ -4415,12 +4433,92 @@ function toRef(...args) {
     set: noop
   }))) : ref(r);
 }
+function createFilterWrapper(filter2, fn) {
+  function wrapper(...args) {
+    return new Promise((resolve, reject) => {
+      Promise.resolve(filter2(() => fn.apply(this, args), {
+        fn,
+        thisArg: this,
+        args
+      })).then(resolve).catch(reject);
+    });
+  }
+  return wrapper;
+}
+function debounceFilter(ms, options = {}) {
+  let timer;
+  let maxTimer;
+  let lastRejector = noop;
+  const _clearTimeout = (timer$1) => {
+    clearTimeout(timer$1);
+    lastRejector();
+    lastRejector = noop;
+  };
+  let lastInvoker;
+  const filter2 = (invoke$1) => {
+    const duration = toValue(ms);
+    const maxDuration = toValue(options.maxWait);
+    if (timer) _clearTimeout(timer);
+    if (duration <= 0 || maxDuration !== void 0 && maxDuration <= 0) {
+      if (maxTimer) {
+        _clearTimeout(maxTimer);
+        maxTimer = void 0;
+      }
+      return Promise.resolve(invoke$1());
+    }
+    return new Promise((resolve, reject) => {
+      lastRejector = options.rejectOnCancel ? reject : resolve;
+      lastInvoker = invoke$1;
+      if (maxDuration && !maxTimer) maxTimer = setTimeout(() => {
+        if (timer) _clearTimeout(timer);
+        maxTimer = void 0;
+        resolve(lastInvoker());
+      }, maxDuration);
+      timer = setTimeout(() => {
+        if (maxTimer) _clearTimeout(maxTimer);
+        maxTimer = void 0;
+        resolve(invoke$1());
+      }, duration);
+    });
+  };
+  return filter2;
+}
 function toArray(value) {
   return Array.isArray(value) ? value : [value];
+}
+function cacheStringFunction(fn) {
+  const cache = /* @__PURE__ */ Object.create(null);
+  return ((str) => {
+    return cache[str] || (cache[str] = fn(str));
+  });
+}
+const camelizeRE = /-(\w)/g;
+const camelize = cacheStringFunction((str) => {
+  return str.replace(camelizeRE, (_, c) => c ? c.toUpperCase() : "");
+});
+function getLifeCycleTarget(target) {
+  return getCurrentInstance();
 }
 // @__NO_SIDE_EFFECTS__
 function createSharedComposable(composable) {
   return composable;
+}
+// @__NO_SIDE_EFFECTS__
+function makeDestructurable(obj, arr) {
+  if (typeof Symbol !== "undefined") {
+    const clone2 = { ...obj };
+    Object.defineProperty(clone2, Symbol.iterator, {
+      enumerable: false,
+      value() {
+        let index2 = 0;
+        return { next: () => ({
+          value: arr[index2++],
+          done: index2 > arr.length
+        }) };
+      }
+    });
+    return clone2;
+  } else return Object.assign([...arr], obj);
 }
 function toReactive(objectRef) {
   if (!isRef(objectRef)) return reactive(objectRef);
@@ -4462,6 +4560,13 @@ function reactivePick(obj, ...keys) {
   const flatKeys = keys.flat();
   const predicate = flatKeys[0];
   return reactiveComputed(() => typeof predicate === "function" ? Object.fromEntries(Object.entries(toRefs(obj)).filter(([k, v]) => predicate(toValue(v), k))) : Object.fromEntries(flatKeys.map((k) => [k, toRef(obj, k)])));
+}
+// @__NO_SIDE_EFFECTS__
+function useDebounceFn(fn, ms = 200, options = {}) {
+  return createFilterWrapper(debounceFilter(ms, options), fn);
+}
+function tryOnBeforeUnmount(fn, target) {
+  if (getLifeCycleTarget()) ;
 }
 function useTimeoutFn(cb, interval, options = {}) {
   const { immediate = true, immediateCallback = false } = options;
@@ -4512,6 +4617,40 @@ function watchImmediate(source, cb, options) {
     ...options,
     immediate: true
   });
+}
+// @__NO_SIDE_EFFECTS__
+function createReusableTemplate(options = {}) {
+  const { inheritAttrs = true } = options;
+  const render = shallowRef();
+  const define = defineComponent({ setup(_, { slots }) {
+    return () => {
+      render.value = slots.default;
+    };
+  } });
+  const reuse = defineComponent({
+    inheritAttrs,
+    props: options.props,
+    setup(props, { attrs, slots }) {
+      return () => {
+        var _render$value;
+        if (!render.value && true) throw new Error("[VueUse] Failed to find the definition of reusable template");
+        const vnode = (_render$value = render.value) === null || _render$value === void 0 ? void 0 : _render$value.call(render, {
+          ...options.props == null ? keysToCamelKebabCase(attrs) : props,
+          $slots: slots
+        });
+        return inheritAttrs && (vnode === null || vnode === void 0 ? void 0 : vnode.length) === 1 ? vnode[0] : vnode;
+      };
+    }
+  });
+  return /* @__PURE__ */ makeDestructurable({
+    define,
+    reuse
+  }, [define, reuse]);
+}
+function keysToCamelKebabCase(obj) {
+  const newObj = {};
+  for (const key in obj) newObj[camelize(key)] = obj[key];
+  return newObj;
 }
 const defaultWindow = void 0;
 function unrefElement(elRef) {
@@ -4684,7 +4823,7 @@ function useEmitAsProps(emit) {
   const result = {};
   if (!events?.length) console.warn(`No emitted event found. Please check component: ${vm?.type.__name}`);
   events?.forEach((ev) => {
-    result[toHandlerKey(camelize(ev))] = (...arg) => emit(ev, ...arg);
+    result[toHandlerKey(camelize$1(ev))] = (...arg) => emit(ev, ...arg);
   });
   return result;
 }
@@ -4750,7 +4889,7 @@ function useForwardProps(props) {
     const preservedProps = {};
     const assignedProps = vm?.vnode.props ?? {};
     Object.keys(assignedProps).forEach((key) => {
-      preservedProps[camelize(key)] = assignedProps[key];
+      preservedProps[camelize$1(key)] = assignedProps[key];
     });
     return Object.keys({
       ...defaultProps,
@@ -4983,12 +5122,24 @@ var DismissableLayerBranch_vue_vue_type_script_setup_true_lang_default = /* @__P
   }
 });
 var DismissableLayerBranch_default = DismissableLayerBranch_vue_vue_type_script_setup_true_lang_default;
+const AUTOFOCUS_ON_MOUNT = "focusScope.autoFocusOnMount";
+const AUTOFOCUS_ON_UNMOUNT = "focusScope.autoFocusOnUnmount";
+const EVENT_OPTIONS = {
+  bubbles: false,
+  cancelable: true
+};
 function focusFirst(candidates, { select = false } = {}) {
   const previouslyFocusedElement = getActiveElement();
   for (const candidate of candidates) {
     focus(candidate, { select });
     if (getActiveElement() !== previouslyFocusedElement) return true;
   }
+}
+function getTabbableEdges(container) {
+  const candidates = getTabbableCandidates(container);
+  const first = findVisible(candidates, container);
+  const last = findVisible(candidates.reverse(), container);
+  return [first, last];
 }
 function getTabbableCandidates(container) {
   const nodes = [];
@@ -4999,6 +5150,18 @@ function getTabbableCandidates(container) {
   } });
   while (walker.nextNode()) nodes.push(walker.currentNode);
   return nodes;
+}
+function findVisible(elements, container) {
+  for (const element of elements) if (!isHidden(element, { upTo: container })) return element;
+}
+function isHidden(node, { upTo }) {
+  if (getComputedStyle(node).visibility === "hidden") return true;
+  while (node) {
+    if (upTo !== void 0 && node === upTo) return false;
+    if (getComputedStyle(node).display === "none") return true;
+    node = node.parentElement;
+  }
+  return false;
 }
 function isSelectableInput(element) {
   return element instanceof HTMLInputElement && "select" in element;
@@ -5471,9 +5634,9 @@ function getAnnounceTextContent(container) {
   childNodes.forEach((node) => {
     if (node.nodeType === node.TEXT_NODE && node.textContent) textContent.push(node.textContent);
     if (isHTMLElement(node)) {
-      const isHidden = node.ariaHidden || node.hidden || node.style.display === "none";
+      const isHidden2 = node.ariaHidden || node.hidden || node.style.display === "none";
       const isExcluded = node.dataset.rekaToastAnnounceExclude === "";
-      if (!isHidden) if (isExcluded) {
+      if (!isHidden2) if (isExcluded) {
         const altText = node.dataset.rekaToastAnnounceAlt;
         if (altText) textContent.push(altText);
       } else textContent.push(...getAnnounceTextContent(node));
@@ -6230,6 +6393,10 @@ function get(object, path, defaultValue) {
     result = result[key];
   }
   return result !== void 0 ? result : defaultValue;
+}
+function looseToNumber(val) {
+  const n = Number.parseFloat(val);
+  return Number.isNaN(n) ? val : n;
 }
 function mergeClasses(appConfigClass, propClass) {
   if (!appConfigClass && !propClass) {
@@ -7516,7 +7683,68 @@ function useFieldGroup(props) {
     size: computed(() => props?.size ?? fieldGroup?.value.size)
   };
 }
+const formOptionsInjectionKey = /* @__PURE__ */ Symbol("nuxt-ui.form-options");
+const formBusInjectionKey = /* @__PURE__ */ Symbol("nuxt-ui.form-events");
+const formFieldInjectionKey = /* @__PURE__ */ Symbol("nuxt-ui.form-field");
+const inputIdInjectionKey = /* @__PURE__ */ Symbol("nuxt-ui.input-id");
 const formLoadingInjectionKey = /* @__PURE__ */ Symbol("nuxt-ui.form-loading");
+function useFormField(props, opts) {
+  const formOptions = inject(formOptionsInjectionKey, void 0);
+  const formBus = inject(formBusInjectionKey, void 0);
+  const formField = inject(formFieldInjectionKey, void 0);
+  const inputId = inject(inputIdInjectionKey, void 0);
+  provide(formFieldInjectionKey, void 0);
+  if (formField && inputId) {
+    if (opts?.bind === false) {
+      inputId.value = void 0;
+    } else if (props?.id) {
+      inputId.value = props?.id;
+    }
+  }
+  function emitFormEvent(type, name, eager) {
+    if (formBus && formField && name) {
+      formBus.emit({ type, name, eager });
+    }
+  }
+  function emitFormBlur() {
+    emitFormEvent("blur", formField?.value.name);
+  }
+  function emitFormFocus() {
+    emitFormEvent("focus", formField?.value.name);
+  }
+  function emitFormChange() {
+    emitFormEvent("change", formField?.value.name);
+  }
+  const emitFormInput = /* @__PURE__ */ useDebounceFn(
+    () => {
+      emitFormEvent("input", formField?.value.name, formField?.value.eagerValidation);
+    },
+    formField?.value.validateOnInputDelay ?? formOptions?.value.validateOnInputDelay ?? 0
+  );
+  return {
+    id: computed(() => props?.id ?? inputId?.value),
+    name: computed(() => props?.name ?? formField?.value.name),
+    size: computed(() => props?.size ?? formField?.value.size),
+    color: computed(() => formField?.value.error ? "error" : props?.color),
+    highlight: computed(() => formField?.value.error ? true : props?.highlight),
+    disabled: computed(() => formOptions?.value.disabled || props?.disabled),
+    emitFormBlur,
+    emitFormInput,
+    emitFormChange,
+    emitFormFocus,
+    ariaAttrs: computed(() => {
+      if (!formField?.value) return;
+      const descriptiveAttrs = ["error", "hint", "description", "help"].filter((type) => formField?.value?.[type]).map((type) => `${formField?.value.ariaId}-${type}`) || [];
+      const attrs = {
+        "aria-invalid": !!formField?.value.error
+      };
+      if (descriptiveAttrs.length > 0) {
+        attrs["aria-describedby"] = descriptiveAttrs.join(" ");
+      }
+      return attrs;
+    })
+  };
+}
 const linkKeys = [
   "active",
   "activeClass",
@@ -9881,9 +10109,9 @@ _sfc_main$3.setup = (props, ctx) => {
 };
 const __nuxt_component_0 = Object.assign(_sfc_main$3, { __name: "UApp" });
 const layouts = {
-  authenticated: defineAsyncComponent(() => import('./authenticated-CW3jo3sQ.mjs').then((m) => m.default || m)),
-  default: defineAsyncComponent(() => import('./default-CZM4Np7B.mjs').then((m) => m.default || m)),
-  form: defineAsyncComponent(() => import('./form-Bh68T_SJ.mjs').then((m) => m.default || m))
+  authenticated: defineAsyncComponent(() => import('./authenticated-DOmHjTUW.mjs').then((m) => m.default || m)),
+  default: defineAsyncComponent(() => import('./default-BueMu77H.mjs').then((m) => m.default || m)),
+  form: defineAsyncComponent(() => import('./form-ChLUT4an.mjs').then((m) => m.default || m))
 };
 const routeRulesMatcher = _routeRulesMatcher;
 const LayoutLoader = defineComponent({
@@ -10276,5 +10504,5 @@ let entry;
 }
 const entry_default = ((ssrContext) => entry(ssrContext));
 
-export { VisuallyHidden_default as V, __nuxt_component_0$2 as _, useNuxtData as a, useUserSession as b, useRuntimeConfig as c, __nuxt_component_0$1 as d, entry_default as default, useMotion as e, useAppConfig as f, useComponentUI as g, useForwardPropsEmits as h, usePortal as i, _sfc_main$8 as j, useRoute as k, __nuxt_component_1$1 as l, useFetch as m, reactivePick as r, tv as t, useHead as u };
+export { AUTOFOCUS_ON_MOUNT as A, usePortal as B, createReusableTemplate as C, tv as D, EVENT_OPTIONS as E, _sfc_main$8 as F, useRuntimeConfig as G, useFieldGroup as H, useComponentIcons as I, _sfc_main$e as J, _sfc_main$b as K, useFormField as L, looseToNumber as M, createRef as N, useForwardProps as O, Primitive as P, __nuxt_component_0$1 as Q, useMotion as R, useRoute as S, Teleport_default as T, __nuxt_component_1$1 as U, VisuallyHidden_default as V, useFetch as W, __nuxt_component_0$2 as _, useNuxtData as a, useUserSession as b, createSharedComposable as c, unrefElement as d, entry_default as default, useVModel as e, createContext as f, useForwardExpose as g, isNullish as h, injectConfigProviderContext as i, createGlobalState as j, getActiveElement as k, focusFirst as l, getTabbableCandidates as m, focus as n, onKeyStroke as o, AUTOFOCUS_ON_UNMOUNT as p, getTabbableEdges as q, useEmitAsProps as r, Presence_default as s, tryOnBeforeUnmount as t, useHead as u, useLocale as v, useAppConfig as w, useComponentUI as x, useForwardPropsEmits as y, reactivePick as z };
 //# sourceMappingURL=server.mjs.map

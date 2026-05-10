@@ -3,6 +3,8 @@
 
 * {
   --ui-bg: #020203;
+  --ui-bg-elevated: #020203;
+  /* opacity: 1; */
 }
 
 body {

@@ -1,1 +1,0 @@
-import{e as r,aB as s,c as n,$ as o,o as _,aC as c}from"./stWl_jLY.js";const p=r({__name:"form",async setup(l){let e,a;return[e,a]=s(()=>c("/api/user",{key:"get_user",lazy:!0},"$gauariUr_N")),await e,a(),(t,u)=>(_(),n("main",null,[o(t.$slots,"default")]))}});export{p as default};

@@ -22,11 +22,13 @@ interface _GlobalComponents {
   BaseButtonNavigate: typeof import("../../app/components/base/ButtonNavigate.vue")['default']
   BaseButtonSubmit: typeof import("../../app/components/base/ButtonSubmit.vue")['default']
   BaseDeleteProfile: typeof import("../../app/components/base/DeleteProfile.vue")['default']
+  BaseEngineActive: typeof import("../../app/components/base/EngineActive.vue")['default']
   BaseGhostForm: typeof import("../../app/components/base/GhostForm.vue")['default']
   BaseLabel: typeof import("../../app/components/base/Label.vue")['default']
   BaseNavigationAuth: typeof import("../../app/components/base/Navigation/Auth.vue")['default']
   BaseNavigationBase: typeof import("../../app/components/base/Navigation/Base.vue")['default']
   BaseQrCode: typeof import("../../app/components/base/QrCode.vue")['default']
+  BaseTable: typeof import("../../app/components/base/Table.vue")['default']
   BaseButton: typeof import("../../app/components/base/button.vue")['default']
   BaseFooter: typeof import("../../app/components/base/footer.vue")['default']
   BaseHeader: typeof import("../../app/components/base/header.vue")['default']
@@ -201,11 +203,13 @@ interface _GlobalComponents {
   LazyBaseButtonNavigate: LazyComponent<typeof import("../../app/components/base/ButtonNavigate.vue")['default']>
   LazyBaseButtonSubmit: LazyComponent<typeof import("../../app/components/base/ButtonSubmit.vue")['default']>
   LazyBaseDeleteProfile: LazyComponent<typeof import("../../app/components/base/DeleteProfile.vue")['default']>
+  LazyBaseEngineActive: LazyComponent<typeof import("../../app/components/base/EngineActive.vue")['default']>
   LazyBaseGhostForm: LazyComponent<typeof import("../../app/components/base/GhostForm.vue")['default']>
   LazyBaseLabel: LazyComponent<typeof import("../../app/components/base/Label.vue")['default']>
   LazyBaseNavigationAuth: LazyComponent<typeof import("../../app/components/base/Navigation/Auth.vue")['default']>
   LazyBaseNavigationBase: LazyComponent<typeof import("../../app/components/base/Navigation/Base.vue")['default']>
   LazyBaseQrCode: LazyComponent<typeof import("../../app/components/base/QrCode.vue")['default']>
+  LazyBaseTable: LazyComponent<typeof import("../../app/components/base/Table.vue")['default']>
   LazyBaseButton: LazyComponent<typeof import("../../app/components/base/button.vue")['default']>
   LazyBaseFooter: LazyComponent<typeof import("../../app/components/base/footer.vue")['default']>
   LazyBaseHeader: LazyComponent<typeof import("../../app/components/base/header.vue")['default']>
