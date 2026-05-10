@@ -8,6 +8,7 @@ const userSchema = new Schema(
     {
         organization: String,
         role: String,
+        category: String,
         qr_code_slug: String,
         total_scans: Number,
         leads_captured: Number,

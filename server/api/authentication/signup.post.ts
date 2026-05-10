@@ -9,7 +9,7 @@ const User = UserModel as Model<User>;
 
 const bodySchema = z.object({
   organization: z.string(),
-  role: z.string(),
+  category: z.string(),
   email: z.email(),
   password: z.string().min(8),
   confirm_password: z.string().min(8),
@@ -17,7 +17,7 @@ const bodySchema = z.object({
 })
 
 export default defineEventHandler(async (event) => {
-  const { organization, role, email, password, confirm_password, privacy_policy } = await readValidatedBody(event, bodySchema.parse);
+  const { organization, category, email, password, confirm_password, privacy_policy } = await readValidatedBody(event, bodySchema.parse);
 
   try {
     await connectDB();
@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
 
     const registerUser = new User({
       organization: organization.toLowerCase(),
-      role: role.toLowerCase(),
+      category: category.toLowerCase(),
       email: email.toLowerCase().trim(),
       password: hashedPassword,
       privacy_policy: privacy_policy,

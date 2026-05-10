@@ -34,7 +34,11 @@ const step = ref(1);
             </div>
 
             <div class="relative group">
-                <baseGhostForm />
+                <baseGhostForm
+                    category="realtor"
+                    company="White Raven Development"
+                    email="whiteravendev90@gmail.com"
+                />
             </div>
 
             <div

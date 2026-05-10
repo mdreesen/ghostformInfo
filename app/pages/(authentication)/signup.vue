@@ -3,7 +3,7 @@ const toast = useToast();
 
 const credentials = reactive({
     organization: '',
-    role: '',
+    category: '',
     email: '',
     password: '',
     confirm_password: '',
@@ -67,8 +67,8 @@ async function handler() {
                             <div>
                                 <label
                                     class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 ml-1 mb-2 block">Primary
-                                    Role</label>
-                                <select v-model="credentials.role"
+                                    Category</label>
+                                <select v-model="credentials.category"
                                     class="w-full bg-white/3 border border-white/10 rounded-xl px-5 py-3 text-sm focus:outline-none focus:border-cyan-400 transition-colors placeholder:text-zinc-700 text-ellipsis">
                                     <option value="realtor">Realtor</option>
                                     <option value="construction">Construction</option>

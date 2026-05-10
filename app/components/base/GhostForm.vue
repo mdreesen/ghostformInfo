@@ -1,3 +1,20 @@
+<script setup lang="ts">
+const props = defineProps({
+    category: {
+        type: String,
+        required: true,
+    },
+    company: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    }
+})
+</script>
+
 <template>
     <div class="relative group max-w-md mx-auto">
   
@@ -14,11 +31,16 @@
             class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600 rounded-full blur-[80px] animate-pulse"
             style="animation-delay: 1s;"></div>
         </div>
+
+        <div v-if="!category && !company && !email">
+            <baseHeader class="py-8 flex content-center justify-center" text="The category, company name, and email are needed." />
+        </div>
   
         <iframe
-          src="https://ghostform-zeta.vercel.app/?category=construction&company_name=White+Raven+Development&company_email=whiteravendev90@gmail.com&background_color=0f0b0b&font_color=FFFFFF"
-          style="width: 100%; height: 500px; border: none; background: transparent; border-radius: 20px;"
-          allowtransparency="true" scrolling="no" />
+            v-else
+            :src="`https://ghostform-zeta.vercel.app/?category=${props.category}&company_name=${props.company}&company_email=${props.email}&background_color=0f0b0b&font_color=FFFFFF`"
+            style="width: 100%; height: 500px; border: none; background: transparent; border-radius: 20px;"
+            allowtransparency="true" scrolling="no" />
   
       </div>
     </div>

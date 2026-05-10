@@ -44,7 +44,7 @@ const generateQR = (id: string) => {
           <span class="text-[10px] font-black uppercase tracking-[0.4em] text-cyan-400">Ghost-Node Network</span>
         </div>
         <h1 class="text-4xl md:text-5xl font-bold tracking-tighter">{{ user.organization }}</h1>
-        <span>{{ user.role }}</span>
+        <span class="font-bold tracking-tighter">{{ user?.category }}</span>
       </div>
       
       <div class="flex gap-4">
