@@ -1,1 +1,0 @@
-import{e,u as t,c as n,o}from"./CzPkLiyH.js";const i=e({__name:"index",setup(a){return t({title:"GhostForm | Main",meta:[{name:"description",content:"GhostForm Main Dashboard."}]}),(s,r)=>(o(),n("div",null,"HELLO WORLD LOGGED IN"))}});export{i as default};

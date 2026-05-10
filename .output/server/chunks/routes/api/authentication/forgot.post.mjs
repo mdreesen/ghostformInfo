@@ -1,4 +1,4 @@
-import { d as defineEventHandler, a as readValidatedBody, c as createError } from '../../../nitro/nitro.mjs';
+import { d as defineEventHandler, r as readValidatedBody, c as createError } from '../../../nitro/nitro.mjs';
 import { z } from 'zod';
 import { c as connectDB, U as User$1 } from '../../../_/User.mjs';
 import { nanoid } from 'nanoid';

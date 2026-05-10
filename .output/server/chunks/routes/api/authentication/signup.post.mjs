@@ -1,4 +1,4 @@
-import { d as defineEventHandler, a as readValidatedBody, c as createError } from '../../../nitro/nitro.mjs';
+import { d as defineEventHandler, r as readValidatedBody, c as createError } from '../../../nitro/nitro.mjs';
 import { z } from 'zod';
 import bcrypt from 'bcrypt';
 import { c as connectDB, U as User$1 } from '../../../_/User.mjs';
@@ -19,14 +19,14 @@ import 'mongoose';
 const User = User$1;
 const bodySchema = z.object({
   organization: z.string(),
-  role: z.string(),
+  category: z.string(),
   email: z.email(),
   password: z.string().min(8),
   confirm_password: z.string().min(8),
   privacy_policy: z.boolean()
 });
 const signup_post = defineEventHandler(async (event) => {
-  const { organization, role, email, password, confirm_password, privacy_policy } = await readValidatedBody(event, bodySchema.parse);
+  const { organization, category, email, password, confirm_password, privacy_policy } = await readValidatedBody(event, bodySchema.parse);
   try {
     await connectDB();
     const user = await User.findOne({ email });
@@ -37,7 +37,7 @@ const signup_post = defineEventHandler(async (event) => {
     if (user) throw createError({ statusCode: 401, statusMessage: "User already registered.", data: { errorMessage: "The requested item could not be found." } });
     const registerUser = new User({
       organization: organization.toLowerCase(),
-      role: role.toLowerCase(),
+      category: category.toLowerCase(),
       email: email.toLowerCase().trim(),
       password: hashedPassword,
       privacy_policy
