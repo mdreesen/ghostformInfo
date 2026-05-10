@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+* {
+  --ui-bg: #020203;
+}
+
 body {
     min-height: 100vh;
 };

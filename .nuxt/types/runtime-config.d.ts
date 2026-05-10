@@ -564,6 +564,60 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
    auth: {
       loadStrategy: string,
    },
+
+   googleAuth: {
+      clientId: string,
+
+      promptOneTap: boolean,
+
+      enableServerVerify: boolean,
+   },
+
+   notify: {
+      position: string,
+
+      duration: number,
+
+      maxToasts: number,
+
+      theme: string,
+
+      showIcon: boolean,
+   },
+
+   qrcode: {
+      reader: {
+         autoImport: boolean,
+
+         formats: Array<string>,
+
+         global: boolean,
+      },
+
+      global: boolean,
+
+      options: {
+         ecc: string,
+
+         maskPattern: number,
+
+         boostEcc: any,
+
+         minVersion: number,
+
+         maxVersion: number,
+
+         border: number,
+
+         variant: string,
+
+         radius: number,
+
+         blackColor: string,
+
+         whiteColor: string,
+      },
+   },
   }
 declare module '@nuxt/schema' {
   interface RuntimeConfig extends UserRuntimeConfig {}

@@ -15,16 +15,22 @@ type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {},
 
 interface _GlobalComponents {
   AppComparison: typeof import("../../app/components/app/comparison.vue")['default']
-  AppDemo: typeof import("../../app/components/app/demo.vue")['default']
   AppFeatures: typeof import("../../app/components/app/features.vue")['default']
   AppHero: typeof import("../../app/components/app/hero.vue")['default']
   AppPricing: typeof import("../../app/components/app/pricing.vue")['default']
   AppStats: typeof import("../../app/components/app/stats.vue")['default']
-  BaseButton: typeof import("../../app/components/base/button.vue")['default']
+  BaseButton: typeof import("../../app/components/base/Button.vue")['default']
+  BaseButtonNavigate: typeof import("../../app/components/base/ButtonNavigate.vue")['default']
+  BaseButtonSubmit: typeof import("../../app/components/base/ButtonSubmit.vue")['default']
+  BaseDeleteProfile: typeof import("../../app/components/base/DeleteProfile.vue")['default']
+  BaseGhostForm: typeof import("../../app/components/base/GhostForm.vue")['default']
+  BaseLabel: typeof import("../../app/components/base/Label.vue")['default']
+  BaseNavigationAuth: typeof import("../../app/components/base/Navigation/Auth.vue")['default']
+  BaseNavigationBase: typeof import("../../app/components/base/Navigation/Base.vue")['default']
+  BaseQrCode: typeof import("../../app/components/base/QrCode.vue")['default']
   BaseFooter: typeof import("../../app/components/base/footer.vue")['default']
   BaseHeader: typeof import("../../app/components/base/header.vue")['default']
   BaseIcon: typeof import("../../app/components/base/icon.vue")['default']
-  BaseNav: typeof import("../../app/components/base/nav.vue")['default']
   AuthState: typeof import("../../node_modules/nuxt-auth-utils/dist/runtime/app/components/AuthState.vue")['default']
   UColorModeAvatar: typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeAvatar.vue")['default']
   UColorModeButton: typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeButton.vue")['default']
@@ -152,6 +158,10 @@ interface _GlobalComponents {
   UTree: typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/Tree.vue")['default']
   UUser: typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/User.vue")['default']
   ULocaleSelect: typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/locale/LocaleSelect.vue")['default']
+  QrcodeCapture: typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-capture.vue")['default']
+  QrcodeDropZone: typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-drop-zone.vue")['default']
+  QrcodeStream: typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-stream.vue")['default']
+  Qrcode: typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode.vue")['default']
   NuxtWelcome: typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']
   NuxtLayout: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
   NuxtErrorBoundary: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -168,6 +178,9 @@ interface _GlobalComponents {
   Motion: typeof import("@vueuse/motion")['MotionComponent']
   MotionGroup: typeof import("@vueuse/motion")['MotionGroupComponent']
   ColorScheme: typeof import("../../node_modules/@nuxtjs/color-mode/dist/runtime/component.vue3.vue")['default']
+  GoogleLoginButton: typeof import("../../node_modules/nuxt-google-auth/dist/runtime/components/GoogleLoginButton.vue")['default']
+  ToastContainer: typeof import("../../node_modules/nuxt-notify/dist/runtime/components/ToastContainer.vue")['default']
+  Toast: typeof import("../../node_modules/nuxt-notify/dist/runtime/components/Toast.vue")['default']
   NuxtPage: typeof import("../../node_modules/nuxt/dist/pages/runtime/page")['default']
   NoScript: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['NoScript']
   Link: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Link']
@@ -181,16 +194,22 @@ interface _GlobalComponents {
   Icon: typeof import("../../node_modules/@nuxt/icon/dist/runtime/components/index")['default']
   NuxtIsland: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']
   LazyAppComparison: LazyComponent<typeof import("../../app/components/app/comparison.vue")['default']>
-  LazyAppDemo: LazyComponent<typeof import("../../app/components/app/demo.vue")['default']>
   LazyAppFeatures: LazyComponent<typeof import("../../app/components/app/features.vue")['default']>
   LazyAppHero: LazyComponent<typeof import("../../app/components/app/hero.vue")['default']>
   LazyAppPricing: LazyComponent<typeof import("../../app/components/app/pricing.vue")['default']>
   LazyAppStats: LazyComponent<typeof import("../../app/components/app/stats.vue")['default']>
-  LazyBaseButton: LazyComponent<typeof import("../../app/components/base/button.vue")['default']>
+  LazyBaseButton: LazyComponent<typeof import("../../app/components/base/Button.vue")['default']>
+  LazyBaseButtonNavigate: LazyComponent<typeof import("../../app/components/base/ButtonNavigate.vue")['default']>
+  LazyBaseButtonSubmit: LazyComponent<typeof import("../../app/components/base/ButtonSubmit.vue")['default']>
+  LazyBaseDeleteProfile: LazyComponent<typeof import("../../app/components/base/DeleteProfile.vue")['default']>
+  LazyBaseGhostForm: LazyComponent<typeof import("../../app/components/base/GhostForm.vue")['default']>
+  LazyBaseLabel: LazyComponent<typeof import("../../app/components/base/Label.vue")['default']>
+  LazyBaseNavigationAuth: LazyComponent<typeof import("../../app/components/base/Navigation/Auth.vue")['default']>
+  LazyBaseNavigationBase: LazyComponent<typeof import("../../app/components/base/Navigation/Base.vue")['default']>
+  LazyBaseQrCode: LazyComponent<typeof import("../../app/components/base/QrCode.vue")['default']>
   LazyBaseFooter: LazyComponent<typeof import("../../app/components/base/footer.vue")['default']>
   LazyBaseHeader: LazyComponent<typeof import("../../app/components/base/header.vue")['default']>
   LazyBaseIcon: LazyComponent<typeof import("../../app/components/base/icon.vue")['default']>
-  LazyBaseNav: LazyComponent<typeof import("../../app/components/base/nav.vue")['default']>
   LazyAuthState: LazyComponent<typeof import("../../node_modules/nuxt-auth-utils/dist/runtime/app/components/AuthState.vue")['default']>
   LazyUColorModeAvatar: LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeAvatar.vue")['default']>
   LazyUColorModeButton: LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeButton.vue")['default']>
@@ -318,6 +337,10 @@ interface _GlobalComponents {
   LazyUTree: LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/Tree.vue")['default']>
   LazyUUser: LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/User.vue")['default']>
   LazyULocaleSelect: LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/locale/LocaleSelect.vue")['default']>
+  LazyQrcodeCapture: LazyComponent<typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-capture.vue")['default']>
+  LazyQrcodeDropZone: LazyComponent<typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-drop-zone.vue")['default']>
+  LazyQrcodeStream: LazyComponent<typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-stream.vue")['default']>
+  LazyQrcode: LazyComponent<typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode.vue")['default']>
   LazyNuxtWelcome: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
   LazyNuxtLayout: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
   LazyNuxtErrorBoundary: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>
@@ -334,6 +357,9 @@ interface _GlobalComponents {
   LazyMotion: LazyComponent<typeof import("@vueuse/motion")['MotionComponent']>
   LazyMotionGroup: LazyComponent<typeof import("@vueuse/motion")['MotionGroupComponent']>
   LazyColorScheme: LazyComponent<typeof import("../../node_modules/@nuxtjs/color-mode/dist/runtime/component.vue3.vue")['default']>
+  LazyGoogleLoginButton: LazyComponent<typeof import("../../node_modules/nuxt-google-auth/dist/runtime/components/GoogleLoginButton.vue")['default']>
+  LazyToastContainer: LazyComponent<typeof import("../../node_modules/nuxt-notify/dist/runtime/components/ToastContainer.vue")['default']>
+  LazyToast: LazyComponent<typeof import("../../node_modules/nuxt-notify/dist/runtime/components/Toast.vue")['default']>
   LazyNuxtPage: LazyComponent<typeof import("../../node_modules/nuxt/dist/pages/runtime/page")['default']>
   LazyNoScript: LazyComponent<typeof import("../../node_modules/nuxt/dist/head/runtime/components")['NoScript']>
   LazyLink: LazyComponent<typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Link']>

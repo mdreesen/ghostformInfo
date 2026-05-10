@@ -11,8 +11,19 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxt/ui',
-    'nuxt-vitalizer'
+    'nuxt-vitalizer',
+    'nuxt-google-auth',
+    'nuxt-notify',
+    'nuxt-qrcode',
   ],
+
+  googleAuth: {
+    clientId: process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID,
+    autoLoadScript: true,         // load Google script automatically
+    promptOneTap: true,           // show One Tap prompt
+    enableServerVerify: true      // enable server-side token verification endpoint
+},
+
   app: {
     head: {
       title: 'Ascend', // default fallback title
@@ -27,6 +38,27 @@ export default defineNuxtConfig({
       ]
     }
   },
+  notify: {
+    position: "top-right",
+    duration: 5000,
+    maxToasts: 5,
+    theme: "system",
+    showIcon: true,
+  },
+  qrcode: {
+    options: {
+      variant: 'circle',
+      // OR
+      // variant: {
+      //   inner: 'circle',
+      //   marker: 'rounded',
+      //   pixel: 'rounded',
+      // },
+      radius: 1,
+      blackColor: 'currentColor',
+      whiteColor: 'transparent',
+    },
+  },
   vite: {
     plugins: [
       tailwindcss()
@@ -36,6 +68,8 @@ export default defineNuxtConfig({
         'vue-chrts',
         '@vue/devtools-core',
         '@vue/devtools-kit',
+        'date-fns',
+        'lucide-vue-next',
       ]
     }
   },

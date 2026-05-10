@@ -115,6 +115,12 @@
       "#ui/*": [
         "../node_modules/@nuxt/ui/dist/runtime/*"
       ],
+      "#qrcode": [
+        "../node_modules/nuxt-qrcode/dist/runtime"
+      ],
+      "#qrcode/*": [
+        "../node_modules/nuxt-qrcode/dist/runtime/*"
+      ],
       "#vue-router": [
         "../node_modules/vue-router"
       ],
@@ -189,6 +195,9 @@
     "../node_modules/@nuxtjs/color-mode/node_modules",
     "../node_modules/@nuxt/ui/node_modules",
     "../node_modules/nuxt-vitalizer/node_modules",
+    "../node_modules/nuxt-google-auth/node_modules",
+    "../node_modules/nuxt-notify/node_modules",
+    "../node_modules/nuxt-qrcode/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
     "../node_modules/@nuxt/icon/node_modules",

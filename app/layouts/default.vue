@@ -13,7 +13,7 @@ useHead({
       <div class="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] bg-purple-600/10 blur-[120px] rounded-full"></div>
     </div>
 
-    <baseNav />
+    <baseNavigationBase />
 
     <div>
       <slot />

@@ -35,7 +35,7 @@
                     Start Building
                 </button> -->
 
-                <baseButton path="/demo" text="View Live Demo" />
+                <baseButtonNavigate path="/demo" text="View Live Demo" />
             </div>
         </div>
     </section>
