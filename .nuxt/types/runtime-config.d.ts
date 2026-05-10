@@ -584,6 +584,40 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
 
       showIcon: boolean,
    },
+
+   qrcode: {
+      reader: {
+         autoImport: boolean,
+
+         formats: Array<string>,
+
+         global: boolean,
+      },
+
+      global: boolean,
+
+      options: {
+         ecc: string,
+
+         maskPattern: number,
+
+         boostEcc: any,
+
+         minVersion: number,
+
+         maxVersion: number,
+
+         border: number,
+
+         variant: string,
+
+         radius: number,
+
+         blackColor: string,
+
+         whiteColor: string,
+      },
+   },
   }
 declare module '@nuxt/schema' {
   interface RuntimeConfig extends UserRuntimeConfig {}

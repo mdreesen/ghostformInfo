@@ -96,6 +96,7 @@
     "../node_modules/nuxt-vitalizer/node_modules",
     "../node_modules/nuxt-google-auth/node_modules",
     "../node_modules/nuxt-notify/node_modules",
+    "../node_modules/nuxt-qrcode/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
     "../node_modules/@nuxt/icon/node_modules",

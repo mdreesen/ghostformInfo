@@ -101,23 +101,23 @@ useMotion(formRef, { ...formVarient() });
             <div v-motion="{ ...inputVarient() }">
               <baseLabel text="Email" />
               <input id="email" type="email" v-model="credentials.email" placeholder="Email" required
-                class="w-full rounded-xl border border-gray-600 bg-gray-700/50 py-3 px-4 text-lg text-white shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              class="w-full bg-white/3 border border-white/10 rounded-xl px-5 py-3 text-sm focus:outline-none focus:border-cyan-400 transition-colors placeholder:text-zinc-700 text-ellipsis" />
             </div>
 
             <div v-motion="{ ...inputVarient() }">
               <baseLabel text="Password" />
               <input id="password" type="password" v-model="credentials.password" placeholder="Password" required
-                class="w-full rounded-xl border border-gray-600 bg-gray-700/50 py-3 px-4 text-lg text-white shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              class="w-full bg-white/3 border border-white/10 rounded-xl px-5 py-3 text-sm focus:outline-none focus:border-cyan-400 transition-colors placeholder:text-zinc-700 text-ellipsis" />
             </div>
 
             <div v-motion="{ ...inputVarient() }"
-              class="flex flex-col items-center justify-center w-full   mx-auto font-sans">
+              class="flex flex-col items-center justify-center w-full mx-auto">
 
               <div class="w-full relative flex justify-end">
 
                 <transition name="slide-up" mode="out-in">
 
-                  <UDrawer title="Reset your password" :overlay="false">
+                  <UDrawer title="Reset your password" :overlay="false" class="bg-black">
                     <UButton label="Forgot password" color="neutral" variant="subtle" />
 
                     <template #body>
@@ -126,13 +126,13 @@ useMotion(formRef, { ...formVarient() });
                         <div v-motion="{ ...inputVarient() }">
                           <baseLabel text="Email" />
                           <input id="email" type="email" v-model="input.email" placeholder="Email" required
-                            class="w-full rounded-xl border border-gray-600 bg-gray-700/50 py-3 px-4 text-lg text-white shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                          class="w-full bg-white/3 border border-white/10 rounded-xl px-5 py-3 text-sm focus:outline-none focus:border-cyan-400 transition-colors placeholder:text-zinc-700 text-ellipsis" />
                         </div>
 
                         <div v-motion="{ ...inputVarient() }">
                           <baseLabel text="Question" />
                           <input id="question" type="text" v-model="input.question" placeholder="What is 4 + 3" required
-                            class="w-full rounded-xl border border-gray-600 bg-gray-700/50 py-3 px-4 text-lg text-white shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                          class="w-full bg-white/3 border border-white/10 rounded-xl px-5 py-3 text-sm focus:outline-none focus:border-cyan-400 transition-colors placeholder:text-zinc-700 text-ellipsis" />
                         </div>
 
                         <div class="flex flex-col gap-8 pb-4">
@@ -146,10 +146,7 @@ useMotion(formRef, { ...formVarient() });
             </div>
 
             <div v-motion="{ ...inputVarient() }">
-              <button type="submit" :disabled="isLoading"
-                :class="`${isLoading ? 'bg-linear-to-r from-gray-500 to-gray-600' : 'bg-linear-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900'} w-full rounded-xl py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 ease-in-out`">
-                {{ isLoading ? 'Logging In...' : 'Log In' }}
-              </button>
+              <baseButtonSubmit text="Log in" :isLoading="isLoading" />
             </div>
           </form>
 
@@ -166,10 +163,10 @@ useMotion(formRef, { ...formVarient() });
             </p>
           </div>
 
-          <ClientOnly>
+          <!-- <ClientOnly>
             <GoogleLoginButton :verify-on-server="true" :options="{ theme: 'filled_blue', size: 'large' }"
               @success="onSuccess" @verified="onVerified" @error="onError" />
-          </ClientOnly>
+          </ClientOnly> -->
 
           <div class="relative flex items-center py-2">
             <div class="grow border-t border-white/10"></div>

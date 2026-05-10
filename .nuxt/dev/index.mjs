@@ -1053,6 +1053,28 @@ const _inlineRuntimeConfig = {
       "maxToasts": 5,
       "theme": "system",
       "showIcon": true
+    },
+    "qrcode": {
+      "reader": {
+        "autoImport": false,
+        "formats": [
+          "qr_code"
+        ],
+        "global": false
+      },
+      "global": false,
+      "options": {
+        "ecc": "L",
+        "maskPattern": -1,
+        "boostEcc": "",
+        "minVersion": 1,
+        "maxVersion": 40,
+        "border": 1,
+        "variant": "circle",
+        "radius": 1,
+        "blackColor": "var(--ui-text-highlighted, #000000)",
+        "whiteColor": "var(--ui-bg, #FFFFFF)"
+      }
     }
   },
   "session": {
@@ -3631,6 +3653,7 @@ const _lazy_d_Iy6D = () => Promise.resolve().then(function () { return forgot_po
 const _lazy_v4HfmP = () => Promise.resolve().then(function () { return login_post$1; });
 const _lazy_ifgbvp = () => Promise.resolve().then(function () { return reset$1; });
 const _lazy_4BWVGm = () => Promise.resolve().then(function () { return signup_post$1; });
+const _lazy_7BZp5y = () => Promise.resolve().then(function () { return _id__get$1; });
 const _lazy_HlH0u5 = () => Promise.resolve().then(function () { return renderer; });
 
 const handlers = [
@@ -3640,6 +3663,7 @@ const handlers = [
   { route: '/api/authentication/login', handler: _lazy_v4HfmP, lazy: true, middleware: false, method: "post" },
   { route: '/api/authentication/reset', handler: _lazy_ifgbvp, lazy: true, middleware: false, method: undefined },
   { route: '/api/authentication/signup', handler: _lazy_4BWVGm, lazy: true, middleware: false, method: "post" },
+  { route: '/api/qr_code/:id', handler: _lazy_7BZp5y, lazy: true, middleware: false, method: "get" },
   { route: '/__nuxt_error', handler: _lazy_HlH0u5, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: handler$1, lazy: false, middleware: false, method: undefined },
   { route: '/api/_auth/session', handler: _LswYXx, lazy: false, middleware: false, method: "delete" },
@@ -3939,6 +3963,9 @@ const userSchema = new Schema(
   {
     organization: String,
     role: String,
+    qr_code_slug: String,
+    total_scans: Number,
+    leads_captured: Number,
     first_name: String,
     last_name: String,
     email: String,
@@ -3948,7 +3975,7 @@ const userSchema = new Schema(
     city: String,
     country: String,
     postal_code: String,
-    resetPasswordToken: String,
+    reset_password_token: String,
     privacy_policy: Boolean,
     createdAt: String,
     updatedAt: String
@@ -4154,6 +4181,32 @@ const signup_post = defineEventHandler(async (event) => {
 const signup_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: signup_post
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const _id__get = defineEventHandler(async (event) => {
+  const id = getRouterParam(event, "id");
+  const scanUrl = `https://ghostform.com/capture?ref=${id}`;
+  const QRCode = require("qrcode");
+  try {
+    const pngBuffer = await QRCode.toBuffer(scanUrl, {
+      color: {
+        dark: "#30cf43",
+        // Ghost Green
+        light: "#0a0a0c",
+        // Ghost Dark
+        margin: 2
+      }
+    });
+    setResponseHeader(event, "Content-Type", "image/png");
+    return pngBuffer;
+  } catch (err) {
+    throw createError({ statusCode: 500, message: "QR Generation Failed" });
+  }
+});
+
+const _id__get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: _id__get
 }, Symbol.toStringTag, { value: 'Module' }));
 
 function renderPayloadResponse(ssrContext) {

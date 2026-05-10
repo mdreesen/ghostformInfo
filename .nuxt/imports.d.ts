@@ -36,6 +36,8 @@ export { default as loggedInUser } from '../app/utils/loggedInUser';
 export { formVarient, containerVarient, itemVarient, inputVarient, navVarient, navMenuVarient } from '../app/utils/varients';
 export { reactiveStyle, reactiveTransform, useElementStyle, useElementTransform, useMotion, useMotionControls, useMotionProperties, useMotions, useMotionTransitions, useMotionVariants, useSpring, useReducedMotion } from '../node_modules/@vueuse/motion/dist/nuxt/runtime/composables/index';
 export { useGoogleAuth } from '../node_modules/nuxt-google-auth/dist/runtime/composables/useGoogleAuth';
+export { useQrcodeRead } from '../node_modules/nuxt-qrcode/dist/runtime/app/composables/use-qrcode-read';
+export { useQrcode } from '../node_modules/nuxt-qrcode/dist/runtime/app/composables/use-qrcode';
 export { useUserSession } from '../node_modules/nuxt-auth-utils/dist/runtime/app/composables/session';
 export { useImage } from '../node_modules/@nuxt/image/dist/runtime/composables';
 export { useColorMode } from '../node_modules/@nuxtjs/color-mode/dist/runtime/composables';

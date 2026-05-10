@@ -27,6 +27,7 @@ export const BaseDeleteProfile: typeof import("../app/components/base/DeleteProf
 export const BaseLabel: typeof import("../app/components/base/Label.vue")['default']
 export const BaseNavigationAuth: typeof import("../app/components/base/Navigation/Auth.vue")['default']
 export const BaseNavigationBase: typeof import("../app/components/base/Navigation/Base.vue")['default']
+export const BaseQrCode: typeof import("../app/components/base/QrCode.vue")['default']
 export const BaseFooter: typeof import("../app/components/base/footer.vue")['default']
 export const BaseHeader: typeof import("../app/components/base/header.vue")['default']
 export const BaseIcon: typeof import("../app/components/base/icon.vue")['default']
@@ -157,6 +158,10 @@ export const UTooltip: typeof import("../node_modules/@nuxt/ui/dist/runtime/comp
 export const UTree: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/Tree.vue")['default']
 export const UUser: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/User.vue")['default']
 export const ULocaleSelect: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/locale/LocaleSelect.vue")['default']
+export const QrcodeCapture: typeof import("../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-capture.vue")['default']
+export const QrcodeDropZone: typeof import("../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-drop-zone.vue")['default']
+export const QrcodeStream: typeof import("../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-stream.vue")['default']
+export const Qrcode: typeof import("../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -201,6 +206,7 @@ export const LazyBaseDeleteProfile: LazyComponent<typeof import("../app/componen
 export const LazyBaseLabel: LazyComponent<typeof import("../app/components/base/Label.vue")['default']>
 export const LazyBaseNavigationAuth: LazyComponent<typeof import("../app/components/base/Navigation/Auth.vue")['default']>
 export const LazyBaseNavigationBase: LazyComponent<typeof import("../app/components/base/Navigation/Base.vue")['default']>
+export const LazyBaseQrCode: LazyComponent<typeof import("../app/components/base/QrCode.vue")['default']>
 export const LazyBaseFooter: LazyComponent<typeof import("../app/components/base/footer.vue")['default']>
 export const LazyBaseHeader: LazyComponent<typeof import("../app/components/base/header.vue")['default']>
 export const LazyBaseIcon: LazyComponent<typeof import("../app/components/base/icon.vue")['default']>
@@ -331,6 +337,10 @@ export const LazyUTooltip: LazyComponent<typeof import("../node_modules/@nuxt/ui
 export const LazyUTree: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/Tree.vue")['default']>
 export const LazyUUser: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/User.vue")['default']>
 export const LazyULocaleSelect: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/locale/LocaleSelect.vue")['default']>
+export const LazyQrcodeCapture: LazyComponent<typeof import("../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-capture.vue")['default']>
+export const LazyQrcodeDropZone: LazyComponent<typeof import("../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-drop-zone.vue")['default']>
+export const LazyQrcodeStream: LazyComponent<typeof import("../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-stream.vue")['default']>
+export const LazyQrcode: LazyComponent<typeof import("../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode.vue")['default']>
 export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
 export const LazyNuxtLayout: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
 export const LazyNuxtErrorBoundary: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>

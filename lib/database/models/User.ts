@@ -8,6 +8,9 @@ const userSchema = new Schema(
     {
         organization: String,
         role: String,
+        qr_code_slug: String,
+        total_scans: Number,
+        leads_captured: Number,
         first_name: String,
         last_name: String,
         email: String,
@@ -17,7 +20,7 @@ const userSchema = new Schema(
         city: String,
         country: String,
         postal_code: String,
-        resetPasswordToken: String,
+        reset_password_token: String,
         privacy_policy: Boolean,
         createdAt: String,
         updatedAt: String

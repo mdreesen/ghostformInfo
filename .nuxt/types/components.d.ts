@@ -27,6 +27,7 @@ interface _GlobalComponents {
   BaseLabel: typeof import("../../app/components/base/Label.vue")['default']
   BaseNavigationAuth: typeof import("../../app/components/base/Navigation/Auth.vue")['default']
   BaseNavigationBase: typeof import("../../app/components/base/Navigation/Base.vue")['default']
+  BaseQrCode: typeof import("../../app/components/base/QrCode.vue")['default']
   BaseFooter: typeof import("../../app/components/base/footer.vue")['default']
   BaseHeader: typeof import("../../app/components/base/header.vue")['default']
   BaseIcon: typeof import("../../app/components/base/icon.vue")['default']
@@ -157,6 +158,10 @@ interface _GlobalComponents {
   UTree: typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/Tree.vue")['default']
   UUser: typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/User.vue")['default']
   ULocaleSelect: typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/locale/LocaleSelect.vue")['default']
+  QrcodeCapture: typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-capture.vue")['default']
+  QrcodeDropZone: typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-drop-zone.vue")['default']
+  QrcodeStream: typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-stream.vue")['default']
+  Qrcode: typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode.vue")['default']
   NuxtWelcome: typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']
   NuxtLayout: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
   NuxtErrorBoundary: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -201,6 +206,7 @@ interface _GlobalComponents {
   LazyBaseLabel: LazyComponent<typeof import("../../app/components/base/Label.vue")['default']>
   LazyBaseNavigationAuth: LazyComponent<typeof import("../../app/components/base/Navigation/Auth.vue")['default']>
   LazyBaseNavigationBase: LazyComponent<typeof import("../../app/components/base/Navigation/Base.vue")['default']>
+  LazyBaseQrCode: LazyComponent<typeof import("../../app/components/base/QrCode.vue")['default']>
   LazyBaseFooter: LazyComponent<typeof import("../../app/components/base/footer.vue")['default']>
   LazyBaseHeader: LazyComponent<typeof import("../../app/components/base/header.vue")['default']>
   LazyBaseIcon: LazyComponent<typeof import("../../app/components/base/icon.vue")['default']>
@@ -331,6 +337,10 @@ interface _GlobalComponents {
   LazyUTree: LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/Tree.vue")['default']>
   LazyUUser: LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/User.vue")['default']>
   LazyULocaleSelect: LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/locale/LocaleSelect.vue")['default']>
+  LazyQrcodeCapture: LazyComponent<typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-capture.vue")['default']>
+  LazyQrcodeDropZone: LazyComponent<typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-drop-zone.vue")['default']>
+  LazyQrcodeStream: LazyComponent<typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode-stream.vue")['default']>
+  LazyQrcode: LazyComponent<typeof import("../../node_modules/nuxt-qrcode/dist/runtime/app/components/qrcode.vue")['default']>
   LazyNuxtWelcome: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
   LazyNuxtLayout: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
   LazyNuxtErrorBoundary: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>

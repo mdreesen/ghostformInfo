@@ -180,6 +180,7 @@ declare global {
   const useEvent: typeof import('../../node_modules/nitropack/dist/runtime/internal/context').useEvent
   const useImage: typeof import('../../node_modules/@nuxt/image/dist/runtime/server/utils/image').useImage
   const useNitroApp: typeof import('../../node_modules/nitropack/dist/runtime/internal/app').useNitroApp
+  const useQrcode: typeof import('../../node_modules/nuxt-qrcode/dist/runtime/server/utils/use-qrcode').useQrcode
   const useRuntimeConfig: typeof import('../../node_modules/nitropack/dist/runtime/internal/config').useRuntimeConfig
   const useSession: typeof import('../../node_modules/h3').useSession
   const useStorage: typeof import('../../node_modules/nitropack/dist/runtime/internal/storage').useStorage
@@ -405,3 +406,4 @@ export { defineOAuthZitadelEventHandler } from '/Users/mdreesen/Documents/Progra
 export { getAtprotoClientMetadata } from '/Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/nuxt-auth-utils/dist/runtime/server/utils/atproto';
 export { hashPassword, verifyPassword, passwordNeedsReHash } from '/Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/nuxt-auth-utils/dist/runtime/server/utils/password';
 export { sessionHooks, getUserSession, setUserSession, replaceUserSession, clearUserSession, requireUserSession } from '/Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/nuxt-auth-utils/dist/runtime/server/utils/session';
+export { useQrcode } from '/Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/nuxt-qrcode/dist/runtime/server/utils/use-qrcode';

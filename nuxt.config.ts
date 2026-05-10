@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     'nuxt-vitalizer',
     'nuxt-google-auth',
     'nuxt-notify',
+    'nuxt-qrcode',
   ],
 
   googleAuth: {
@@ -43,6 +44,20 @@ export default defineNuxtConfig({
     maxToasts: 5,
     theme: "system",
     showIcon: true,
+  },
+  qrcode: {
+    options: {
+      variant: 'circle',
+      // OR
+      // variant: {
+      //   inner: 'circle',
+      //   marker: 'rounded',
+      //   pixel: 'rounded',
+      // },
+      radius: 1,
+      blackColor: 'currentColor',
+      whiteColor: 'transparent',
+    },
   },
   vite: {
     plugins: [
