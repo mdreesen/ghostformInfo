@@ -1,4 +1,4 @@
-import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineComponent, openBlock, createBlock, unref, withCtx, renderSlot, getCurrentScope, onScopeDispose, computed, h, inject, useSlots, ref, mergeProps, createCommentVNode, toDisplayString, createVNode, hasInjectionContext, shallowRef, resolveComponent, toRef as toRef$1, isRef, onServerPrefetch, reactive, watch, getCurrentInstance, camelize, toHandlerKey, toValue, resolveDynamicComponent, useAttrs, Comment, cloneVNode, toRefs, provide, useModel, createTextVNode, mergeModels, Fragment, nextTick, defineAsyncComponent, createElementBlock, useSSRContext, shallowReactive, Suspense, createApp, toRaw, readonly, customRef, renderList, useId, onErrorCaptured, effectScope, useTemplateRef, withModifiers, normalizeProps, guardReactiveProps, watchEffect, normalizeStyle, markRaw, Teleport, shallowReadonly, isReadonly, isShallow, isReactive } from 'vue';
+import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineComponent, openBlock, createBlock, unref, withCtx, renderSlot, computed, getCurrentScope, onScopeDispose, h, inject, useSlots, ref, mergeProps, createCommentVNode, toDisplayString, createVNode, hasInjectionContext, shallowRef, resolveComponent, toRef as toRef$1, isRef, onServerPrefetch, reactive, watch, getCurrentInstance, camelize, toHandlerKey, toValue, resolveDynamicComponent, useAttrs, Comment, cloneVNode, toRefs, provide, useModel, createTextVNode, mergeModels, Fragment, nextTick, defineAsyncComponent, createElementBlock, useSSRContext, shallowReactive, Suspense, createApp, toRaw, readonly, customRef, renderList, useId, onErrorCaptured, effectScope, useTemplateRef, withModifiers, normalizeProps, guardReactiveProps, watchEffect, normalizeStyle, markRaw, Teleport, shallowReadonly, isReadonly, isShallow, isReactive } from 'vue';
 import { o as serialize, q as klona, t as defu, v as parseQuery, w as appendResponseHeader, x as defuFn, y as hasProtocol, m as joinURL, z as parseURL, A as encodePath, B as decodePath, C as isEqual, D as withQuery, E as isScriptProtocol, F as getContext, G as withTrailingSlash, H as withoutTrailingSlash, I as sanitizeStatusCode, J as withLeadingSlash, c as createError$1, $ as $fetch$1, K as baseURL, L as hash, M as createHooks, N as encodeParam, O as executeAsync } from '../nitro/nitro.mjs';
 import { useRoute as useRoute$1, RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import { Icon, getIcon, loadIcon as loadIcon$1, _api, addAPIProvider, setCustomIconsLoader } from '@iconify/vue';
@@ -508,9 +508,6 @@ function getRouteRules(arg) {
     return {};
   }
 }
-const __nuxt_page_meta$3 = {
-  layout: "form"
-};
 const __nuxt_page_meta$2 = {
   layout: "authenticated"
 };
@@ -520,51 +517,45 @@ const __nuxt_page_meta$1 = {
 const __nuxt_page_meta = null;
 const _routes = [
   {
-    name: "dashboard-form",
-    path: "/dashboard/form",
-    meta: __nuxt_page_meta$3 || {},
-    component: () => import('./index-BpcLPTLU.mjs')
-  },
-  {
     name: "dashboard-profile",
     path: "/dashboard/profile",
     meta: __nuxt_page_meta$2 || {},
-    component: () => import('./index-DgALCvxI.mjs')
+    component: () => import('./index-DHtuMjRR.mjs')
   },
   {
     name: "dashboard",
     path: "/dashboard",
     meta: __nuxt_page_meta$1 || {},
-    component: () => import('./index-SA80JlsN.mjs')
+    component: () => import('./index-hgb7tdJS.mjs')
   },
   {
     name: "demo",
     path: "/demo",
-    component: () => import('./demo-Aq67eiYv.mjs')
+    component: () => import('./demo-CcsonaNX.mjs')
   },
   {
     name: "forgotpassword",
     path: "/forgotpassword",
     meta: { "groups": ["authentication"] },
-    component: () => import('./forgotpassword-BGzKmgxh.mjs')
+    component: () => import('./forgotpassword-Bry9tOUJ.mjs')
   },
   {
     name: "login",
     path: "/login",
     meta: { "groups": ["authentication"] },
-    component: () => import('./login-C-TbyEFp.mjs')
+    component: () => import('./login-FDd_1IIy.mjs')
   },
   {
     name: "signup",
     path: "/signup",
     meta: { "groups": ["authentication"] },
-    component: () => import('./signup-B1lax7Q0.mjs')
+    component: () => import('./signup-B_u7h77T.mjs')
   },
   {
     name: "id-resetpassword",
     path: "/:id()/resetpassword",
     meta: { "groups": ["authentication"] },
-    component: () => import('./resetpassword-B0k6WyiG.mjs')
+    component: () => import('./resetpassword-puiES4Z7.mjs')
   },
   {
     name: __nuxt_page_meta?.name,
@@ -9881,7 +9872,7 @@ _sfc_main$3.setup = (props, ctx) => {
 };
 const __nuxt_component_0 = Object.assign(_sfc_main$3, { __name: "UApp" });
 const layouts = {
-  authenticated: defineAsyncComponent(() => import('./authenticated-CW3jo3sQ.mjs').then((m) => m.default || m)),
+  authenticated: defineAsyncComponent(() => import('./authenticated-BI7xA2f4.mjs').then((m) => m.default || m)),
   default: defineAsyncComponent(() => import('./default-CZM4Np7B.mjs').then((m) => m.default || m)),
   form: defineAsyncComponent(() => import('./form-Bh68T_SJ.mjs').then((m) => m.default || m))
 };
@@ -10276,5 +10267,5 @@ let entry;
 }
 const entry_default = ((ssrContext) => entry(ssrContext));
 
-export { VisuallyHidden_default as V, __nuxt_component_0$2 as _, useNuxtData as a, useUserSession as b, useRuntimeConfig as c, __nuxt_component_0$1 as d, entry_default as default, useMotion as e, useAppConfig as f, useComponentUI as g, useForwardPropsEmits as h, usePortal as i, _sfc_main$8 as j, useRoute as k, __nuxt_component_1$1 as l, useFetch as m, reactivePick as r, tv as t, useHead as u };
+export { VisuallyHidden_default as V, __nuxt_component_0$2 as _, useUserSession as a, useNuxtData as b, useRuntimeConfig as c, __nuxt_component_0$1 as d, entry_default as default, useMotion as e, useAppConfig as f, useComponentUI as g, useForwardPropsEmits as h, usePortal as i, _sfc_main$8 as j, useRoute as k, __nuxt_component_1$1 as l, useFetch as m, reactivePick as r, tv as t, useHead as u };
 //# sourceMappingURL=server.mjs.map

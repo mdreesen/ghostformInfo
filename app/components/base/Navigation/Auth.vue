@@ -18,7 +18,7 @@ onUnmounted(() => {
 
 const navLinks = [
   { name: 'Overview', href: '/dashboard' },
-  { name: 'GhostForm', href: '/hidden/form' },
+  // { name: 'GhostForm', href: '/hidden/form' },
   { name: 'Profile', href: '/dashboard/profile' },
 ]
 </script>

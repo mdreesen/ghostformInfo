@@ -26,7 +26,7 @@ mongoose.connect(`${env.MONGO_URI}`);
 mongoose.Promise = global.Promise;
 const userSchema = new Schema(
   {
-    organization: String,
+    company: String,
     role: String,
     category: String,
     qr_code_slug: String,

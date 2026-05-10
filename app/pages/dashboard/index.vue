@@ -11,7 +11,6 @@ useHead({
 });
 
 const { data: user } = useNuxtData('get_user');
-console.log('user', user.value)
 
 const agents = ref([
   { name: 'Michael Dreesen', role: 'Lead Developer/Agent', status: 'ACTIVE', leads: 42, tier1: 12 },
