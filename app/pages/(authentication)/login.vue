@@ -84,13 +84,6 @@ useMotion(formRef, { ...formVarient() });
       <div class="backdrop-blur-xl bg-white/3 border border-white/8 rounded-3xl p-10 shadow-2xl">
 
         <header class="text-center mb-12">
-          <div
-            class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br from-[#30cf43] to-[#15a327] mb-6 shadow-[0_0_30px_rgba(48,207,67,0.4)]">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 3c1.72 0 3.347.433 4.774 1.202m.38 11.21a10.001 10.001 0 003.858-5.808l.047-.204" />
-            </svg>
-          </div>
           <h1 class="text-3xl font-bold tracking-tight text-white mb-2">GhostForm</h1>
           <p class="text-zinc-400 text-sm">Intelligence for the Unseen.</p>
         </header>

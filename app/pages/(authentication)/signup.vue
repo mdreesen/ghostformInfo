@@ -39,13 +39,6 @@ async function handler() {
 
                 <header class="mb-10">
                     <div class="flex items-center gap-3 mb-6">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-linear-to-br from-[#30cf43] to-[#15a327] flex items-center justify-center shadow-[0_0_20px_rgba(48,207,67,0.3)]">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-                            </svg>
-                        </div>
                         <h1 class="text-2xl font-bold tracking-tight">Initialize Account</h1>
                     </div>
                     <p class="text-zinc-400 text-sm italic-none">Join the network of high-velocity intelligence.</p>
@@ -60,7 +53,8 @@ async function handler() {
                                 <label
                                     class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 ml-1 mb-2 block">company
                                     Name</label>
-                                <input v-model="credentials.company" type="text" placeholder="e.g. Company name" required
+                                <input v-model="credentials.company" type="text" placeholder="e.g. Company name"
+                                    required
                                     class="w-full bg-white/3 border border-white/10 rounded-xl px-5 py-3 text-sm focus:outline-none focus:border-cyan-400 transition-colors placeholder:text-zinc-700 text-ellipsis" />
                             </div>
 
