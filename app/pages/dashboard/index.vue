@@ -17,6 +17,9 @@ const companyData = ref({
   globalConversion: '24.2%'
 });
 
+const { data: user } = useNuxtData('get_user');
+console.log('user', user.value)
+
 const agents = ref([
   { name: 'Michael Dreesen', role: 'Lead Developer/Agent', status: 'ACTIVE', leads: 42, tier1: 12 },
   { name: 'Sarah Thorne', role: 'Broker', status: 'ACTIVE', leads: 89, tier1: 34 },
@@ -30,24 +33,25 @@ const generateQR = (id: string) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-[#0a0a0c] text-white font-sans p-6 lg:p-12 relative overflow-hidden">
+  <div class="min-h-screen py-20 p-6 lg:py-18 relative overflow-hidden">
     
-    <div class="absolute top-0 right-0 w-150 h-150 bg-[#30cf43] rounded-full blur-[200px] opacity-[0.03]"></div>
+    <div class="absolute top-0 right-0 w-150 h-150 bg-cyan-400 rounded-full blur-[200px] opacity-[0.03]"></div>
 
     <header class="max-w-350 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6 relative z-10">
       <div>
         <div class="flex items-center gap-3 mb-2">
-          <div class="w-2 h-2 rounded-full bg-[#30cf43] shadow-[0_0_10px_#30cf43]"></div>
-          <span class="text-[10px] font-black uppercase tracking-[0.4em] text-[#30cf43]">Ghost-Node Network</span>
+          <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_#30cf43]"></div>
+          <span class="text-[10px] font-black uppercase tracking-[0.4em] text-cyan-400">Ghost-Node Network</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter">LEAD ARCHITECT</h1>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter">{{ user.organization }}</h1>
+        <span>{{ user.role }}</span>
       </div>
       
       <div class="flex gap-4">
         <button class="bg-white/5 border border-white/10 px-6 py-3 rounded-xl text-xs font-bold hover:bg-white/10 transition-all backdrop-blur-md">
           Global Analytics
         </button>
-        <button class="bg-[#30cf43] text-black px-6 py-3 rounded-xl text-xs font-bold hover:shadow-[0_0_20px_rgba(48,207,67,0.4)] transition-all">
+        <button class="bg-cyan-400 text-black px-6 py-3 rounded-xl text-xs font-bold hover:shadow-[0_0_20px_rgba(48,207,67,0.4)] transition-all">
           + New Capture Node
         </button>
       </div>
@@ -89,7 +93,7 @@ const generateQR = (id: string) => {
                   </td>
                   <td class="p-6">
                     <div class="flex justify-center">
-                      <span :class="agent.status === 'ACTIVE' ? 'bg-[#30cf43]/20 text-[#30cf43]' : 'bg-zinc-800 text-zinc-500'" 
+                      <span :class="agent.status === 'ACTIVE' ? 'bg-cyan-400/20 text-cyan-400' : 'bg-zinc-800 text-zinc-500'" 
                         class="text-[9px] font-black px-3 py-1 rounded-full">
                         {{ agent.status }}
                       </span>
@@ -97,10 +101,10 @@ const generateQR = (id: string) => {
                   </td>
                   <td class="p-6 text-center">
                     <p class="font-mono text-sm">{{ agent.leads }}</p>
-                    <p class="text-[8px] text-[#30cf43] font-bold">Tier 1: {{ agent.tier1 }}</p>
+                    <p class="text-[8px] text-cyan-400 font-bold">Tier 1: {{ agent.tier1 }}</p>
                   </td>
                   <td class="p-6 text-right">
-                    <button @click="generateQR(agent.name)" class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/10 p-2 rounded-lg hover:bg-[#30cf43] hover:text-black">
+                    <button @click="generateQR(agent.name)" class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/10 p-2 rounded-lg hover:bg-cyan-400 hover:text-black">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" /></svg>
                     </button>
                   </td>
@@ -119,9 +123,9 @@ const generateQR = (id: string) => {
             </p>
             
             <div class="space-y-4">
-              <input type="text" placeholder="Site Name (e.g. Whitefish Ridge)" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-sm focus:border-[#30cf43]/50 focus:outline-none transition-all" />
+              <input type="text" placeholder="Site Name (e.g. Whitefish Ridge)" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-sm focus:border-cyan-400/50 focus:outline-none transition-all" />
               
-              <button class="w-full bg-linear-to-r from-[#30cf43] to-[#15a327] text-black font-bold py-4 rounded-xl shadow-[0_0_30px_rgba(48,207,67,0.2)] hover:scale-[1.02] transition-all">
+              <button class="w-full bg-linear-to-r from-cyan-400 to-[#15a327] text-black font-bold py-4 rounded-xl shadow-[0_0_30px_rgba(48,207,67,0.2)] hover:scale-[1.02] transition-all">
                 Generate Site Node
               </button>
             </div>

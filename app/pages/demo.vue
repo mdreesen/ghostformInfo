@@ -34,7 +34,7 @@ const step = ref(1);
             </div>
 
             <div class="relative group">
-                <appDemo />
+                <baseGhostForm />
             </div>
 
             <div

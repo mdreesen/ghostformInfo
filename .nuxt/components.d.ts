@@ -15,7 +15,6 @@ type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {},
 
 
 export const AppComparison: typeof import("../app/components/app/comparison.vue")['default']
-export const AppDemo: typeof import("../app/components/app/demo.vue")['default']
 export const AppFeatures: typeof import("../app/components/app/features.vue")['default']
 export const AppHero: typeof import("../app/components/app/hero.vue")['default']
 export const AppPricing: typeof import("../app/components/app/pricing.vue")['default']
@@ -24,6 +23,7 @@ export const BaseButton: typeof import("../app/components/base/Button.vue")['def
 export const BaseButtonNavigate: typeof import("../app/components/base/ButtonNavigate.vue")['default']
 export const BaseButtonSubmit: typeof import("../app/components/base/ButtonSubmit.vue")['default']
 export const BaseDeleteProfile: typeof import("../app/components/base/DeleteProfile.vue")['default']
+export const BaseGhostForm: typeof import("../app/components/base/GhostForm.vue")['default']
 export const BaseLabel: typeof import("../app/components/base/Label.vue")['default']
 export const BaseNavigationAuth: typeof import("../app/components/base/Navigation/Auth.vue")['default']
 export const BaseNavigationBase: typeof import("../app/components/base/Navigation/Base.vue")['default']
@@ -194,7 +194,6 @@ export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Icon: typeof import("../node_modules/@nuxt/icon/dist/runtime/components/index")['default']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const LazyAppComparison: LazyComponent<typeof import("../app/components/app/comparison.vue")['default']>
-export const LazyAppDemo: LazyComponent<typeof import("../app/components/app/demo.vue")['default']>
 export const LazyAppFeatures: LazyComponent<typeof import("../app/components/app/features.vue")['default']>
 export const LazyAppHero: LazyComponent<typeof import("../app/components/app/hero.vue")['default']>
 export const LazyAppPricing: LazyComponent<typeof import("../app/components/app/pricing.vue")['default']>
@@ -203,6 +202,7 @@ export const LazyBaseButton: LazyComponent<typeof import("../app/components/base
 export const LazyBaseButtonNavigate: LazyComponent<typeof import("../app/components/base/ButtonNavigate.vue")['default']>
 export const LazyBaseButtonSubmit: LazyComponent<typeof import("../app/components/base/ButtonSubmit.vue")['default']>
 export const LazyBaseDeleteProfile: LazyComponent<typeof import("../app/components/base/DeleteProfile.vue")['default']>
+export const LazyBaseGhostForm: LazyComponent<typeof import("../app/components/base/GhostForm.vue")['default']>
 export const LazyBaseLabel: LazyComponent<typeof import("../app/components/base/Label.vue")['default']>
 export const LazyBaseNavigationAuth: LazyComponent<typeof import("../app/components/base/Navigation/Auth.vue")['default']>
 export const LazyBaseNavigationBase: LazyComponent<typeof import("../app/components/base/Navigation/Base.vue")['default']>
