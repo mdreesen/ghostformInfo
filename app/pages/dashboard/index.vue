@@ -17,6 +17,8 @@ const agents = ref([
   { name: 'Sarah Thorne', email: 'sthorn@gmail.com', status: 'active' },
   { name: 'James Vane', email: 'jvane@gmail.com', status: 'closed' }
 ]);
+
+console.log(user.value)
 </script>
 
 <template>
@@ -45,7 +47,7 @@ const agents = ref([
           <template #body>
             <div class="p-60 h-svh">
               <baseQrCode
-                :value="`https://ghostform-zeta.vercel.app/?category=${user?.category}&company_name=${user?.company}&company_email=${user?.email}&background_color=0f0b0b&font_color=FFFFFF`" />
+                :value="`https://ghostform-zeta.vercel.app/?category=${user?.category}&company_name=${user?.company_hashed}&company_email=${user?.email_hashed}&background_color=0f0b0b&font_color=FFFFFF`" />
             </div>
           </template>
         </UModal>

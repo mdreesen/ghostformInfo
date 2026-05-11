@@ -7,14 +7,17 @@ mongoose.Promise = global.Promise;
 const userSchema = new Schema(
     {
         company: String,
+        company_hashed: String,
         role: String,
         category: String,
+        category_hashed: String,
         qr_code_slug: String,
         total_scans: Number,
         leads_captured: Number,
         first_name: String,
         last_name: String,
         email: String,
+        email_hashed: String,
         phone: String,
         password: String,
         street_address: String,

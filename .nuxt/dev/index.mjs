@@ -2818,7 +2818,7 @@ const _tj2Pf1sdNeJJsGXIEH6jRaarhv8diGGRt3Y_eJMpbmo = defineNitroPlugin((nitroApp
 
 const rootDir = "/Users/mdreesen/Documents/Programming/projects/ghostformInfo";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true},{"src":"https://accounts.google.com/gsi/client","async":true,"defer":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
 
 const appRootTag = "div";
 
@@ -2934,7 +2934,22 @@ _0STYPZPB_EKCYuCa7gME6H3JGch0rQdAgskEZZCuNwA,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"23d3d-f0UmHEKCeoDCGntK+UpYTsmDeWQ\"",
+    "mtime": "2026-05-11T03:32:49.558Z",
+    "size": 146749,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"856e2-BdCBKPVDiJdjfejgxVB6ldCck8k\"",
+    "mtime": "2026-05-11T03:32:49.559Z",
+    "size": 546530,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3964,14 +3979,17 @@ mongoose.Promise = global.Promise;
 const userSchema = new Schema(
   {
     company: String,
+    company_hashed: String,
     role: String,
     category: String,
+    category_hashed: String,
     qr_code_slug: String,
     total_scans: Number,
     leads_captured: Number,
     first_name: String,
     last_name: String,
     email: String,
+    email_hashed: String,
     phone: String,
     password: String,
     street_address: String,
@@ -4160,14 +4178,20 @@ const signup_post = defineEventHandler(async (event) => {
     await connectDB();
     const user = await User.findOne({ email });
     const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedEmail = await bcrypt.hash(email, 15);
+    const hashedCompany = await bcrypt.hash(company, 15);
+    const hashedCategory = await bcrypt.hash(category, 15);
     if (!password) throw createError({ statusCode: 401, statusMessage: "Please insert password.", data: { errorMessage: "The requested item could not be found." } });
     if (!password && !confirm_password) throw createError({ statusCode: 401, statusMessage: "Please insert password.", data: { errorMessage: "The requested item could not be found." } });
     if (password !== confirm_password) throw createError({ statusCode: 401, statusMessage: "Passwords do not match.", data: { errorMessage: "The requested item could not be found." } });
     if (user) throw createError({ statusCode: 401, statusMessage: "User already registered.", data: { errorMessage: "The requested item could not be found." } });
     const registerUser = new User({
       company: company.toLowerCase(),
+      company_hashed: hashedCompany.trim(),
       category: category.toLowerCase(),
+      category_hashed: hashedCategory.trim(),
       email: email.toLowerCase().trim(),
+      email_hashed: hashedEmail.trim(),
       password: hashedPassword,
       privacy_policy
     });

@@ -24,6 +24,9 @@ export default defineEventHandler(async (event) => {
 
     const user = await User.findOne({ email });
     const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedEmail = await bcrypt.hash(email, 15);
+    const hashedCompany = await bcrypt.hash(company, 15);
+    const hashedCategory = await bcrypt.hash(category, 15);
 
     if (!password) throw createError({ statusCode: 401, statusMessage: 'Please insert password.', data: { errorMessage: 'The requested item could not be found.' } });
     if (!password && !confirm_password) throw createError({ statusCode: 401, statusMessage: 'Please insert password.', data: { errorMessage: 'The requested item could not be found.' } });
@@ -32,8 +35,11 @@ export default defineEventHandler(async (event) => {
 
     const registerUser = new User({
       company: company.toLowerCase(),
+      company_hashed: hashedCompany.trim(),
       category: category.toLowerCase(),
+      category_hashed: hashedCategory.trim(),
       email: email.toLowerCase().trim(),
+      email_hashed: hashedEmail.trim(),
       password: hashedPassword,
       privacy_policy: privacy_policy,
     });
