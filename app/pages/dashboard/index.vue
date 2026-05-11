@@ -11,6 +11,7 @@ useHead({
 });
 
 const { data: user } = useNuxtData('get_user');
+console.log(user);
 
 const agents = ref([
   { name: 'Michael Dreesen', email: 'mdreesen@gmail.com', status: 'new' },
@@ -46,7 +47,7 @@ console.log(user.value)
 
           <template #body>
             <baseQrCode
-            class="p-5 sm:p-10 md:p-40 lg:p-60"
+            class="p-5 sm:p-10 md:p-40 lg:p-60 xl:p-130"
             :value="`https://ghostform-zeta.vercel.app/?category=${user?.category}&company_name=${user?.company_hashed}&company_email=${user?.email_hashed}&background_color=0f0b0b&font_color=FFFFFF`" />
           </template>
         </UModal>
@@ -57,7 +58,7 @@ console.log(user.value)
     <main class="max-w-350 mx-auto relative z-10">
 
       <section class="flex flex-wrap justify-around gap-6 mb-12">
-        <div v-for="(val, label) in { 'Total Intake': '1,284', 'Active Leads': '42', 'Conversion': '24.2%' }"
+        <div v-for="(val, label) in { 'Total Intake': user.leads.length, 'Active Leads': '42', 'Conversion': '24.2%' }"
           :key="label" class="backdrop-blur-xl bg-white/2 border border-white/8 p-8 rounded-3xl w-full sm:w-62.5">
           <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4">{{ label }}</p>
           <p class="text-3xl font-bold tabular-nums">{{ val }}</p>
