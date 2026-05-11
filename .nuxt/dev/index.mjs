@@ -2818,7 +2818,7 @@ const _tj2Pf1sdNeJJsGXIEH6jRaarhv8diGGRt3Y_eJMpbmo = defineNitroPlugin((nitroApp
 
 const rootDir = "/Users/mdreesen/Documents/Programming/projects/ghostformInfo";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true},{"src":"https://accounts.google.com/gsi/client","async":true,"defer":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
 
 const appRootTag = "div";
 
@@ -2934,22 +2934,7 @@ _0STYPZPB_EKCYuCa7gME6H3JGch0rQdAgskEZZCuNwA,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {
-  "/index.mjs": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"23fbf-A8Dr0idP9uuqe57Z3eSuoQavpi8\"",
-    "mtime": "2026-05-11T19:56:53.783Z",
-    "size": 147391,
-    "path": "index.mjs"
-  },
-  "/index.mjs.map": {
-    "type": "application/json",
-    "etag": "\"85b35-SvTqd/S46DD5NZbMLYc3yRh52Rc\"",
-    "mtime": "2026-05-11T19:56:53.784Z",
-    "size": 547637,
-    "path": "index.mjs.map"
-  }
-};
+const assets = {};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));

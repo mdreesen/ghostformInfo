@@ -11,15 +11,6 @@ useHead({
 });
 
 const { data: user } = useNuxtData('get_user');
-console.log(user);
-
-const agents = ref([
-  { name: 'Michael Dreesen', email: 'mdreesen@gmail.com', status: 'new' },
-  { name: 'Sarah Thorne', email: 'sthorn@gmail.com', status: 'active' },
-  { name: 'James Vane', email: 'jvane@gmail.com', status: 'closed' }
-]);
-
-console.log(user.value)
 </script>
 
 <template>
@@ -58,7 +49,7 @@ console.log(user.value)
     <main class="max-w-350 mx-auto relative z-10">
 
       <section class="flex flex-wrap justify-around gap-6 mb-12">
-        <div v-for="(val, label) in { 'Total Intake': user.leads.length, 'Active Leads': '42', 'Conversion': '24.2%' }"
+        <div v-for="(val, label) in { 'Total Intake': user?.leads?.length, 'Active Leads': 'WIP', 'Conversion': 'WIP' }"
           :key="label" class="backdrop-blur-xl bg-white/2 border border-white/8 p-8 rounded-3xl w-full sm:w-62.5">
           <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4">{{ label }}</p>
           <p class="text-3xl font-bold tabular-nums">{{ val }}</p>
@@ -70,11 +61,11 @@ console.log(user.value)
         <div class="space-y-6 w-full">
           <div class="flex justify-between items-end mb-4">
             <h2 class="text-lg font-bold">Individual Personnel Tracking</h2>
-            <span class="text-[10px] text-zinc-500 uppercase tracking-widest font-mono">Real-time Sync</span>
+            <!-- <span class="text-[10px] text-zinc-500 uppercase tracking-widest font-mono">Real-time Sync</span> -->
           </div>
 
           <div class="backdrop-blur-xl bg-white/2 border border-white/8 rounded-[2.5rem] overflow-hidden w-full">
-            <baseTable :data="agents" />
+            <baseTable :data="user?.leads" />
           </div>
         </div>
       </div>

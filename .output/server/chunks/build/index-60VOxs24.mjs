@@ -1,5 +1,5 @@
 import * as vue from 'vue';
-import { defineComponent, ref, mergeProps, unref, withCtx, createVNode, useSlots, toRef, computed, toHandlers, renderSlot, createTextVNode, toDisplayString, openBlock, createBlock, createCommentVNode, Fragment, toRefs, normalizeProps, guardReactiveProps, useTemplateRef, isRef, useAttrs, h, resolveDynamicComponent, useModel, watch, renderList, mergeModels, reactive, watchEffect, nextTick, normalizeStyle, toValue, useSSRContext } from 'vue';
+import { defineComponent, mergeProps, unref, withCtx, createVNode, useSlots, toRef, computed, toHandlers, renderSlot, createTextVNode, toDisplayString, openBlock, createBlock, createCommentVNode, Fragment, ref, toRefs, normalizeProps, guardReactiveProps, useTemplateRef, isRef, useAttrs, h, resolveDynamicComponent, useModel, watch, renderList, mergeModels, reactive, watchEffect, nextTick, normalizeStyle, toValue, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrInterpolate, ssrRenderList, ssrRenderSlot, ssrRenderClass, ssrRenderVNode, ssrRenderAttr, ssrRenderStyle } from 'vue/server-renderer';
 import { _ as _export_sfc } from './_plugin-vue_export-helper-1tPrXgE0.mjs';
 import { u as useHead, a as useNuxtData, F as _sfc_main$8$1, v as useLocale, w as useAppConfig, x as useComponentUI, y as useForwardPropsEmits, z as reactivePick, B as usePortal, C as createReusableTemplate, D as tv, V as VisuallyHidden_default, e as useVModel, r as useEmitAsProps, g as useForwardExpose, s as Presence_default, P as Primitive, T as Teleport_default, f as createContext, i as injectConfigProviderContext, G as useRuntimeConfig, L as useFormField, H as useFieldGroup, I as useComponentIcons, J as _sfc_main$e, K as _sfc_main$b, N as createRef, O as useForwardProps, d as unrefElement, t as tryOnBeforeUnmount, k as getActiveElement, A as AUTOFOCUS_ON_MOUNT, l as focusFirst, m as getTabbableCandidates, n as focus, p as AUTOFOCUS_ON_UNMOUNT, o as onKeyStroke, h as isNullish, c as createSharedComposable, M as looseToNumber, E as EVENT_OPTIONS, q as getTabbableEdges, j as createGlobalState } from './server.mjs';
@@ -4140,38 +4140,31 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       ]
     });
     const { data: user } = useNuxtData("get_user");
-    const agents = ref([
-      { name: "Michael Dreesen", email: "mdreesen@gmail.com", status: "new" },
-      { name: "Sarah Thorne", email: "sthorn@gmail.com", status: "active" },
-      { name: "James Vane", email: "jvane@gmail.com", status: "closed" }
-    ]);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_baseEngineActive = __nuxt_component_0;
       const _component_UModal = _sfc_main$7;
       const _component_UButton = _sfc_main$8$1;
       const _component_baseQrCode = __nuxt_component_3;
       const _component_baseTable = __nuxt_component_4;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "min-h-screen py-20 p-6 lg:py-18 relative overflow-hidden" }, _attrs))} data-v-a3d75964><div class="absolute top-0 right-0 w-150 h-150 bg-cyan-400 rounded-full blur-[200px] opacity-[0.03]" data-v-a3d75964></div><header class="max-w-350 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6 relative z-10" data-v-a3d75964><div data-v-a3d75964><div class="flex items-center gap-3 mb-2" data-v-a3d75964>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "min-h-screen py-20 p-6 lg:py-18 relative overflow-hidden" }, _attrs))} data-v-79057b68><div class="absolute top-0 right-0 w-150 h-150 bg-cyan-400 rounded-full blur-[200px] opacity-[0.03]" data-v-79057b68></div><header class="max-w-350 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6 relative z-10" data-v-79057b68><div data-v-79057b68><div class="flex items-center gap-3 mb-2" data-v-79057b68>`);
       _push(ssrRenderComponent(_component_baseEngineActive, null, null, _parent));
-      _push(`</div><h1 class="text-4xl md:text-5xl font-bold tracking-tighter" data-v-a3d75964>${ssrInterpolate(unref(user)?.company)}</h1><span class="font-bold tracking-tighter" data-v-a3d75964>${ssrInterpolate(unref(user)?.category)}</span></div><div class="flex gap-4" data-v-a3d75964>`);
+      _push(`</div><h1 class="text-4xl md:text-5xl font-bold tracking-tighter" data-v-79057b68>${ssrInterpolate(unref(user)?.company)}</h1><span class="font-bold tracking-tighter" data-v-79057b68>${ssrInterpolate(unref(user)?.category)}</span></div><div class="flex gap-4" data-v-79057b68>`);
       _push(ssrRenderComponent(_component_UModal, {
         fullscreen: "",
         title: "QR Code"
       }, {
         body: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<div class="p-60 h-svh" data-v-a3d75964${_scopeId}>`);
             _push2(ssrRenderComponent(_component_baseQrCode, {
-              value: `https://ghostform-zeta.vercel.app/?category=${unref(user)?.category}&company_name=${unref(user)?.company}&company_email=${unref(user)?.email}&background_color=0f0b0b&font_color=FFFFFF`
+              class: "p-5 sm:p-10 md:p-40 lg:p-60 xl:p-130",
+              value: `https://ghostform-zeta.vercel.app/?category=${unref(user)?.category}&company_name=${unref(user)?.company_hashed}&company_email=${unref(user)?.email_hashed}&background_color=0f0b0b&font_color=FFFFFF`
             }, null, _parent2, _scopeId));
-            _push2(`</div>`);
           } else {
             return [
-              createVNode("div", { class: "p-60 h-svh" }, [
-                createVNode(_component_baseQrCode, {
-                  value: `https://ghostform-zeta.vercel.app/?category=${unref(user)?.category}&company_name=${unref(user)?.company}&company_email=${unref(user)?.email}&background_color=0f0b0b&font_color=FFFFFF`
-                }, null, 8, ["value"])
-              ])
+              createVNode(_component_baseQrCode, {
+                class: "p-5 sm:p-10 md:p-40 lg:p-60 xl:p-130",
+                value: `https://ghostform-zeta.vercel.app/?category=${unref(user)?.category}&company_name=${unref(user)?.company_hashed}&company_email=${unref(user)?.email_hashed}&background_color=0f0b0b&font_color=FFFFFF`
+              }, null, 8, ["value"])
             ];
           }
         }),
@@ -4196,12 +4189,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
-      _push(`</div></header><main class="max-w-350 mx-auto relative z-10" data-v-a3d75964><section class="flex flex-wrap justify-around gap-6 mb-12" data-v-a3d75964><!--[-->`);
-      ssrRenderList({ "Total Intake": "1,284", "Active Leads": "42", "Conversion": "24.2%" }, (val, label) => {
-        _push(`<div class="backdrop-blur-xl bg-white/2 border border-white/8 p-8 rounded-3xl w-full sm:w-62.5" data-v-a3d75964><p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4" data-v-a3d75964>${ssrInterpolate(label)}</p><p class="text-3xl font-bold tabular-nums" data-v-a3d75964>${ssrInterpolate(val)}</p></div>`);
+      _push(`</div></header><main class="max-w-350 mx-auto relative z-10" data-v-79057b68><section class="flex flex-wrap justify-around gap-6 mb-12" data-v-79057b68><!--[-->`);
+      ssrRenderList({ "Total Intake": unref(user)?.leads?.length, "Active Leads": "WIP", "Conversion": "WIP" }, (val, label) => {
+        _push(`<div class="backdrop-blur-xl bg-white/2 border border-white/8 p-8 rounded-3xl w-full sm:w-62.5" data-v-79057b68><p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4" data-v-79057b68>${ssrInterpolate(label)}</p><p class="text-3xl font-bold tabular-nums" data-v-79057b68>${ssrInterpolate(val)}</p></div>`);
       });
-      _push(`<!--]--></section><div class="flex w-full" data-v-a3d75964><div class="space-y-6 w-full" data-v-a3d75964><div class="flex justify-between items-end mb-4" data-v-a3d75964><h2 class="text-lg font-bold" data-v-a3d75964>Individual Personnel Tracking</h2><span class="text-[10px] text-zinc-500 uppercase tracking-widest font-mono" data-v-a3d75964>Real-time Sync</span></div><div class="backdrop-blur-xl bg-white/2 border border-white/8 rounded-[2.5rem] overflow-hidden w-full" data-v-a3d75964>`);
-      _push(ssrRenderComponent(_component_baseTable, { data: unref(agents) }, null, _parent));
+      _push(`<!--]--></section><div class="flex w-full" data-v-79057b68><div class="space-y-6 w-full" data-v-79057b68><div class="flex justify-between items-end mb-4" data-v-79057b68><h2 class="text-lg font-bold" data-v-79057b68>Individual Personnel Tracking</h2></div><div class="backdrop-blur-xl bg-white/2 border border-white/8 rounded-[2.5rem] overflow-hidden w-full" data-v-79057b68>`);
+      _push(ssrRenderComponent(_component_baseTable, {
+        data: unref(user)?.leads
+      }, null, _parent));
       _push(`</div></div></div></main></div>`);
     };
   }
@@ -4212,7 +4207,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/dashboard/index.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a3d75964"]]);
+const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-79057b68"]]);
 
 export { index as default };
-//# sourceMappingURL=index-DzTZbxLQ.mjs.map
+//# sourceMappingURL=index-60VOxs24.mjs.map
