@@ -17,9 +17,9 @@ onUnmounted(() => {
 })
 
 const navLinks = [
-  { name: 'Overview', href: '/dashboard' },
-  { name: 'GhostForm', href: '/dashboard/form' },
-  { name: 'Profile', href: '/dashboard/profile' },
+  { name: 'Overview', href: '/dashboard', target: "" },
+  { name: 'GhostForm', href: '/dashboard/form', target: "_blank" },
+  { name: 'Profile', href: '/dashboard/profile', target: "" },
 ]
 </script>
 
@@ -42,20 +42,13 @@ const navLinks = [
       </NuxtLink>
 
       <div class="hidden md:flex items-center gap-8">
-        <NuxtLink v-for="link in navLinks" :key="link.name" :to="link.href"
+        <NuxtLink v-for="link in navLinks" :key="link.name" :to="link.href" :target="link.target"
           class="text-sm font-medium text-zinc-400 hover:text-cyan-400 transition-colors">
           {{ link.name }}
         </NuxtLink>
       </div>
 
       <div class="flex items-center gap-4">
-        <!-- <button class="hidden sm:block text-sm font-bold text-white hover:text-cyan-400 transition-colors">
-          Log In
-        </button>
-        <button class="relative group px-6 py-2.5 bg-white text-black font-black rounded-full text-sm overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(6,182,212,0.4)]">
-          <span class="relative z-10">Get Started</span>
-          <div class="absolute inset-0 bg-gradient-to-r from-cyan-200 to-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        </button> -->
 
         <button @click="isMobileMenuOpen = !isMobileMenuOpen"
           class="md:hidden text-zinc-400 hover:text-white transition-colors">

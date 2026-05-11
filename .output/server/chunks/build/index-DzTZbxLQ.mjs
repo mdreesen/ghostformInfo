@@ -4151,23 +4151,27 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const _component_UButton = _sfc_main$8$1;
       const _component_baseQrCode = __nuxt_component_3;
       const _component_baseTable = __nuxt_component_4;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "min-h-screen py-20 p-6 lg:py-18 relative overflow-hidden" }, _attrs))} data-v-e98f9c2c><div class="absolute top-0 right-0 w-150 h-150 bg-cyan-400 rounded-full blur-[200px] opacity-[0.03]" data-v-e98f9c2c></div><header class="max-w-350 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6 relative z-10" data-v-e98f9c2c><div data-v-e98f9c2c><div class="flex items-center gap-3 mb-2" data-v-e98f9c2c>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "min-h-screen py-20 p-6 lg:py-18 relative overflow-hidden" }, _attrs))} data-v-a3d75964><div class="absolute top-0 right-0 w-150 h-150 bg-cyan-400 rounded-full blur-[200px] opacity-[0.03]" data-v-a3d75964></div><header class="max-w-350 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6 relative z-10" data-v-a3d75964><div data-v-a3d75964><div class="flex items-center gap-3 mb-2" data-v-a3d75964>`);
       _push(ssrRenderComponent(_component_baseEngineActive, null, null, _parent));
-      _push(`</div><h1 class="text-4xl md:text-5xl font-bold tracking-tighter" data-v-e98f9c2c>${ssrInterpolate(unref(user)?.company)}</h1><span class="font-bold tracking-tighter" data-v-e98f9c2c>${ssrInterpolate(unref(user)?.category)}</span></div><div class="flex gap-4" data-v-e98f9c2c>`);
+      _push(`</div><h1 class="text-4xl md:text-5xl font-bold tracking-tighter" data-v-a3d75964>${ssrInterpolate(unref(user)?.company)}</h1><span class="font-bold tracking-tighter" data-v-a3d75964>${ssrInterpolate(unref(user)?.category)}</span></div><div class="flex gap-4" data-v-a3d75964>`);
       _push(ssrRenderComponent(_component_UModal, {
         fullscreen: "",
         title: "QR Code"
       }, {
-        content: withCtx((_, _push2, _parent2, _scopeId) => {
+        body: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
+            _push2(`<div class="p-60 h-svh" data-v-a3d75964${_scopeId}>`);
             _push2(ssrRenderComponent(_component_baseQrCode, {
               value: `https://ghostform-zeta.vercel.app/?category=${unref(user)?.category}&company_name=${unref(user)?.company}&company_email=${unref(user)?.email}&background_color=0f0b0b&font_color=FFFFFF`
             }, null, _parent2, _scopeId));
+            _push2(`</div>`);
           } else {
             return [
-              createVNode(_component_baseQrCode, {
-                value: `https://ghostform-zeta.vercel.app/?category=${unref(user)?.category}&company_name=${unref(user)?.company}&company_email=${unref(user)?.email}&background_color=0f0b0b&font_color=FFFFFF`
-              }, null, 8, ["value"])
+              createVNode("div", { class: "p-60 h-svh" }, [
+                createVNode(_component_baseQrCode, {
+                  value: `https://ghostform-zeta.vercel.app/?category=${unref(user)?.category}&company_name=${unref(user)?.company}&company_email=${unref(user)?.email}&background_color=0f0b0b&font_color=FFFFFF`
+                }, null, 8, ["value"])
+              ])
             ];
           }
         }),
@@ -4192,13 +4196,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
-      _push(`</div></header><main class="max-w-350 mx-auto relative z-10" data-v-e98f9c2c><section class="flex flex-wrap justify-around gap-6 mb-12" data-v-e98f9c2c><!--[-->`);
+      _push(`</div></header><main class="max-w-350 mx-auto relative z-10" data-v-a3d75964><section class="flex flex-wrap justify-around gap-6 mb-12" data-v-a3d75964><!--[-->`);
       ssrRenderList({ "Total Intake": "1,284", "Active Leads": "42", "Conversion": "24.2%" }, (val, label) => {
-        _push(`<div class="backdrop-blur-xl bg-white/2 border border-white/8 p-8 rounded-3xl w-62.5" data-v-e98f9c2c><p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4" data-v-e98f9c2c>${ssrInterpolate(label)}</p><p class="text-3xl font-bold tabular-nums" data-v-e98f9c2c>${ssrInterpolate(val)}</p></div>`);
+        _push(`<div class="backdrop-blur-xl bg-white/2 border border-white/8 p-8 rounded-3xl w-full sm:w-62.5" data-v-a3d75964><p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4" data-v-a3d75964>${ssrInterpolate(label)}</p><p class="text-3xl font-bold tabular-nums" data-v-a3d75964>${ssrInterpolate(val)}</p></div>`);
       });
-      _push(`<!--]--></section><div class="flex w-full" data-v-e98f9c2c><div class="space-y-6 w-full" data-v-e98f9c2c><div class="flex justify-between items-end mb-4" data-v-e98f9c2c><h2 class="text-lg font-bold" data-v-e98f9c2c>Individual Personnel Tracking</h2><span class="text-[10px] text-zinc-500 uppercase tracking-widest font-mono" data-v-e98f9c2c>Real-time Sync</span></div><div class="backdrop-blur-xl bg-white/2 border border-white/8 rounded-[2.5rem] overflow-hidden w-full" data-v-e98f9c2c>`);
+      _push(`<!--]--></section><div class="flex w-full" data-v-a3d75964><div class="space-y-6 w-full" data-v-a3d75964><div class="flex justify-between items-end mb-4" data-v-a3d75964><h2 class="text-lg font-bold" data-v-a3d75964>Individual Personnel Tracking</h2><span class="text-[10px] text-zinc-500 uppercase tracking-widest font-mono" data-v-a3d75964>Real-time Sync</span></div><div class="backdrop-blur-xl bg-white/2 border border-white/8 rounded-[2.5rem] overflow-hidden w-full" data-v-a3d75964>`);
       _push(ssrRenderComponent(_component_baseTable, { data: unref(agents) }, null, _parent));
-      _push(`</div></div></div></main><footer class="max-w-350 mx-auto mt-24 border-t border-white/5 pt-8 flex justify-between items-center text-[10px] font-bold text-zinc-600 uppercase tracking-[0.4em]" data-v-e98f9c2c><span data-v-e98f9c2c>GhostForm // Global Lead Archive</span><span class="font-mono" data-v-e98f9c2c>Status: Spectral-Encrypted</span></footer></div>`);
+      _push(`</div></div></div></main></div>`);
     };
   }
 });
@@ -4208,7 +4212,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/dashboard/index.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-e98f9c2c"]]);
+const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a3d75964"]]);
 
 export { index as default };
-//# sourceMappingURL=index-BqD6DPbb.mjs.map
+//# sourceMappingURL=index-DzTZbxLQ.mjs.map

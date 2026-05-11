@@ -38,9 +38,9 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     const isScrolled = ref(false);
     const isMobileMenuOpen = ref(false);
     const navLinks = [
-      { name: "Overview", href: "/dashboard" },
-      { name: "GhostForm", href: "/dashboard/form" },
-      { name: "Profile", href: "/dashboard/profile" }
+      { name: "Overview", href: "/dashboard", target: "" },
+      { name: "GhostForm", href: "/dashboard/form", target: "_blank" },
+      { name: "Profile", href: "/dashboard/profile", target: "" }
     ];
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
@@ -91,6 +91,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         _push(ssrRenderComponent(_component_NuxtLink, {
           key: link.name,
           to: link.href,
+          target: link.target,
           class: "text-sm font-medium text-zinc-400 hover:text-cyan-400 transition-colors"
         }, {
           default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -177,4 +178,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=authenticated-DOmHjTUW.mjs.map
+//# sourceMappingURL=authenticated-DhD0-yuw.mjs.map

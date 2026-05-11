@@ -535,7 +535,7 @@ const _routes = [
     name: "dashboard",
     path: "/dashboard",
     meta: __nuxt_page_meta$1 || {},
-    component: () => import('./index-BqD6DPbb.mjs')
+    component: () => import('./index-DzTZbxLQ.mjs')
   },
   {
     name: "demo",
@@ -10109,7 +10109,7 @@ _sfc_main$3.setup = (props, ctx) => {
 };
 const __nuxt_component_0 = Object.assign(_sfc_main$3, { __name: "UApp" });
 const layouts = {
-  authenticated: defineAsyncComponent(() => import('./authenticated-DOmHjTUW.mjs').then((m) => m.default || m)),
+  authenticated: defineAsyncComponent(() => import('./authenticated-DhD0-yuw.mjs').then((m) => m.default || m)),
   default: defineAsyncComponent(() => import('./default-BueMu77H.mjs').then((m) => m.default || m)),
   form: defineAsyncComponent(() => import('./form-ChLUT4an.mjs').then((m) => m.default || m))
 };
