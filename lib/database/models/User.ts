@@ -26,6 +26,8 @@ const userSchema = new Schema(
         postal_code: String,
         reset_password_token: String,
         privacy_policy: Boolean,
+        paid: Boolean,
+        paid_tier: String,
         createdAt: String,
         updatedAt: String
     }, { timestamps: true });

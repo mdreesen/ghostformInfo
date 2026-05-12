@@ -27,10 +27,7 @@ async function logout() {
 
             <!-- Header -->
             <header class="pb-8 border-b border-gray-700">
-                <h1 class="text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-purple-400 to-blue-400">
-                    Settings
-                </h1>
-                <p class="mt-2 text-gray-400">Manage your profile, preferences, and privacy settings.</p>
+                <baseHeaderAuth text="Settings" subText="Manage your profile" />
             </header>
 
             <!-- Action Button Example -->

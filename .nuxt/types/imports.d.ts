@@ -31,6 +31,7 @@ declare global {
   const defineShortcuts: typeof import('../../node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts').defineShortcuts
   const effect: typeof import('vue').effect
   const effectScope: typeof import('vue').effectScope
+  const exportLeadsCSV: typeof import('../../app/utils/csv').exportLeadsCSV
   const extendLocale: typeof import('../../node_modules/@nuxt/ui/dist/runtime/composables/defineLocale').extendLocale
   const extractShortcuts: typeof import('../../node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts').extractShortcuts
   const formVarient: typeof import('../../app/utils/varients').formVarient
@@ -265,6 +266,7 @@ declare module 'vue' {
     readonly defineShortcuts: UnwrapRef<typeof import('../../node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts')['defineShortcuts']>
     readonly effect: UnwrapRef<typeof import('vue')['effect']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly exportLeadsCSV: UnwrapRef<typeof import('../../app/utils/csv')['exportLeadsCSV']>
     readonly extendLocale: UnwrapRef<typeof import('../../node_modules/@nuxt/ui/dist/runtime/composables/defineLocale')['extendLocale']>
     readonly extractShortcuts: UnwrapRef<typeof import('../../node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts')['extractShortcuts']>
     readonly formVarient: UnwrapRef<typeof import('../../app/utils/varients')['formVarient']>

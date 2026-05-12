@@ -23,11 +23,8 @@ const { data: user } = useNuxtData('get_user');
       <div>
         <div class="flex items-center gap-3 mb-2">
           <baseEngineActive />
-          <!-- <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_#30cf43]"></div>
-          <span class="text-[10px] font-black uppercase tracking-[0.4em] text-cyan-400">Ghost-Node Network</span> -->
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter">{{ user?.company }}</h1>
-        <span class="font-bold tracking-tighter">{{ user?.category }}</span>
+        <baseHeaderAuth :text="user?.company" :subText="user?.category" />
       </div>
 
       <div class="flex gap-4">
@@ -49,7 +46,7 @@ const { data: user } = useNuxtData('get_user');
     <main class="max-w-350 mx-auto relative z-10">
 
       <section class="flex flex-wrap justify-around gap-6 mb-12">
-        <div v-for="(val, label) in { 'Total Intake': user?.leads?.length, 'Active Leads': 'WIP', 'Conversion': 'WIP' }"
+        <div v-for="(val, label) in { 'Total Intake': user?.leads?.length ?? 0, 'Active Leads': 'WIP', 'Conversion': 'WIP' }"
           :key="label" class="backdrop-blur-xl bg-white/2 border border-white/8 p-8 rounded-3xl w-full sm:w-62.5">
           <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4">{{ label }}</p>
           <p class="text-3xl font-bold tabular-nums">{{ val }}</p>

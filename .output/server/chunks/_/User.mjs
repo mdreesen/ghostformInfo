@@ -1,19 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import { z } from 'zod';
 
-const { MONGO_URI } = process.env;
-const connectDB = async () => {
-  try {
-    const { connection } = await mongoose.connect(MONGO_URI);
-    if (connection.readyState === 1) {
-      return Promise.resolve(true);
-    }
-  } catch (error) {
-    console.error(error);
-    return Promise.reject(error);
-  }
-};
-
 const EnvSchema = z.object({
   MONGO_URI: z.string(),
   RESEND_KEY: z.string(),
@@ -46,6 +33,8 @@ const userSchema = new Schema(
     postal_code: String,
     reset_password_token: String,
     privacy_policy: Boolean,
+    paid: Boolean,
+    paid_tier: String,
     createdAt: String,
     updatedAt: String
   },
@@ -53,5 +42,5 @@ const userSchema = new Schema(
 );
 const User = mongoose.models.User || mongoose.model("User", userSchema);
 
-export { User as U, connectDB as c };
+export { User as U };
 //# sourceMappingURL=User.mjs.map

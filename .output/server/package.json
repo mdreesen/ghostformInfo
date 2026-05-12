@@ -116,6 +116,7 @@
     "source-map-js": "1.2.1",
     "sparse-bitfield": "3.0.3",
     "standardwebhooks": "1.0.0",
+    "stripe": "22.1.1",
     "style-value-types": "5.1.2",
     "supports-color": "7.2.0",
     "svgo": "3.3.3",

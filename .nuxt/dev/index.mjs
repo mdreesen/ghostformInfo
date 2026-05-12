@@ -1,5 +1,5 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, getResponseStatus, useSession, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, readValidatedBody, getResponseStatusText } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, getResponseStatus, useSession, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, readValidatedBody, getHeader, readRawBody, getResponseStatusText } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import crypto$1 from 'node:crypto';
@@ -9,6 +9,7 @@ import { z } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostfo
 import { nanoid } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/nanoid/index.js';
 import { Resend } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/resend/dist/index.mjs';
 import bcrypt from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/bcrypt/bcrypt.js';
+import Stripe from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/stripe/esm/stripe.esm.node.js';
 import mongoose, { Schema } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/mongoose/index.js';
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/ufo/dist/index.mjs';
@@ -2818,7 +2819,7 @@ const _tj2Pf1sdNeJJsGXIEH6jRaarhv8diGGRt3Y_eJMpbmo = defineNitroPlugin((nitroApp
 
 const rootDir = "/Users/mdreesen/Documents/Programming/projects/ghostformInfo";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true},{"src":"https://accounts.google.com/gsi/client","async":true,"defer":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
 
 const appRootTag = "div";
 
@@ -2934,7 +2935,22 @@ _0STYPZPB_EKCYuCa7gME6H3JGch0rQdAgskEZZCuNwA,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"2484b-L1WCKeDbYbkvNqjN6Q5MjqLAK3k\"",
+    "mtime": "2026-05-12T18:59:02.390Z",
+    "size": 149579,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"87812-SvckWnmaogNb1lxK3IlOJ0m3Sj4\"",
+    "mtime": "2026-05-12T18:59:02.391Z",
+    "size": 555026,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3654,6 +3670,8 @@ const _lazy_v4HfmP = () => Promise.resolve().then(function () { return login_pos
 const _lazy_ifgbvp = () => Promise.resolve().then(function () { return reset$1; });
 const _lazy_4BWVGm = () => Promise.resolve().then(function () { return signup_post$1; });
 const _lazy_7BZp5y = () => Promise.resolve().then(function () { return _id__get$1; });
+const _lazy_HtZTn9 = () => Promise.resolve().then(function () { return subscribe_post$1; });
+const _lazy_G_kmFX = () => Promise.resolve().then(function () { return webhook_post$1; });
 const _lazy_D72cBs = () => Promise.resolve().then(function () { return index_get$3; });
 const _lazy_wvT3iM = () => Promise.resolve().then(function () { return index_get$1; });
 const _lazy_HlH0u5 = () => Promise.resolve().then(function () { return renderer; });
@@ -3666,6 +3684,8 @@ const handlers = [
   { route: '/api/authentication/reset', handler: _lazy_ifgbvp, lazy: true, middleware: false, method: undefined },
   { route: '/api/authentication/signup', handler: _lazy_4BWVGm, lazy: true, middleware: false, method: "post" },
   { route: '/api/qr_code/:id', handler: _lazy_7BZp5y, lazy: true, middleware: false, method: "get" },
+  { route: '/api/stripe/subscribe', handler: _lazy_HtZTn9, lazy: true, middleware: false, method: "post" },
+  { route: '/api/stripe/webhook', handler: _lazy_G_kmFX, lazy: true, middleware: false, method: "post" },
   { route: '/api/user', handler: _lazy_D72cBs, lazy: true, middleware: false, method: "get" },
   { route: '/api/user/leads', handler: _lazy_wvT3iM, lazy: true, middleware: false, method: "get" },
   { route: '/__nuxt_error', handler: _lazy_HlH0u5, lazy: true, middleware: false, method: undefined },
@@ -3985,20 +4005,22 @@ const userSchema = new Schema(
     postal_code: String,
     reset_password_token: String,
     privacy_policy: Boolean,
+    paid: Boolean,
+    paid_tier: String,
     createdAt: String,
     updatedAt: String
   },
   { timestamps: true }
 );
-const User$6 = mongoose.models.User || mongoose.model("User", userSchema);
+const User$7 = mongoose.models.User || mongoose.model("User", userSchema);
 
-const User$5 = User$6;
+const User$6 = User$7;
 const loggedInUser = defineEventHandler(async (event) => {
   try {
     await connectDB();
     const { user } = await requireUserSession(event);
     const userEmail = user.email;
-    const findUser = await User$5.find({ email: userEmail });
+    const findUser = await User$6.find({ email: userEmail });
     if (findUser[0]) {
       return findUser[0];
     }
@@ -4012,11 +4034,11 @@ const loggedInUser = defineEventHandler(async (event) => {
   }
 });
 
-const User$4 = User$6;
+const User$5 = User$7;
 const delete_delete = defineEventHandler(async (event) => {
   try {
     const user = await loggedInUser(event);
-    await User$4.deleteOne({ email: user == null ? void 0 : user.email });
+    await User$5.deleteOne({ email: user == null ? void 0 : user.email });
   } catch (error) {
     console.log(error);
     throw createError({
@@ -4031,7 +4053,7 @@ const delete_delete$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePro
   default: delete_delete
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const User$3 = User$6;
+const User$4 = User$7;
 const bodySchema$3 = z.object({
   email: z.email(),
   question: z.string()
@@ -4049,7 +4071,7 @@ const forgot_post = defineEventHandler(async (event) => {
     await connectDB();
     if (question !== "7") throw createError({ statusCode: 401, statusMessage: "Try again" });
     else {
-      const userFound = await User$3.findOne({ email });
+      const userFound = await User$4.findOne({ email });
       if (!userFound) throw createError({ statusCode: 401, statusMessage: "Wrong credentials" });
       const resend = new Resend(`${process.env.RESEND_KEY}`);
       await resend.emails.send({
@@ -4059,7 +4081,7 @@ const forgot_post = defineEventHandler(async (event) => {
         // Subject line
         html: htmlBody
       });
-      await User$3.findOneAndUpdate({ email: email.toLowerCase().trim() }, { resetPasswordToken: token });
+      await User$4.findOneAndUpdate({ email: email.toLowerCase().trim() }, { resetPasswordToken: token });
     }
   } catch (error) {
     console.log(error);
@@ -4075,7 +4097,7 @@ const forgot_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePrope
   default: forgot_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const User$2 = User$6;
+const User$3 = User$7;
 const bodySchema$2 = z.object({
   email: z.email(),
   password: z.string().min(8)
@@ -4085,7 +4107,7 @@ const login_post = defineEventHandler(async (event) => {
   const { email, password } = await readValidatedBody(event, bodySchema$2.parse);
   try {
     await connectDB();
-    const user = await User$2.findOne({ email });
+    const user = await User$3.findOne({ email });
     const passwordMatches = bcrypt.compare(password, (_a = user == null ? void 0 : user.password) != null ? _a : "");
     if (await passwordMatches) {
       await setUserSession(event, {
@@ -4121,7 +4143,7 @@ const login_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProper
   default: login_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const User$1 = User$6;
+const User$2 = User$7;
 const bodySchema$1 = z.object({
   password: z.string(),
   confirm_password: z.string(),
@@ -4133,7 +4155,7 @@ const reset = defineEventHandler(async (event) => {
   try {
     await connectDB();
     if (password !== confirm_password) throw createError({ statusCode: 401, statusMessage: "Try again" });
-    await User$1.findOneAndUpdate({ resetPasswordToken: token }, {
+    await User$2.findOneAndUpdate({ resetPasswordToken: token }, {
       password: hashedPassword
     });
   } catch (error) {
@@ -4150,7 +4172,7 @@ const reset$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   default: reset
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const User = User$6;
+const User$1 = User$7;
 const bodySchema = z.object({
   company: z.string(),
   category: z.string(),
@@ -4163,7 +4185,7 @@ const signup_post = defineEventHandler(async (event) => {
   const { company, category, email, password, confirm_password, privacy_policy } = await readValidatedBody(event, bodySchema.parse);
   try {
     await connectDB();
-    const user = await User.findOne({ email });
+    const user = await User$1.findOne({ email });
     const hashedPassword = await bcrypt.hash(password, 10);
     const hashedEmail = await bcrypt.hash(email, 15);
     const hashedCompany = await bcrypt.hash(company, 15);
@@ -4172,7 +4194,7 @@ const signup_post = defineEventHandler(async (event) => {
     if (!password && !confirm_password) throw createError({ statusCode: 401, statusMessage: "Please insert password.", data: { errorMessage: "The requested item could not be found." } });
     if (password !== confirm_password) throw createError({ statusCode: 401, statusMessage: "Passwords do not match.", data: { errorMessage: "The requested item could not be found." } });
     if (user) throw createError({ statusCode: 401, statusMessage: "User already registered.", data: { errorMessage: "The requested item could not be found." } });
-    const registerUser = new User({
+    const registerUser = new User$1({
       company: company.toLowerCase(),
       company_hashed: hashedCompany.trim(),
       category: category.toLowerCase(),
@@ -4221,6 +4243,70 @@ const _id__get = defineEventHandler(async (event) => {
 const _id__get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: _id__get
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const stripe$1 = new Stripe(process.env.STRIPE_SECRET_KEY);
+const subscribe_post = defineEventHandler(async (event) => {
+  const body = await readBody(event);
+  const user = {
+    userId: body == null ? void 0 : body.id,
+    // Tie this to your MongoDB User ID
+    userEmail: body == null ? void 0 : body.email
+  };
+  const session = await stripe$1.checkout.sessions.create({
+    customer_email: body == null ? void 0 : body.email,
+    line_items: [
+      {
+        price: body.priceId,
+        // Your Price ID from Stripe
+        quantity: 1
+      }
+    ],
+    mode: "subscription",
+    success_url: `${process.env.PROJECT_DOMAIN}/dashboard`,
+    cancel_url: `${process.env.PROJECT_DOMAIN}/pricing`,
+    metadata: { ...user },
+    subscription_data: {
+      metadata: { ...user }
+    }
+  });
+  return { url: session.url };
+});
+
+const subscribe_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: subscribe_post
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const User = User$7;
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const webhook_post = defineEventHandler(async (event) => {
+  var _a;
+  const signature = getHeader(event, "stripe-signature");
+  const rawBody = await readRawBody(event);
+  let stripeEvent;
+  try {
+    stripeEvent = stripe.webhooks.constructEvent(
+      rawBody,
+      signature,
+      process.env.STRIPE_WEBHOOK_SECRET
+    );
+  } catch (err) {
+    throw createError({ statusCode: 400, message: "Webhook Error" });
+  }
+  const session = stripeEvent.data.object;
+  if (stripeEvent.type === "checkout.session.completed") {
+    await User.findOneAndUpdate(
+      { _id: (_a = session == null ? void 0 : session.metadata) == null ? void 0 : _a.userId },
+      { paid: true }
+    );
+  }
+  return { received: true };
+});
+
+const webhook_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: webhook_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const index_get$2 = defineEventHandler(async (event) => {

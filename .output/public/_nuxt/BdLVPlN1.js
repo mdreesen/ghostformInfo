@@ -1,0 +1,1 @@
+import{e as s,aT as n,c as r,A as o,o as l,aU as _}from"./Dui2HcMG.js";const m=s({__name:"payment",async setup(c){let e,t;return[e,t]=n(()=>_("/api/user",{key:"get_user",lazy:!0},"$JW5AF56jlL")),await e,t(),(a,p)=>(l(),r("main",null,[o(a.$slots,"default")]))}});export{m as default};

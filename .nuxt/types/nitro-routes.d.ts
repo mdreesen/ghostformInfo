@@ -21,6 +21,12 @@ declare module "nitropack/types" {
     '/api/qr_code/:id': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/qr_code/[id].get').default>>>>
     }
+    '/api/stripe/subscribe': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/stripe/subscribe.post').default>>>>
+    }
+    '/api/stripe/webhook': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/stripe/webhook.post').default>>>>
+    }
     '/api/user': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/user/index.get').default>>>>
     }

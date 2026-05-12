@@ -20,7 +20,7 @@ async function handler() {
         await $fetch('/api/authentication/signup', { method: 'POST', body: credentials });
         await $fetch('/api/authentication/login', { method: 'POST', body: { email: credentials.email, password: credentials.password } });
         await refreshSession();
-        await navigateTo('/dashboard');
+        await navigateTo('/subscribe');
 
     } catch (error) {
         toast.error("Sign up failed", 'Try again');
