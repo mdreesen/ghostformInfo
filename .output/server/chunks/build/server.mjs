@@ -592,7 +592,7 @@ const _routes = [
   {
     name: __nuxt_page_meta?.name,
     path: "/",
-    component: () => import('./index-D8WCoKqa.mjs'),
+    component: () => import('./index-BjG069-j.mjs'),
     children: [
       {
         name: "index",
@@ -10134,7 +10134,7 @@ _sfc_main$3.setup = (props, ctx) => {
 };
 const __nuxt_component_0 = Object.assign(_sfc_main$3, { __name: "UApp" });
 const layouts = {
-  authenticated: defineAsyncComponent(() => import('./authenticated-CYhGC-mr.mjs').then((m) => m.default || m)),
+  authenticated: defineAsyncComponent(() => import('./authenticated-DfPAx8PG.mjs').then((m) => m.default || m)),
   default: defineAsyncComponent(() => import('./default-AxcThe4x.mjs').then((m) => m.default || m)),
   form: defineAsyncComponent(() => import('./form-DOpP26Gw.mjs').then((m) => m.default || m)),
   payment: defineAsyncComponent(() => import('./payment-Cn2QfIEb.mjs').then((m) => m.default || m))

@@ -1,1 +1,0 @@
-import{_ as t}from"./DIdYcRIj.js";import{e as o,u as n,c as r,b as s,o as c}from"./DAauP47r.js";import"./DRdj6irI.js";const b=o({__name:"subscribe",setup(a){return n({title:"GhostForm | Subscribe",meta:[{name:"Subscribe",content:"GhostForm Subscribe"}]}),(m,_)=>{const e=t;return c(),r("div",null,[s(e,{stripe:""})])}}});export{b as default};
