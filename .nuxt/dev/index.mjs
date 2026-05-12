@@ -1,5 +1,5 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, getResponseStatus, useSession, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, readValidatedBody, getResponseStatusText } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, getResponseStatus, useSession, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, readValidatedBody, getHeader, readRawBody, getResponseStatusText } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import crypto$1 from 'node:crypto';
@@ -9,6 +9,7 @@ import { z } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostfo
 import { nanoid } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/nanoid/index.js';
 import { Resend } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/resend/dist/index.mjs';
 import bcrypt from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/bcrypt/bcrypt.js';
+import Stripe from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/stripe/esm/stripe.esm.node.js';
 import mongoose, { Schema } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/mongoose/index.js';
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/ufo/dist/index.mjs';
@@ -2818,7 +2819,7 @@ const _tj2Pf1sdNeJJsGXIEH6jRaarhv8diGGRt3Y_eJMpbmo = defineNitroPlugin((nitroApp
 
 const rootDir = "/Users/mdreesen/Documents/Programming/projects/ghostformInfo";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true},{"src":"https://accounts.google.com/gsi/client","async":true,"defer":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
 
 const appRootTag = "div";
 
@@ -2934,7 +2935,22 @@ _0STYPZPB_EKCYuCa7gME6H3JGch0rQdAgskEZZCuNwA,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"248ca-xfQ3aVZ0hAQU9xvLdS0su/An0Hc\"",
+    "mtime": "2026-05-11T23:56:17.680Z",
+    "size": 149706,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"8716d-LWd4dEIAr233mehX5pSsBF50yUg\"",
+    "mtime": "2026-05-11T23:56:17.680Z",
+    "size": 553325,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3654,6 +3670,8 @@ const _lazy_v4HfmP = () => Promise.resolve().then(function () { return login_pos
 const _lazy_ifgbvp = () => Promise.resolve().then(function () { return reset$1; });
 const _lazy_4BWVGm = () => Promise.resolve().then(function () { return signup_post$1; });
 const _lazy_7BZp5y = () => Promise.resolve().then(function () { return _id__get$1; });
+const _lazy_HtZTn9 = () => Promise.resolve().then(function () { return subscribe_post$1; });
+const _lazy_G_kmFX = () => Promise.resolve().then(function () { return webhook_post$1; });
 const _lazy_D72cBs = () => Promise.resolve().then(function () { return index_get$3; });
 const _lazy_wvT3iM = () => Promise.resolve().then(function () { return index_get$1; });
 const _lazy_HlH0u5 = () => Promise.resolve().then(function () { return renderer; });
@@ -3666,6 +3684,8 @@ const handlers = [
   { route: '/api/authentication/reset', handler: _lazy_ifgbvp, lazy: true, middleware: false, method: undefined },
   { route: '/api/authentication/signup', handler: _lazy_4BWVGm, lazy: true, middleware: false, method: "post" },
   { route: '/api/qr_code/:id', handler: _lazy_7BZp5y, lazy: true, middleware: false, method: "get" },
+  { route: '/api/stripe/subscribe', handler: _lazy_HtZTn9, lazy: true, middleware: false, method: "post" },
+  { route: '/api/stripe/webhook', handler: _lazy_G_kmFX, lazy: true, middleware: false, method: "post" },
   { route: '/api/user', handler: _lazy_D72cBs, lazy: true, middleware: false, method: "get" },
   { route: '/api/user/leads', handler: _lazy_wvT3iM, lazy: true, middleware: false, method: "get" },
   { route: '/__nuxt_error', handler: _lazy_HlH0u5, lazy: true, middleware: false, method: undefined },
@@ -4221,6 +4241,61 @@ const _id__get = defineEventHandler(async (event) => {
 const _id__get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: _id__get
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const stripe$1 = new Stripe(process.env.STRIPE_SECRET_KEY);
+const subscribe_post = defineEventHandler(async (event) => {
+  const user = await loggedInUser(event);
+  const body = await readBody(event);
+  const session = await stripe$1.checkout.sessions.create({
+    customer_email: user == null ? void 0 : user.email,
+    line_items: [
+      {
+        price: body.priceId,
+        // Your Price ID from Stripe
+        quantity: 1
+      }
+    ],
+    mode: "subscription",
+    success_url: `${process.env.PROJECT_DOMAIN}/dashboard`,
+    cancel_url: `${process.env.PROJECT_DOMAIN}/pricing`,
+    metadata: {
+      userId: user == null ? void 0 : user.id
+      // Tie this to your MongoDB User ID
+    }
+  });
+  return { url: session.url };
+});
+
+const subscribe_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: subscribe_post
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const webhook_post = defineEventHandler(async (event) => {
+  const signature = getHeader(event, "stripe-signature");
+  const rawBody = await readRawBody(event);
+  let stripeEvent;
+  try {
+    stripeEvent = stripe.webhooks.constructEvent(
+      rawBody,
+      signature,
+      process.env.STRIPE_WEBHOOK_SECRET
+    );
+  } catch (err) {
+    throw createError({ statusCode: 400, message: "Webhook Error" });
+  }
+  if (stripeEvent.type === "checkout.session.completed") {
+    stripeEvent.data.object;
+  }
+  if (stripeEvent.type === "customer.subscription.deleted") ;
+  return { received: true };
+});
+
+const webhook_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: webhook_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const index_get$2 = defineEventHandler(async (event) => {
