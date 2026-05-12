@@ -35,7 +35,7 @@ const startSubscription = async (priceId: string) => {
   const { url } = await $fetch('/api/stripe/subscribe', {
     method: 'POST',
     body: { priceId: priceId }
-  });
+  })
   window.location.href = url // Redirect to Stripe
 };
 </script>

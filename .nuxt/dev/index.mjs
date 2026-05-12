@@ -2938,16 +2938,16 @@ _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 const assets = {
   "/index.mjs": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"248ca-xfQ3aVZ0hAQU9xvLdS0su/An0Hc\"",
-    "mtime": "2026-05-11T23:56:17.680Z",
-    "size": 149706,
+    "etag": "\"248b6-bdYmk3IRh687arvLit9dCwWUCiE\"",
+    "mtime": "2026-05-12T03:57:48.276Z",
+    "size": 149686,
     "path": "index.mjs"
   },
   "/index.mjs.map": {
     "type": "application/json",
-    "etag": "\"8716d-LWd4dEIAr233mehX5pSsBF50yUg\"",
-    "mtime": "2026-05-11T23:56:17.680Z",
-    "size": 553325,
+    "etag": "\"8717f-LGvk4qlD+echr/oOJPqkt44J3p8\"",
+    "mtime": "2026-05-12T03:57:48.276Z",
+    "size": 553343,
     "path": "index.mjs.map"
   }
 };
@@ -4010,15 +4010,15 @@ const userSchema = new Schema(
   },
   { timestamps: true }
 );
-const User$6 = mongoose.models.User || mongoose.model("User", userSchema);
+const User$7 = mongoose.models.User || mongoose.model("User", userSchema);
 
-const User$5 = User$6;
+const User$6 = User$7;
 const loggedInUser = defineEventHandler(async (event) => {
   try {
     await connectDB();
     const { user } = await requireUserSession(event);
     const userEmail = user.email;
-    const findUser = await User$5.find({ email: userEmail });
+    const findUser = await User$6.find({ email: userEmail });
     if (findUser[0]) {
       return findUser[0];
     }
@@ -4032,11 +4032,11 @@ const loggedInUser = defineEventHandler(async (event) => {
   }
 });
 
-const User$4 = User$6;
+const User$5 = User$7;
 const delete_delete = defineEventHandler(async (event) => {
   try {
     const user = await loggedInUser(event);
-    await User$4.deleteOne({ email: user == null ? void 0 : user.email });
+    await User$5.deleteOne({ email: user == null ? void 0 : user.email });
   } catch (error) {
     console.log(error);
     throw createError({
@@ -4051,7 +4051,7 @@ const delete_delete$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePro
   default: delete_delete
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const User$3 = User$6;
+const User$4 = User$7;
 const bodySchema$3 = z.object({
   email: z.email(),
   question: z.string()
@@ -4069,7 +4069,7 @@ const forgot_post = defineEventHandler(async (event) => {
     await connectDB();
     if (question !== "7") throw createError({ statusCode: 401, statusMessage: "Try again" });
     else {
-      const userFound = await User$3.findOne({ email });
+      const userFound = await User$4.findOne({ email });
       if (!userFound) throw createError({ statusCode: 401, statusMessage: "Wrong credentials" });
       const resend = new Resend(`${process.env.RESEND_KEY}`);
       await resend.emails.send({
@@ -4079,7 +4079,7 @@ const forgot_post = defineEventHandler(async (event) => {
         // Subject line
         html: htmlBody
       });
-      await User$3.findOneAndUpdate({ email: email.toLowerCase().trim() }, { resetPasswordToken: token });
+      await User$4.findOneAndUpdate({ email: email.toLowerCase().trim() }, { resetPasswordToken: token });
     }
   } catch (error) {
     console.log(error);
@@ -4095,7 +4095,7 @@ const forgot_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePrope
   default: forgot_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const User$2 = User$6;
+const User$3 = User$7;
 const bodySchema$2 = z.object({
   email: z.email(),
   password: z.string().min(8)
@@ -4105,7 +4105,7 @@ const login_post = defineEventHandler(async (event) => {
   const { email, password } = await readValidatedBody(event, bodySchema$2.parse);
   try {
     await connectDB();
-    const user = await User$2.findOne({ email });
+    const user = await User$3.findOne({ email });
     const passwordMatches = bcrypt.compare(password, (_a = user == null ? void 0 : user.password) != null ? _a : "");
     if (await passwordMatches) {
       await setUserSession(event, {
@@ -4141,7 +4141,7 @@ const login_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProper
   default: login_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const User$1 = User$6;
+const User$2 = User$7;
 const bodySchema$1 = z.object({
   password: z.string(),
   confirm_password: z.string(),
@@ -4153,7 +4153,7 @@ const reset = defineEventHandler(async (event) => {
   try {
     await connectDB();
     if (password !== confirm_password) throw createError({ statusCode: 401, statusMessage: "Try again" });
-    await User$1.findOneAndUpdate({ resetPasswordToken: token }, {
+    await User$2.findOneAndUpdate({ resetPasswordToken: token }, {
       password: hashedPassword
     });
   } catch (error) {
@@ -4170,7 +4170,7 @@ const reset$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   default: reset
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const User = User$6;
+const User$1 = User$7;
 const bodySchema = z.object({
   company: z.string(),
   category: z.string(),
@@ -4183,7 +4183,7 @@ const signup_post = defineEventHandler(async (event) => {
   const { company, category, email, password, confirm_password, privacy_policy } = await readValidatedBody(event, bodySchema.parse);
   try {
     await connectDB();
-    const user = await User.findOne({ email });
+    const user = await User$1.findOne({ email });
     const hashedPassword = await bcrypt.hash(password, 10);
     const hashedEmail = await bcrypt.hash(email, 15);
     const hashedCompany = await bcrypt.hash(company, 15);
@@ -4192,7 +4192,7 @@ const signup_post = defineEventHandler(async (event) => {
     if (!password && !confirm_password) throw createError({ statusCode: 401, statusMessage: "Please insert password.", data: { errorMessage: "The requested item could not be found." } });
     if (password !== confirm_password) throw createError({ statusCode: 401, statusMessage: "Passwords do not match.", data: { errorMessage: "The requested item could not be found." } });
     if (user) throw createError({ statusCode: 401, statusMessage: "User already registered.", data: { errorMessage: "The requested item could not be found." } });
-    const registerUser = new User({
+    const registerUser = new User$1({
       company: company.toLowerCase(),
       company_hashed: hashedCompany.trim(),
       category: category.toLowerCase(),
@@ -4276,6 +4276,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const webhook_post = defineEventHandler(async (event) => {
   const signature = getHeader(event, "stripe-signature");
   const rawBody = await readRawBody(event);
+  const user = await getUserSession(event);
   let stripeEvent;
   try {
     stripeEvent = stripe.webhooks.constructEvent(
@@ -4286,8 +4287,10 @@ const webhook_post = defineEventHandler(async (event) => {
   } catch (err) {
     throw createError({ statusCode: 400, message: "Webhook Error" });
   }
-  if (stripeEvent.type === "checkout.session.completed") {
-    stripeEvent.data.object;
+  if (stripeEvent.type === "charge.succeeded") {
+    const session = stripeEvent.data.object;
+    console.log(user);
+    console.log(session);
   }
   if (stripeEvent.type === "customer.subscription.deleted") ;
   return { received: true };

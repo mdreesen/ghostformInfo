@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
         metadata: {
             userId: user?.id, // Tie this to your MongoDB User ID
         },
-    })
-
+    });
+    
     return { url: session.url }
 })

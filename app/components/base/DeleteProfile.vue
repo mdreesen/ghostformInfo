@@ -70,7 +70,7 @@ const completeDelete = () => {
   })
     .then(async () => {
       await refreshSession();
-      await navigateTo('/login');
+      await navigateTo('/signup');
 
       isLoading.value = false;
     })
@@ -83,7 +83,7 @@ const completeDelete = () => {
   // Wait a moment for the visual effect, then emit
   setTimeout(() => {
     emit('confirm-delete');
-    navigateTo('/login');
+    navigateTo('/signup');
     // In a real app, you might redirect here
   }, 1000)
 }
