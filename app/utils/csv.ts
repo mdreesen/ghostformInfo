@@ -1,0 +1,59 @@
+export function exportLeadsCSV(leads: Array<any>) {
+    // 1. Define Headers
+    const headers = ['Entity', 'Tier', 'Quality Score', 'Budget', 'Source', 'Status', 'Date'];
+
+    // 2. Map data to rows
+    const rows = leads.map(lead => [
+        lead.name,
+        `Tier ${lead.tier}`,
+        lead.score,
+        lead.budget.replace(/[^0-9.-]+/g, ""), // Strip currency symbols for spreadsheet math
+        lead.source,
+        lead.status,
+        lead.date
+    ]);
+
+    // 3. Construct CSV String
+    const csvContent = [
+        headers.join(','),
+        ...rows.map(row => row.join(','))
+    ].join('\n');
+
+    // 4. Create Download Link
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+
+    link.setAttribute('href', url);
+    link.setAttribute('download', `GhostForm_Leads_${new Date().toISOString().split('T')[0]}.csv`);
+    link.style.visibility = 'hidden';
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
+
+
+// Could take the more Pro route below?
+// export function exportLeadsCSV(leads: Array<any>) {
+//     const dataToExport = leads.map(lead => ({
+//         Entity: lead.name,
+//         Tier: `Tier ${lead.tier}`,
+//         'Quality Score': lead.score,
+//         Budget: lead.budget,
+//         Source: lead.source,
+//         Status: lead.status,
+//         Date: lead.date
+//     }));
+
+//     // Create a worksheet from the JSON data
+//     const worksheet = XLSX.utils.json_to_sheet(dataToExport);
+
+//     // Create a new workbook and append the worksheet
+//     const workbook = XLSX.utils.book_new();
+//     XLSX.utils.book_append_sheet(workbook, worksheet, "Lead Archive");
+
+//     // Trigger the download with a clean filename
+//     const datestamp = new Date().toISOString().split('T')[0];
+//     XLSX.writeFile(workbook, `GhostForm_Intake_${datestamp}.xlsx`);
+// };

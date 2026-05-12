@@ -43,13 +43,13 @@ const startSubscription = async (priceId: string) => {
 <template>
   <section id="pricing" class="py-32 px-6 relative overflow-hidden">
     <div class="max-w-4xl mx-auto text-center mb-20 reveal">
-      <baseHeader text="Choose your level of presence." />
+      <baseBaseHeader text="Choose your level of presence." />
       <p class="text-zinc-400 text-lg">No hidden fees. Just weightless data and spectral speed.</p>
     </div>
 
-    <div class="max-w-7xl mx-auto flex gap-8 items-center justify-center">
+    <div class="max-w-4xl mx-auto flex flex-wrap gap-8 items-center justify-center">
       <div v-for="tier in tiers" :key="tier.name" :class="[
-        'relative p-8 rounded-[2.5rem] transition-all duration-500 border reveal',
+        'relative p-8 rounded-[2.5rem] transition-all duration-500 border reveal max-w-sm',
         tier.highlighted
           ? 'bg-zinc-900 border-cyan-500/50 shadow-[0_0_40px_rgba(6,182,212,0.15)] scale-105 z-10'
           : 'bg-zinc-950/50 border-white hover:border-white/20'

@@ -21,14 +21,9 @@ type Lead = {
 }
 
 const columns: TableColumn<Lead>[] = [
-  // {
-  //   accessorKey: 'id',
-  //   header: '#',
-  //   cell: ({ row }) => `#${row.getValue('id')}`
-  // },
   {
     accessorKey: 'email',
-    header: 'Email'
+    header: 'Email',
   },
   {
     accessorKey: 'date',
@@ -58,23 +53,6 @@ const columns: TableColumn<Lead>[] = [
       )
     }
   },
-  // {
-  //   accessorKey: 'amount',
-  //   header: 'Amount',
-  //   meta: {
-  //     class: {
-  //       th: 'text-right',
-  //       td: 'text-right font-medium'
-  //     }
-  //   },
-  //   cell: ({ row }) => {
-  //     const amount = Number.parseFloat(row.getValue('amount'))
-  //     return new Intl.NumberFormat('en-US', {
-  //       style: 'currency',
-  //       currency: 'EUR'
-  //     }).format(amount)
-  //   }
-  // }
 ]
 
 const table = useTemplateRef('table')
@@ -98,6 +76,6 @@ const columnFilters = ref([
       />
     </div>
 
-    <UTable ref="table" v-model:column-filters="columnFilters" :data="data" :columns="columns" />
+    <UTable ref="table" v-model:column-filters="columnFilters" :data="data" :columns="columns"></UTable>
   </div>
 </template>

@@ -33,7 +33,7 @@ const props = defineProps({
         </div>
 
         <div v-if="!category && !company && !email">
-            <baseHeader class="py-8 flex content-center justify-center" text="The category, company name, and email are needed." />
+            <baseBaseHeader class="py-8 flex content-center justify-center" text="The category, company name, and email are needed." />
         </div>
   
         <iframe
