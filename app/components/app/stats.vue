@@ -11,7 +11,7 @@ const stats = [
 
 <template>
     <div class="py-12 border-y border-white/5 bg-white/2">
-        <baseBaseHeader text="Stats" />
+        <baseHeaderBase text="Stats" />
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
             <div v-for="s in stats" :key="s.label">
                 <div class="text-4xl font-black text-white mb-1">{{ s.value }}</div>

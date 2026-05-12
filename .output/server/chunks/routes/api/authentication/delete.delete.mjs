@@ -13,6 +13,7 @@ import 'jose';
 import '@iconify/utils';
 import 'consola';
 import 'ipx';
+import '../../../_/mongodb.mjs';
 import 'mongoose';
 import 'zod';
 

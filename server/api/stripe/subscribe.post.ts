@@ -1,14 +1,16 @@
 import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-import loggedInUser from '~/utils/loggedInUser';
-
 
 export default defineEventHandler(async (event) => {
-    const user = await loggedInUser(event);
     const body = await readBody(event);
 
+    const user = {
+        userId: body?.id, // Tie this to your MongoDB User ID
+        userEmail: body?.email
+    }
+
     const session = await stripe.checkout.sessions.create({
-        customer_email: user?.email,
+        customer_email: body?.email,
         line_items: [
             {
                 price: body.priceId, // Your Price ID from Stripe
@@ -18,8 +20,11 @@ export default defineEventHandler(async (event) => {
         mode: 'subscription',
         success_url: `${process.env.PROJECT_DOMAIN}/dashboard`,
         cancel_url: `${process.env.PROJECT_DOMAIN}/pricing`,
-        metadata: {
-            userId: user?.id, // Tie this to your MongoDB User ID
+
+        metadata: { ...user },
+
+        subscription_data: {
+            metadata: { ...user }
         },
     });
     

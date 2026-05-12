@@ -59,19 +59,6 @@ async function forgotpassword() {
     });
 };
 
-// eslint-disable-next-line no-console
-const onSuccess = (e: { credential: string; claims: any }) => {
-  console.log('success:', e.claims, e.credential.slice(0, 20) + '…')
-}
-// eslint-disable-next-line no-console
-const onVerified = (data: any) => {
-  console.log('verified:', data)
-}
-// eslint-disable-next-line no-console
-const onError = (err: any) => {
-  console.error('error:', err)
-}
-
 useMotion(formRef, { ...formVarient() });
 
 </script>

@@ -1,5 +1,6 @@
-import { d as defineEventHandler, b as requireUserSession, c as createError } from '../nitro/nitro.mjs';
-import { c as connectDB, U as User$1 } from './User.mjs';
+import { d as defineEventHandler, h as requireUserSession, c as createError } from '../nitro/nitro.mjs';
+import { c as connectDB } from './mongodb.mjs';
+import { U as User$1 } from './User.mjs';
 
 const User = User$1;
 const loggedInUser = defineEventHandler(async (event) => {

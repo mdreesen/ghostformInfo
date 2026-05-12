@@ -31,10 +31,16 @@ const tiers = [
   },
 ];
 
+const { data: user } = useNuxtData('get_user');
+
 const startSubscription = async (priceId: string) => {
   const { url } = await $fetch('/api/stripe/subscribe', {
     method: 'POST',
-    body: { priceId: priceId }
+    body: { 
+      priceId: priceId,
+      id: user.value._id,
+      email: user.value.email
+     }
   })
   window.location.href = url // Redirect to Stripe
 };
@@ -43,7 +49,7 @@ const startSubscription = async (priceId: string) => {
 <template>
   <section id="pricing" class="py-32 px-6 relative overflow-hidden">
     <div class="max-w-4xl mx-auto text-center mb-20 reveal">
-      <baseBaseHeader text="Choose your level of presence." />
+      <baseHeaderBase text="Choose your level of presence." />
       <p class="text-zinc-400 text-lg">No hidden fees. Just weightless data and spectral speed.</p>
     </div>
 

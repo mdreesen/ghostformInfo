@@ -7,7 +7,7 @@ export function exportLeadsCSV(leads: Array<any>) {
         lead.name,
         `Tier ${lead.tier}`,
         lead.score,
-        lead.budget.replace(/[^0-9.-]+/g, ""), // Strip currency symbols for spreadsheet math
+        lead.budget.toString().replace(/[^0-9.-]+/g, ""), // Strip currency symbols for spreadsheet math
         lead.source,
         lead.status,
         lead.date
