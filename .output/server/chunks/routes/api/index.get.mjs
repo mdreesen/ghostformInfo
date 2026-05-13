@@ -1,4 +1,4 @@
-import { d as defineEventHandler, c as createError } from '../../nitro/nitro.mjs';
+import { d as defineEventHandler } from '../../nitro/nitro.mjs';
 import { l as loggedInUser } from '../../_/loggedInUser.mjs';
 import 'node:http';
 import 'node:https';
@@ -18,16 +18,9 @@ import '../../_/User.mjs';
 import 'zod';
 
 const index_get = defineEventHandler(async (event) => {
-  try {
-    const user = await loggedInUser(event);
-    return user;
-  } catch (error) {
-    console.log(error);
-    throw createError({
-      statusCode: 500,
-      statusMessage: "Something went wrong."
-    });
-  }
+  var _a;
+  const user = await loggedInUser(event);
+  return (_a = user == null ? void 0 : user.leads) == null ? void 0 : _a.reverse();
 });
 
 export { index_get as default };

@@ -19,25 +19,20 @@ const columns: TableColumn<Lead>[] = [
     header: 'Name',
   },
   {
-    accessorKey: 'age',
-    header: 'Age',
-  },
-  {
     accessorKey: 'email',
     header: 'Email',
   },
   {
-    accessorKey: 'date',
-    header: 'Date',
-    cell: ({ row }) => {
-      return new Date(row.getValue('date')).toLocaleString('en-US', {
-        day: 'numeric',
-        month: 'short',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false
-      })
-    }
+    accessorKey: 'phone',
+    header: 'Phone',
+  },
+  {
+    accessorKey: 'age',
+    header: 'Age',
+  },
+  {
+    accessorKey: 'address',
+    header: 'Address',
   },
   {
     accessorKey: 'status',
@@ -54,10 +49,46 @@ const columns: TableColumn<Lead>[] = [
       )
     }
   },
-
+  {
+    accessorKey: 'date',
+    header: 'Date',
+    cell: ({ row }) => {
+      return new Date(row.getValue('date')).toLocaleString('en-US', {
+        day: 'numeric',
+        month: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      })
+    }
+  },
+  {
+    accessorKey: 'want_to_move',
+    header: 'Looking to move',
+  },
   {
     accessorKey: 'buy_sell_both',
     header: 'Buy, Sell, or Both',
+  },
+  {
+    accessorKey: 'price',
+    header: 'Estimated home price',
+  },
+  {
+    accessorKey: 'sqft',
+    header: 'Sqft',
+  },
+  {
+    accessorKey: 'bedrooms',
+    header: 'Bedrooms',
+  },
+  {
+    accessorKey: 'bathrooms',
+    header: 'Bathrooms',
+  },
+  {
+    accessorKey: 'budget',
+    header: 'Budget',
   },
 ]
 
@@ -86,7 +117,7 @@ const columnFilters = ref([
       <template #email-cell="{ row }">
       <NuxtLink 
         :to="`/dashboard/leads/${row.original._id}/details`"
-        class="text-cyan-400 hover:text-primary-700 underline font-medium"
+        class="text-cyan-400 hover:text-cyan-700 underline font-medium"
       >
       {{ row.original.email }}
       </NuxtLink>

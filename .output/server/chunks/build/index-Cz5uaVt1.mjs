@@ -205,7 +205,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         desc: "Break on 12MB photos, boring UI, 20% conversion rate, requires database management."
       },
       {
-        icon: "\u2713",
+        icon: "✓",
         title: "GhostForm",
         desc: "Auto-compressing tech, adaptive multi-step flow, 65% conversion rate, inbox delivery via Resend."
       },
@@ -215,7 +215,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         desc: 'Most standard web servers have a "Maximum Payload Size." If a user tries to upload three 8MB photos from their mobile devices, the server simply hangs or crashes with a 413 Request Entity Too Large error.'
       },
       {
-        icon: "\u2713",
+        icon: "✓",
         title: "GhostForm Image Sending",
         desc: "By shrinking those 24MB of photos down to 1.5MB before they are sent, we bypass the server's limit entirely. We 'plug the leak' by ensuring the door is always wide enough for their data."
       },
@@ -225,9 +225,9 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         desc: "Standard forms show all 15 questions at once. It looks like a tax document."
       },
       {
-        icon: "\u2713",
+        icon: "✓",
         title: "GhostForm Questions",
-        desc: "Our 'Spectral Speed' multi-step flow feels like a text message conversation. It\u2019s low-friction, high-engagement."
+        desc: "Our 'Spectral Speed' multi-step flow feels like a text message conversation. It’s low-friction, high-engagement."
       }
     ];
     return (_ctx, _push, _parent, _attrs) => {

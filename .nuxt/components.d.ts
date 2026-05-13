@@ -27,6 +27,7 @@ export const BaseEngineActive: typeof import("../app/components/base/EngineActiv
 export const BaseGhostForm: typeof import("../app/components/base/GhostForm.vue")['default']
 export const BaseHeaderAuth: typeof import("../app/components/base/Header/Auth.vue")['default']
 export const BaseHeaderBase: typeof import("../app/components/base/Header/Base.vue")['default']
+export const BaseHeaderSection: typeof import("../app/components/base/Header/Section.vue")['default']
 export const BaseLabel: typeof import("../app/components/base/Label.vue")['default']
 export const BaseNavigationAuth: typeof import("../app/components/base/Navigation/Auth.vue")['default']
 export const BaseNavigationBase: typeof import("../app/components/base/Navigation/Base.vue")['default']
@@ -210,6 +211,7 @@ export const LazyBaseEngineActive: LazyComponent<typeof import("../app/component
 export const LazyBaseGhostForm: LazyComponent<typeof import("../app/components/base/GhostForm.vue")['default']>
 export const LazyBaseHeaderAuth: LazyComponent<typeof import("../app/components/base/Header/Auth.vue")['default']>
 export const LazyBaseHeaderBase: LazyComponent<typeof import("../app/components/base/Header/Base.vue")['default']>
+export const LazyBaseHeaderSection: LazyComponent<typeof import("../app/components/base/Header/Section.vue")['default']>
 export const LazyBaseLabel: LazyComponent<typeof import("../app/components/base/Label.vue")['default']>
 export const LazyBaseNavigationAuth: LazyComponent<typeof import("../app/components/base/Navigation/Auth.vue")['default']>
 export const LazyBaseNavigationBase: LazyComponent<typeof import("../app/components/base/Navigation/Base.vue")['default']>

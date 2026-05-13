@@ -27,6 +27,7 @@ interface _GlobalComponents {
   BaseGhostForm: typeof import("../../app/components/base/GhostForm.vue")['default']
   BaseHeaderAuth: typeof import("../../app/components/base/Header/Auth.vue")['default']
   BaseHeaderBase: typeof import("../../app/components/base/Header/Base.vue")['default']
+  BaseHeaderSection: typeof import("../../app/components/base/Header/Section.vue")['default']
   BaseLabel: typeof import("../../app/components/base/Label.vue")['default']
   BaseNavigationAuth: typeof import("../../app/components/base/Navigation/Auth.vue")['default']
   BaseNavigationBase: typeof import("../../app/components/base/Navigation/Base.vue")['default']
@@ -210,6 +211,7 @@ interface _GlobalComponents {
   LazyBaseGhostForm: LazyComponent<typeof import("../../app/components/base/GhostForm.vue")['default']>
   LazyBaseHeaderAuth: LazyComponent<typeof import("../../app/components/base/Header/Auth.vue")['default']>
   LazyBaseHeaderBase: LazyComponent<typeof import("../../app/components/base/Header/Base.vue")['default']>
+  LazyBaseHeaderSection: LazyComponent<typeof import("../../app/components/base/Header/Section.vue")['default']>
   LazyBaseLabel: LazyComponent<typeof import("../../app/components/base/Label.vue")['default']>
   LazyBaseNavigationAuth: LazyComponent<typeof import("../../app/components/base/Navigation/Auth.vue")['default']>
   LazyBaseNavigationBase: LazyComponent<typeof import("../../app/components/base/Navigation/Base.vue")['default']>

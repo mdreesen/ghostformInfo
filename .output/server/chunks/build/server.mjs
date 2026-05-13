@@ -508,6 +508,9 @@ function getRouteRules(arg) {
     return {};
   }
 }
+const __nuxt_page_meta$6 = {
+  layout: "authenticated"
+};
 const __nuxt_page_meta$5 = {
   layout: "form"
 };
@@ -528,7 +531,8 @@ const _routes = [
   {
     name: "dashboard-leads-id-details",
     path: "/dashboard/leads/:id()/details",
-    component: () => import('./details-32nTh00C.mjs')
+    meta: __nuxt_page_meta$6 || {},
+    component: () => import('./details-Bl4W2s7D.mjs')
   },
   {
     name: "dashboard-form",
@@ -540,7 +544,7 @@ const _routes = [
     name: "dashboard-leads",
     path: "/dashboard/leads",
     meta: __nuxt_page_meta$4 || {},
-    component: () => import('./index-BLoCacbO.mjs')
+    component: () => import('./index-D_Y0aKGF.mjs')
   },
   {
     name: "dashboard-profile",
@@ -552,7 +556,7 @@ const _routes = [
     name: "dashboard",
     path: "/dashboard",
     meta: __nuxt_page_meta$2 || {},
-    component: () => import('./index-DsCvdecn.mjs')
+    component: () => import('./index-CVdHGg2P.mjs')
   },
   {
     name: "demo",
@@ -1445,7 +1449,7 @@ const lazyGlobalComponents = [
   ["ToastContainer", LazyToastContainer],
   ["Icon", LazyIcon]
 ];
-const components_plugin_z4hgvsiddfKkfXTP6M8M4zG5Cb7sGnDhcryKVM45Di4 = /* @__PURE__ */ defineNuxtPlugin({
+const components_plugin_4kY4pyzJIYX99vmMAAIorFf3CnAaptHitJgf7JxiED8 = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:global-components",
   setup(nuxtApp) {
     for (const [name, component] of lazyGlobalComponents) {
@@ -4335,7 +4339,7 @@ const plugins = [
   session_server_fi7D7q_WjeXZl2Hh05GOWPuIxZQWSnpY3ifY_sSGHJo,
   revive_payload_server_MVtmlZaQpj6ApFmshWfUWl5PehCebzaBf2NuRMiIbms,
   plugin_MeUvTuoKUi51yb_kBguab6hdcExVXeTtZtTg9TZZBB8,
-  components_plugin_z4hgvsiddfKkfXTP6M8M4zG5Cb7sGnDhcryKVM45Di4,
+  components_plugin_4kY4pyzJIYX99vmMAAIorFf3CnAaptHitJgf7JxiED8,
   plugin_PkzIodqHrECZiqJYWG6YoAUH8WdazzfetYETfN19XBg,
   colors_E7kSti5pGZ28QhUUurq6gGRU3l65WuXO_KJC3GQgzFo,
   plugin_server_9Ca9_HhnjAGwBWpwAydRauMHxWoxTDY60BrArRnXN_A,
@@ -10134,10 +10138,10 @@ _sfc_main$3.setup = (props, ctx) => {
 };
 const __nuxt_component_0 = Object.assign(_sfc_main$3, { __name: "UApp" });
 const layouts = {
-  authenticated: defineAsyncComponent(() => import('./authenticated-BgReAVMF.mjs').then((m) => m.default || m)),
+  authenticated: defineAsyncComponent(() => import('./authenticated-C-wlOi1x.mjs').then((m) => m.default || m)),
   default: defineAsyncComponent(() => import('./default-CeE6KiBd.mjs').then((m) => m.default || m)),
   form: defineAsyncComponent(() => import('./form-BapTXkE1.mjs').then((m) => m.default || m)),
-  payment: defineAsyncComponent(() => import('./payment-DGwgHlrv.mjs').then((m) => m.default || m))
+  payment: defineAsyncComponent(() => import('./payment-BRRUJSNt.mjs').then((m) => m.default || m))
 };
 const routeRulesMatcher = _routeRulesMatcher;
 const LayoutLoader = defineComponent({

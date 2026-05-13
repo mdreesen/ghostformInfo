@@ -57,7 +57,7 @@ const { data: user } = useNuxtData('user');
 
         <div class="space-y-6 w-full">
           <div class="flex justify-between items-end mb-4">
-            <h2 class="text-lg font-bold">Individual Personnel Tracking</h2>
+            <baseHeaderSection text="Lead Tracking" />
             <!-- <span class="text-[10px] text-zinc-500 uppercase tracking-widest font-mono">Real-time Sync</span> -->
           </div>
 
