@@ -7,7 +7,6 @@ definePageMeta({
 const route = useRoute();
 
 const { data: data, pending: pending_data } = await useFetch<Lead>(`/api/leads/${route.params.id}`);
-console.log(data.value)
 
 // Simulated lead data fetch based on our previous logic
 const lead = ref(data.value);
