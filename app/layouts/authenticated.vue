@@ -2,11 +2,18 @@
 await useFetch('/api/user', { key: 'user', lazy: true });
 await useFetch('/api/leads', { key: 'leads', lazy: true });
 const { data: user } = useNuxtData('user');
+
+const authenticated = computed(() => {
+    if (user) return true;
+    else {
+        return navigateTo(`/login`);
+    }
+});
 </script>
 
 <template>
     <main>
-        <template v-if="user">
+        <template v-if="authenticated">
             <baseNavigationAuth />
             <slot />
         </template>

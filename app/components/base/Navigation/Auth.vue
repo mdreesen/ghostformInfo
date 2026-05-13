@@ -32,7 +32,7 @@ const navLinks = [
       : 'bg-transparent border-transparent py-5'
   ]">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <NuxtLink to="/" class="flex items-center gap-3 group">
+      <NuxtLink to="/dashboard" class="flex items-center gap-3 group">
         <div class="relative w-10 h-10 flex items-center justify-center">
           <div class="absolute inset-0 bg-cyan-500/20 blur-lg rounded-full group-hover:bg-cyan-500/40 transition-all">
           </div>

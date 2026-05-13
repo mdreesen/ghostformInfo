@@ -58,7 +58,6 @@ const { data: user } = useNuxtData('user');
         <div class="space-y-6 w-full">
           <div class="flex justify-between items-end mb-4">
             <baseHeaderSection text="Lead Tracking" />
-            <!-- <span class="text-[10px] text-zinc-500 uppercase tracking-widest font-mono">Real-time Sync</span> -->
           </div>
 
           <div class="backdrop-blur-xl bg-white/2 border border-white/8 rounded-[2.5rem] overflow-hidden w-full">
@@ -67,12 +66,6 @@ const { data: user } = useNuxtData('user');
         </div>
       </div>
     </main>
-
-    <!-- <footer
-      class="max-w-350 mx-auto mt-24 border-t border-white/5 pt-8 flex justify-between items-center text-[10px] font-bold text-zinc-600 uppercase tracking-[0.4em]">
-      <span>GhostForm // Global Lead Archive</span>
-      <span class="font-mono">Status: Spectral-Encrypted</span>
-    </footer> -->
   </div>
 </template>
 

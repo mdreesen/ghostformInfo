@@ -65,7 +65,7 @@ const lead = ref(data.value);
         <div class="lg:col-span-8 space-y-8">
           <div class="backdrop-blur-xl bg-white/4 border border-cyan-400/20 rounded-3xl p-10 relative overflow-hidden">
             <div class="absolute top-0 right-0 p-4">
-              <span class="text-[8px] font-black bg-cyan-400/20 text-cyan-400 px-2 py-1 rounded tracking-widest">AI GEN-4</span>
+              <span class="text-[8px] font-black bg-cyan-400/20 text-cyan-400 px-2 py-1 rounded tracking-widest">AI GEN</span>
             </div>
             <baseHeaderSection text="AI Analysis" />
             <p class="text-sm leading-relaxed" v-html="lead.ai_analysis" />

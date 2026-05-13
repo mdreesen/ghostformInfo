@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { h, resolveComponent } from 'vue'
 import type { TableColumn } from '@nuxt/ui'
+import { getPaginationRowModel } from '@tanstack/vue-table'
 import type { Lead } from '~/types/lead';
 
 const UBadge = resolveComponent('UBadge');
@@ -100,6 +101,14 @@ const columnFilters = ref([
     value: ''
   }
 ]);
+
+const globalFilter = ref('')
+
+
+const pagination = ref({
+  pageIndex: 0,
+  pageSize: 5
+})
 </script>
 
 <template>
@@ -113,8 +122,18 @@ const columnFilters = ref([
       />
     </div>
 
-    <UTable ref="table" v-model:column-filters="columnFilters" :data="data" :columns="columns">
-      <template #email-cell="{ row }">
+    <UTable
+      ref="table"
+      v-model:pagination="pagination"
+      v-model:column-filters="columnFilters" 
+      :data="data"
+      :columns="columns"
+      :pagination-options="{
+        getPaginationRowModel: getPaginationRowModel()
+      }"
+      class="flex-1"
+    >
+    <template #email-cell="{ row }">
       <NuxtLink 
         :to="`/dashboard/leads/${row.original._id}/details`"
         class="text-cyan-400 hover:text-cyan-700 underline font-medium"
@@ -122,6 +141,15 @@ const columnFilters = ref([
       {{ row.original.email }}
       </NuxtLink>
     </template>
-    </UTable>
+  </UTable>
+
+    <div class="flex justify-end border-t border-default pt-4 px-4 color-cyan-400">
+      <UPagination
+        :page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
+        :items-per-page="table?.tableApi?.getState().pagination.pageSize"
+        :total="table?.tableApi?.getFilteredRowModel().rows.length"
+        @update:page="(p) => table?.tableApi?.setPageIndex(p - 1)"
+      />
+    </div>
   </div>
 </template>
