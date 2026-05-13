@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { h, resolveComponent } from 'vue'
 import type { TableColumn } from '@nuxt/ui'
+import type { Lead } from '~/types/lead';
 
 const UBadge = resolveComponent('UBadge');
 
@@ -12,15 +13,15 @@ const props = defineProps({
   },
 });
 
-type Lead = {
-  // id: string;
-  name: string;
-  date: string
-  status: 'new' | 'active' | 'closed'
-  email: string
-}
-
 const columns: TableColumn<Lead>[] = [
+  {
+    accessorKey: 'name',
+    header: 'Name',
+  },
+  {
+    accessorKey: 'age',
+    header: 'Age',
+  },
   {
     accessorKey: 'email',
     header: 'Email',
@@ -43,15 +44,20 @@ const columns: TableColumn<Lead>[] = [
     header: 'Status',
     cell: ({ row }) => {
       const color = {
-        paid: 'success' as const,
-        failed: 'error' as const,
-        refunded: 'neutral' as const
+        new: 'info' as const,
+        archived: 'neutral' as const,
+        active: 'success' as const
       }[row.getValue('status') as string]
 
       return h(UBadge, { class: 'capitalize', variant: 'subtle', color }, () =>
         row.getValue('status')
       )
     }
+  },
+
+  {
+    accessorKey: 'buy_sell_both',
+    header: 'Buy, Sell, or Both',
   },
 ]
 
@@ -62,7 +68,7 @@ const columnFilters = ref([
     id: 'email',
     value: ''
   }
-])
+]);
 </script>
 
 <template>
@@ -76,6 +82,15 @@ const columnFilters = ref([
       />
     </div>
 
-    <UTable ref="table" v-model:column-filters="columnFilters" :data="data" :columns="columns"></UTable>
+    <UTable ref="table" v-model:column-filters="columnFilters" :data="data" :columns="columns">
+      <template #email-cell="{ row }">
+      <NuxtLink 
+        :to="`/dashboard/leads/${row.original._id}/details`"
+        class="text-cyan-400 hover:text-primary-700 underline font-medium"
+      >
+      {{ row.original.email }}
+      </NuxtLink>
+    </template>
+    </UTable>
   </div>
 </template>

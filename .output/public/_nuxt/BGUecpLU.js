@@ -1,0 +1,1 @@
+import{e as s,g as n,c as r,C as o,o as l,h as _}from"./C39bdlfh.js";const m=s({__name:"payment",async setup(c){let e,t;return[e,t]=n(()=>_("/api/user",{key:"get_user",lazy:!0},"$JW5AF56jlL")),await e,t(),(a,p)=>(l(),r("main",null,[o(a.$slots,"default")]))}});export{m as default};

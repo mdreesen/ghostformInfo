@@ -2819,7 +2819,7 @@ const _tj2Pf1sdNeJJsGXIEH6jRaarhv8diGGRt3Y_eJMpbmo = defineNitroPlugin((nitroApp
 
 const rootDir = "/Users/mdreesen/Documents/Programming/projects/ghostformInfo";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true},{"src":"https://accounts.google.com/gsi/client","async":true,"defer":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
 
 const appRootTag = "div";
 
@@ -2935,7 +2935,22 @@ _0STYPZPB_EKCYuCa7gME6H3JGch0rQdAgskEZZCuNwA,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"24f89-oSGr4qf4VUZafIpJ6yOz0jjbrbg\"",
+    "mtime": "2026-05-13T18:11:45.385Z",
+    "size": 151433,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"888f2-3wyBZ8R5kdWSaPF93HmM7QWHJwY\"",
+    "mtime": "2026-05-13T18:11:45.386Z",
+    "size": 559346,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3654,11 +3669,12 @@ const _lazy_d_Iy6D = () => Promise.resolve().then(function () { return forgot_po
 const _lazy_v4HfmP = () => Promise.resolve().then(function () { return login_post$1; });
 const _lazy_ifgbvp = () => Promise.resolve().then(function () { return reset$1; });
 const _lazy_4BWVGm = () => Promise.resolve().then(function () { return signup_post$1; });
+const _lazy_XdV4Jf = () => Promise.resolve().then(function () { return index_get$5; });
+const _lazy_6Dx5nE = () => Promise.resolve().then(function () { return index_get$3; });
 const _lazy_7BZp5y = () => Promise.resolve().then(function () { return _id__get$1; });
 const _lazy_HtZTn9 = () => Promise.resolve().then(function () { return subscribe_post$1; });
 const _lazy_G_kmFX = () => Promise.resolve().then(function () { return webhook_post$1; });
-const _lazy_D72cBs = () => Promise.resolve().then(function () { return index_get$3; });
-const _lazy_wvT3iM = () => Promise.resolve().then(function () { return index_get$1; });
+const _lazy_D72cBs = () => Promise.resolve().then(function () { return index_get$1; });
 const _lazy_HlH0u5 = () => Promise.resolve().then(function () { return renderer; });
 
 const handlers = [
@@ -3668,11 +3684,12 @@ const handlers = [
   { route: '/api/authentication/login', handler: _lazy_v4HfmP, lazy: true, middleware: false, method: "post" },
   { route: '/api/authentication/reset', handler: _lazy_ifgbvp, lazy: true, middleware: false, method: undefined },
   { route: '/api/authentication/signup', handler: _lazy_4BWVGm, lazy: true, middleware: false, method: "post" },
+  { route: '/api/leads/:id', handler: _lazy_XdV4Jf, lazy: true, middleware: false, method: "get" },
+  { route: '/api/leads', handler: _lazy_6Dx5nE, lazy: true, middleware: false, method: "get" },
   { route: '/api/qr_code/:id', handler: _lazy_7BZp5y, lazy: true, middleware: false, method: "get" },
   { route: '/api/stripe/subscribe', handler: _lazy_HtZTn9, lazy: true, middleware: false, method: "post" },
   { route: '/api/stripe/webhook', handler: _lazy_G_kmFX, lazy: true, middleware: false, method: "post" },
   { route: '/api/user', handler: _lazy_D72cBs, lazy: true, middleware: false, method: "get" },
-  { route: '/api/user/leads', handler: _lazy_wvT3iM, lazy: true, middleware: false, method: "get" },
   { route: '/__nuxt_error', handler: _lazy_HlH0u5, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: handler$1, lazy: false, middleware: false, method: undefined },
   { route: '/api/_auth/session', handler: _LswYXx, lazy: false, middleware: false, method: "delete" },
@@ -3968,6 +3985,30 @@ const env = EnvSchema.parse(process.env);
 
 mongoose.connect(`${env.MONGO_URI}`);
 mongoose.Promise = global.Promise;
+const lead = new Schema(
+  {
+    name: String || void 0,
+    email: String || void 0,
+    phone: String || void 0,
+    age: Number || void 0,
+    address: String || void 0,
+    ai_analysis: String || void 0,
+    status: String || void 0,
+    date: String || void 0,
+    // Construction Data
+    goal: String || void 0,
+    // Realtor Data
+    want_to_move: String || void 0,
+    buy_sell_both: String || void 0,
+    price: Number || void 0,
+    sqft: Number || void 0,
+    bedrooms: Number || void 0,
+    bathrooms: Number || void 0,
+    budget: Number || void 0,
+    message: String || void 0
+  },
+  { timestamps: false }
+);
 const userSchema = new Schema(
   {
     company: String,
@@ -3992,6 +4033,7 @@ const userSchema = new Schema(
     privacy_policy: Boolean,
     paid: Boolean,
     paid_tier: String,
+    leads: [lead],
     createdAt: String,
     updatedAt: String
   },
@@ -4004,7 +4046,7 @@ const loggedInUser = defineEventHandler(async (event) => {
   try {
     await connectDB();
     const { user } = await requireUserSession(event);
-    const userEmail = user.email;
+    const userEmail = user == null ? void 0 : user.email;
     const findUser = await User$6.find({ email: userEmail });
     if (findUser[0]) {
       return findUser[0];
@@ -4204,6 +4246,39 @@ const signup_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePrope
   default: signup_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
+const index_get$4 = defineEventHandler(async (event) => {
+  var _a;
+  try {
+    const id = getRouterParam(event, "id");
+    const user = await loggedInUser(event);
+    const data = (_a = user == null ? void 0 : user.leads) != null ? _a : [];
+    const dataArr = data.filter((item) => item.id.includes(id));
+    return dataArr[0];
+  } catch (error) {
+    console.log(error);
+    throw createError({
+      statusCode: 500,
+      statusMessage: "Something went wrong."
+    });
+  }
+});
+
+const index_get$5 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: index_get$4
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const index_get$2 = defineEventHandler(async (event) => {
+  var _a;
+  const user = await loggedInUser(event);
+  return (_a = user == null ? void 0 : user.leads) == null ? void 0 : _a.reverse();
+});
+
+const index_get$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: index_get$2
+}, Symbol.toStringTag, { value: 'Module' }));
+
 const _id__get = defineEventHandler(async (event) => {
   const id = getRouterParam(event, "id");
   const scanUrl = `https://ghostform.com/capture?ref=${id}`;
@@ -4294,7 +4369,7 @@ const webhook_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProp
   default: webhook_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const index_get$2 = defineEventHandler(async (event) => {
+const index_get = defineEventHandler(async (event) => {
   try {
     const user = await loggedInUser(event);
     return user;
@@ -4305,17 +4380,6 @@ const index_get$2 = defineEventHandler(async (event) => {
       statusMessage: "Something went wrong."
     });
   }
-});
-
-const index_get$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-  __proto__: null,
-  default: index_get$2
-}, Symbol.toStringTag, { value: 'Module' }));
-
-const index_get = defineEventHandler(async (event) => {
-  var _a;
-  const user = await loggedInUser(event);
-  return (_a = user == null ? void 0 : user.leads) == null ? void 0 : _a.reverse();
 });
 
 const index_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

@@ -1,4 +1,4 @@
-import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { inject, computed, shallowRef, defineComponent, useSlots, ref, mergeProps, unref, withCtx, renderSlot, openBlock, createBlock, createCommentVNode, toDisplayString, createVNode, toValue, resolveDynamicComponent, watch, provide, h, getCurrentInstance, toRef as toRef$1, camelize as camelize$1, Teleport, hasInjectionContext, getCurrentScope, onScopeDispose, nextTick, effectScope, toHandlerKey, toRefs, useModel, createTextVNode, mergeModels, Comment, cloneVNode, onServerPrefetch, reactive, useAttrs, resolveComponent, isRef, Fragment, defineAsyncComponent, createElementBlock, useSSRContext, shallowReactive, Suspense, createApp, toRaw, readonly, customRef, renderList, useId, onErrorCaptured, useTemplateRef, withModifiers, normalizeProps, guardReactiveProps, watchEffect, normalizeStyle, markRaw, shallowReadonly, isReadonly, isShallow, isReactive } from 'vue';
+import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { computed, inject, shallowRef, defineComponent, useSlots, ref, mergeProps, unref, withCtx, renderSlot, openBlock, createBlock, createCommentVNode, toDisplayString, createVNode, toValue, resolveDynamicComponent, watch, provide, h, getCurrentInstance, toRef as toRef$1, camelize as camelize$1, Teleport, hasInjectionContext, getCurrentScope, onScopeDispose, nextTick, effectScope, toHandlerKey, toRefs, useModel, createTextVNode, mergeModels, Comment, cloneVNode, onServerPrefetch, reactive, useAttrs, resolveComponent, isRef, Fragment, defineAsyncComponent, createElementBlock, useSSRContext, shallowReactive, Suspense, createApp, toRaw, readonly, customRef, renderList, useId, onErrorCaptured, useTemplateRef, withModifiers, normalizeProps, guardReactiveProps, watchEffect, normalizeStyle, markRaw, shallowReadonly, isReadonly, isShallow, isReactive } from 'vue';
 import { v as serialize, w as defu, x as hasProtocol, y as isScriptProtocol, q as joinURL, z as klona, A as defuFn, B as withQuery, C as sanitizeStatusCode, D as parseURL, E as encodePath, F as decodePath, G as parseQuery, H as appendResponseHeader, I as isEqual, J as getContext, K as withTrailingSlash, L as withoutTrailingSlash, M as withLeadingSlash, c as createError$1, $ as $fetch$1, N as baseURL, O as hash, P as createHooks, Q as encodeParam, R as executeAsync } from '../nitro/nitro.mjs';
 import { useRoute as useRoute$1, RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import { Icon, getIcon, loadIcon as loadIcon$1, _api, addAPIProvider, setCustomIconsLoader } from '@iconify/vue';
@@ -528,71 +528,71 @@ const _routes = [
   {
     name: "dashboard-leads-id-details",
     path: "/dashboard/leads/:id()/details",
-    component: () => import('./details-CRh0w5qR.mjs')
+    component: () => import('./details-32nTh00C.mjs')
   },
   {
     name: "dashboard-form",
     path: "/dashboard/form",
     meta: __nuxt_page_meta$5 || {},
-    component: () => import('./index-DlvApxpG.mjs')
+    component: () => import('./index-Btdy8ETi.mjs')
   },
   {
     name: "dashboard-leads",
     path: "/dashboard/leads",
     meta: __nuxt_page_meta$4 || {},
-    component: () => import('./index-CqG6qZoL.mjs')
+    component: () => import('./index-BLoCacbO.mjs')
   },
   {
     name: "dashboard-profile",
     path: "/dashboard/profile",
     meta: __nuxt_page_meta$3 || {},
-    component: () => import('./index-RNOdXDjJ.mjs')
+    component: () => import('./index-BIj9JQUZ.mjs')
   },
   {
     name: "dashboard",
     path: "/dashboard",
     meta: __nuxt_page_meta$2 || {},
-    component: () => import('./index-Ce_8vQjR.mjs')
+    component: () => import('./index-DsCvdecn.mjs')
   },
   {
     name: "demo",
     path: "/demo",
-    component: () => import('./demo-CwVj0q1Y.mjs')
+    component: () => import('./demo-CVLQVCK3.mjs')
   },
   {
     name: "forgotpassword",
     path: "/forgotpassword",
     meta: { "groups": ["authentication"] },
-    component: () => import('./forgotpassword-D1oxi4JJ.mjs')
+    component: () => import('./forgotpassword-BDl9nb5p.mjs')
   },
   {
     name: "login",
     path: "/login",
     meta: { "groups": ["authentication"] },
-    component: () => import('./login-DH3nwAE5.mjs')
+    component: () => import('./login-BiAXzvYJ.mjs')
   },
   {
     name: "signup",
     path: "/signup",
     meta: { "groups": ["authentication"] },
-    component: () => import('./signup-yLMVMCo0.mjs')
+    component: () => import('./signup-ClUrZliB.mjs')
   },
   {
     name: "subscribe",
     path: "/subscribe",
     meta: { ...__nuxt_page_meta$1 || {}, ...{ "groups": ["payment"] } },
-    component: () => import('./subscribe-D1fpUV_D.mjs')
+    component: () => import('./subscribe-D0r6Hjnj.mjs')
   },
   {
     name: "id-resetpassword",
     path: "/:id()/resetpassword",
     meta: { "groups": ["authentication"] },
-    component: () => import('./resetpassword-CiCYoydw.mjs')
+    component: () => import('./resetpassword-Cz4C3J-M.mjs')
   },
   {
     name: __nuxt_page_meta?.name,
     path: "/",
-    component: () => import('./index-BjG069-j.mjs'),
+    component: () => import('./index-Cz5uaVt1.mjs'),
     children: [
       {
         name: "index",
@@ -746,7 +746,7 @@ const globalMiddleware = [
   manifest_45route_45rule
 ];
 const namedMiddleware = {
-  auth: () => import('./auth-62YuwKNi.mjs')
+  auth: () => import('./auth-DQIdTDMz.mjs')
 };
 const plugin = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:router",
@@ -1439,13 +1439,13 @@ const plugin_MeUvTuoKUi51yb_kBguab6hdcExVXeTtZtTg9TZZBB8 = /* @__PURE__ */ defin
   // For type portability
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 });
-const LazyToastContainer = defineAsyncComponent(() => import('./ToastContainer-CBPQs00o.mjs').then((r) => r["default"] || r.default || r));
+const LazyToastContainer = defineAsyncComponent(() => import('./ToastContainer-uX_kiTLN.mjs').then((r) => r["default"] || r.default || r));
 const LazyIcon = defineAsyncComponent(() => Promise.resolve().then(() => index).then((r) => r["default"] || r.default || r));
 const lazyGlobalComponents = [
   ["ToastContainer", LazyToastContainer],
   ["Icon", LazyIcon]
 ];
-const components_plugin_4kY4pyzJIYX99vmMAAIorFf3CnAaptHitJgf7JxiED8 = /* @__PURE__ */ defineNuxtPlugin({
+const components_plugin_z4hgvsiddfKkfXTP6M8M4zG5Cb7sGnDhcryKVM45Di4 = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:global-components",
   setup(nuxtApp) {
     for (const [name, component] of lazyGlobalComponents) {
@@ -4335,7 +4335,7 @@ const plugins = [
   session_server_fi7D7q_WjeXZl2Hh05GOWPuIxZQWSnpY3ifY_sSGHJo,
   revive_payload_server_MVtmlZaQpj6ApFmshWfUWl5PehCebzaBf2NuRMiIbms,
   plugin_MeUvTuoKUi51yb_kBguab6hdcExVXeTtZtTg9TZZBB8,
-  components_plugin_4kY4pyzJIYX99vmMAAIorFf3CnAaptHitJgf7JxiED8,
+  components_plugin_z4hgvsiddfKkfXTP6M8M4zG5Cb7sGnDhcryKVM45Di4,
   plugin_PkzIodqHrECZiqJYWG6YoAUH8WdazzfetYETfN19XBg,
   colors_E7kSti5pGZ28QhUUurq6gGRU3l65WuXO_KJC3GQgzFo,
   plugin_server_9Ca9_HhnjAGwBWpwAydRauMHxWoxTDY60BrArRnXN_A,
@@ -10134,10 +10134,10 @@ _sfc_main$3.setup = (props, ctx) => {
 };
 const __nuxt_component_0 = Object.assign(_sfc_main$3, { __name: "UApp" });
 const layouts = {
-  authenticated: defineAsyncComponent(() => import('./authenticated-DfPAx8PG.mjs').then((m) => m.default || m)),
-  default: defineAsyncComponent(() => import('./default-AxcThe4x.mjs').then((m) => m.default || m)),
-  form: defineAsyncComponent(() => import('./form-DOpP26Gw.mjs').then((m) => m.default || m)),
-  payment: defineAsyncComponent(() => import('./payment-Cn2QfIEb.mjs').then((m) => m.default || m))
+  authenticated: defineAsyncComponent(() => import('./authenticated-BgReAVMF.mjs').then((m) => m.default || m)),
+  default: defineAsyncComponent(() => import('./default-CeE6KiBd.mjs').then((m) => m.default || m)),
+  form: defineAsyncComponent(() => import('./form-BapTXkE1.mjs').then((m) => m.default || m)),
+  payment: defineAsyncComponent(() => import('./payment-DGwgHlrv.mjs').then((m) => m.default || m))
 };
 const routeRulesMatcher = _routeRulesMatcher;
 const LayoutLoader = defineComponent({
@@ -10530,5 +10530,5 @@ let entry;
 }
 const entry_default = ((ssrContext) => entry(ssrContext));
 
-export { AUTOFOCUS_ON_MOUNT as A, reactivePick as B, usePortal as C, createReusableTemplate as D, EVENT_OPTIONS as E, tv as F, _sfc_main$8 as G, useRuntimeConfig as H, useFieldGroup as I, useComponentIcons as J, _sfc_main$e as K, _sfc_main$b as L, useFormField as M, looseToNumber as N, createRef as O, Primitive as P, useForwardProps as Q, __nuxt_component_0$1 as R, useMotion as S, Teleport_default as T, __nuxt_component_1$1 as U, VisuallyHidden_default as V, defineNuxtRouteMiddleware as W, navigateTo as X, useFetch as Y, __nuxt_component_0$2 as _, useRoute as a, useNuxtData as b, useUserSession as c, createSharedComposable as d, entry_default as default, unrefElement as e, useVModel as f, createContext as g, useForwardExpose as h, injectConfigProviderContext as i, isNullish as j, createGlobalState as k, getActiveElement as l, focusFirst as m, getTabbableCandidates as n, onKeyStroke as o, focus as p, AUTOFOCUS_ON_UNMOUNT as q, getTabbableEdges as r, useEmitAsProps as s, tryOnBeforeUnmount as t, useHead as u, Presence_default as v, useLocale as w, useAppConfig as x, useComponentUI as y, useForwardPropsEmits as z };
+export { AUTOFOCUS_ON_MOUNT as A, useForwardPropsEmits as B, reactivePick as C, usePortal as D, EVENT_OPTIONS as E, createReusableTemplate as F, tv as G, _sfc_main$8 as H, useRuntimeConfig as I, useFieldGroup as J, useComponentIcons as K, _sfc_main$e as L, _sfc_main$b as M, useFormField as N, looseToNumber as O, Primitive as P, createRef as Q, useForwardProps as R, __nuxt_component_0$1 as S, Teleport_default as T, useMotion as U, VisuallyHidden_default as V, __nuxt_component_1$1 as W, defineNuxtRouteMiddleware as X, navigateTo as Y, __nuxt_component_0$2 as _, useRoute as a, useFetch as b, useNuxtData as c, useUserSession as d, entry_default as default, createSharedComposable as e, unrefElement as f, useVModel as g, createContext as h, injectConfigProviderContext as i, useForwardExpose as j, isNullish as k, createGlobalState as l, getActiveElement as m, focusFirst as n, onKeyStroke as o, getTabbableCandidates as p, focus as q, AUTOFOCUS_ON_UNMOUNT as r, getTabbableEdges as s, tryOnBeforeUnmount as t, useHead as u, useEmitAsProps as v, Presence_default as w, useLocale as x, useAppConfig as y, useComponentUI as z };
 //# sourceMappingURL=server.mjs.map

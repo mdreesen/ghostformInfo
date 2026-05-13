@@ -10,7 +10,7 @@ useHead({
   ],
 });
 
-const { data: user } = useNuxtData('get_user');
+const { data: user } = useNuxtData('user');
 </script>
 
 <template>

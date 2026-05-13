@@ -4,9 +4,7 @@ definePageMeta({
   layout: 'authenticated',
 });
 
-const { data: user } = useNuxtData('get_user');
-
-const leads = ref(user.value.leads ?? []);
+const { data: leads } = useNuxtData('leads');
 
 </script>
 
@@ -23,10 +21,10 @@ const leads = ref(user.value.leads ?? []);
         </div>
         
         <div class="flex gap-4">
-          <div class="px-6 py-3 backdrop-blur-xl bg-white/3 border border-white/8 rounded-2xl">
+          <!-- <div class="px-6 py-3 backdrop-blur-xl bg-white/3 border border-white/8 rounded-2xl">
             <span class="text-[8px] font-bold text-zinc-500 uppercase block mb-1">High Velocity (Tier 1)</span>
             <span class="text-2xl font-black text-[#30cf43]">14</span>
-          </div>
+          </div> -->
 
           <baseButton @click="exportLeadsCSV(leads)" text="EXPORT CSV" />
         </div>
