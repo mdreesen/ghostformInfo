@@ -1,6 +1,8 @@
 <script setup lang="ts">
 await useFetch('/api/user', { key: 'user', lazy: true });
 await useFetch('/api/leads', { key: 'leads', lazy: true });
+await useFetch('/api/leads/status', { key: 'status', lazy: true });
+
 const { data: user } = useNuxtData('user');
 
 const authenticated = computed(() => {

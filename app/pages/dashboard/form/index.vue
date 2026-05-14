@@ -15,8 +15,8 @@ const { data: user } = useNuxtData('get_user');
             <div class="relative">
                 <baseGhostForm
                     :category="user.category"
-                    :company="user.company"
-                    :email="user.email"
+                    :company="user.company_hashed"
+                    :email="user.email_hashed"
                 />
             </div>
         </main>

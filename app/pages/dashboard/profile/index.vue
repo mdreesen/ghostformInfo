@@ -30,6 +30,11 @@ async function logout() {
                 <baseHeaderAuth text="Settings" subText="Manage your profile" />
             </header>
 
+            <div>
+                CONSTRUCTION ZONE<br>
+                WORK IN PROGRESS
+            </div>
+
             <!-- Action Button Example -->
             <div class="flex flex-col mt-4 pt-8 border-t border-gray-700 text-gray-400">
                 <span>Date: {{ formatDate() }}</span>

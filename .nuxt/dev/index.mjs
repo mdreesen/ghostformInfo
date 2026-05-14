@@ -2819,7 +2819,7 @@ const _tj2Pf1sdNeJJsGXIEH6jRaarhv8diGGRt3Y_eJMpbmo = defineNitroPlugin((nitroApp
 
 const rootDir = "/Users/mdreesen/Documents/Programming/projects/ghostformInfo";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true},{"src":"https://accounts.google.com/gsi/client","async":true,"defer":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
 
 const appRootTag = "div";
 
@@ -2935,7 +2935,22 @@ _0STYPZPB_EKCYuCa7gME6H3JGch0rQdAgskEZZCuNwA,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"2562d-Qr4sYITuUoptUZFJnAqR95ctl4k\"",
+    "mtime": "2026-05-14T03:10:40.849Z",
+    "size": 153133,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"897ad-RH6K43aKS9BkDUPuYqMUl8WXrQw\"",
+    "mtime": "2026-05-14T03:10:40.851Z",
+    "size": 563117,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3656,6 +3671,8 @@ const _lazy_ifgbvp = () => Promise.resolve().then(function () { return reset$1; 
 const _lazy_4BWVGm = () => Promise.resolve().then(function () { return signup_post$1; });
 const _lazy_XdV4Jf = () => Promise.resolve().then(function () { return index_get$5; });
 const _lazy_6Dx5nE = () => Promise.resolve().then(function () { return index_get$3; });
+const _lazy_CdlDL3 = () => Promise.resolve().then(function () { return status_get$1; });
+const _lazy_kDL_PH = () => Promise.resolve().then(function () { return tiers_get$1; });
 const _lazy_7BZp5y = () => Promise.resolve().then(function () { return _id__get$1; });
 const _lazy_HtZTn9 = () => Promise.resolve().then(function () { return subscribe_post$1; });
 const _lazy_G_kmFX = () => Promise.resolve().then(function () { return webhook_post$1; });
@@ -3671,6 +3688,8 @@ const handlers = [
   { route: '/api/authentication/signup', handler: _lazy_4BWVGm, lazy: true, middleware: false, method: "post" },
   { route: '/api/leads/:id', handler: _lazy_XdV4Jf, lazy: true, middleware: false, method: "get" },
   { route: '/api/leads', handler: _lazy_6Dx5nE, lazy: true, middleware: false, method: "get" },
+  { route: '/api/leads/status', handler: _lazy_CdlDL3, lazy: true, middleware: false, method: "get" },
+  { route: '/api/leads/tiers', handler: _lazy_kDL_PH, lazy: true, middleware: false, method: "get" },
   { route: '/api/qr_code/:id', handler: _lazy_7BZp5y, lazy: true, middleware: false, method: "get" },
   { route: '/api/stripe/subscribe', handler: _lazy_HtZTn9, lazy: true, middleware: false, method: "post" },
   { route: '/api/stripe/webhook', handler: _lazy_G_kmFX, lazy: true, middleware: false, method: "post" },
@@ -4262,6 +4281,46 @@ const index_get$2 = defineEventHandler(async (event) => {
 const index_get$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: index_get$2
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const status_get = defineEventHandler(async (event) => {
+  const user = await loggedInUser(event);
+  const findNew = user == null ? void 0 : user.leads.filter((item) => item.status.includes("new"));
+  const findActive = user == null ? void 0 : user.leads.filter((item) => item.status.includes("active"));
+  return {
+    allStatus: {
+      new: findNew,
+      active: findActive
+    }
+  };
+});
+
+const status_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: status_get
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const tiers_get = defineEventHandler(async (event) => {
+  const user = await loggedInUser(event);
+  const findTiers = user == null ? void 0 : user.leads.map((item) => {
+    const tierOne = item.ai_analysis.includes("Tier 1") || item.ai_analysis.includes("Tier one");
+    const tierTwo = item.ai_analysis.includes("Tier 2") || item.ai_analysis.includes("Tier two");
+    const tierThree = item.ai_analysis.includes("Tier 3") || item.ai_analysis.includes("Tier three");
+    return {
+      tierOne,
+      tierTwo,
+      tierThree
+    };
+  });
+  console.log(findTiers);
+  return {
+    totalTiers: findTiers
+  };
+});
+
+const tiers_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: tiers_get
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const _id__get = defineEventHandler(async (event) => {
