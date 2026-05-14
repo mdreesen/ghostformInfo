@@ -19,7 +19,9 @@ declare module "nitropack/types" {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/authentication/signup.post').default>>>>
     }
     '/api/leads/:id': {
+      'delete': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/leads/[id]/index.delete').default>>>>
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/leads/[id]/index.get').default>>>>
+      'put': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/leads/[id]/index.put').default>>>>
     }
     '/api/leads': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/leads/index.get').default>>>>
