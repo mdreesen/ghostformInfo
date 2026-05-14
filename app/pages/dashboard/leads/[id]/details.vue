@@ -7,9 +7,38 @@ definePageMeta({
 const route = useRoute();
 
 const { data: data, pending: pending_data } = await useFetch<Lead>(`/api/leads/${route.params.id}`);
+  const toast = useToast();
 
-// Simulated lead data fetch based on our previous logic
 const lead = ref(data.value);
+const isLoading = ref(false);
+let errorMessage = ref('');
+
+const toggle = (item: any) => {
+    // This below line must be there to ensure inital changes
+    item.value = !item.value;
+
+    isLoading.value = true
+
+    $fetch(`/api/lead/status`, {
+        method: 'PUT',
+        body: {
+            title: item?.title,
+            setting: item?.setting,
+            value: item.value,
+            _id: item?._id,
+        }
+    })
+        .then(async () => {
+            await refreshNuxtData('status');
+            isLoading.value = false;
+        })
+        .catch(async (error) => {
+            toast.error("Update failed", 'Try again');
+            console.log(error);
+            errorMessage.value = error.statusMessage;
+            isLoading.value = false;
+        });
+};
 </script>
 
 <template>
@@ -32,6 +61,15 @@ const lead = ref(data.value);
             </div>
             <div class="flex flex-col">
               <baseHeaderSection text="Status" :subText="lead.status" />
+
+                <!-- <USwitch 
+                label="Active lead" 
+                description="Make this lead active"
+                checked-icon="i-lucide-check" color="primary"
+                @click="toggle"
+                :loading="isLoading"
+                /> -->
+
             </div>
           </div>
         </div>
@@ -44,9 +82,9 @@ const lead = ref(data.value);
             <baseHeaderSection text="Lead Submission" />
             <div class="space-y-6">
               <div v-for="(val, label) in { 
-                'Est. Value': `$${lead.price.toLocaleString()}`, 
-                'Budget': `$${lead.budget.toLocaleString()}`,
-                'Sq Footage': `${lead.sqft} ft²`,
+                'Est. Value':lead?.price ? `$${lead?.price?.toLocaleString()}` : '', 
+                'Budget': `$${lead?.budget?.toLocaleString() ?? ''}`,
+                'Sq Footage': lead.sqft ? `${lead.sqft} ft²` : '',
                 // 'Timeline': lead.timeline,
                 'Intent (Buy, Sell, or Both)': lead.buy_sell_both 
               }" :key="label" class="flex justify-between items-end border-b border-white/5 pb-2">
