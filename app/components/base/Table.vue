@@ -102,9 +102,6 @@ const columnFilters = ref([
   }
 ]);
 
-const globalFilter = ref('')
-
-
 const pagination = ref({
   pageIndex: 0,
   pageSize: 5
@@ -135,10 +132,10 @@ const pagination = ref({
     >
     <template #email-cell="{ row }">
       <NuxtLink 
-        :to="`/dashboard/leads/${row.original._id}/details`"
+        :to="`/dashboard/leads/${row.original?._id}/details`"
         class="text-cyan-400 hover:text-cyan-700 underline font-medium"
       >
-      {{ row.original.email }}
+      {{ row.original?.email }}
       </NuxtLink>
     </template>
   </UTable>

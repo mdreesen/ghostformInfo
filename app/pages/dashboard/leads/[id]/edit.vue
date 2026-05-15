@@ -13,8 +13,6 @@ const toast = useToast();
 const lead = ref(data.value);
 const isLoading = ref(false);
 let errorMessage = ref('');
-console.log(lead.value);
-
 
 const input = reactive({
     address: '',
@@ -54,10 +52,9 @@ if (data.value) {
 
 async function log() {
     isLoading.value = true;
-    console.log('input', input)
     $fetch(`/api/leads/${route.params.id}`, {
         method: 'PUT',
-        body: { ...input, ai_analysis: lead.value.ai_analysis }
+        body: { _id: lead.value._id, ...input, ai_analysis: lead.value.ai_analysis }
     })
         .then(async () => {
             await refreshNuxtData(['leads', 'status']);
@@ -79,7 +76,7 @@ async function delete_log() {
     })
         .then(async () => {
             await refreshNuxtData(['leads', 'status']);
-            await navigateTo(`/dashboard/leads/${route.params.id}/details`);
+            await navigateTo(`/dashboard/leads`);
         })
         .catch(async (error) => {
             toast.error("Failed to delete", 'Try again');
@@ -179,21 +176,9 @@ async function delete_log() {
                     class="w-full rounded-xl border border-gray-600 bg-gray-700/50 py-3 px-4 text-lg text-white shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
 
-            <!-- <div v-motion="{ ...inputVarient() }">
-                <baseLabel text="Status" />
-                <select id="status-select" v-model="input.status" required
-                    class="w-full rounded-xl border border-gray-600 bg-gray-700/50 py-3 px-4 text-lg text-white shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option :value="data.status" disabled hidden>{{ data.status ? "Completed" : "Currently reading" }}
-                    </option>
-                    <option v-for="status in selection_status_book" :value="status.value" :key="status.label">
-                        {{ status.label }}
-                    </option>
-                </select>
-            </div> -->
-
             <div class="flex flex-col gap-8 pb-4">
                 <baseButtonSubmit text="Save" :isLoading="isLoading" />
-                <baseButtonNavigate text="Cancel" path="/dashboard/mind" :isLoading="isLoading" />
+                <baseButtonNavigate text="Cancel" :path="`/dashboard/leads/${route.params.id}/details`" :isLoading="isLoading" />
                 <baseButtonSubmit @click="delete_log" text="Delete" :isLoading="isLoading" />
             </div>
         </form>

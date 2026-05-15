@@ -1,5 +1,5 @@
-import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { computed, inject, shallowRef, defineComponent, useSlots, ref, mergeProps, unref, withCtx, renderSlot, openBlock, createBlock, createCommentVNode, toDisplayString, createVNode, toValue, resolveDynamicComponent, watch, provide, h, getCurrentInstance, toRef as toRef$1, camelize as camelize$1, Teleport, hasInjectionContext, getCurrentScope, onScopeDispose, nextTick, effectScope, toHandlerKey, toRefs, useModel, createTextVNode, mergeModels, Comment, cloneVNode, onServerPrefetch, reactive, useAttrs, resolveComponent, isRef, Fragment, defineAsyncComponent, createElementBlock, useSSRContext, shallowReactive, Suspense, createApp, toRaw, readonly, customRef, renderList, useId, onErrorCaptured, useTemplateRef, withModifiers, normalizeProps, guardReactiveProps, watchEffect, normalizeStyle, markRaw, shallowReadonly, isReadonly, isShallow, isReactive } from 'vue';
-import { v as serialize, w as defu, x as hasProtocol, y as isScriptProtocol, q as joinURL, z as klona, A as defuFn, B as withQuery, C as sanitizeStatusCode, D as parseURL, E as encodePath, F as decodePath, G as parseQuery, H as appendResponseHeader, I as isEqual, J as getContext, K as withTrailingSlash, L as withoutTrailingSlash, M as withLeadingSlash, c as createError$1, $ as $fetch$1, N as baseURL, O as hash, P as createHooks, Q as encodeParam, R as executeAsync } from '../nitro/nitro.mjs';
+import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { toRef as toRef$1, inject, computed, shallowRef, defineComponent, useSlots, ref, mergeProps, unref, withCtx, renderSlot, openBlock, createBlock, createCommentVNode, toDisplayString, createVNode, toValue, resolveDynamicComponent, h, watch, provide, Teleport, getCurrentInstance, camelize as camelize$1, hasInjectionContext, cloneVNode, createElementBlock, getCurrentScope, onScopeDispose, nextTick, effectScope, toHandlerKey, toRefs, isRef, Comment, useModel, createTextVNode, mergeModels, onServerPrefetch, reactive, useAttrs, resolveComponent, Fragment, defineAsyncComponent, useSSRContext, shallowReactive, Suspense, createApp, toRaw, readonly, customRef, renderList, useId, onErrorCaptured, useTemplateRef, withModifiers, normalizeProps, guardReactiveProps, watchEffect, normalizeStyle, markRaw, shallowReadonly, isReadonly, isShallow, isReactive } from 'vue';
+import { v as serialize, w as klona, x as defu, y as hasProtocol, z as isScriptProtocol, q as joinURL, A as defuFn, B as parseQuery, C as appendResponseHeader, D as withQuery, E as sanitizeStatusCode, F as parseURL, G as encodePath, H as decodePath, I as isEqual, J as getContext, K as withTrailingSlash, L as withoutTrailingSlash, M as withLeadingSlash, c as createError$1, $ as $fetch$1, N as baseURL, O as hash, P as createHooks, Q as encodeParam, R as executeAsync } from '../nitro/nitro.mjs';
 import { useRoute as useRoute$1, RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import { Icon, getIcon, loadIcon as loadIcon$1, _api, addAPIProvider, setCustomIconsLoader } from '@iconify/vue';
 import { debounce } from 'perfect-debounce';
@@ -508,6 +508,9 @@ function getRouteRules(arg) {
     return {};
   }
 }
+const __nuxt_page_meta$7 = {
+  layout: "authenticated"
+};
 const __nuxt_page_meta$6 = {
   layout: "authenticated"
 };
@@ -531,72 +534,78 @@ const _routes = [
   {
     name: "dashboard-leads-id-details",
     path: "/dashboard/leads/:id()/details",
+    meta: __nuxt_page_meta$7 || {},
+    component: () => import('./details-fXdSI5Tl.mjs')
+  },
+  {
+    name: "dashboard-leads-id-edit",
+    path: "/dashboard/leads/:id()/edit",
     meta: __nuxt_page_meta$6 || {},
-    component: () => import('./details-CFwdjm8j.mjs')
+    component: () => import('./edit-_rX9oDOW.mjs')
   },
   {
     name: "dashboard-form",
     path: "/dashboard/form",
     meta: __nuxt_page_meta$5 || {},
-    component: () => import('./index-Dgz9qRpB.mjs')
+    component: () => import('./index-wI3lkDK0.mjs')
   },
   {
     name: "dashboard-leads",
     path: "/dashboard/leads",
     meta: __nuxt_page_meta$4 || {},
-    component: () => import('./index-fajiWMd8.mjs')
+    component: () => import('./index-CtTVa1Pz.mjs')
   },
   {
     name: "dashboard-profile",
     path: "/dashboard/profile",
     meta: __nuxt_page_meta$3 || {},
-    component: () => import('./index-Ceo0Xt2w.mjs')
+    component: () => import('./index-DWLO5e-p.mjs')
   },
   {
     name: "dashboard",
     path: "/dashboard",
     meta: __nuxt_page_meta$2 || {},
-    component: () => import('./index-Q1GbmSKY.mjs')
+    component: () => import('./index-CRdIYZKG.mjs')
   },
   {
     name: "demo",
     path: "/demo",
-    component: () => import('./demo-CVLQVCK3.mjs')
+    component: () => import('./demo-D4R7tdKL.mjs')
   },
   {
     name: "forgotpassword",
     path: "/forgotpassword",
     meta: { "groups": ["authentication"] },
-    component: () => import('./forgotpassword-BDl9nb5p.mjs')
+    component: () => import('./forgotpassword-DWT6w90p.mjs')
   },
   {
     name: "login",
     path: "/login",
     meta: { "groups": ["authentication"] },
-    component: () => import('./login-BiAXzvYJ.mjs')
+    component: () => import('./login-csGbUbLo.mjs')
   },
   {
     name: "signup",
     path: "/signup",
     meta: { "groups": ["authentication"] },
-    component: () => import('./signup-ClUrZliB.mjs')
+    component: () => import('./signup-m2-_xGAt.mjs')
   },
   {
     name: "subscribe",
     path: "/subscribe",
     meta: { ...__nuxt_page_meta$1 || {}, ...{ "groups": ["payment"] } },
-    component: () => import('./subscribe-D0r6Hjnj.mjs')
+    component: () => import('./subscribe-CoaKV86y.mjs')
   },
   {
     name: "id-resetpassword",
     path: "/:id()/resetpassword",
     meta: { "groups": ["authentication"] },
-    component: () => import('./resetpassword-Cz4C3J-M.mjs')
+    component: () => import('./resetpassword-Io6SQ0tF.mjs')
   },
   {
     name: __nuxt_page_meta?.name,
     path: "/",
-    component: () => import('./index-Cz5uaVt1.mjs'),
+    component: () => import('./index-DDnyhps-.mjs'),
     children: [
       {
         name: "index",
@@ -750,7 +759,7 @@ const globalMiddleware = [
   manifest_45route_45rule
 ];
 const namedMiddleware = {
-  auth: () => import('./auth-DQIdTDMz.mjs')
+  auth: () => import('./auth-Cbl7XMoJ.mjs')
 };
 const plugin = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:router",
@@ -1443,7 +1452,7 @@ const plugin_MeUvTuoKUi51yb_kBguab6hdcExVXeTtZtTg9TZZBB8 = /* @__PURE__ */ defin
   // For type portability
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 });
-const LazyToastContainer = defineAsyncComponent(() => import('./ToastContainer-uX_kiTLN.mjs').then((r) => r["default"] || r.default || r));
+const LazyToastContainer = defineAsyncComponent(() => import('./ToastContainer-TP3YAX7F.mjs').then((r) => r["default"] || r.default || r));
 const LazyIcon = defineAsyncComponent(() => Promise.resolve().then(() => index).then((r) => r["default"] || r.default || r));
 const lazyGlobalComponents = [
   ["ToastContainer", LazyToastContainer],
@@ -1465,7 +1474,7 @@ defineComponent({
   }
 });
 const clientOnlySymbol = /* @__PURE__ */ Symbol.for("nuxt:client-only");
-defineComponent({
+const __nuxt_component_3 = defineComponent({
   name: "ClientOnly",
   inheritAttrs: false,
   props: ["fallback", "placeholder", "placeholderTag", "fallbackTag"],
@@ -1671,6 +1680,11 @@ function useNuxtData(key) {
       }
     })
   };
+}
+async function refreshNuxtData(keys) {
+  {
+    return Promise.resolve();
+  }
 }
 function clearNuxtDataByKey(nuxtApp, key) {
   if (key in nuxtApp.payload.data) {
@@ -10138,8 +10152,8 @@ _sfc_main$3.setup = (props, ctx) => {
 };
 const __nuxt_component_0 = Object.assign(_sfc_main$3, { __name: "UApp" });
 const layouts = {
-  authenticated: defineAsyncComponent(() => import('./authenticated-CDMdqDq8.mjs').then((m) => m.default || m)),
-  default: defineAsyncComponent(() => import('./default-CeE6KiBd.mjs').then((m) => m.default || m)),
+  authenticated: defineAsyncComponent(() => import('./authenticated-D7P3jDC5.mjs').then((m) => m.default || m)),
+  default: defineAsyncComponent(() => import('./default-C0gfkJ7X.mjs').then((m) => m.default || m)),
   form: defineAsyncComponent(() => import('./form-BapTXkE1.mjs').then((m) => m.default || m)),
   payment: defineAsyncComponent(() => import('./payment-BRRUJSNt.mjs').then((m) => m.default || m))
 };
@@ -10534,5 +10548,5 @@ let entry;
 }
 const entry_default = ((ssrContext) => entry(ssrContext));
 
-export { AUTOFOCUS_ON_MOUNT as A, useForwardPropsEmits as B, reactivePick as C, usePortal as D, EVENT_OPTIONS as E, createReusableTemplate as F, tv as G, _sfc_main$8 as H, useRuntimeConfig as I, useFieldGroup as J, useComponentIcons as K, _sfc_main$e as L, _sfc_main$b as M, useFormField as N, looseToNumber as O, Primitive as P, createRef as Q, useForwardProps as R, __nuxt_component_0$1 as S, Teleport_default as T, useMotion as U, VisuallyHidden_default as V, __nuxt_component_1$1 as W, defineNuxtRouteMiddleware as X, navigateTo as Y, __nuxt_component_0$2 as _, useRoute as a, useFetch as b, useNuxtData as c, useUserSession as d, entry_default as default, createSharedComposable as e, unrefElement as f, useVModel as g, createContext as h, injectConfigProviderContext as i, useForwardExpose as j, isNullish as k, createGlobalState as l, getActiveElement as m, focusFirst as n, onKeyStroke as o, getTabbableCandidates as p, focus as q, AUTOFOCUS_ON_UNMOUNT as r, getTabbableEdges as s, tryOnBeforeUnmount as t, useHead as u, useEmitAsProps as v, Presence_default as w, useLocale as x, useAppConfig as y, useComponentUI as z };
+export { defineNuxtRouteMiddleware as $, AUTOFOCUS_ON_MOUNT as A, useLocale as B, useAppConfig as C, useComponentUI as D, EVENT_OPTIONS as E, useForwardPropsEmits as F, reactivePick as G, usePortal as H, createReusableTemplate as I, tv as J, _sfc_main$8 as K, useRuntimeConfig as L, useFieldGroup as M, useComponentIcons as N, _sfc_main$e as O, Primitive as P, _sfc_main$b as Q, useFormField as R, looseToNumber as S, Teleport_default as T, createRef as U, VisuallyHidden_default as V, useForwardProps as W, __nuxt_component_0$1 as X, useMotion as Y, __nuxt_component_1$1 as Z, __nuxt_component_0$2 as _, useRoute as a, useFetch as b, __nuxt_component_3 as c, useNuxtData as d, entry_default as default, useUserSession as e, createSharedComposable as f, unrefElement as g, useVModel as h, injectConfigProviderContext as i, createContext as j, useForwardExpose as k, isNullish as l, createGlobalState as m, navigateTo as n, onKeyStroke as o, getActiveElement as p, focusFirst as q, refreshNuxtData as r, getTabbableCandidates as s, tryOnBeforeUnmount as t, useHead as u, focus as v, AUTOFOCUS_ON_UNMOUNT as w, getTabbableEdges as x, useEmitAsProps as y, Presence_default as z };
 //# sourceMappingURL=server.mjs.map

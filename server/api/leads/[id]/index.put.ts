@@ -6,6 +6,7 @@ import { User } from '~/types/user';
 const User = UserModel as Model<User>;
 
 const bodySchema = z.object({
+    _id: z.string(),
     address: z.string().nullable(),
     age: z.number().nullable(),
     bathrooms: z.number().nullable(),
@@ -21,12 +22,14 @@ const bodySchema = z.object({
     sqft: z.number().nullable(),
     status: z.string().nullable(),
     want_to_move: z.string().nullable(),
+    ai_analysis: z.string().nullable(),
 })
 
 export default defineEventHandler(async (event) => {
-  const { address, age, bathrooms, bedrooms, budget, buy_sell_both, date, email, message, name, phone, sqft, status, want_to_move } = await readValidatedBody(event, bodySchema.parse);
+  const { _id, address, age, bathrooms, bedrooms, budget, buy_sell_both, date, email, message, name, phone, price, sqft, status, want_to_move, ai_analysis } = await readValidatedBody(event, bodySchema.parse);
 
   const obj = {
+    _id: _id,
     address: address,
     age: age,
     bathrooms: bathrooms,
@@ -38,25 +41,23 @@ export default defineEventHandler(async (event) => {
     message: message,
     name: name,
     phone: phone,
+    price: price,
     sqft: sqft,
     status: status,
-    want_to_move: want_to_move
+    want_to_move: want_to_move,
+    ai_analysis: ai_analysis
   };
 
-console.log(obj)
-//   try {
-//     const id = getRouterParam(event, 'id');
+  try {
+    await User.findOneAndUpdate(
+      { 'leads._id': _id },
+      { $set: { 'leads.$': { ...obj } } });
 
-//     await User.findOneAndUpdate(
-//       { 'leads._id': id },
-//       { $set: { 'leads.$': { ...obj } } },
-//       { new: true });
-
-//   } catch (error) {
-//     console.log(error);
-//     throw createError({
-//       statusCode: 401,
-//       message: 'Please try again'
-//     });
-//   };
+  } catch (error) {
+    console.log(error);
+    throw createError({
+      statusCode: 401,
+      message: 'Please try again'
+    });
+  };
 });

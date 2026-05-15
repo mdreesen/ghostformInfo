@@ -65,6 +65,7 @@ const lead = ref(data.value);
           </div>
         </div>
 
+        <ClientOnly>
         <div class="lg:col-span-8 space-y-8">
           <div class="backdrop-blur-xl bg-white/4 border border-cyan-400/20 rounded-3xl p-10 relative overflow-hidden">
             <div class="absolute top-0 right-0 p-4">
@@ -74,6 +75,7 @@ const lead = ref(data.value);
             <p class="text-sm leading-relaxed" v-html="lead?.ai_analysis" />
           </div>
         </div>
+      </ClientOnly>
 
       </div>
     </main>

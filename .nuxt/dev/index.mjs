@@ -2819,7 +2819,7 @@ const _tj2Pf1sdNeJJsGXIEH6jRaarhv8diGGRt3Y_eJMpbmo = defineNitroPlugin((nitroApp
 
 const rootDir = "/Users/mdreesen/Documents/Programming/projects/ghostformInfo";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true},{"src":"https://accounts.google.com/gsi/client","async":true,"defer":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
 
 const appRootTag = "div";
 
@@ -2935,22 +2935,7 @@ _0STYPZPB_EKCYuCa7gME6H3JGch0rQdAgskEZZCuNwA,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {
-  "/index.mjs": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"262b0-1UFq2mxlSbVI4er9lDAZEm4AN0E\"",
-    "mtime": "2026-05-14T19:45:10.267Z",
-    "size": 156336,
-    "path": "index.mjs"
-  },
-  "/index.mjs.map": {
-    "type": "application/json",
-    "etag": "\"8b781-jAeSKG89iUX68OXToMtCp4TI78E\"",
-    "mtime": "2026-05-14T19:45:10.270Z",
-    "size": 571265,
-    "path": "index.mjs.map"
-  }
-};
+const assets = {};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -4301,7 +4286,9 @@ const index_get$7 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePropert
   default: index_get$6
 }, Symbol.toStringTag, { value: 'Module' }));
 
+const User$2 = User$a;
 const bodySchema$1 = z.object({
+  _id: z.string(),
   address: z.string().nullable(),
   age: z.number().nullable(),
   bathrooms: z.number().nullable(),
@@ -4316,11 +4303,13 @@ const bodySchema$1 = z.object({
   price: z.number().nullable(),
   sqft: z.number().nullable(),
   status: z.string().nullable(),
-  want_to_move: z.string().nullable()
+  want_to_move: z.string().nullable(),
+  ai_analysis: z.string().nullable()
 });
 const index_put$2 = defineEventHandler(async (event) => {
-  const { address, age, bathrooms, bedrooms, budget, buy_sell_both, date, email, message, name, phone, sqft, status, want_to_move } = await readValidatedBody(event, bodySchema$1.parse);
+  const { _id, address, age, bathrooms, bedrooms, budget, buy_sell_both, date, email, message, name, phone, price, sqft, status, want_to_move, ai_analysis } = await readValidatedBody(event, bodySchema$1.parse);
   const obj = {
+    _id,
     address,
     age,
     bathrooms,
@@ -4332,11 +4321,24 @@ const index_put$2 = defineEventHandler(async (event) => {
     message,
     name,
     phone,
+    price,
     sqft,
     status,
-    want_to_move
+    want_to_move,
+    ai_analysis
   };
-  console.log(obj);
+  try {
+    await User$2.findOneAndUpdate(
+      { "leads._id": _id },
+      { $set: { "leads.$": { ...obj } } }
+    );
+  } catch (error) {
+    console.log(error);
+    throw createError({
+      statusCode: 401,
+      message: "Please try again"
+    });
+  }
 });
 
 const index_put$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
