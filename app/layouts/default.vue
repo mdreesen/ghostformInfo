@@ -2,7 +2,7 @@
 const route = useRoute();
 
 useHead({
-  meta: [{ property: 'og:title', content: `Ascend - ${route.meta.title}` }],
+  meta: [{ property: 'og:title', content: `GhostForm - ${route.meta.title}` }],
 });
 </script>
 

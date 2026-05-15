@@ -1,12 +1,5 @@
 <script setup lang="ts">
 
-const props = defineProps({
-    stripe: {
-        type: Boolean,
-        default: false
-    }
-});
-
 const tiers = [
   {
     name: 'Shadow',
@@ -31,19 +24,6 @@ const tiers = [
   },
 ];
 
-const { data: user } = useNuxtData('get_user');
-
-const startSubscription = async (priceId: string) => {
-  const { url } = await $fetch('/api/stripe/subscribe', {
-    method: 'POST',
-    body: { 
-      priceId: priceId,
-      id: user.value._id,
-      email: user.value.email
-     }
-  })
-  window.location.href = url // Redirect to Stripe
-};
 </script>
 
 <template>
@@ -85,19 +65,7 @@ const startSubscription = async (priceId: string) => {
           </li>
         </ul>
 
-        <button 
-        v-if="stripe"
-        @click="startSubscription(tier.stripe)"
-        :class="[
-            'w-full py-4 rounded-2xl font-black transition-all transform active:scale-95',
-            tier.highlighted
-              ? 'bg-cyan-500 text-black hover:bg-cyan-400 shadow-lg shadow-cyan-500/20'
-              : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
-          ]">
-            {{ tier.cta }}
-          </button>
-
-        <nuxt-link v-else to="/signup">
+        <a href="https://ghostform-dashboard.vercel.app/signup">
           <button :class="[
             'w-full py-4 rounded-2xl font-black transition-all transform active:scale-95',
             tier.highlighted
@@ -106,7 +74,7 @@ const startSubscription = async (priceId: string) => {
           ]">
             {{ tier.cta }}
           </button>
-        </nuxt-link>
+        </a>
       </div>
     </div>
   </section>

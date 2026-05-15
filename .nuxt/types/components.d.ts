@@ -14,28 +14,22 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 interface _GlobalComponents {
-  AppAccess: typeof import("../../app/components/app/Access.vue")['default']
   AppComparison: typeof import("../../app/components/app/comparison.vue")['default']
   AppFeatures: typeof import("../../app/components/app/features.vue")['default']
   AppHero: typeof import("../../app/components/app/hero.vue")['default']
   AppPricing: typeof import("../../app/components/app/pricing.vue")['default']
   AppStats: typeof import("../../app/components/app/stats.vue")['default']
   BaseButtonNavigate: typeof import("../../app/components/base/ButtonNavigate.vue")['default']
-  BaseButtonSubmit: typeof import("../../app/components/base/ButtonSubmit.vue")['default']
-  BaseDeleteProfile: typeof import("../../app/components/base/DeleteProfile.vue")['default']
-  BaseEngineActive: typeof import("../../app/components/base/EngineActive.vue")['default']
   BaseGhostForm: typeof import("../../app/components/base/GhostForm.vue")['default']
   BaseHeaderAuth: typeof import("../../app/components/base/Header/Auth.vue")['default']
   BaseHeaderBase: typeof import("../../app/components/base/Header/Base.vue")['default']
   BaseHeaderSection: typeof import("../../app/components/base/Header/Section.vue")['default']
-  BaseLabel: typeof import("../../app/components/base/Label.vue")['default']
+  BaseIcon: typeof import("../../app/components/base/Icon.vue")['default']
   BaseNavigationAuth: typeof import("../../app/components/base/Navigation/Auth.vue")['default']
   BaseNavigationBase: typeof import("../../app/components/base/Navigation/Base.vue")['default']
-  BaseQrCode: typeof import("../../app/components/base/QrCode.vue")['default']
   BaseTable: typeof import("../../app/components/base/Table.vue")['default']
   BaseButton: typeof import("../../app/components/base/button.vue")['default']
   BaseFooter: typeof import("../../app/components/base/footer.vue")['default']
-  BaseIcon: typeof import("../../app/components/base/icon.vue")['default']
   AuthState: typeof import("../../node_modules/nuxt-auth-utils/dist/runtime/app/components/AuthState.vue")['default']
   UColorModeAvatar: typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeAvatar.vue")['default']
   UColorModeButton: typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeButton.vue")['default']
@@ -198,28 +192,22 @@ interface _GlobalComponents {
   Body: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Body']
   Icon: typeof import("../../node_modules/@nuxt/icon/dist/runtime/components/index")['default']
   NuxtIsland: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']
-  LazyAppAccess: LazyComponent<typeof import("../../app/components/app/Access.vue")['default']>
   LazyAppComparison: LazyComponent<typeof import("../../app/components/app/comparison.vue")['default']>
   LazyAppFeatures: LazyComponent<typeof import("../../app/components/app/features.vue")['default']>
   LazyAppHero: LazyComponent<typeof import("../../app/components/app/hero.vue")['default']>
   LazyAppPricing: LazyComponent<typeof import("../../app/components/app/pricing.vue")['default']>
   LazyAppStats: LazyComponent<typeof import("../../app/components/app/stats.vue")['default']>
   LazyBaseButtonNavigate: LazyComponent<typeof import("../../app/components/base/ButtonNavigate.vue")['default']>
-  LazyBaseButtonSubmit: LazyComponent<typeof import("../../app/components/base/ButtonSubmit.vue")['default']>
-  LazyBaseDeleteProfile: LazyComponent<typeof import("../../app/components/base/DeleteProfile.vue")['default']>
-  LazyBaseEngineActive: LazyComponent<typeof import("../../app/components/base/EngineActive.vue")['default']>
   LazyBaseGhostForm: LazyComponent<typeof import("../../app/components/base/GhostForm.vue")['default']>
   LazyBaseHeaderAuth: LazyComponent<typeof import("../../app/components/base/Header/Auth.vue")['default']>
   LazyBaseHeaderBase: LazyComponent<typeof import("../../app/components/base/Header/Base.vue")['default']>
   LazyBaseHeaderSection: LazyComponent<typeof import("../../app/components/base/Header/Section.vue")['default']>
-  LazyBaseLabel: LazyComponent<typeof import("../../app/components/base/Label.vue")['default']>
+  LazyBaseIcon: LazyComponent<typeof import("../../app/components/base/Icon.vue")['default']>
   LazyBaseNavigationAuth: LazyComponent<typeof import("../../app/components/base/Navigation/Auth.vue")['default']>
   LazyBaseNavigationBase: LazyComponent<typeof import("../../app/components/base/Navigation/Base.vue")['default']>
-  LazyBaseQrCode: LazyComponent<typeof import("../../app/components/base/QrCode.vue")['default']>
   LazyBaseTable: LazyComponent<typeof import("../../app/components/base/Table.vue")['default']>
   LazyBaseButton: LazyComponent<typeof import("../../app/components/base/button.vue")['default']>
   LazyBaseFooter: LazyComponent<typeof import("../../app/components/base/footer.vue")['default']>
-  LazyBaseIcon: LazyComponent<typeof import("../../app/components/base/icon.vue")['default']>
   LazyAuthState: LazyComponent<typeof import("../../node_modules/nuxt-auth-utils/dist/runtime/app/components/AuthState.vue")['default']>
   LazyUColorModeAvatar: LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeAvatar.vue")['default']>
   LazyUColorModeButton: LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeButton.vue")['default']>

@@ -3,46 +3,6 @@ import type { Serialize, Simplify } from "nitropack/types";
 declare module "nitropack/types" {
   type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
   interface InternalApi {
-    '/api/authentication/delete': {
-      'delete': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/authentication/delete.delete').default>>>>
-    }
-    '/api/authentication/forgot': {
-      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/authentication/forgot.post').default>>>>
-    }
-    '/api/authentication/login': {
-      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/authentication/login.post').default>>>>
-    }
-    '/api/authentication/reset': {
-      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/authentication/reset').default>>>>
-    }
-    '/api/authentication/signup': {
-      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/authentication/signup.post').default>>>>
-    }
-    '/api/leads/:id': {
-      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/leads/[id]/index.get').default>>>>
-    }
-    '/api/leads': {
-      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/leads/index.get').default>>>>
-    }
-    '/api/leads/status': {
-      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/leads/status/index.get').default>>>>
-      'put': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/leads/status/index.put').default>>>>
-    }
-    '/api/leads/tiers': {
-      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/leads/tiers.get').default>>>>
-    }
-    '/api/qr_code/:id': {
-      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/qr_code/[id].get').default>>>>
-    }
-    '/api/stripe/subscribe': {
-      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/stripe/subscribe.post').default>>>>
-    }
-    '/api/stripe/webhook': {
-      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/stripe/webhook.post').default>>>>
-    }
-    '/api/user': {
-      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/user/index.get').default>>>>
-    }
     '/__nuxt_error': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxt/nitro-server/dist/runtime/handlers/renderer').default>>>>
     }

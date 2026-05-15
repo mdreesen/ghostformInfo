@@ -19,7 +19,7 @@ onUnmounted(() => {
 const navLinks = [
   { name: 'Main', href: '/' },
   { name: 'Demo', href: '/demo' },
-  { name: 'login', href: '/login' },
+  // { name: 'login', href: '/login' },
   // { name: 'How it Works', href: '#how' },
   // { name: 'Pricing', href: '#pricing' },
   // { name: 'Docs', href: 'https://github.com/your-repo' },
