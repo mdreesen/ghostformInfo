@@ -10,7 +10,6 @@ const navLinks = [
   { name: 'How it works', href: '/#how-it-works' },
   { name: 'Features', href: '/#features' },
   { name: 'Pricing', href: '/#pricing' },
-  { name: 'Live demo', href: '/demo' },
 ];
 
 // The real product lives on a separate domain — the marketing site links

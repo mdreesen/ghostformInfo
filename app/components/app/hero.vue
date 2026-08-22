@@ -19,7 +19,7 @@
     />
 
     <div class="max-w-6xl mx-auto relative z-10 w-full">
-      <p class="gf-eyebrow mb-6 gf-rise" style="--d:.05s">For Flathead Valley agents</p>
+      <p class="gf-eyebrow mb-6 gf-rise" style="--d:.05s">Keep your presence</p>
 
       <h1 class="gf-display text-[clamp(44px,7vw,84px)] leading-[1.02] tracking-tight max-w-[13ch] mb-7 gf-rise" style="--d:.14s">
         Never lose another lead to silence.

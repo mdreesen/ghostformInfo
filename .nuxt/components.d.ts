@@ -14,9 +14,11 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 
+export const AppHeroCards: typeof import("../app/components/app/HeroCards.vue")['default']
 export const AppComparison: typeof import("../app/components/app/comparison.vue")['default']
 export const AppFeatures: typeof import("../app/components/app/features.vue")['default']
 export const AppHero: typeof import("../app/components/app/hero.vue")['default']
+export const AppOffline: typeof import("../app/components/app/offline.vue")['default']
 export const AppPricing: typeof import("../app/components/app/pricing.vue")['default']
 export const AppStats: typeof import("../app/components/app/stats.vue")['default']
 export const BaseButtonNavigate: typeof import("../app/components/base/ButtonNavigate.vue")['default']
@@ -190,9 +192,11 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const Icon: typeof import("../node_modules/@nuxt/icon/dist/runtime/components/index")['default']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+export const LazyAppHeroCards: LazyComponent<typeof import("../app/components/app/HeroCards.vue")['default']>
 export const LazyAppComparison: LazyComponent<typeof import("../app/components/app/comparison.vue")['default']>
 export const LazyAppFeatures: LazyComponent<typeof import("../app/components/app/features.vue")['default']>
 export const LazyAppHero: LazyComponent<typeof import("../app/components/app/hero.vue")['default']>
+export const LazyAppOffline: LazyComponent<typeof import("../app/components/app/offline.vue")['default']>
 export const LazyAppPricing: LazyComponent<typeof import("../app/components/app/pricing.vue")['default']>
 export const LazyAppStats: LazyComponent<typeof import("../app/components/app/stats.vue")['default']>
 export const LazyBaseButtonNavigate: LazyComponent<typeof import("../app/components/base/ButtonNavigate.vue")['default']>

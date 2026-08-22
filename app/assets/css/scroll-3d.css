@@ -1,0 +1,180 @@
+/* ============================================================================
+   GHOSTFORM — 3D SCROLL ANIMATION LIBRARY
+   ============================================================================
+   Drop-in. Add a class to any element and it animates in as you scroll.
+
+   Deliberately built with ZERO Vue directives. The previous version used a
+   `v-tilt` directive, which crashed SSR ("Cannot read properties of undefined
+   (reading 'getSSRProps')") because Vue's server renderer resolves every
+   directive in a template. Plain classes can't cause that — the server just
+   renders a class attribute and moves on.
+
+   HOW TO USE
+     1. Put .gf-scene on a wrapping element (once per page/section) to
+        establish the 3D perspective.
+     2. Add any .gf-* animation class below to the things you want animated.
+     3. Optionally add style="--d:.1s" to stagger, or .gf-stagger on a parent
+        to auto-stagger its direct children.
+
+   The plugin (plugins/gf-scroll.client.ts) adds .is-in when the element
+   scrolls into view. That's the entire mechanism.
+   ========================================================================= */
+
+/* --- Perspective container. Everything below needs one of these above it. -- */
+.gf-scene {
+  perspective: 1200px;
+  perspective-origin: 50% 45%;
+}
+.gf-scene-deep { perspective: 2000px; perspective-origin: 50% 50%; }
+.gf-scene-near { perspective: 700px;  perspective-origin: 50% 40%; }
+
+/* --- Shared base -------------------------------------------------------- */
+[class*="gf-anim"] {
+  opacity: 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition:
+    opacity   .9s cubic-bezier(.16, 1, .3, 1),
+    transform 1.1s cubic-bezier(.16, 1, .3, 1);
+  transition-delay: var(--d, 0s);
+  will-change: transform, opacity;
+}
+[class*="gf-anim"].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===========================================================================
+   THE ANIMATIONS
+   Each is a genuinely different movement through 3D space, not a re-timed
+   version of the same one.
+   ======================================================================== */
+
+/* 1. UNFOLD — hinges up from its bottom edge, like a panel being raised.
+      The transform-origin is what makes this read as a hinge rather than
+      a tilt. Good for section headers and wide blocks. */
+.gf-anim-unfold {
+  transform: rotateX(-72deg) translateY(30px);
+  transform-origin: 50% 100%;
+}
+
+/* 2. FOLD-DOWN — the mirror: hinges down from its top edge.
+      Alternate with unfold down a page for a concertina rhythm. */
+.gf-anim-fold {
+  transform: rotateX(64deg) translateY(-24px);
+  transform-origin: 50% 0%;
+}
+
+/* 3. SWING-LEFT / 4. SWING-RIGHT — pivots in like a door on its edge.
+      Alternate across grid items so cards arrive from opposite sides. */
+.gf-anim-swing-l {
+  transform: rotateY(-58deg) translateX(-70px) translateZ(-90px);
+  transform-origin: 0% 50%;
+}
+.gf-anim-swing-r {
+  transform: rotateY(58deg) translateX(70px) translateZ(-90px);
+  transform-origin: 100% 50%;
+}
+
+/* 5. APPROACH — comes at you from far away. Pure Z travel, no rotation,
+      so it feels like the page moving toward the reader. Big statements. */
+.gf-anim-approach {
+  transform: translateZ(-700px) scale(.94);
+}
+
+/* 6. RECEDE — the opposite: starts oversized and settles back into place.
+      Use sparingly; it's assertive. */
+.gf-anim-recede {
+  transform: translateZ(340px) scale(1.06);
+}
+
+/* 7. TUMBLE — rotates on two axes at once. The most kinetic of the set —
+      best on small items (icons, badges, stat blocks), not paragraphs. */
+.gf-anim-tumble {
+  transform: rotateX(38deg) rotateY(-28deg) translateZ(-160px) translateY(40px);
+}
+
+/* 8. PIVOT — a subtle corner lift. Reads as depth without drama, which
+      makes it the safe default for body content and long text. */
+.gf-anim-pivot {
+  transform: rotateX(14deg) rotateY(9deg) translateZ(-90px) translateY(28px);
+  transform-origin: 0% 100%;
+}
+
+/* 9. RISE — flat, no rotation. Included on purpose: after several 3D
+      moves, something plain is a relief and stops the page feeling busy. */
+.gf-anim-rise {
+  transform: translateY(46px);
+}
+
+/* 10. SPLIT-IN — arrives rotated around the vertical axis from behind,
+       like a card being turned face-up toward you. */
+.gf-anim-flip {
+  transform: rotateY(-88deg) translateZ(-60px);
+  transform-origin: 50% 50%;
+}
+
+/* ===========================================================================
+   STAGGER
+   Put .gf-stagger on a parent and its direct children animate in sequence.
+   Saves hand-writing --d on every child.
+   ======================================================================== */
+.gf-stagger > *:nth-child(1) { --d: 0s; }
+.gf-stagger > *:nth-child(2) { --d: .08s; }
+.gf-stagger > *:nth-child(3) { --d: .16s; }
+.gf-stagger > *:nth-child(4) { --d: .24s; }
+.gf-stagger > *:nth-child(5) { --d: .32s; }
+.gf-stagger > *:nth-child(6) { --d: .40s; }
+.gf-stagger > *:nth-child(7) { --d: .48s; }
+.gf-stagger > *:nth-child(8) { --d: .56s; }
+
+/* Slower, more deliberate variant for hero-level content */
+.gf-stagger-slow > *:nth-child(1) { --d: 0s; }
+.gf-stagger-slow > *:nth-child(2) { --d: .16s; }
+.gf-stagger-slow > *:nth-child(3) { --d: .32s; }
+.gf-stagger-slow > *:nth-child(4) { --d: .48s; }
+.gf-stagger-slow > *:nth-child(5) { --d: .64s; }
+
+/* ===========================================================================
+   CONTINUOUS SCROLL MOTION
+   The classes above are one-shot. These keep moving the whole time the
+   element is on screen, driven by --p (-1..1) written by the plugin.
+   ======================================================================== */
+
+/* Parallax drift — layers separate in depth as you scroll past. */
+.gf-drift {
+  transform: translateY(calc(var(--p, 0) * var(--drift, 40px)));
+  will-change: transform;
+}
+
+/* Continuous swivel — panel rotates through as it crosses the viewport. */
+.gf-swivel {
+  transform: rotateY(calc(var(--p, 0) * var(--swivel, 8deg)));
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Depth push — element sits further back at the edges of the viewport
+   and comes forward as it reaches centre. */
+.gf-push {
+  transform: translateZ(calc((1 - abs(var(--p, 0))) * var(--push, 60px)));
+  will-change: transform;
+}
+
+/* ===========================================================================
+   ACCESSIBILITY
+   Every effect off. Non-negotiable — vestibular disorders are real and a
+   page that moves this much can genuinely make someone unwell.
+   ======================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  [class*="gf-anim"] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .gf-drift,
+  .gf-swivel,
+  .gf-push {
+    transform: none !important;
+  }
+}
