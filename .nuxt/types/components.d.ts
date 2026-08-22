@@ -21,13 +21,11 @@ interface _GlobalComponents {
   AppStats: typeof import("../../app/components/app/stats.vue")['default']
   BaseButtonNavigate: typeof import("../../app/components/base/ButtonNavigate.vue")['default']
   BaseGhostForm: typeof import("../../app/components/base/GhostForm.vue")['default']
-  BaseHeaderAuth: typeof import("../../app/components/base/Header/Auth.vue")['default']
   BaseHeaderBase: typeof import("../../app/components/base/Header/Base.vue")['default']
   BaseHeaderSection: typeof import("../../app/components/base/Header/Section.vue")['default']
   BaseIcon: typeof import("../../app/components/base/Icon.vue")['default']
-  BaseNavigationAuth: typeof import("../../app/components/base/Navigation/Auth.vue")['default']
   BaseNavigationBase: typeof import("../../app/components/base/Navigation/Base.vue")['default']
-  BaseTable: typeof import("../../app/components/base/Table.vue")['default']
+  BaseTerrain: typeof import("../../app/components/base/Terrain.vue")['default']
   BaseButton: typeof import("../../app/components/base/button.vue")['default']
   BaseFooter: typeof import("../../app/components/base/footer.vue")['default']
   AuthState: typeof import("../../node_modules/nuxt-auth-utils/dist/runtime/app/components/AuthState.vue")['default']
@@ -199,13 +197,11 @@ interface _GlobalComponents {
   LazyAppStats: LazyComponent<typeof import("../../app/components/app/stats.vue")['default']>
   LazyBaseButtonNavigate: LazyComponent<typeof import("../../app/components/base/ButtonNavigate.vue")['default']>
   LazyBaseGhostForm: LazyComponent<typeof import("../../app/components/base/GhostForm.vue")['default']>
-  LazyBaseHeaderAuth: LazyComponent<typeof import("../../app/components/base/Header/Auth.vue")['default']>
   LazyBaseHeaderBase: LazyComponent<typeof import("../../app/components/base/Header/Base.vue")['default']>
   LazyBaseHeaderSection: LazyComponent<typeof import("../../app/components/base/Header/Section.vue")['default']>
   LazyBaseIcon: LazyComponent<typeof import("../../app/components/base/Icon.vue")['default']>
-  LazyBaseNavigationAuth: LazyComponent<typeof import("../../app/components/base/Navigation/Auth.vue")['default']>
   LazyBaseNavigationBase: LazyComponent<typeof import("../../app/components/base/Navigation/Base.vue")['default']>
-  LazyBaseTable: LazyComponent<typeof import("../../app/components/base/Table.vue")['default']>
+  LazyBaseTerrain: LazyComponent<typeof import("../../app/components/base/Terrain.vue")['default']>
   LazyBaseButton: LazyComponent<typeof import("../../app/components/base/button.vue")['default']>
   LazyBaseFooter: LazyComponent<typeof import("../../app/components/base/footer.vue")['default']>
   LazyAuthState: LazyComponent<typeof import("../../node_modules/nuxt-auth-utils/dist/runtime/app/components/AuthState.vue")['default']>

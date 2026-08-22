@@ -1,57 +1,18 @@
 <script setup lang="ts">
-
-// Scroll Reveal Logic
-onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('reveal-active');
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-});
+/**
+ * Section reveal is now handled globally by plugins/scroll-reveal.client.ts
+ * (the same system the dashboard app uses) via the .gf-depth class applied
+ * inside each section component — no local IntersectionObserver needed here.
+ */
+useHead({ title: 'GhostForm — Never lose another lead to silence' });
 </script>
 
 <template>
   <div>
-
-    <section class="reveal">
-      <appHero />
-    </section>
-
-    <section class="reveal">
-      <appStats />
-    </section>
-
-    <section class="reveal">
-      <appFeatures />
-    </section>
-
-    <section class="reveal">
-      <appComparison />
-    </section>
-
-    <section class="reveal">
-      <appPricing />
-    </section>
+    <appHero />
+    <appStats />
+    <appFeatures />
+    <appComparison />
+    <appPricing />
   </div>
 </template>
-
-<style scoped>
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-  will-change: transform, opacity;
-}
-
-.reveal.reveal-active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Glassmorphism card effect */
-.bg-zinc-900\/40 {
-  backdrop-filter: blur(10px);
-}
-</style>

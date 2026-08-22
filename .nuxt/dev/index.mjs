@@ -1,46 +1,46 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, getResponseStatus, useSession, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, getResponseStatusText } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, getResponseStatus, useSession, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, getResponseStatusText } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import crypto$1 from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { escapeHtml } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/@vue/shared/dist/shared.cjs.js';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/ufo/dist/index.mjs';
-import destr, { destr as destr$1 } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/destr/dist/index.mjs';
-import { createHooks as createHooks$1 } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/nitropack/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/unstorage/drivers/fs.mjs';
-import { digest, hash as hash$1 } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/ohash/dist/index.mjs';
-import { klona } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/klona/dist/index.mjs';
-import { snakeCase } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/scule/dist/index.mjs';
-import { getContext } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/unctx/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/radix3/dist/index.mjs';
+import { escapeHtml } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/@vue/shared/dist/shared.cjs.js';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/ufo/dist/index.mjs';
+import destr, { destr as destr$1 } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/destr/dist/index.mjs';
+import { createHooks as createHooks$1 } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/nitropack/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/unstorage/drivers/fs.mjs';
+import { digest, hash as hash$1 } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/ohash/dist/index.mjs';
+import { klona } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/klona/dist/index.mjs';
+import { snakeCase } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/scule/dist/index.mjs';
+import { getContext } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/unctx/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/youch-core/build/index.js';
-import { Youch } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/youch-core/build/index.js';
+import { Youch } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { stringify, uneval } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/devalue/index.js';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/errx/dist/index.js';
-import { isVNode, isRef, toValue } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/vue/index.mjs';
-import _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/@nuxt/vite-builder/dist/fix-stacktrace.mjs';
+import { stringify, uneval } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/devalue/index.js';
+import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/errx/dist/index.js';
+import { isVNode, isRef, toValue } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/vue/index.mjs';
+import _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/@nuxt/vite-builder/dist/fix-stacktrace.mjs';
 import { promises } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname as dirname$1, resolve as resolve$1, basename, isAbsolute } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/pathe/dist/index.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/unhead/dist/server.mjs';
-import { renderToString } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/vue/server-renderer/index.mjs';
-import { walkResolver } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/unhead/dist/utils.mjs';
-import { createHooks } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/hookable/dist/index.mjs';
-import * as jose from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/jose/dist/webapi/index.js';
-import { getIcons } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/@iconify/utils/lib/index.js';
-import { collections } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/.nuxt/nuxt-icon-server-bundle.mjs';
-import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/ipx/dist/index.mjs';
+import { dirname as dirname$1, resolve as resolve$1, basename, isAbsolute } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/pathe/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/unhead/dist/server.mjs';
+import { renderToString } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/vue/server-renderer/index.mjs';
+import { walkResolver } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/unhead/dist/utils.mjs';
+import { createHooks } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/hookable/dist/index.mjs';
+import * as jose from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/jose/dist/webapi/index.js';
+import { getIcons } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/@iconify/utils/lib/index.js';
+import { collections } from 'file:///Users/mdreesen/projects/ghostformInfo/.nuxt/nuxt-icon-server-bundle.mjs';
+import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file:///Users/mdreesen/projects/ghostformInfo/node_modules/ipx/dist/index.mjs';
 
-const serverAssets = [{"baseName":"server","dir":"/Users/mdreesen/Documents/Programming/projects/ghostformInfo/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Users/mdreesen/projects/ghostformInfo/server/assets"}];
 
 const assets$1 = createStorage();
 
@@ -52,11 +52,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets$1);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/mdreesen/Documents/Programming/projects/ghostformInfo","watchOptions":{"ignored":[null]}}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/mdreesen/Documents/Programming/projects/ghostformInfo/server","watchOptions":{"ignored":[null]}}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/mdreesen/Documents/Programming/projects/ghostformInfo/.nuxt"}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/mdreesen/Documents/Programming/projects/ghostformInfo/.nuxt/cache"}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/mdreesen/Documents/Programming/projects/ghostformInfo/.data/kv"}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/mdreesen/projects/ghostformInfo","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/mdreesen/projects/ghostformInfo/server","watchOptions":{"ignored":[null]}}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/mdreesen/projects/ghostformInfo/.nuxt"}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/mdreesen/projects/ghostformInfo/.nuxt/cache"}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/mdreesen/projects/ghostformInfo/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -1018,6 +1018,8 @@ const _inlineRuntimeConfig = {
     }
   },
   "public": {
+    "demoCompanyHash": "$2b$15$W0Z4XHFsFAP41TiT39nACeEtnrSO6yoXvDLZWQ.fmIFKNdLa4QMqa",
+    "demoEmailHash": "$2b$15$YFJokoSx/VCflVhQyToimecUYOoDitA0oBVHBqUmFUYq.RW0Kpo/m",
     "motion": {
       "directives": {
         "pop-bottom": {
@@ -1038,7 +1040,7 @@ const _inlineRuntimeConfig = {
       "loadStrategy": "server-first"
     },
     "googleAuth": {
-      "clientId": "253639218199-e98nuetmbvso9nrk14k4n5rm7ivl4s0e.apps.googleusercontent.com",
+      "clientId": "",
       "promptOneTap": true,
       "enableServerVerify": true
     },
@@ -1400,7 +1402,7 @@ const _inlineRuntimeConfig = {
     "alias": {},
     "fs": {
       "dir": [
-        "/Users/mdreesen/Documents/Programming/projects/ghostformInfo/public"
+        "/Users/mdreesen/projects/ghostformInfo/public"
       ]
     },
     "http": {
@@ -2789,13 +2791,13 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _0iBhfsXw6zmvgqqnBGNgfu1HffMYr3sexxFjYm7smP0 = (function(nitro) {
+const _lO4LwPTf0bdpq69N69S9wL5DI4_65Agr1r2x4vZK_qA = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script$1}<\/script>`);
   });
 });
 
-const _tj2Pf1sdNeJJsGXIEH6jRaarhv8diGGRt3Y_eJMpbmo = defineNitroPlugin((nitroApp) => {
+const _L4DmVVCCGR8bgPm8OytZPHPgWdJoe7iDgNeOPvpSxw = defineNitroPlugin((nitroApp) => {
   if (process.env.NUXT_OAUTH_FACEBOOK_CLIENT_ID && process.env.NUXT_OAUTH_FACEBOOK_CLIENT_SECRET || process.env.NUXT_OAUTH_INSTAGRAM_CLIENT_ID && process.env.NUXT_OAUTH_INSTAGRAM_CLIENT_SECRET) {
     nitroApp.hooks.hook("render:html", (html) => {
       html.head.unshift(`
@@ -2811,9 +2813,9 @@ const _tj2Pf1sdNeJJsGXIEH6jRaarhv8diGGRt3Y_eJMpbmo = defineNitroPlugin((nitroApp
   }
 });
 
-const rootDir = "/Users/mdreesen/Documents/Programming/projects/ghostformInfo";
+const rootDir = "/Users/mdreesen/projects/ghostformInfo";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://ghostform-zeta.vercel.app/embed.js","async":true}],"noscript":[],"title":"Ascend","htmlAttrs":{"lang":"en"}};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[],"noscript":[],"title":"GhostForm — Never lose another lead to silence","htmlAttrs":{"lang":"en"}};
 
 const appRootTag = "div";
 
@@ -2840,7 +2842,7 @@ const asyncContext = getContext("nuxt-dev", {
 	asyncContext: true,
 	AsyncLocalStorage
 });
-const _g4o3bdhzx0FmiR5Okcc4hljjW6YThWsvKVPPXyqb3TY = (nitroApp) => {
+const _YXsWYkiFrew2MgLJk0OvEDUcTWQ87uVQkPiEI0Q6fY = (nitroApp) => {
 	const handler = nitroApp.h3App.handler;
 	nitroApp.h3App.handler = (event) => {
 		return asyncContext.callAsync({
@@ -2915,17 +2917,17 @@ function onConsoleLog(callback) {
 
 const script = "\"use strict\";(()=>{const t=window,e=document.documentElement,c=[\"dark\",\"light\"],n=getStorageValue(\"localStorage\",\"nuxt-color-mode\")||\"system\";let i=n===\"system\"?u():n;const r=e.getAttribute(\"data-color-mode-forced\");r&&(i=r),l(i),t[\"__NUXT_COLOR_MODE__\"]={preference:n,value:i,getColorScheme:u,addColorScheme:l,removeColorScheme:d};function l(o){const s=\"\"+o+\"\",a=\"theme\";e.classList?e.classList.add(s):e.className+=\" \"+s,a&&e.setAttribute(\"data-\"+a,o)}function d(o){const s=\"\"+o+\"\",a=\"theme\";e.classList?e.classList.remove(s):e.className=e.className.replace(new RegExp(s,\"g\"),\"\"),a&&e.removeAttribute(\"data-\"+a)}function f(o){return t.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function u(){if(t.matchMedia&&f(\"\").media!==\"not all\"){for(const o of c)if(f(\":\"+o).matches)return o}return\"light\"}})();function getStorageValue(t,e){switch(t){case\"localStorage\":return window.localStorage.getItem(e);case\"sessionStorage\":return window.sessionStorage.getItem(e);case\"cookie\":return getCookie(e);default:return null}}function getCookie(t){const c=(\"; \"+window.document.cookie).split(\"; \"+t+\"=\");if(c.length===2)return c.pop()?.split(\";\").shift()}";
 
-const _0STYPZPB_EKCYuCa7gME6H3JGch0rQdAgskEZZCuNwA = (function(nitro) {
+const _t6aaq17Tf8IzAms0hwNm9NnCy4u2mODIi3tx16Zc = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
 const plugins = [
-  _0iBhfsXw6zmvgqqnBGNgfu1HffMYr3sexxFjYm7smP0,
-_tj2Pf1sdNeJJsGXIEH6jRaarhv8diGGRt3Y_eJMpbmo,
-_g4o3bdhzx0FmiR5Okcc4hljjW6YThWsvKVPPXyqb3TY,
-_0STYPZPB_EKCYuCa7gME6H3JGch0rQdAgskEZZCuNwA,
+  _lO4LwPTf0bdpq69N69S9wL5DI4_65Agr1r2x4vZK_qA,
+_L4DmVVCCGR8bgPm8OytZPHPgWdJoe7iDgNeOPvpSxw,
+_YXsWYkiFrew2MgLJk0OvEDUcTWQ87uVQkPiEI0Q6fY,
+_t6aaq17Tf8IzAms0hwNm9NnCy4u2mODIi3tx16Zc,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
@@ -2954,7 +2956,7 @@ function getAsset (id) {
 
 const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
 const EncodingMap = { gzip: ".gz", br: ".br" };
-const _seHtEB = eventHandler((event) => {
+const _LoLXWc = eventHandler((event) => {
   if (event.method && !METHODS.has(event.method)) {
     return;
   }
@@ -3096,9 +3098,9 @@ function publicAssetsURL(...path) {
 const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
 const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
 // @ts-expect-error file will be produced after app build
-const getServerEntry = () => import('file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
+const getServerEntry = () => import('file:///Users/mdreesen/projects/ghostformInfo/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
 // @ts-expect-error file will be produced after app build
-const getClientManifest = () => import('file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getClientManifest = () => import('file:///Users/mdreesen/projects/ghostformInfo/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
 // -- SSR Renderer --
 const getSSRRenderer = lazyCachedFunction(async () => {
 	// Load server bundle
@@ -3498,12 +3500,12 @@ function _useSession(event, config = {}) {
   return useSession(event, finalConfig);
 }
 
-const _LswYXx = eventHandler(async (event) => {
+const _lGnrUW = eventHandler(async (event) => {
   await clearUserSession(event);
   return { loggedOut: true };
 });
 
-const _w8l85i = eventHandler(async (event) => {
+const _526Wsa = eventHandler(async (event) => {
   const session = await getUserSession(event);
   if (Object.keys(session).length > 0) {
     await sessionHooks.callHookParallel("fetch", session, event);
@@ -3512,7 +3514,7 @@ const _w8l85i = eventHandler(async (event) => {
   return data;
 });
 
-const _kRbYNT = defineEventHandler(async (event) => {
+const _1481cQ = defineEventHandler(async (event) => {
   const { credential } = await readBody(event);
   if (!credential) {
     return { ok: false, reason: "missing_credential" };
@@ -3546,7 +3548,7 @@ const _kRbYNT = defineEventHandler(async (event) => {
 
 const warnOnceSet = /* @__PURE__ */ new Set();
 const DEFAULT_ENDPOINT = "https://api.iconify.design";
-const _lpt8_h = defineCachedEventHandler(async (event) => {
+const _TzCDW_ = defineCachedEventHandler(async (event) => {
   const url = getRequestURL(event);
   if (!url)
     return createError({ status: 400, message: "Invalid icon request" });
@@ -3604,7 +3606,7 @@ const _lpt8_h = defineCachedEventHandler(async (event) => {
   // 1 week
 });
 
-const _Hdhcp2 = lazyEventHandler(() => {
+const _Hh0JqH = lazyEventHandler(() => {
   const opts = useRuntimeConfig().ipx || {};
   const fsDir = opts?.fs?.dir ? (Array.isArray(opts.fs.dir) ? opts.fs.dir : [opts.fs.dir]).map((dir) => isAbsolute(dir) ? dir : fileURLToPath(new URL(dir, globalThis._importMeta_.url))) : void 0;
   const fsStorage = opts.fs?.dir ? ipxFSStorage({ ...opts.fs, dir: fsDir }) : void 0;
@@ -3622,19 +3624,19 @@ const _Hdhcp2 = lazyEventHandler(() => {
   return useBase(opts.baseURL, ipxHandler);
 });
 
-const _lazy_HlH0u5 = () => Promise.resolve().then(function () { return renderer; });
+const _lazy_TM7mkk = () => Promise.resolve().then(function () { return renderer; });
 
 const handlers = [
-  { route: '', handler: _seHtEB, lazy: false, middleware: true, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_HlH0u5, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _LoLXWc, lazy: false, middleware: true, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_TM7mkk, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: handler$1, lazy: false, middleware: false, method: undefined },
-  { route: '/api/_auth/session', handler: _LswYXx, lazy: false, middleware: false, method: "delete" },
-  { route: '/api/_auth/session', handler: _w8l85i, lazy: false, middleware: false, method: "get" },
-  { route: '/api/auth/google/verify', handler: _kRbYNT, lazy: false, middleware: false, method: "post" },
-  { route: '/api/_nuxt_icon/:collection', handler: _lpt8_h, lazy: false, middleware: false, method: undefined },
-  { route: '/_ipx/**', handler: _Hdhcp2, lazy: false, middleware: false, method: undefined },
-  { route: '/_fonts/**', handler: _lazy_HlH0u5, lazy: true, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_HlH0u5, lazy: true, middleware: false, method: undefined }
+  { route: '/api/_auth/session', handler: _lGnrUW, lazy: false, middleware: false, method: "delete" },
+  { route: '/api/_auth/session', handler: _526Wsa, lazy: false, middleware: false, method: "get" },
+  { route: '/api/auth/google/verify', handler: _1481cQ, lazy: false, middleware: false, method: "post" },
+  { route: '/api/_nuxt_icon/:collection', handler: _TzCDW_, lazy: false, middleware: false, method: undefined },
+  { route: '/_ipx/**', handler: _Hh0JqH, lazy: false, middleware: false, method: undefined },
+  { route: '/_fonts/**', handler: _lazy_TM7mkk, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_TM7mkk, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
