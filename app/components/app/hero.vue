@@ -33,7 +33,7 @@
       </p>
 
       <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 gf-rise" style="--d:.3s">
-        <baseButtonNavigate path="/demo" text="See a live demo" />
+        <!-- <baseButtonNavigate path="/demo" text="See a live demo" /> -->
         <a href="https://ghostform-dashboard.vercel.app/signup" class="text-[12px] uppercase tracking-[0.1em] text-[#8A847C] hover:text-[#1F1B16] transition-colors px-2 py-4">
           Start free trial — 30 days →
         </a>
