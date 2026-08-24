@@ -30,7 +30,9 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../node_modules/@vueuse/motion/dist/nuxt/runtime/templates/motion.js")> &
   InjectionType<typeof import("../../node_modules/nuxt-auth-utils/dist/runtime/app/plugins/session.client.js")> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/warn.dev.server.js")> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/check-if-layout-used.js")>
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/check-if-layout-used.js")> &
+  InjectionType<typeof import("../../app/plugins/gf-scroll.client")> &
+  InjectionType<typeof import("../../app/plugins/scroll-reveal.client")>
 
 declare module '#app' {
   interface NuxtApp extends NuxtAppInjections { }

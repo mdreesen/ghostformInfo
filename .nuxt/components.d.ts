@@ -14,20 +14,20 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 
+export const AppHeroCards: typeof import("../app/components/app/HeroCards.vue")['default']
 export const AppComparison: typeof import("../app/components/app/comparison.vue")['default']
 export const AppFeatures: typeof import("../app/components/app/features.vue")['default']
 export const AppHero: typeof import("../app/components/app/hero.vue")['default']
+export const AppOffline: typeof import("../app/components/app/offline.vue")['default']
 export const AppPricing: typeof import("../app/components/app/pricing.vue")['default']
 export const AppStats: typeof import("../app/components/app/stats.vue")['default']
 export const BaseButtonNavigate: typeof import("../app/components/base/ButtonNavigate.vue")['default']
 export const BaseGhostForm: typeof import("../app/components/base/GhostForm.vue")['default']
-export const BaseHeaderAuth: typeof import("../app/components/base/Header/Auth.vue")['default']
 export const BaseHeaderBase: typeof import("../app/components/base/Header/Base.vue")['default']
 export const BaseHeaderSection: typeof import("../app/components/base/Header/Section.vue")['default']
 export const BaseIcon: typeof import("../app/components/base/Icon.vue")['default']
-export const BaseNavigationAuth: typeof import("../app/components/base/Navigation/Auth.vue")['default']
 export const BaseNavigationBase: typeof import("../app/components/base/Navigation/Base.vue")['default']
-export const BaseTable: typeof import("../app/components/base/Table.vue")['default']
+export const BaseTerrain: typeof import("../app/components/base/Terrain.vue")['default']
 export const BaseButton: typeof import("../app/components/base/button.vue")['default']
 export const BaseFooter: typeof import("../app/components/base/footer.vue")['default']
 export const AuthState: typeof import("../node_modules/nuxt-auth-utils/dist/runtime/app/components/AuthState.vue")['default']
@@ -192,20 +192,20 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const Icon: typeof import("../node_modules/@nuxt/icon/dist/runtime/components/index")['default']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+export const LazyAppHeroCards: LazyComponent<typeof import("../app/components/app/HeroCards.vue")['default']>
 export const LazyAppComparison: LazyComponent<typeof import("../app/components/app/comparison.vue")['default']>
 export const LazyAppFeatures: LazyComponent<typeof import("../app/components/app/features.vue")['default']>
 export const LazyAppHero: LazyComponent<typeof import("../app/components/app/hero.vue")['default']>
+export const LazyAppOffline: LazyComponent<typeof import("../app/components/app/offline.vue")['default']>
 export const LazyAppPricing: LazyComponent<typeof import("../app/components/app/pricing.vue")['default']>
 export const LazyAppStats: LazyComponent<typeof import("../app/components/app/stats.vue")['default']>
 export const LazyBaseButtonNavigate: LazyComponent<typeof import("../app/components/base/ButtonNavigate.vue")['default']>
 export const LazyBaseGhostForm: LazyComponent<typeof import("../app/components/base/GhostForm.vue")['default']>
-export const LazyBaseHeaderAuth: LazyComponent<typeof import("../app/components/base/Header/Auth.vue")['default']>
 export const LazyBaseHeaderBase: LazyComponent<typeof import("../app/components/base/Header/Base.vue")['default']>
 export const LazyBaseHeaderSection: LazyComponent<typeof import("../app/components/base/Header/Section.vue")['default']>
 export const LazyBaseIcon: LazyComponent<typeof import("../app/components/base/Icon.vue")['default']>
-export const LazyBaseNavigationAuth: LazyComponent<typeof import("../app/components/base/Navigation/Auth.vue")['default']>
 export const LazyBaseNavigationBase: LazyComponent<typeof import("../app/components/base/Navigation/Base.vue")['default']>
-export const LazyBaseTable: LazyComponent<typeof import("../app/components/base/Table.vue")['default']>
+export const LazyBaseTerrain: LazyComponent<typeof import("../app/components/base/Terrain.vue")['default']>
 export const LazyBaseButton: LazyComponent<typeof import("../app/components/base/button.vue")['default']>
 export const LazyBaseFooter: LazyComponent<typeof import("../app/components/base/footer.vue")['default']>
 export const LazyAuthState: LazyComponent<typeof import("../node_modules/nuxt-auth-utils/dist/runtime/app/components/AuthState.vue")['default']>

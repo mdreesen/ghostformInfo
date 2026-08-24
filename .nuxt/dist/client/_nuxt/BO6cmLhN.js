@@ -1,1 +1,0 @@
-import{e as r,g as s,c as n,C as o,h as _,o as c}from"./C39bdlfh.js";const p=r({__name:"form",async setup(l){let e,t;return[e,t]=s(()=>_("/api/user",{key:"get_user",lazy:!0},"$gauariUr_N")),await e,t(),(a,u)=>(c(),n("main",null,[o(a.$slots,"default")]))}});export{p as default};

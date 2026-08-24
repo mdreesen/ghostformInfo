@@ -1,81 +1,115 @@
 <script setup lang="ts">
+/**
+ * Pricing mirrors the in-app dashboard tiers exactly (Shadow $29 / Phantom
+ * $59) — a mismatch between the marketing site and what checkout actually
+ * charges is the fastest way to lose someone's trust.
+ *
+ * IMPORTANT: buttons link to /signup, NOT directly to a Stripe price. The
+ * real checkout flow needs a Mongo user _id first (Stripe's
+ * client_reference_id, set from inside the dashboard once an account
+ * exists) — a marketing-site visitor has no account yet, so a direct Stripe
+ * link here would create a payment the webhook can't attribute to anyone.
+ */
+const DASHBOARD_URL = 'https://ghostform-dashboard.vercel.app';
 
 const tiers = [
   {
     name: 'Shadow',
-    price: '49',
-    description: 'Light, entry-level, perfect for the solo agent just starting with QR capture.',
-    features: ['Unlimited leads', 'Advanced 90% Compression', 'Custom Branding', 'Conditional Logic', 'Priority Email Support'],
-    cta: 'Get Started',
-    color: "cyan-500",
-    stripe: 'price_1TW2I0Bww0ljz1NXrIJdf4r0',
+    subtitle: 'Solo agent',
+    price: '29',
+    description: 'Everything you need to stop losing leads between the open house and the follow-up.',
+    features: [
+      'Unlimited leads and QR sign-ins',
+      'Captures leads with no cell signal',
+      'Tells you who to call each morning',
+      'Instant alert the moment a lead comes in',
+      'All three forms — open house, listing, quick entry',
+      '1 automated follow-up campaign',
+      '25 AI-written messages a month'
+    ],
     highlighted: true
   },
-
   {
     name: 'Phantom',
-    price: '99',
-    description: 'Powerful, ever-present, the "standard" for high-volume producers.',
-    features: ['Unlimited leads', 'Advanced 90% Compression', 'Custom Branding', 'Conditional Logic', 'Priority Email Support'],
-    cta: 'Get Started',
-    color: "blue-500",
-    stripe: 'price_1TW3reBww0ljz1NXA3mKGjlh',
+    subtitle: 'High volume',
+    price: '59',
+    description: 'For agents running several listings at once who need the follow-up to happen without them.',
+    features: [
+      { text: 'Everything in Shadow' },
+      { text: 'Unlimited follow-up campaigns', upgrade: true },
+      { text: 'Unlimited AI-written messages', upgrade: true },
+      { text: 'A separate QR code for every listing', upgrade: true },
+      { text: 'Export your whole database anytime', upgrade: true },
+      { text: 'Same-day help from the developer', upgrade: true }
+    ],
     highlighted: false
-  },
+  }
 ];
 
+const asFeature = (f: any) => (typeof f === 'string' ? { text: f, upgrade: false } : f);
 </script>
 
 <template>
-  <section id="pricing" class="py-32 px-6 relative overflow-hidden">
-    <div class="max-w-4xl mx-auto text-center mb-20 reveal">
-      <baseHeaderBase text="Choose your level of presence." />
-      <p class="text-zinc-400 text-lg">No hidden fees. Just weightless data and spectral speed.</p>
+  <section id="pricing" class="py-28 px-6 relative">
+    <div class="max-w-3xl mx-auto text-center mb-20 gf-depth">
+      <p class="gf-eyebrow mb-4">Choose your plan</p>
+      <h2 class="gf-display text-[clamp(28px,3.6vw,42px)] leading-[1.15] tracking-tight mb-4">
+        One saved deal pays for the year.
+      </h2>
+      <p class="text-[14px] text-[#8A847C]">
+        Free for 30 days — your card isn't charged until day 31.
+      </p>
     </div>
 
-    <div class="max-w-4xl mx-auto flex flex-wrap gap-8 items-center justify-center">
-      <div v-for="tier in tiers" :key="tier.name" :class="[
-        'relative p-8 rounded-[2.5rem] transition-all duration-500 border reveal max-w-sm',
-        tier.highlighted
-          ? 'bg-zinc-900 border-cyan-500/50 shadow-[0_0_40px_rgba(6,182,212,0.15)] scale-105 z-10'
-          : 'bg-zinc-950/50 border-white hover:border-white/20'
-      ]">
-        <!-- <div v-if="tier.highlighted" class="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan-500 text-black text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full">
+    <div class="max-w-4xl mx-auto flex flex-wrap gap-8 items-stretch justify-center">
+      <div
+        v-for="(tier, i) in tiers" :key="tier.name"
+        class="gf-depth relative p-8 border max-w-sm w-full flex flex-col"
+        :class="tier.highlighted ? 'bg-[#F7F4EF] border-[#B5563A] lg:scale-105 z-10' : 'bg-[#EFEAE0] border-[#DDD6C9]'"
+        :style="`--d:${0.08 * i}s`"
+      >
+        <div v-if="tier.highlighted" class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#B5563A] text-[#F7F4EF] text-[10px] font-semibold uppercase tracking-[0.14em] px-4 py-1 rounded-full">
           Most Popular
-        </div> -->
-
-        <div class="mb-8">
-          <h3 class="text-xl font-bold mb-2">{{ tier.name }}</h3>
-          <div class="flex items-baseline gap-1">
-            <span class="text-4xl font-black tracking-tight">$</span>
-            <span class="text-6xl font-black tracking-tight">{{ tier.price }}</span>
-            <span class="text-zinc-500 text-sm">/mo</span>
-          </div>
-          <p class="mt-4 text-zinc-400 text-sm leading-relaxed">{{ tier.description }}</p>
         </div>
 
-        <ul class="space-y-4 mb-10">
-          <li v-for="feature in tier.features" :key="feature" class="flex items-center gap-3 text-sm text-zinc-300">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-              :stroke="tier.highlighted ? '#22d3ee' : '#52525b'" stroke-width="3" stroke-linecap="round"
-              stroke-linejoin="round">
+        <div class="mb-8">
+          <h3 class="gf-display text-xl font-bold mb-1">{{ tier.name }}</h3>
+          <span class="block text-[10.5px] uppercase tracking-[0.14em] text-[#A9A39A] mb-3">{{ tier.subtitle }}</span>
+          <div class="flex items-baseline gap-1">
+            <span class="gf-display text-4xl tracking-tight">$</span>
+            <span class="gf-display text-6xl tracking-tight leading-none tabular-nums">{{ tier.price }}</span>
+            <span class="text-[#8A847C] text-sm">/mo</span>
+          </div>
+          <p class="mt-4 text-[#8A847C] text-sm leading-relaxed">{{ tier.description }}</p>
+        </div>
+
+        <ul class="space-y-4 mb-10 flex-1">
+          <li
+            v-for="feature in tier.features" :key="asFeature(feature).text"
+            class="flex items-start gap-3 text-[14px]"
+            :class="asFeature(feature).upgrade ? 'text-[#1F1B16] font-medium' : 'text-[#1F1B16]'"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 shrink-0"
+              :stroke="asFeature(feature).upgrade ? '#B5563A' : '#A9A39A'">
               <path d="M20 6 9 17l-5-5" />
             </svg>
-            {{ feature }}
+            {{ asFeature(feature).text }}
           </li>
         </ul>
 
-        <a href="https://ghostform-dashboard.vercel.app/signup">
-          <button :class="[
-            'w-full py-4 rounded-2xl font-black transition-all transform active:scale-95',
-            tier.highlighted
-              ? 'bg-cyan-500 text-black hover:bg-cyan-400 shadow-lg shadow-cyan-500/20'
-              : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
-          ]">
-            {{ tier.cta }}
+        <a :href="`${DASHBOARD_URL}/signup`" class="mt-auto">
+          <button
+            class="w-full py-4 text-[11px] uppercase tracking-[0.12em] font-semibold transition-colors active:scale-[0.98]"
+            :class="tier.highlighted ? 'bg-[#B5563A] text-[#F7F4EF] hover:bg-[#9d4830]' : 'bg-transparent text-[#1F1B16] hover:bg-[#DDD6C9] border border-[#A9A39A]'"
+          >
+            Start free trial
           </button>
         </a>
       </div>
     </div>
+
+    <p class="text-center text-[12.5px] text-[#A9A39A] mt-10">
+      Cancel anytime. Built and supported in Kalispell, Montana.
+    </p>
   </section>
 </template>

@@ -1,4 +1,4 @@
 
-import { viteNodeFetch } from "file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/@nuxt/vite-builder/dist/vite-node.mjs"
+import { viteNodeFetch } from "file:///Users/mdreesen/projects/ghostformInfo/node_modules/@nuxt/vite-builder/dist/vite-node.mjs"
 export default () => viteNodeFetch.getManifest()
     

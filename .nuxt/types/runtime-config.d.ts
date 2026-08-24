@@ -539,6 +539,10 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
    },
   }
   interface SharedPublicRuntimeConfig {
+   demoCompanyHash: string,
+
+   demoEmailHash: string,
+
    motion: {
       directives: {
          "pop-bottom": {

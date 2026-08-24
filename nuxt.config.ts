@@ -26,16 +26,20 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Ascend', // default fallback title
+      // Was 'Ascend' - a leftover fallback from an earlier, different
+      // project. Individual pages set their own <title> via useHead().
+      title: 'GhostForm — Never lose another lead to silence',
       htmlAttrs: {
         lang: 'en',
       },
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
-      script: [
-        { src: 'https://ghostform-zeta.vercel.app/embed.js', async: true }
-      ]
+      // The 'embed.js' script tag that was here loaded on every page but
+      // nothing in this codebase references anything it provides - the
+      // actual embed (baseGhostForm) is a plain iframe, a different
+      // approach entirely. Removed as unverified dead weight; add back with
+      // a comment explaining what it's for if it turns out to be load-bearing.
     }
   },
   notify: {
@@ -81,9 +85,14 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
 
-  // @vueuse/motion/nuxt
+  // @vueuse/motion/nuxt, plus the public /demo page's account config
   runtimeConfig: {
     public: {
+      // The account the public /demo page submits test leads to. Defaults to
+      // the values already in use; override via env so this can point at a
+      // dedicated demo account without a code change.
+      demoCompanyHash: process.env.NUXT_PUBLIC_DEMO_COMPANY_HASH || '$2b$15$W0Z4XHFsFAP41TiT39nACeEtnrSO6yoXvDLZWQ.fmIFKNdLa4QMqa',
+      demoEmailHash: process.env.NUXT_PUBLIC_DEMO_EMAIL_HASH || '$2b$15$YFJokoSx/VCflVhQyToimecUYOoDitA0oBVHBqUmFUYq.RW0Kpo/m',
       motion: {
         directives: {
           'pop-bottom': {

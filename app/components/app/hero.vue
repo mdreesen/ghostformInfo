@@ -1,60 +1,43 @@
+<script setup lang="ts">
+/**
+ * The 3D terrain sits behind the hero copy, matching the dashboard's own
+ * "Today" page. It's the strongest visual asset this brand has — leading
+ * with it is what makes the site feel like the product, not a pitch deck
+ * for the product.
+ */
+</script>
+
 <template>
-    <section class="relative pt-40 pb-20 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <div
-                class="reveal inline-block mb-6 px-4 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-bold uppercase tracking-widest">
-                The Future of Lead Capture
-            </div>
-            <span class="relative z-10 animate-bounce-slow flex items-center">
-                    <NuxtImg class="relative z-10 h-20 w-full object-contain drop-shadow-md"
-                        :src="'/images/logo-icon.webp'" format="webp" preload loading="eager" fetch-priority="high" />
-                </span>
-            <h1 class="reveal text-6xl md:text-8xl font-black tracking-tight leading-tight mb-4">
-                <span class="inline-flex items-center">
-                    Ghost
-                </span>
-                <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600">
-                    Form</span>
-            </h1>
-            <h2 class="reveal text-4xl md:text-4xl font-black tracking-tighter leading-tight mb-8">
-                <span>
-                    Weightless data
-                </span>
-                <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600">
-                    Spectral speed.
-                </span>
-            </h2>
-            <p class="reveal text-zinc-400 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed mb-12"
-                style="transition-delay: 200ms">
-                The light-weight multi-step form engine.
-            </p>
-            <div class="reveal flex flex-col md:flex-row items-center justify-center gap-4"
-                style="transition-delay: 400ms">
-                <!-- <button
-                    class="w-full md:w-auto px-10 py-5 bg-cyan-500 text-black font-black rounded-2xl shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:scale-105 transition-transform">
-                    Start Building
-                </button> -->
+  <section class="relative pt-44 pb-28 px-6 overflow-hidden min-h-[86vh] flex items-center">
+    <ClientOnly>
+      <baseTerrain />
+    </ClientOnly>
+    <!-- Fade the terrain out behind the copy so text stays legible -->
+    <div
+      class="absolute inset-0 z-[1] pointer-events-none"
+      style="background: linear-gradient(100deg, #F7F4EF 0%, #F7F4EF 24%, rgba(247,244,239,0.85) 40%, rgba(247,244,239,0.2) 60%, rgba(247,244,239,0) 75%);"
+    />
 
-                <baseButtonNavigate path="/demo" text="View Live Demo" />
-            </div>
-        </div>
-    </section>
+    <div class="max-w-6xl mx-auto relative z-10 w-full">
+      <p class="gf-eyebrow mb-6 gf-rise" style="--d:.05s">Keep your presence</p>
+
+      <h1 class="gf-display text-[clamp(44px,7vw,84px)] leading-[1.02] tracking-tight max-w-[13ch] mb-7 gf-rise" style="--d:.14s">
+        Never lose another lead to silence.
+      </h1>
+
+      <p class="text-[17px] md:text-[19px] text-[#8A847C] max-w-[42ch] leading-relaxed mb-11 gf-rise" style="--d:.22s">
+        The buyer you meant to call back on Tuesday shouldn't sign with
+        someone else by Friday. GhostForm captures the lead, tells you
+        who to call every morning, and drafts the message — so nothing
+        falls through.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 gf-rise" style="--d:.3s">
+        <baseButtonNavigate path="/demo" text="See a live demo" />
+        <a href="https://ghostform-dashboard.vercel.app/signup" class="text-[12px] uppercase tracking-[0.1em] text-[#8A847C] hover:text-[#1F1B16] transition-colors px-2 py-4">
+          Start free trial — 30 days →
+        </a>
+      </div>
+    </div>
+  </section>
 </template>
-
-<style scoped>
-@keyframes bounce-slow {
-
-    0%,
-    100% {
-        transform: translate(0%, 0);
-    }
-
-    50% {
-        transform: translate(0%, -10px);
-    }
-}
-
-.animate-bounce-slow {
-    animation: bounce-slow 3s ease-in-out infinite;
-}
-</style>

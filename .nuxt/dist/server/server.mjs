@@ -1,1 +1,1 @@
-export { default } from "file:///Users/mdreesen/Documents/Programming/projects/ghostformInfo/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs"
+export { default } from "file:///Users/mdreesen/projects/ghostformInfo/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs"

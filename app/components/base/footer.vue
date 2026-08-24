@@ -1,20 +1,30 @@
+<script setup lang="ts">
+const DASHBOARD_URL = 'https://ghostform-dashboard.vercel.app';
+</script>
+
 <template>
-    <footer class="py-32 px-6 text-center border-t border-white/5">
-        <h2 class="text-5xl font-black mb-8">Manifest your leads. Instantly.</h2>
-        <!-- <button
-            class="px-12 py-6 bg-white text-black font-black rounded-3xl text-xl hover:scale-110 transition-transform">
-            Get GhostForm Now
-        </button> -->
-        <div class="flex items-center justify-center gap-2 text-zinc-500 text-[10px] uppercase tracking-widest mt-4">
-            <span class="relative flex h-2 w-2">
-                <span
-                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-            </span>
-            Engine Status: Spectral & Active
-        </div>
-        <div class="mt-12 text-zinc-600 font-mono text-xs uppercase tracking-[0.3em]">
-            Designed for High-Performance Teams &copy; 2026
-        </div>
-    </footer>
+  <footer class="border-t border-[#DDD6C9] pt-24 pb-14 px-6">
+    <div class="max-w-4xl mx-auto text-center gf-depth">
+      <p class="gf-eyebrow mb-6">Ready when you are</p>
+      <h2 class="gf-display text-[clamp(34px,5vw,56px)] leading-[1.08] tracking-tight mb-10 max-w-[16ch] mx-auto">
+        Bring your next open house. Try it free for 30 days.
+      </h2>
+      <a :href="`${DASHBOARD_URL}/signup`" class="inline-block px-8 py-4 bg-[#B5563A] text-[#F7F4EF] text-[11px] uppercase tracking-[0.12em] font-semibold hover:bg-[#9d4830] transition-colors">
+        Start free trial
+      </a>
+      <p class="text-[12px] text-[#A9A39A] mt-4">Your card isn't charged until day 31. Cancel anytime.</p>
+    </div>
+
+    <div class="max-w-6xl mx-auto mt-24 pt-8 border-t border-[#DDD6C9] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#B5563A]"></span>
+        <span class="text-[11px] uppercase tracking-[0.14em] text-[#A9A39A]">Built in the Flathead Valley, Montana</span>
+      </div>
+      <div class="flex items-center gap-6 text-[11px] uppercase tracking-[0.1em] text-[#A9A39A]">
+        <NuxtLink to="/demo" class="hover:text-[#1F1B16] transition-colors">Live demo</NuxtLink>
+        <a :href="`${DASHBOARD_URL}/login`" class="hover:text-[#1F1B16] transition-colors">Log in</a>
+        <span>&copy; 2026 GhostForm</span>
+      </div>
+    </div>
+  </footer>
 </template>
